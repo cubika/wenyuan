@@ -18,7 +18,7 @@ export interface SegmentResult {
 }
 
 /**
- * 章节标记：`第一章` / `一、` / `卷三` / `〔八〕` / markdown 标题。
+ * 章节标记：`第一章` / `一、` / `卷三` / `〔八〕` / `始计第一` / markdown 标题。
  * 典籍靠它拆章，诗词通常一条都匹配不上，自然退化成单章。
  */
 const CHAPTER_PATTERNS: RegExp[] = [
@@ -27,6 +27,8 @@ const CHAPTER_PATTERNS: RegExp[] = [
   /^([一二三四五六七八九十百零〇]+)\s*[、．.]\s*(.*)$/,
   /^[〔【\[(（]\s*([一二三四五六七八九十百零〇\d]+)\s*[〕】\])）]\s*(.*)$/,
   /^卷\s*([一二三四五六七八九十百零〇\d]+)\s*(.*)$/,
+  // 「始计第一」「九地第十一」—— 兵法、诸子常见的篇名在前、序号在后
+  /^(.{1,8})第\s*([一二三四五六七八九十百零〇\d]+)\s*$/,
 ]
 
 /** 句读切分点。保留标点在句末，古文没有空格可依。 */
@@ -45,7 +47,8 @@ function matchChapterHeading(line: string): { title: string } | null {
     // 标题短才算章节标记，否则是一句以「一、」开头的正文。
     const rest = (m[2] ?? m[1] ?? '').trim()
     if (rest.length <= 24) {
-      return { title: line.trim() }
+      // markdown 的 # 是排版记号，不是标题的一部分，别让它漏进正文。
+      return { title: line.replace(/^#{1,3}\s*/, '').trim() }
     }
   }
   return null

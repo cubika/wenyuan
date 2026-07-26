@@ -25,6 +25,7 @@ const indexCount = indexData.length;
 // 断言按体裁分流：诗词看逐句成行，文章看按段连排，各挑一篇代表。
 const verseId = (indexData.find((w) => w.type === 'poem' || w.type === 'ci') ?? indexData[0]).id;
 const proseWork = indexData.find((w) => w.type === 'essay' || w.type === 'classic');
+const classicWork = indexData.find((w) => w.type === 'classic');
 check('home: 无 404 资源', failures.length === 0, failures.join(', '));
 check('home: 横幅配图已加载', await page.evaluate(() => {
   const i = document.querySelector('.band img');
@@ -51,7 +52,11 @@ check('home: 长河由数据算出（非写死）', await page.evaluate(async ()
   // 长河按主朝代归并（唐代→唐、北宋→宋），断言要跟着同一套规则，
   // 否则一加「唐代」这类写法就会误报。
   const ORDER = ['先秦', '秦', '汉', '魏晋', '南北朝', '隋', '唐', '五代', '宋', '元', '明', '清'];
-  const norm = (d) => ORDER.find((era) => d.includes(era)) ?? d;
+  const ALIAS = { 春秋: '先秦', 战国: '先秦' };
+  const norm = (d) => {
+    const alias = Object.keys(ALIAS).find((k) => d.includes(k));
+    return alias ? ALIAS[alias] : (ORDER.find((era) => d.includes(era)) ?? d);
+  };
   const eras = new Set(idx.map((w) => norm(w.dynasty)));
   const rows = [...document.querySelectorAll('[data-river] .era')];
   const total = rows.reduce((n, r) => n + Number(r.querySelector('s').textContent), 0);
@@ -283,6 +288,79 @@ if (proseWork) {
   }));
 } else {
   check('essay: 走散文排版（非逐句成行）', true, '(索引里没有文章，跳过)');
+}
+
+// ── 阅读页 · 典籍（多章） ──
+if (classicWork) {
+  failures.length = 0;
+  await page.goto(`${BASE}/work.html?id=${classicWork.id}`, { waitUntil: 'networkidle' });
+  await page.waitForTimeout(1200);
+  const meta = await page.evaluate(async (id) => {
+    const w = await fetch(`data/${id}.json`).then((r) => r.json());
+    const perCh = w.chapters.map((c) => c.lines.reduce((m, l) => m + l.notes.length, 0));
+    return {
+      chapters: w.chapters.length,
+      notes: perCh.reduce((a, b) => a + b, 0),
+      firstChNotes: perCh[0],
+      lastChNotes: perCh.at(-1),
+      lastTitle: w.chapters.at(-1).title ?? '',
+    };
+  }, classicWork.id);
+
+  check(`classic: ${classicWork.title} 无 404 资源`, failures.length === 0, failures.join(', '));
+  // 阅读页曾只渲染 chapters[0]，多章典籍等于只能读第一篇
+  check('classic: 全部章节都渲染', (await page.locator('.ch').count()) === meta.chapters &&
+    (await page.locator('.ch-h').count()) === meta.chapters, `${meta.chapters} 章`);
+  check('classic: 目录条目与章数一致', (await page.locator('.toc').count()) === meta.chapters);
+  // 全书注释全在 DOM 里，但侧栏一次只给当前章 —— 552 条平铺没人翻得动
+  check('classic: 注释按章给，不平铺全书',
+    (await page.locator('.note-i[data-t]').count()) === meta.notes &&
+    (await page.locator('.note-i[data-t]:visible').count()) === meta.firstChNotes,
+    `全书 ${meta.notes} / 本章 ${meta.firstChNotes}`);
+  check('classic: 章题取自原文篇名（未混入 markdown 记号）', await page.evaluate(() =>
+    [...document.querySelectorAll('.ch-h h2')].every((h) => !h.textContent.trim().startsWith('#'))));
+
+  await page.locator('.toc').last().click();
+  await page.waitForTimeout(1000);
+  check('classic: 点目录跳到该章', await page.evaluate((n) => {
+    const last = document.querySelector(`#ch${n} .ch-h`);
+    if (!last) return false;
+    const top = last.getBoundingClientRect().top;
+    return top > 0 && top < 200;
+  }, meta.chapters));
+  check('classic: 目录高亮跟着正文走', await page.evaluate((title) => {
+    const on = document.querySelector('.toc.on');
+    return !!on && on.textContent.trim() === title;
+  }, meta.lastTitle));
+  check('classic: 侧栏注释跟着换到该章',
+    (await page.locator('.note-i[data-t]:visible').count()) === meta.lastChNotes,
+    `${meta.lastChNotes} 条`);
+
+  // 末章的注释也要能从右栏定位回正文
+  const lastNote = page.locator('.note-i[data-t]:visible').last();
+  const lastId = await lastNote.getAttribute('data-t');
+  await lastNote.click();
+  await page.waitForTimeout(500);
+  check('classic: 末章注释可定位高亮', await page.evaluate((id) =>
+    document.getElementById(id)?.classList.contains('flash') === true, lastId));
+
+  await page.locator('.lv[data-depth="L3"]').click();
+  await page.waitForTimeout(500);
+  check('classic: L3 展开逐章细读', await page.evaluate(() => {
+    const blocks = [...document.querySelectorAll('.ch-deep')];
+    return blocks.length > 0 && blocks.every((b) => getComputedStyle(b).display !== 'none') &&
+      blocks.every((b) => b.textContent.replace(/\s/g, '').length > 40);
+  }));
+  check('classic: L2 收起章内细读', await (async () => {
+    await page.locator('.lv[data-depth="L2"]').click();
+    await page.waitForTimeout(400);
+    return page.evaluate(() =>
+      [...document.querySelectorAll('.ch-deep')].every((b) => getComputedStyle(b).display === 'none'));
+  })());
+  check('classic: 无横向溢出', await page.evaluate(() =>
+    document.documentElement.scrollWidth <= window.innerWidth + 1));
+} else {
+  check('classic: 全部章节都渲染', true, '(索引里没有典籍，跳过)');
 }
 
 // 旧的写死默认 id 曾导致 /work.html 不带参数时 404，这里守住。放在最后，

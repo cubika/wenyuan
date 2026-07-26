@@ -38,12 +38,13 @@ const block = (label, text) =>
 /**
  * 把注释挂回原文：按 term 在句中做子串定位并包成可点击的 <span class="n">。
  * 长词先替换，避免「芳甸」被「甸」抢先切开。
+ * id 带章号 —— 典籍多章，只用句号会撞车。
  */
-function markNotes(line, lineIndex) {
+function markNotes(line, ci, li) {
   let html = esc(line.text);
   const notes = [...line.notes].sort((a, b) => b.term.length - a.term.length);
   notes.forEach((note, i) => {
-    const id = `n${lineIndex}-${i}`;
+    const id = `n${ci}-${li}-${i}`;
     const term = esc(note.term);
     if (!html.includes(term)) return;
     const pin = note.pinyin ? ` ${esc(note.pinyin)}` : '';
@@ -56,11 +57,11 @@ function markNotes(line, lineIndex) {
 }
 
 /** 诗词：一行一句，换行本身就是作者的断句，逐句成行。 */
-function renderVerse(lines) {
+function renderVerse(lines, ci) {
   return lines
     .map(
       (line, i) =>
-        `<div class="row"><div class="orig">${markNotes(line, i)}</div><div class="tr">${esc(line.translation)}</div></div>`,
+        `<div class="row"><div class="orig">${markNotes(line, ci, i)}</div><div class="tr">${esc(line.translation)}</div></div>`,
     )
     .join('');
 }
@@ -70,7 +71,7 @@ function renderVerse(lines) {
  * 一篇散文排成分行诗。对照也走段级：整段译文读着才连贯，
  * 逐句对照反而把文气切碎。
  */
-function renderProse(lines) {
+function renderProse(lines, ci) {
   const groups = [];
   lines.forEach((line, i) => {
     const para = line.para ?? 0;
@@ -81,7 +82,7 @@ function renderProse(lines) {
   return groups
     .map(
       (g) => `<div class="row para">
-        <p class="orig">${g.items.map(({ line, i }) => `<span class="s">${markNotes(line, i)}</span>`).join('')}</p>
+        <p class="orig">${g.items.map(({ line, i }) => `<span class="s">${markNotes(line, ci, i)}</span>`).join('')}</p>
         <p class="tr">${g.items.map(({ line }) => esc(line.translation)).join('')}</p>
       </div>`,
     )
@@ -139,7 +140,55 @@ function bindReader() {
     l.onclick = () => setDepth(l.dataset.depth);
   });
   bindRailHints();
+  bindToc();
   setDepth('L2');
+}
+
+/**
+ * 目录高亮跟着正文走。滚动时只动左栏自身的 scrollTop —— 用 scrollIntoView
+ * 会连页面一起滚，跟用户的滚动打架。
+ */
+function bindToc() {
+  const links = [...document.querySelectorAll('.toc')];
+  const rail = document.querySelector('.side');
+  if (links.length === 0 || !rail) return;
+  showChapterNotes(0);
+  const io = new IntersectionObserver(
+    (entries) => {
+      const hit = entries.find((e) => e.isIntersecting);
+      if (!hit) return;
+      const ci = Number(hit.target.id.replace('ch', '')) - 1;
+      showChapterNotes(ci);
+      const active = links[ci];
+      links.forEach((l) => l.classList.toggle('on', l === active));
+      if (!active) return;
+      const a = active.getBoundingClientRect();
+      const r = rail.getBoundingClientRect();
+      if (a.top < r.top) rail.scrollTop += a.top - r.top;
+      else if (a.bottom > r.bottom) rail.scrollTop += a.bottom - r.bottom;
+    },
+    { rootMargin: '-72px 0px -68% 0px' },
+  );
+  document.querySelectorAll('.ch').forEach((ch) => io.observe(ch));
+}
+
+/**
+ * 多章时右栏只列当前章的注释。全书 552 条平铺在侧栏里翻不动，
+ * 也没人会为了查一个词从头滚到尾。
+ */
+function showChapterNotes(ci) {
+  const box = document.querySelector('.notebox.by-ch');
+  if (!box) return;
+  let shown = 0;
+  box.querySelectorAll('.note-i[data-ch]').forEach((note) => {
+    const on = Number(note.dataset.ch) === ci;
+    note.hidden = !on;
+    note.classList.toggle('first', on && shown === 0);
+    if (on) shown += 1;
+  });
+  const label = box.querySelector('.note-n');
+  if (label) label.textContent = `　${shown}`;
+  refreshRailHints();
 }
 
 /**
@@ -197,9 +246,32 @@ export async function renderWork(mount) {
   const allNotes = [];
   work.chapters.forEach((ch, ci) =>
     ch.lines.forEach((line, li) =>
-      line.notes.forEach((note, ni) => allNotes.push({ ...note, id: `n${ci === 0 ? li : `${ci}-${li}`}-${ni}` })),
+      line.notes.forEach((note, ni) => allNotes.push({ ...note, ch: ci, id: `n${ci}-${li}-${ni}` })),
     ),
   );
+
+  const chapterLabel = (ch) => ch.title ?? `第 ${ch.index} 章`;
+
+  /**
+   * 典籍逐章成节：章题 + 正文 + 本章细读。
+   * 大意与赏析挂在各章下面，而不是全书攒成一坨 —— 读完一章就该能就地深入。
+   */
+  const renderChapter = (ch, ci) => `
+      <section class="ch" id="ch${ci + 1}">
+        ${multi ? `<div class="ch-h"><h2>${esc(chapterLabel(ch))}</h2><u></u><em>${ch.lines.length} 句</em></div>` : ''}
+        <div class="paper${verse ? '' : ' prose'}">
+          ${verse ? renderVerse(ch.lines, ci) : renderProse(ch.lines, ci)}
+          ${ci === work.chapters.length - 1 ? `<div class="seal">${esc(work.title.slice(0, 2))}</div>` : ''}
+        </div>
+        ${
+          multi
+            ? `<div class="deep ch-deep"><div class="deep-in">
+          ${block('大意', ch.summary)}
+          ${block('赏析', ch.commentary)}
+        </div></div>`
+            : ''
+        }
+      </section>`;
 
   mount.innerHTML = `
   <div class="crumb"><a href="home.html">首页</a><i>／</i><a href="home.html${sec ? `?sec=${sec}` : ''}">${esc(TYPE_LABEL[work.type])}</a><i>／</i>${esc(work.dynasty)}<i>／</i>${esc(work.title)}</div>
@@ -222,6 +294,16 @@ export async function renderWork(mount) {
         <div class="lv" data-depth="L3"><i>L3</i><p>深读　注释全开 + 细读</p></div>
       </div>
       <div class="idx">${esc(TYPE_LABEL[work.type])} · ${multi ? `全 ${work.chapters.length} 章` : '单篇'}</div>
+      ${
+        multi
+          ? `<div class="box tocbox">
+        <div class="box-t">目 录　${work.chapters.length}</div>
+        ${work.chapters
+          .map((ch, ci) => `<a class="toc" href="#ch${ci + 1}">${esc(chapterLabel(ch))}</a>`)
+          .join('')}
+      </div>`
+          : ''
+      }
       <div class="kv"><span>朝代</span><b>${esc(work.dynasty)}</b></div>
       <div class="kv"><span>心境</span><b>${work.moods.map(esc).join(' · ')}</b></div>
       <div class="kv"><span>难度</span><b>${STARS(work.overview.difficulty)}</b></div>
@@ -247,15 +329,12 @@ export async function renderWork(mount) {
       </div>
 
       <div class="modes"><button class="on" data-m="orig">原 文</button><button data-m="compare">对 照</button></div>
-      <div class="paper${verse ? '' : ' prose'}">
-        ${verse ? renderVerse(chapter.lines) : renderProse(chapter.lines)}
-        <div class="seal">${esc(work.title.slice(0, 2))}</div>
-      </div>
+      ${work.chapters.map(renderChapter).join('')}
 
       <div class="deep"><div class="deep-in">
         <h3>细 读</h3>
-        ${block('大意', chapter.summary)}
-        ${block('逐段赏析', chapter.commentary)}
+        ${multi ? '' : block('大意', chapter.summary)}
+        ${multi ? '' : block('逐段赏析', chapter.commentary)}
         ${block('时代背景', work.overview.background)}
         ${block('核心', work.overview.coreIdea)}
         ${block('结构', work.overview.structure)}
@@ -295,12 +374,12 @@ export async function renderWork(mount) {
         <div class="box-t">名 句</div>
         ${work.famousLines.map((f) => `<div class="note-i"><b>${esc(f.text)}</b><p>${esc(f.translation)}</p></div>`).join('')}
       </div>
-      <div class="box">
-        <div class="box-t">注 释 一 览　${allNotes.length}</div>
+      <div class="box notebox${multi ? ' by-ch' : ''}">
+        <div class="box-t">${multi ? '本 章 注 释' : `注 释 一 览　${allNotes.length}`}<b class="note-n"></b></div>
         ${allNotes
           .map(
             (n) =>
-              `<div class="note-i" data-t="${n.id}"><b>${esc(n.term)}${n.pinyin ? `<s>${esc(n.pinyin)}</s>` : ''}</b><p>${esc(n.explain)}</p></div>`,
+              `<div class="note-i" data-t="${n.id}" data-ch="${n.ch}"><b>${esc(n.term)}${n.pinyin ? `<s>${esc(n.pinyin)}</s>` : ''}</b><p>${esc(n.explain)}</p></div>`,
           )
           .join('')}
       </div>
@@ -314,9 +393,13 @@ export async function renderWork(mount) {
 }
 
 const DYNASTY_ORDER = ['先秦', '秦', '汉', '魏晋', '南北朝', '隋', '唐', '五代', '宋', '元', '明', '清'];
+/** 春秋、战国在长河里都算先秦，否则并排三根只差一个词的柱子。 */
+const DYNASTY_ALIAS = { 春秋: '先秦', 战国: '先秦' };
 
 /** 把「北宋」「初唐」「东汉」归到主朝代，长河不该被细分朝代打散。 */
 function normalizeDynasty(d) {
+  const alias = Object.keys(DYNASTY_ALIAS).find((k) => d.includes(k));
+  if (alias) return DYNASTY_ALIAS[alias];
   const hit = DYNASTY_ORDER.find((era) => d.includes(era));
   return hit ?? d;
 }

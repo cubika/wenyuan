@@ -110,7 +110,7 @@ ${numbered}
       input.wantCommentary
         ? '\n\n注意：commentary 要**具体**。指出是哪一句、哪个字，用了什么手法，达到了什么效果。逐段推进，不要写成一段笼统的读后感。'
         : ''
-    }${input.chapter.title ? '\n\n另外给出 title：本章标题（可整理得更清晰）。' : ''}`,
+    }${input.chapter.title === undefined ? '\n\n另外给出 title：给本章拟一个不超过 12 字的标题。' : ''}`,
   })
 
   const chapter: Chapter = {
@@ -120,7 +120,10 @@ ${numbered}
     difficulty: value.difficulty,
     hash: input.chapter.hash,
   }
-  const title = value.title ?? input.chapter.title
+  // 原文自带篇名时以原文为准。模型逐章独立作业，「顺手整理」出来的标题
+  // 各章格式互不相同（「始计第一：…」「作战第二（作战篇）」「《孙子兵法·军形第四》」），
+  // 拼成目录就是一团乱。
+  const title = input.chapter.title ?? value.title
   if (title !== undefined) {
     chapter.title = title
   }

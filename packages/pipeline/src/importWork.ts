@@ -88,11 +88,12 @@ export async function importWork(options: ImportOptions): Promise<Work> {
       const hit = cached.get(rawChapter.hash)
       if (hit) {
         console.log(`      ${rawChapter.index}/${parsed.chapters.length} 命中缓存，跳过`)
-        // 段落序号不进指纹，命中缓存时按本次切分结果刷新，免得排版信息陈旧。
+        // 段落序号与篇名都不进指纹，命中缓存时按本次切分结果刷新，免得排版信息陈旧。
         chapters.push({
           ...hit,
           index: rawChapter.index,
           lines: applyParas(hit.lines, rawChapter.paras),
+          ...(rawChapter.title !== undefined ? { title: rawChapter.title } : {}),
         })
         continue
       }

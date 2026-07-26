@@ -34,7 +34,7 @@ npm run test                            # vitest（schema 契约 + pipeline 切�
 npm run check                           # 上面两个
 
 cd prototypes && python -m http.server 5180
-node scripts/verify-ui.mjs              # 56 项 UI 断言（需 dev server）
+node scripts/verify-ui.mjs              # 68 项 UI 断言（需 dev server）
 node scripts/verify-ui.mjs https://cubika.github.io/wenyuan   # 也可跑线上
 ```
 
@@ -55,6 +55,7 @@ node scripts/verify-ui.mjs https://cubika.github.io/wenyuan   # 也可跑线上
 - **切分不交给 AI**。模型做切分又慢又会漏字改字；正则切完再喂给 AI 逐块解析。
 - **原文一字不改**是硬校验。`annotate` 会逐句比对模型返回的 `text` 与投入的原文，不一致就打回。
 - **段落归属由切分算，不问模型**。`Line.para` 在 `segment` 阶段写死并覆盖模型返回值 —— 文章要按段连排，段落信息一旦在切分时丢掉就补不回来。段号不进 content hash，改分段不会让译注缓存全部落空。
+- **章题以原文为准**。模型逐章独立作业，让它「整理」标题会得到各章格式互不相同的结果；原文自带篇名就用原文，没有篇名才让模型拟。
 - **注释的 `term` 必须是原句连续子串**。前端靠子串定位挂高亮，锚不上的注释等于废注，schema 层直接拒绝。
 - **名句必须逐字出自原文**（忽略标点），防止模型凭印象编造。
 - **出图 prompt 由读过原文的模型产出**，不套模板 —— 这是配图质量的关键。风格锚按体裁固定；**主体必须在画面右侧、左侧留白**，因为站点的标题固定压在图片左边。

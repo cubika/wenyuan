@@ -50,6 +50,17 @@ describe('segment', () => {
     expect(segment(classic, 'classic').chapters.length).toBe(2)
     expect(segment(POEM, 'poem').chapters.length).toBe(1)
   })
+
+  it('认得「篇名第 N」这种篇题，且不吃掉 markdown 记号', () => {
+    const book = '## 始计第一\n\n兵者，国之大事，不可不察也。\n\n九变第八\n\n凡用兵之法，圮地无舍，衢地合交。'
+    const chapters = segment(book, 'classic').chapters
+    expect(chapters.map((c) => c.title)).toEqual(['始计第一', '九变第八'])
+  })
+
+  it('不把正文误判成篇题', () => {
+    const body = '孙子曰：兵者，国之大事，死生之地，存亡之道，不可不察也。'
+    expect(segment(body, 'classic').chapters[0]?.title).toBeUndefined()
+  })
 })
 
 describe('applyParas', () => {
