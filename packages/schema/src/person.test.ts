@@ -83,6 +83,20 @@ describe('parsePerson', () => {
     expect(result.failures.some((f) => f.path.endsWith('workId'))).toBe(true)
   })
 
+  it('拒绝不在地名表里的 place', () => {
+    const person = basePerson()
+    person.timeline[1]!.place = 'wuyouzhixiang'
+    const result = parsePerson(person, ['huangzhou', 'meishan'])
+    expect(result.person).toBeNull()
+    expect(result.failures[0]?.message).toContain('地名表')
+  })
+
+  it('place 留空是允许的', () => {
+    const person = basePerson()
+    person.timeline[0]!.place = 'meishan'
+    expect(parsePerson(person, ['huangzhou', 'meishan']).person).not.toBeNull()
+  })
+
   it('把 Zod 错误压成可回灌的路径与说明', () => {
     const result = parsePerson({ id: 'x', name: '' })
     expect(result.person).toBeNull()

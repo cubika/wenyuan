@@ -16,6 +16,7 @@ try {
   const people = await importPeople({
     worksDir: dirs.worksDir,
     outDir: resolve(root, flag('out') ?? 'data/people'),
+    placesPath: resolve(root, 'data/places.json'),
     workingDirectory: root,
     model: flag('model'),
     only,

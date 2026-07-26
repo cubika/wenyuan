@@ -26,6 +26,12 @@ export const MilestoneSchema = z.object({
   label: zh(2, 30, '年份写法'),
   title: zh(2, 24, '大事标题'),
   detail: zh(10, 240, '大事说明'),
+  /**
+   * 这件事发生在哪里，取自 `data/places.json` 的 id。
+   * 坐标是硬事实，只让模型从给定清单里挑，绝不让它自己写经纬度。
+   * 定不到具体地点（如「名篇成稿」）就留空。
+   */
+  place: z.string().min(1).optional(),
 })
 
 export const CompanionSchema = z.object({
@@ -124,13 +130,31 @@ export function checkLifespan(person: Person): ValidationFailure[] {
     : []
 }
 
+/**
+ * 年表的 place 只能取自给定地名表。地图上的坐标必须可靠 ——
+ * 让模型自由写地名，就会冒出定不到位的泛称，或干脆编一个经纬度。
+ */
+export function checkMilestonePlaces(person: Person, placeIds: string[]): ValidationFailure[] {
+  const known = new Set(placeIds)
+  return person.timeline.flatMap((item, i) =>
+    item.place !== undefined && !known.has(item.place)
+      ? [
+          {
+            path: `timeline.${i}.place`,
+            message: `地名表里没有「${item.place}」。只能填给定清单里的 id，定不到具体地点就留空`,
+          },
+        ]
+      : [],
+  )
+}
+
 export interface PersonParseResult {
   person: Person | null
   failures: ValidationFailure[]
 }
 
 /** 结构校验 + 跨字段校验，一次把所有问题攒齐再回灌，省一轮往返。 */
-export function parsePerson(input: unknown): PersonParseResult {
+export function parsePerson(input: unknown, placeIds: string[] = []): PersonParseResult {
   const parsed = PersonSchema.safeParse(input)
   if (!parsed.success) {
     return { person: null, failures: formatIssues(parsed.error) }
@@ -139,6 +163,7 @@ export function parsePerson(input: unknown): PersonParseResult {
     ...checkLifespan(parsed.data),
     ...checkTimelineOrder(parsed.data),
     ...checkTimelineWithinLife(parsed.data),
+    ...(placeIds.length > 0 ? checkMilestonePlaces(parsed.data, placeIds) : []),
   ]
   return failures.length > 0 ? { person: null, failures } : { person: parsed.data, failures: [] }
 }

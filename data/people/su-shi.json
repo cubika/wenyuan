@@ -11,128 +11,164 @@
   "era": "1037—1101",
   "born": 1037,
   "died": 1101,
-  "hook": "他把仕途沉浮、日常吃喝和山水宇宙写进同一支笔，让宋代文学一下子有了活气。",
-  "bio": "苏轼，眉州眉山人，北宋文人、官员，与父苏洵、弟苏辙并称“三苏”。他早年以文章受欧阳修赏识，入仕后历任地方与中央官职，却因政争多次外放，先后在黄州、惠州、儋州等地生活。长期的贬谪没有压垮他，反而让他的写作更开阔：政论有锋芒，诗词有气象，散文有议论与叙事的张力，书法也自成面目。苏轼打通了“雅”与“俗”、严肃与诙谐，把个人生命经验与时代处境写得可感可亲，是宋代文学转向成熟与多样的关键人物。",
+  "hook": "他把贬谪路走成了创作高峰：黄州赤壁、惠州日常、儋州荒远，都被他写成了后人反复重读的中国经验。",
+  "bio": "苏轼是北宋文学家、士大夫与书画家，眉山人。嘉祐年间中进士后入仕，历任地方与朝廷职官，长期卷入新旧党争。元丰二年“乌台诗案”后，他被贬黄州，在失意处写出《赤壁赋》《念奴娇·赤壁怀古》等名作，词风、文风都在此阶段完成转变：从早年的锋锐议论，转向更开阔的人生观察。此后又历杭州、惠州、儋州等地，政治处境起落极大，但写作始终旺盛，题材涵盖政论、山水、日常、哲思与艺术批评。文学史上，他是“唐宋八大家”之一，也是把词从宴饮小令推向广阔抒写空间的关键人物；其散文、诗、词、书法、绘画理论互相支撑，形成少见的综合创造力。",
   "traits": [
     "旷达",
+    "雄健",
     "多面手",
-    "议论锋利",
-    "重情",
-    "好奇好学"
+    "政治挫折",
+    "生活感"
   ],
   "timeline": [
     {
       "year": 1037,
       "label": "景祐四年（1037）",
       "title": "生于眉山",
-      "detail": "出生于眉州眉山，家学背景深厚，为其文章与见识奠定基础。"
+      "detail": "出身蜀地士人家庭，早年受家学熏陶，为后来的文章与议论打下根基。",
+      "place": "meishan"
     },
     {
       "year": 1057,
       "label": "嘉祐二年（1057）",
       "title": "进士及第",
-      "detail": "在科举中脱颖而出，得到欧阳修等前辈注意，正式进入士大夫政治与文坛。"
+      "detail": "在京师科举中脱颖而出，正式进入北宋政治与文坛核心视野。",
+      "place": "bianjing"
+    },
+    {
+      "year": 1061,
+      "label": "嘉祐六年（1061）",
+      "title": "任凤翔签判",
+      "detail": "早期地方任职，开始在政务实践中形成重民生、重实效的施政取向。",
+      "place": "fengxiang"
+    },
+    {
+      "year": 1074,
+      "label": "熙宁七年（1074）",
+      "title": "出知密州",
+      "detail": "外任期间诗文创作明显增多，词作题材从应酬扩展到身世与世事。",
+      "place": "mizhou"
+    },
+    {
+      "year": 1077,
+      "label": "熙宁十年（1077）",
+      "title": "移知徐州",
+      "detail": "在徐州治水救灾，显示其处理地方危机的能力，也强化了其务实形象。",
+      "place": "xuzhou"
     },
     {
       "year": 1079,
       "label": "元丰二年（1079）",
       "title": "乌台诗案",
-      "detail": "因诗文获罪入狱，成为其政治生涯与写作气质的重要转折点。"
+      "detail": "因诗文获罪下狱，政治生涯遭受重击，成为其人生与创作的重要分水岭。",
+      "place": "bianjing"
     },
     {
       "year": 1080,
       "label": "元丰三年（1080）",
       "title": "贬居黄州",
-      "detail": "在黄州的困顿生活中完成自我调适，“东坡”名号与其成熟文风在此定型。"
-    },
-    {
-      "year": 1082,
-      "label": "元丰五年（1082）",
-      "title": "赤壁创作",
-      "detail": "围绕赤壁写下诗词文名篇，把历史想象、人生感慨与宇宙意识熔于一炉。"
+      "detail": "由高位跌入困境，却在黄州完成诗词文的高峰突破，形成“东坡”风格。",
+      "place": "huangzhou"
     },
     {
       "year": 1089,
       "label": "元祐四年（1089）",
       "title": "知杭州",
-      "detail": "任杭州地方官期间兴修水利、整治西湖，展现其务实行政能力与民生关怀。"
+      "detail": "在杭州主持政务与民生工程，留下西湖治理与大量诗文书写的双重影响。",
+      "place": "linan"
     },
     {
       "year": 1094,
       "label": "绍圣元年（1094）",
       "title": "贬谪惠州",
-      "detail": "再遭外放至岭南，处境更艰，但写作与日常记录更见从容与生命力。"
+      "detail": "再遭政治打击，仍以诗文记录岭南生活经验，作品更见平实与韧性。",
+      "place": "huizhou"
     },
     {
       "year": 1097,
       "label": "绍圣四年（1097）",
-      "title": "远贬儋州",
-      "detail": "被贬至海南儋州，几近政治生涯边缘，却仍讲学作文，影响地方文教。"
+      "title": "再贬儋州",
+      "detail": "远谪海隅，在文化资源稀薄处持续讲学写作，其精神姿态更趋通达。",
+      "place": "danzhou"
     },
     {
       "year": 1101,
       "label": "建中靖国元年（1101）",
       "title": "病逝常州",
-      "detail": "北还后不久卒于常州，身后文名日隆，对后世诗文与士人精神影响深远。"
+      "detail": "北归途中卒于常州，身后文名日隆，成为宋代乃至后世文学传统的核心坐标。",
+      "place": "changzhou"
     }
   ],
   "circle": [
     {
       "name": "苏辙",
       "relation": "亲属",
-      "note": "其弟，文章与政论并重，兄弟一生互相扶持、唱和酬答甚多。"
-    },
-    {
-      "name": "苏洵",
-      "relation": "亲属",
-      "note": "其父，以古文见长，对苏轼早年学术与文章路径影响明显。"
+      "note": "其弟，政见与仕途多有呼应，二人诗文唱和与书信往来保存了大量思想交流。"
     },
     {
       "name": "欧阳修",
       "relation": "师友",
-      "note": "科举与文坛上的关键前辈，早期赏识并推重苏轼文章。"
+      "note": "科举与文坛上的重要前辈，对苏轼早期声名的确立有直接提携作用。"
     },
     {
       "name": "王安石",
+      "relation": "政敌",
+      "note": "新法问题上立场相左，政治上长期处于对立阵营，但晚年仍有彼此敬重。"
+    },
+    {
+      "name": "司马光",
       "relation": "同僚",
-      "note": "同处北宋政坛，政见多有分歧，但彼此在文学与才识上互相知重。"
+      "note": "元祐时期同在朝局核心，苏轼政治起落与其主导的政局变化密切相关。"
     },
     {
       "name": "黄庭坚",
       "relation": "门生",
-      "note": "“苏门”重要成员之一，承续并发展苏轼的诗文与书法影响。"
+      "note": "“苏门”重要成员，诗文书法都受苏轼影响，并共同扩大了北宋文人审美版图。"
     },
     {
       "name": "秦观",
       "relation": "门生",
-      "note": "“苏门”代表作家，词风与文学道路都受苏轼提携与影响。"
+      "note": "苏门词人代表，受苏轼扶持甚多，其婉约词路与苏轼形成互补。"
+    },
+    {
+      "name": "佛印",
+      "relation": "知音",
+      "note": "与僧人佛印交游广为流传，相关轶事反映其禅趣与日常机锋。"
     }
   ],
   "masterpieces": [
     {
-      "title": "赤壁赋",
-      "note": "以江上夜游展开议论与抒情，历史、人生与宇宙感在一篇中并置。"
-    },
-    {
-      "title": "念奴娇·赤壁怀古",
-      "note": "借古战场写英雄与自我，开宋词雄浑一路的代表篇章。"
-    },
-    {
       "title": "江城子·乙卯正月二十日夜记梦",
-      "note": "悼亡词名作，以梦写哀，语浅情深，克制中见巨大悲痛。",
+      "note": "悼亡词名篇，以梦境与日常细节写丧偶之痛，情感克制却极有穿透力。",
       "workId": "jiangchengzi-jimeng"
     },
     {
-      "title": "定风波·莫听穿林打叶声",
-      "note": "把风雨行旅写成处世态度，语言平易却有强烈人格力量。"
+      "title": "念奴娇·赤壁怀古",
+      "note": "借赤壁古战场展开历史与人生的双重观照，开豪放词的典范气象。"
     },
     {
-      "title": "水调歌头·明月几时有",
-      "note": "以中秋明月贯通离合悲欢，兼具哲思与歌行之美。"
+      "title": "前赤壁赋",
+      "note": "以夜游与问答结构展开哲思，把失意经验转化为对生命尺度的重新理解。"
+    },
+    {
+      "title": "后赤壁赋",
+      "note": "续写赤壁夜游，气氛更冷峭幽微，与前赋形成互文式的人生追问。"
+    },
+    {
+      "title": "定风波·莫听穿林打叶声",
+      "note": "在风雨行路中写出处变不惊的心性，语言口语化而力量极强。"
+    },
+    {
+      "title": "题西林壁",
+      "note": "短诗中提出“横看成岭侧成峰”的观察视角问题，兼具诗意与认识论意味。"
+    },
+    {
+      "title": "饮湖上初晴后雨",
+      "note": "以“西子”喻西湖，写景自然明快，也体现其在杭州时期的地方经验。"
     }
   ],
   "media": {
-    "heroPrompt": "Ultra-wide 2.35:1 cinematic banner of Su Shi’s Red Cliff world: moonlit Yangtze at night, steep weathered cliff wall and a small wooden boat with a wine jar, cup, and bamboo flute beside a dim lantern; keep the main visual weight strictly in the right third (boat, lantern glow, cliff edge), leave the left two-thirds as open misty water and night sky for clean negative space; Song-dynasty ink-and-color mood, subtle brush texture, restrained palette, tranquil yet immense atmosphere. No people, no faces, no figures, no text, no calligraphy, no seals, no borders.",
+    "heroPrompt": "Ultrawide cinematic banner, 2.35:1. Moonlit Red Cliff at night: towering reddish cliffs and weathered rock textures occupy the right third, with a narrow river bend below and an empty wooden skiff drifting near the cliff base; a small wine jar and folded fan rest on the boat plank as subtle symbols. The left two-thirds are open misty water and low horizon, soft silver reflections, deep negative space for overlay, calm but vast atmosphere, ink-wash inspired realism, layered haze, high detail, restrained color palette of charcoal, rust, and cold moonlight. No people, no faces, no figures, no text, no calligraphy, no seals, no borders.",
     "hero": "media/people/su-shi/hero.webp"
   }
 }

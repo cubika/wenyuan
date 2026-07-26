@@ -13,7 +13,7 @@ const SECTIONS = {
 };
 
 /** 顶栏里指向独立页面的栏目 —— 不是体裁筛选，点了就换页。 */
-const PAGES = { 人物: 'people.html', 长河: 'river.html' };
+const PAGES = { 人物: 'people.html', 长河: 'river.html', 地图: 'map.html' };
 
 /** 顶栏各项与板块 key 的对应，HTML 里只写中文，映射放在这里。 */
 function navItems() {
@@ -220,11 +220,20 @@ function bindRailHints() {
   const rails = [...document.querySelectorAll('.side, .aside')];
   refreshRailHints = () => {
     rails.forEach((rail) => {
+      // 限高要按栏目**当前**的起点算。写死 100vh-96px 时，页面还没滚动、
+      // 栏目起点在页面中段，底边就被挤到视口外，渐隐提示等于没有。
+      if (getComputedStyle(rail).position === 'sticky') {
+        const top = Math.max(rail.getBoundingClientRect().top, 76);
+        rail.style.maxHeight = `${Math.max(260, Math.round(window.innerHeight - top - 20))}px`;
+      } else {
+        rail.style.maxHeight = '';
+      }
       rail.classList.toggle('scrolls', rail.scrollHeight - rail.clientHeight - rail.scrollTop > 2);
     });
   };
   rails.forEach((rail) => rail.addEventListener('scroll', refreshRailHints));
   window.addEventListener('resize', refreshRailHints);
+  window.addEventListener('scroll', refreshRailHints, { passive: true });
   refreshRailHints();
 }
 
@@ -645,6 +654,224 @@ export async function renderRiverPage(mount) {
     .join('')}
 
   <footer>文渊 · 长河　导语只讲流变，站内收录由数据反查</footer>`;
+}
+
+/* ══ 地图 ══ */
+
+/**
+ * 写意山河底图：只画黄河、长江与海岸示意，**不画国界**。
+ * 一来这套线条才合宣纸调性，二来国界不是这个站该碰的东西。
+ * 经纬度全部来自手写的地名表，模型碰不到坐标。
+ */
+const MAP_BOX = { west: 92, east: 124, south: 17, north: 43 };
+const MAP_W = 1070;
+const MAP_H = 1000;
+
+const project = (lng, lat) => [
+  ((lng - MAP_BOX.west) / (MAP_BOX.east - MAP_BOX.west)) * MAP_W,
+  ((MAP_BOX.north - lat) / (MAP_BOX.north - MAP_BOX.south)) * MAP_H,
+];
+
+const HUANGHE = [
+  [100.2, 34.9], [103.8, 36.1], [106.3, 38.5], [109.5, 40.5], [111.5, 39.5],
+  [110.5, 37], [110.3, 35], [112.5, 34.8], [114.3, 34.9], [116.5, 35.8], [118.5, 37.3], [119.2, 37.8],
+];
+const CHANGJIANG = [
+  [100.5, 28.5], [104.6, 28.8], [106.5, 29.6], [108.5, 30.6],
+  [111.3, 30.7], [114.3, 30.6], [116, 29.9], [118.8, 32.1], [120.5, 31.8], [121.8, 31.4],
+];
+const COAST = [
+  [124.3, 40], [123.5, 39.8], [121.6, 38.9], [122.1, 40.7], [121, 40.9], [119.6, 39.9],
+  [117.8, 39], [118, 38.2], [119, 37.8], [119.9, 37.3], [121.5, 37.6], [122.7, 37.4],
+  [120.7, 36.1], [119.5, 35], [119.2, 34.5], [120.5, 33.4], [121.8, 31.4], [121.2, 30.3],
+  [121.6, 29.9], [120.7, 28], [119.6, 26.1], [118.1, 24.5], [116.7, 23.4], [114.2, 22.3],
+  [111.9, 21.8], [110.3, 20.4],
+];
+const HAINAN = [[109.3, 19.9], [110.6, 20], [111, 19], [110, 18.2], [108.7, 19.3]];
+
+/**
+ * 折线倒角：在每个顶点两侧各留一小段直线，只把拐角磨圆。
+ * 直接连中点画曲线会把半岛这类地理特征抹平，倒角能既去掉硬折角又保住形状。
+ */
+function polyline(points, close = false) {
+  const pts = points.map(([lng, lat]) => project(lng, lat));
+  const n = (p) => `${p[0].toFixed(1)} ${p[1].toFixed(1)}`;
+  if (pts.length < 3) {
+    return pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${n(p)}`).join(' ');
+  }
+  const lerp = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+  const R = 0.26;
+  const loop = close ? [...pts, pts[0]] : pts;
+  let d = `M${n(close ? lerp(loop[0], loop[1], R) : loop[0])}`;
+  for (let i = 1; i < loop.length - 1; i += 1) {
+    d += ` L${n(lerp(loop[i], loop[i - 1], R))} Q${n(loop[i])} ${n(lerp(loop[i], loop[i + 1], R))}`;
+  }
+  if (!close) return `${d} L${n(loop[loop.length - 1])}`;
+  const last = loop[loop.length - 1];
+  return `${d} L${n(lerp(last, loop[loop.length - 2], R))} Q${n(last)} ${n(lerp(last, loop[1], R))} Z`;
+}
+
+export async function renderMap(mount) {
+  bindPageNav('地图');
+  const data = await fetch('data/map.json').then((r) => r.json());
+  document.title = '地图 — 文渊';
+  const { places, routes } = data;
+
+  const byId = new Map(places.map((p) => [p.id, p]));
+  const most = Math.max(...places.map((p) => p.events.length), 1);
+
+  /** 同一个人在一地反复出入是常事，列名单要去重，否则「刘禹锡、刘禹锡、刘禹锡」。 */
+  const visitors = (place) => {
+    const times = new Map();
+    for (const e of place.events) times.set(e.name, (times.get(e.name) ?? 0) + 1);
+    return [...times.entries()].map(([name, n]) => (n > 1 ? `${name} ×${n}` : name)).join('、');
+  };
+
+  const dots = places
+    .map((p) => {
+      const [x, y] = project(p.lng, p.lat);
+      const r = 4 + Math.round((p.events.length / most) * 5);
+      return `<g class="dot" data-place="${esc(p.id)}" transform="translate(${x.toFixed(1)},${y.toFixed(1)})">
+        <circle class="halo" r="${r + 9}"></circle>
+        <circle class="pin" r="${r}"></circle>
+        <text x="${r + 6}" y="5">${esc(p.name)}</text>
+      </g>`;
+    })
+    .join('');
+
+  const routePaths = routes
+    .map((route) => {
+      const pts = route.stops.map((s) => byId.get(s.place)).filter(Boolean);
+      if (pts.length < 2) return '';
+      const d = polyline(pts.map((p) => [p.lng, p.lat]));
+      return `<path class="route" data-route="${esc(route.id)}" d="${d}"></path>`;
+    })
+    .join('');
+
+  mount.innerHTML = `
+  <div class="crumb"><a href="home.html">首页</a><i>／</i>地图</div>
+  <div class="sec-h ppl-h"><h2>地 图</h2><u></u><em>${routes.length} 条行迹 · ${places.length} 处</em></div>
+  <div class="riv-lead">古人的路是走出来的。选一位，看他这一生被贬到过多远。</div>
+
+  <div class="map-grid">
+    <aside class="side">
+      <div class="box">
+        <div class="box-t">行 迹</div>
+        <div class="rt on" data-route="all"><b>全部</b><s>${places.length} 处</s></div>
+        ${routes
+          .map(
+            (r) =>
+              `<div class="rt" data-route="${esc(r.id)}"><b>${esc(r.name)}</b><s>${r.stops.length} 站</s></div>`,
+          )
+          .join('')}
+      </div>
+      <div class="box legend">
+        <div class="box-t">读 图</div>
+        <p>线条只画黄河、长江与海岸走向，不是行政地图。</p>
+        <p>点的大小按这里发生过多少事。</p>
+      </div>
+    </aside>
+
+    <div class="map-wrap">
+      <svg viewBox="0 0 ${MAP_W} ${MAP_H}" class="map" preserveAspectRatio="xMidYMid meet">
+        <path class="water" d="${polyline(COAST)}"></path>
+        <path class="water" d="${polyline(HAINAN, true)}"></path>
+        <path class="river" d="${polyline(HUANGHE)}"></path>
+        <path class="river" d="${polyline(CHANGJIANG)}"></path>
+        <g class="routes">${routePaths}</g>
+        <g class="dots">${dots}</g>
+      </svg>
+    </div>
+
+    <aside class="aside">
+      <div class="box" data-panel></div>
+    </aside>
+  </div>
+  <footer>文渊 · 地图　坐标取自站内地名表，行迹由人物年表串成</footer>`;
+
+  bindMap(mount, data, byId, visitors);
+}
+
+function bindMap(mount, data, byId, visitors) {
+  const panel = mount.querySelector('[data-panel]');
+  const svg = mount.querySelector('svg.map');
+
+  const showAll = () => {
+    svg.dataset.route = 'all';
+    mount.querySelectorAll('.dot').forEach((d) => d.classList.remove('off', 'on'));
+    mount.querySelectorAll('.route').forEach((r) => r.classList.remove('on'));
+    panel.innerHTML = `<div class="box-t">全 部 地 点　${data.places.length}</div>${data.places
+      .map(
+        (p) =>
+          `<div class="note-i" data-jump="${esc(p.id)}"><b>${esc(p.name)}<s>${esc(p.today)}</s></b><p>${esc(
+            visitors(p),
+          )}</p></div>`,
+      )
+      .join('')}`;
+    bindJump();
+    refreshRailHints();
+  };
+
+  /** 选中一个人：他走过的地方亮起，其余压暗，右栏换成按年份排的站点。 */
+  const showRoute = (id) => {
+    const route = data.routes.find((r) => r.id === id);
+    if (!route) return showAll();
+    svg.dataset.route = id;
+    const stops = new Set(route.stops.map((s) => s.place));
+    mount.querySelectorAll('.dot').forEach((d) => {
+      const on = stops.has(d.dataset.place);
+      d.classList.toggle('on', on);
+      d.classList.toggle('off', !on);
+    });
+    mount.querySelectorAll('.route').forEach((r) => r.classList.toggle('on', r.dataset.route === id));
+    panel.innerHTML = `<div class="box-t">${esc(route.name)} 的行迹　${route.stops.length}</div>${route.stops
+      .map((s, i) => {
+        const place = byId.get(s.place);
+        return `<div class="note-i stop" data-jump="${esc(s.place)}">
+        <b><i>${i + 1}</i>${esc(place?.name ?? s.place)}<s>${esc(s.label)}</s></b>
+        <p>${esc(s.title)}</p></div>`;
+      })
+      .join('')}
+      <a class="who-link" href="person.html?id=${encodeURIComponent(route.id)}">读 ${esc(route.name)} 的人物档案　→</a>`;
+    bindJump();
+    refreshRailHints();
+  };
+
+  const bindJump = () => {
+    panel.querySelectorAll('[data-jump]').forEach((el) => {
+      el.onclick = () => {
+        const dot = mount.querySelector(`.dot[data-place="${el.dataset.jump}"]`);
+        if (!dot) return;
+        mount.querySelectorAll('.dot').forEach((d) => d.classList.remove('flash'));
+        dot.classList.add('flash');
+      };
+    });
+  };
+
+  mount.querySelectorAll('.rt').forEach((el) => {
+    el.onclick = () => {
+      mount.querySelectorAll('.rt').forEach((x) => x.classList.remove('on'));
+      el.classList.add('on');
+      if (el.dataset.route === 'all') showAll();
+      else showRoute(el.dataset.route);
+    };
+  });
+  mount.querySelectorAll('.dot').forEach((el) => {
+    el.onclick = () => {
+      const place = data.places.find((p) => p.id === el.dataset.place);
+      if (!place) return;
+      panel.innerHTML = `<div class="box-t">${esc(place.name)}　${esc(place.today)}</div>${place.events
+        .map(
+          (e) =>
+            `<a class="note-i" href="person.html?id=${encodeURIComponent(e.person)}"><b>${esc(e.name)}<s>${e.year}</s></b><p>${esc(e.title)}</p></a>`,
+        )
+        .join('')}`;
+      refreshRailHints();
+    };
+  });
+  bindJump();
+  bindRailHints();
+  showAll();
 }
 
 /* ══ 人物 ══ */

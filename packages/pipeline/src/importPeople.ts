@@ -8,6 +8,8 @@ import { person as buildPerson, type KnownWork } from './stages/person.ts'
 export interface ImportPeopleOptions {
   worksDir: string
   outDir: string
+  /** 地名表，年表节点的 place 只能从中挑。 */
+  placesPath: string
   workingDirectory: string
   model: string | undefined
   /** 只做这几位；留空表示扫出全部作者。 */
@@ -45,6 +47,12 @@ async function loadPeople(dir: string): Promise<Person[]> {
 
 export async function importPeople(options: ImportPeopleOptions): Promise<Person[]> {
   const works = await loadWorks(options.worksDir)
+  const places = JSON.parse(await readFile(options.placesPath, 'utf8')) as Array<{
+    id: string
+    name: string
+    today: string
+  }>
+  const placeIds = places.map((p) => p.id)
   const existing = await loadPeople(options.outDir)
   // 姓名是人物的自然主键；id 以已有档案为准，免得重跑时链接与配图全部漂掉。
   const idByName = new Map(existing.map((p) => [p.name, p.id]))
@@ -95,6 +103,7 @@ export async function importPeople(options: ImportPeopleOptions): Promise<Person
         dynasty: entry.dynasty,
         fixedId,
         known: entry.works,
+        places,
       })
       // 已有配图不能因为重写档案而丢掉，重跑不该再花一次出图。
       const previous = existing.find((p) => p.id === built.id)
@@ -103,7 +112,7 @@ export async function importPeople(options: ImportPeopleOptions): Promise<Person
           ? { ...built, media: { ...built.media, hero: previous.media.hero } }
           : built
 
-      const check = parsePerson(merged)
+      const check = parsePerson(merged, placeIds)
       if (!check.person) {
         throw new Error(
           `${name} 的档案未通过校验：\n${check.failures.map((f) => `  - ${f.path}: ${f.message}`).join('\n')}`,

@@ -90,11 +90,9 @@ await navEssay.click();
 await page.waitForTimeout(300);
 check('nav: 再点取消筛选', (await page.locator('.pick').count()) === indexCount);
 check('nav: 未开放栏目置灰不可点', await page.evaluate(() =>
-  ['地图'].every((t) =>
-    [...document.querySelectorAll('nav li')].find((l) => l.textContent.trim() === t)
-      ?.classList.contains('off'))));
-check('nav: 「人物」「长河」可点进独立页', await page.evaluate(() =>
-  ['人物', '长河'].every((t) => {
+  [...document.querySelectorAll('nav li.off')].length === 0));
+check('nav: 「人物」「长河」「地图」可点进独立页', await page.evaluate(() =>
+  ['人物', '长河', '地图'].every((t) => {
     const li = [...document.querySelectorAll('nav li')].find((l) => l.textContent.trim() === t);
     return !!li && !li.classList.contains('off');
   })));
@@ -486,6 +484,58 @@ check('river: 点朝代轴跳到该段', await page.evaluate((href) => {
   return top > 0 && top < 200;
 }, axHref));
 check('river: 无横向溢出', await page.evaluate(() =>
+  document.documentElement.scrollWidth <= window.innerWidth + 1));
+
+// ── 地图 ──
+failures.length = 0;
+await page.goto(`${BASE}/map.html`, { waitUntil: 'networkidle' });
+await page.waitForTimeout(900);
+const mapData = await page.evaluate(async () => await fetch('data/map.json').then((r) => r.json()));
+check('map: 无 404 资源', failures.length === 0, failures.join(', '));
+check('map: 顶栏「地图」高亮', await page.evaluate(() =>
+  [...document.querySelectorAll('nav li.on')].map((l) => l.textContent.trim()).join() === '地图'));
+check('map: 地点数与 map.json 一致',
+  (await page.locator('.dot').count()) === mapData.places.length, `${mapData.places.length} 处`);
+check('map: 行迹条数与人物一致',
+  (await page.locator('.rt[data-route]').count()) === mapData.routes.length + 1,
+  `${mapData.routes.length} 条`);
+// 坐标只来自手写地名表，落点必须都在画布内
+check('map: 所有地点落在画布内', await page.evaluate(() => {
+  const svg = document.querySelector('svg.map');
+  const [, , w, h] = svg.getAttribute('viewBox').split(' ').map(Number);
+  return [...document.querySelectorAll('.dot')].every((d) => {
+    const m = /translate\(([-\d.]+),([-\d.]+)\)/.exec(d.getAttribute('transform') ?? '');
+    return m && +m[1] >= 0 && +m[1] <= w && +m[2] >= 0 && +m[2] <= h;
+  });
+}));
+// 五条线叠在一起就是一团乱麻，全部模式下不该画路线
+check('map: 全部模式不画路线', await page.evaluate(() =>
+  [...document.querySelectorAll('.route')].every((r) => parseFloat(getComputedStyle(r).opacity) < 0.02)));
+// 同一个人在一地反复出入是常事，名单要去重
+check('map: 地点访客名单去重', await page.evaluate(() =>
+  [...document.querySelectorAll('[data-panel] .note-i p')].every((p) => {
+    const names = p.textContent.split('、').map((s) => s.split(' ×')[0]);
+    return new Set(names).size === names.length;
+  })));
+
+const longest = mapData.routes.reduce((a, b) => (a.stops.length >= b.stops.length ? a : b));
+await page.locator(`.rt[data-route="${longest.id}"]`).click();
+await page.waitForTimeout(600);
+check('map: 选中行迹后画出连线', await page.evaluate((id) => {
+  const r = document.querySelector(`.route[data-route="${id}"]`);
+  return !!r && parseFloat(getComputedStyle(r).opacity) > 0.5;
+}, longest.id));
+check('map: 选中行迹后其余地点压暗', await page.evaluate((n) =>
+  document.querySelectorAll('.dot.on').length > 0 &&
+  document.querySelectorAll('.dot.on').length <= n &&
+  document.querySelectorAll('.dot.off').length > 0, longest.stops.length));
+check('map: 右栏换成该人的站点并按年份排', await page.evaluate(() => {
+  const stops = [...document.querySelectorAll('[data-panel] .note-i.stop')];
+  return stops.length > 1;
+}));
+check('map: 站点面板给出人物档案入口',
+  /^person\.html\?id=.+/.test((await page.locator('[data-panel] .who-link').getAttribute('href')) ?? ''));
+check('map: 无横向溢出', await page.evaluate(() =>
   document.documentElement.scrollWidth <= window.innerWidth + 1));
 
 // 旧的写死默认 id 曾导致 /work.html 不带参数时 404，这里守住。放在最后，

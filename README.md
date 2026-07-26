@@ -12,6 +12,7 @@ data/raw/            原文投入口，丢一个 txt 进来即可
 data/works/          作品流水线产物（结构化 JSON），进版本库
 data/people/         人物档案（生平年表 / 交游 / 代表作），进版本库
 data/eras.json       长河的十二段朝代导语，进版本库
+data/places.json     地图的地名表（手写，坐标是硬事实，模型只能从中挑）
 packages/schema/     Zod 契约 + 跨字段校验
 packages/pipeline/   导入流水线（切分 → 识别 → 译注 → 导读 → 出图）
 prototypes/          静态站点，运行时读 data/*.json
@@ -39,7 +40,7 @@ npm run test                            # vitest（schema 契约 + 人物/长河
 npm run check                           # 上面两个
 
 cd prototypes && python -m http.server 5180
-node scripts/verify-ui.mjs              # 96 项 UI 断言（需 dev server）
+node scripts/verify-ui.mjs              # 108 项 UI 断言（需 dev server）
 node scripts/verify-ui.mjs https://cubika.github.io/wenyuan   # 也可跑线上
 ```
 
@@ -64,6 +65,8 @@ node scripts/verify-ui.mjs https://cubika.github.io/wenyuan   # 也可跑线上
 - **人物是独立实体**。作品里的 `author.bio` 围着那一篇写，换到人物页就偏题；人物单独立档，姓名是自然主键，id 以已有档案为准不能漂。名下作品由 works 反查，不信模型填的 `workId`。
 - **「站内有什么」永远反查，绝不写进 AI 文本**。长河的朝代导语只讲这个时期文学在变什么，schema 层禁止出现书名号与站内作者名 —— 挂了钩就得跟着每次新增作品重写。
 - **文案要去 AI 味**。忌「不是 A，而是 B」「不仅…更…」这类对仗式总结句连用，忌套话，忌句式雷同。约束写在 `stages/voice.ts`，各阶段共用。
+- **地图不画国界**，只画水系与海岸走向；地名坐标全部来自手写的 `data/places.json`，模型只能从表里挑 id。
+- **看截图一律派 subagent**，不要读进主上下文。详见 [AGENTS.md](AGENTS.md)。
 - **注释的 `term` 必须是原句连续子串**。前端靠子串定位挂高亮，锚不上的注释等于废注，schema 层直接拒绝。
 - **名句必须逐字出自原文**（忽略标点），防止模型凭印象编造。
 - **出图 prompt 由读过原文的模型产出**，不套模板 —— 这是配图质量的关键。风格锚按体裁固定；**主体必须在画面右侧、左侧留白**，因为站点的标题固定压在图片左边。

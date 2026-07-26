@@ -4,60 +4,69 @@
   "aka": [],
   "dynasty": "春秋",
   "era": "约活动于春秋末期",
-  "hook": "他把用兵经验压缩成十三篇可操作的方法，让后世在开战前先算清“能不能打、值不值得打”。",
-  "bio": "孙武，后世常称“孙子”，一般认为是春秋末期活跃的兵家人物。早期经历记载不多，较可靠的叙述主要见于《史记》：他在吴国受到重视，以兵法服务于吴国军政。围绕他是否直接统军、参与到何种程度的具体战事，史料并不完全一致，也夹杂后世演绎。尽管生平细节有空白，《孙子兵法》所呈现的核心方法——先算后战、因势制胜、以最小代价达成目标——使他在中国军事思想史上占据源头位置，并长期影响政治、战略与组织决策的思考方式。",
+  "hook": "他把战争从拼勇气变成了可计算、可训练、可复制的体系，《孙子兵法》到今天仍在军事、管理和博弈中被反复借鉴。",
+  "bio": "孙武，后世常称“孙子”，春秋末期兵家代表人物。可靠史料主要见于《史记》，其生平细节不多，但大体脉络清楚：早年活动于齐地，后入吴国，在吴王阖闾时期以兵法见用，参与吴楚大战并以用兵严整、出奇制胜著称。与同时代只重阵前勇战的风气相比，孙武更强调“先算后战”，把地形、军纪、情报、将帅权限、后勤节奏放进同一套判断框架里，这使《孙子兵法》不只是战场技巧书，更是一部关于决策与风险控制的方法论。其史实也有局限：许多逸事带传奇色彩，不能全当实录；但兵书文本的思想密度与后世长期流传，足以确立他在中国兵学史上的核心位置。",
   "traits": [
-    "审势",
-    "慎战",
-    "务实",
-    "重算"
+    "兵家",
+    "重谋略",
+    "治军严整",
+    "先算后战"
   ],
   "timeline": [
     {
+      "year": -520,
+      "label": "约春秋末期（约前520）",
+      "title": "自齐入吴",
+      "detail": "孙武由齐地南下至吴，军事见识从诸侯并争的北方经验转入吴楚前线，为后续见用于吴廷铺路。",
+      "place": "gusu"
+    },
+    {
       "year": -512,
-      "label": "约前512年",
-      "title": "兵法见吴王",
-      "detail": "《史记》记其以兵法受吴王阖闾重视，标志这套理论进入吴国的实际军事决策。"
+      "label": "约吴王阖闾初年（约前512）",
+      "title": "以兵法见用",
+      "detail": "在吴都向阖闾陈说兵法并获任用，核心价值在于把练兵、统御与战场机动整合成可执行的制度。",
+      "place": "gusu"
     },
     {
       "year": -506,
-      "label": "前506年",
-      "title": "吴楚大战",
-      "detail": "吴军攻入楚都郢；后世常据此推测孙武参与策划，但其具体战场职责在史料中并不统一。"
+      "label": "吴王阖闾九年（前506）",
+      "title": "柏举破楚",
+      "detail": "吴军在柏举一线重创楚军，随后攻入楚都郢，验证了其速决、分击与严明军纪的作战思路。",
+      "place": "jingzhou"
     },
     {
-      "year": -496,
-      "label": "前496年后",
-      "title": "史载渐稀",
-      "detail": "阖闾去世后，关于孙武的同时代记载明显减少，其后行迹多不可考。"
+      "year": -500,
+      "label": "约春秋末期（约前500）",
+      "title": "晚年淡出",
+      "detail": "其后行迹史载渐少，孙武可能已淡出一线军务；兵学影响主要由《孙子兵法》的传抄与讲习延续。"
     }
   ],
   "circle": [
     {
       "name": "伍子胥",
       "relation": "同僚",
-      "note": "二人同在吴国军政体系中活动，后世叙述中常并称为吴国扩张阶段的重要谋划者。"
+      "note": "同在吴国辅佐阖闾并参与对楚战争；传统记载多认为伍子胥对孙武入吴廷有引荐作用。"
     },
     {
-      "name": "吴王阖闾",
-      "relation": "同僚",
-      "note": "《史记》所见关键关联人物；孙武因向其陈兵法而进入吴国核心军事决策层。"
+      "name": "楚昭王",
+      "relation": "政敌",
+      "note": "吴楚战争中双方分处对立阵营，吴军攻入郢都这一阶段构成孙武军事生涯的关键对抗。"
     },
     {
       "name": "孙膑",
       "relation": "后世追随",
-      "note": "虽非同时代人物，但后世兵家常以“孙武—孙膑”并举，显示其理论谱系影响。"
+      "note": "战国兵家孙膑与孙武常并称“孙吴”，后世兵学谱系多把孙武视为源头人物。"
     }
   ],
   "masterpieces": [
     {
-      "title": "孙子兵法",
-      "note": "以十三篇建立系统的战略分析框架，强调全局计算与节制用兵，成为先秦兵书中流传最广者之一。",
+      "title": "《孙子兵法》",
+      "note": "现传十三篇，围绕“道天地将法”展开，系统讨论战争决策、军纪、情报与用间，是中国兵学经典文本。",
       "workId": "sunzi-bingfa"
     }
   ],
   "media": {
-    "heroPrompt": "A widescreen 2.35:1 scene at dusk beside a Wu-state riverside command camp: on the right third, a low lacquered war table holds neatly arranged bamboo slips, a bronze sword, and small wooden troop markers over a hand-drawn terrain map; behind it stands a tall campaign banner and distant river mist with faint city-wall silhouettes, all sharply focused on the right side. The left two-thirds are open negative space with soft fog, subdued water reflections, and minimal tonal gradients for overlay text area. Cinematic, historical, restrained color palette, fine texture, no fantasy elements. No people, no faces, no figures, no text, no calligraphy, no seals, no borders.",
+    "heroPrompt": "Cinematic 2.35:1 banner of an ancient Wu-state war command interior at dusk: in the right third, a lacquered strategy table with uninscribed bamboo slips, a bronze tiger tally, a sheathed bronze sword, and a small terrain model of rivers and passes lit by a single oil lamp; subtle cold mist and faint battle-drum silhouette behind the objects; the left two-thirds kept open with soft atmospheric darkness and low-contrast texture for copy space; restrained historical palette, highly detailed materials, no modern elements. No people, no faces, no figures, no text, no calligraphy, no seals, no borders.",
     "hero": "media/people/sun-wu/hero.webp"
   }
 }

@@ -3,67 +3,56 @@
   "name": "张若虚",
   "aka": [],
   "dynasty": "唐代",
-  "era": "约活动于唐玄宗开元前后",
-  "hook": "很多人只记得他一首《春江花月夜》，但正是这一首，把初唐诗风一下子推到了澄明悠远的新高度。",
-  "bio": "张若虚，扬州一带人，约活动于唐玄宗开元前后，仕历记载不多，常见说法是曾任州府属职。与贺知章、张旭、包融并称“吴中四士”，在江南文人圈中有一定声名。他的传世作品极少，却以《春江花月夜》影响深远：诗中把江潮、明月、人生感喟和离情写成连贯长卷，既承接六朝以来的细腻笔法，又打开盛唐气象中更开阔、更清澄的一路。后世“孤篇压全唐”的赞语虽有夸张成分，但也说明他在唐诗史上的独特位置。",
+  "era": "约活动于唐中宗至开元年间",
+  "hook": "他几乎只靠一首《春江花月夜》就站稳唐诗史：把乐府旧题写成了层层铺展的“江月长歌”。",
+  "bio": "张若虚，唐代诗人，生平材料很少，旧籍多记其为扬州人。今存作品极少，却因《春江花月夜》在唐诗史上占有醒目位置。此诗以江潮、明月、花林与长夜为骨架，把游子思妇之情放进辽阔时空里，语言清澈而结构完整，显示出初唐向盛唐过渡时审美趣味的变化。后世常把他与贺知章、张旭、包融并称“吴中四士”，说明他在江南文人圈中的声望。其仕履仅见零星记载，大致做过州曹一类职务，具体官阶与行年已难确考。",
   "traits": [
-    "江月书写",
-    "清澄悠远",
-    "以少胜多",
-    "吴中文士"
+    "乐府革新",
+    "江月母题",
+    "结构绵密",
+    "存诗极少"
   ],
   "timeline": [
     {
-      "year": 700,
-      "label": "约武周末至唐初（约700）",
+      "year": 660,
+      "label": "约660年前后",
       "title": "生于扬州",
-      "detail": "约生于扬州一带，江南水乡的生活经验，成为他日后江月题材书写的重要底色。"
+      "detail": "旧籍多记他是扬州人，具体生年与家世失考；江南水乡经验被认为构成其诗歌的重要背景。",
+      "place": "yangzhou"
     },
     {
-      "year": 713,
-      "label": "约开元初（约713）",
-      "title": "州府任职",
-      "detail": "约在开元前后有州府属职经历，仕途资料不丰，但可见其并非完全隐逸的文人。"
+      "year": 700,
+      "label": "约700年前后",
+      "title": "吴中知名",
+      "detail": "他在江南文士圈逐渐成名，后世据此将其与贺知章、张旭、包融并称“吴中四士”。"
+    },
+    {
+      "year": 712,
+      "label": "约712年前后",
+      "title": "作春江花月夜",
+      "detail": "《春江花月夜》大约写于这一时期：同一轮江月贯穿全篇，把宇宙感与离愁写到同一条叙事线上。"
     },
     {
       "year": 720,
-      "label": "约开元年间（约720）",
-      "title": "名篇成稿",
-      "detail": "约于开元年间写成《春江花月夜》，将写景、哲思与离情融为一体，奠定其文学史地位。"
-    },
-    {
-      "year": 730,
-      "label": "约开元中后期（约730）",
-      "title": "并称四士",
-      "detail": "与贺知章、张旭、包融并称“吴中四士”，显示其在当时江南诗坛已具代表性。"
+      "label": "约开元初年（约720）",
+      "title": "仕履可考",
+      "detail": "文献零星提到他曾任州曹一类职务，说明其人生并非纯粹隐逸写作，也有实际吏务经历。"
     }
   ],
-  "circle": [
-    {
-      "name": "贺知章",
-      "relation": "师友",
-      "note": "同属“吴中四士”之列，年辈有差而诗名并举，反映其所处的江南文人网络。"
-    },
-    {
-      "name": "张旭",
-      "relation": "师友",
-      "note": "与其并称“吴中四士”，一诗一书同在开元文艺风尚中被后世并提。"
-    },
-    {
-      "name": "包融",
-      "relation": "师友",
-      "note": "同为“吴中四士”，并称关系本身就是判断其交游圈层的重要线索。"
-    }
-  ],
+  "circle": [],
   "masterpieces": [
     {
       "title": "春江花月夜",
-      "note": "传世最负盛名之作，以江潮与明月贯穿全篇，将宇宙感、人生感与离情写得浑然一体。",
+      "note": "以乐府旧题写成长篇歌行，时间与空间层层展开，成为张若虚最具代表性的作品。",
       "workId": "chunjiang-huayueye"
+    },
+    {
+      "title": "代答闺梦还",
+      "note": "现存另一首常被归于张若虚名下的作品，可与《春江花月夜》对看其闺情书写。"
     }
   ],
   "media": {
-    "heroPrompt": "A panoramic night scene on the lower Yangtze River in early Tang ambiance, with a vast moonlit river and tidal sheen stretching into misty distance; on the right third, place the main subject: a quiet riverside sandbank with flowering trees and a small moored wooden boat beside low reed banks, silver moonlight reflected in layered ripples; the left two-thirds should remain open water, sky glow, and soft haze as clean negative space for overlay, cinematic, poetic, delicate ink-and-wash texture blended with realistic lighting, ultra-wide 2.35:1 composition. No people, no faces, no figures, no text, no calligraphy, no seals, no borders.",
+    "heroPrompt": "Ultra-wide 2.35:1 cinematic night scene on the lower Yangtze: moonlit spring river with slow silver tide, drifting mist, and clusters of riverbank blossoms. Put the main visual mass in the right third: a bright full moon reflected in rippling water beside dark flowering branches and a small moored empty wooden boat. Keep the left two thirds largely open with soft gradient sky, distant water haze, and minimal detail for clean negative space. Tang-dynasty atmosphere, refined ink-and-color look, deep blue and pale silver palette, subtle glow, tranquil but expansive mood. No people, no faces, no figures, no text, no calligraphy, no seals, no borders.",
     "hero": "media/people/zhang-ruoxu/hero.webp"
   }
 }

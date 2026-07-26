@@ -129,3 +129,39 @@ if (eras.length === 0) {
   const filled = river.filter((e) => e.works.length + e.people.length > 0).length;
   console.log(`prototypes/data/eras.json  ${river.length} 段，其中 ${filled} 段有收录`);
 }
+
+// ── 地图 ──
+// 坐标只来自手写的地名表，模型碰不到；这里把年表节点按 place 串成行迹。
+const places = JSON.parse(await readFile(join(root, 'data', 'places.json'), 'utf8').catch(() => '[]'));
+const placeById = new Map(places.map((p) => [p.id, p]));
+if (peopleFiles.length === 0 || places.length === 0) {
+  console.log('地图数据跳过（缺人物档案或地名表）');
+} else {
+  const routes = [];
+  const used = new Map();
+  for (const file of peopleFiles) {
+    const person = JSON.parse(await readFile(join(peopleSrc, file), 'utf8'));
+    const stops = person.timeline
+      .filter((t) => t.place && placeById.has(t.place))
+      .map((t) => ({ place: t.place, year: t.year, label: t.label, title: t.title, detail: t.detail }));
+    if (stops.length === 0) continue;
+    routes.push({
+      id: person.id,
+      name: person.name,
+      dynasty: fixDynasty(person.dynasty),
+      era: person.era,
+      stops,
+    });
+    for (const stop of stops) {
+      const hit = used.get(stop.place) ?? { ...placeById.get(stop.place), events: [] };
+      hit.events.push({ person: person.id, name: person.name, year: stop.year, title: stop.title });
+      used.set(stop.place, hit);
+    }
+  }
+  routes.sort((a, b) => (a.stops[0]?.year ?? 0) - (b.stops[0]?.year ?? 0));
+  const mapped = [...used.values()].sort((a, b) => b.events.length - a.events.length);
+  await writeFile(join(dest, 'map.json'), JSON.stringify({ places: mapped, routes }), 'utf8');
+  console.log(
+    `prototypes/data/map.json  ${routes.length} 条行迹 / ${mapped.length} 个地点`,
+  );
+}

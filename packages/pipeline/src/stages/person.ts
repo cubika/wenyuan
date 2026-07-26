@@ -1,4 +1,4 @@
-import { PersonSchema, checkLifespan, checkTimelineOrder, checkTimelineWithinLife } from '@wenyuan/schema'
+import { PersonSchema, checkLifespan, checkMilestonePlaces, checkTimelineOrder, checkTimelineWithinLife } from '@wenyuan/schema'
 import type { Person, ValidationFailure } from '@wenyuan/schema'
 import type { Copilot } from '../copilot/client.ts'
 import { runWithEmit } from '../copilot/emit.ts'
@@ -21,18 +21,24 @@ export interface PersonInput {
   /** 已有档案的 id。人物 id 一旦定下就不能漂 —— 链接会失效、配图会丢。 */
   fixedId: string | undefined
   known: KnownWork[]
+  /** 可选地名表，年表节点只能从中挑。 */
+  places: { id: string; name: string; today: string }[]
 }
 
 /**
  * 生卒、年表这类硬事实最容易被模型顺手编造，所以校验全部前置到工具返回值里，
  * 让它在同一轮对话里自己改。
  */
-function checks(known: KnownWork[]): (value: Person) => ValidationFailure[] {
+function checks(
+  known: KnownWork[],
+  placeIds: string[],
+): (value: Person) => ValidationFailure[] {
   const ids = new Set(known.map((w) => w.id))
   return (person) => [
     ...checkLifespan(person),
     ...checkTimelineOrder(person),
     ...checkTimelineWithinLife(person),
+    ...checkMilestonePlaces(person, placeIds),
     ...person.masterpieces.flatMap((m, i) =>
       m.workId !== undefined && !ids.has(m.workId)
         ? [
@@ -64,12 +70,16 @@ export async function person(input: PersonInput): Promise<Person> {
     toolName: 'emit_person',
     toolDescription: '交付人物档案。校验不通过会返回逐条错误，据此修正后重新调用。',
     schema: PersonSchema,
-    extraChecks: checks(input.known),
+    extraChecks: checks(input.known, input.places.map((p) => p.id)),
     prompt: `人物：${input.name}　朝代：${input.dynasty}
 
 站内已收录他的作品（代表作里若提到这些，请填上对应的 workId）：
 
 ${catalog}
+
+年表节点可以标地点，**只能从下面这份地名表里挑 id**（定不到具体地点就留空，不要硬凑）：
+
+${input.places.map((p) => `${p.id}=${p.name}（${p.today}）`).join('　')}
 
 请交付一份人物档案：
 
@@ -88,6 +98,7 @@ ${catalog}
 - **timeline**：生平年表，3-12 条，**按时间升序**。
   - year：公元年整数；label：显示写法，如「元丰二年（1079）」；生卒不详的人物，label 要用「约」把不确定说出来
   - title：不超过 12 字的事件名；detail：这件事为什么重要
+  - **place**：这件事发生在哪里，填上面地名表里的 id。地图靠它把一个人的行迹连成线，**能定位的节点尽量都填**（出生、任职、贬谪、病逝都有确切地点）；「名篇成稿」这类定不到地方的留空。
   - **只写生和卒等于没有年表**。要给出仕、贬谪、任职、著述、交游这类有实质内容的节点。
   - **只记他在世期间的事**。身后的追赠、评价、影响写进 bio，不要放年表。
 - **circle**：交游关系，最多 8 条。relation 从 师友 / 同僚 / 亲属 / 门生 / 政敌 / 知音 / 后世追随 中选。**确有其事才写**，拿不准就少写几条或给空数组。
