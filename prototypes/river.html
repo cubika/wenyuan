@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>长河 — 文渊</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav><div class="nav-in">
+  <div class="logo"><a href="home.html"><b>文渊</b></a><i>CLASSICS</i></div>
+  <ul><li>诗词</li><li>文章</li><li>典籍</li><li>人物</li><li>长河</li><li>地图</li></ul>
+  <div class="search"><span>⌕</span><input placeholder="搜诗句、作者、典故…"></div>
+</div></nav>
+
+<div class="ct" id="app"><div class="loading">载入中…</div></div>
+
+<script type="module">
+import { renderRiverPage } from './assets/render.js';
+const app = document.getElementById('app');
+renderRiverPage(app).catch((e) => {
+  app.innerHTML = `<div class="loading">载入失败：${e.message}</div>`;
+});
+</script>
+</body>
+</html>

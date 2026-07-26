@@ -90,13 +90,14 @@ await navEssay.click();
 await page.waitForTimeout(300);
 check('nav: 再点取消筛选', (await page.locator('.pick').count()) === indexCount);
 check('nav: 未开放栏目置灰不可点', await page.evaluate(() =>
-  ['长河', '地图'].every((t) =>
+  ['地图'].every((t) =>
     [...document.querySelectorAll('nav li')].find((l) => l.textContent.trim() === t)
       ?.classList.contains('off'))));
-check('nav: 「人物」可点进人物页', await page.evaluate(() => {
-  const li = [...document.querySelectorAll('nav li')].find((l) => l.textContent.trim() === '人物');
-  return !!li && !li.classList.contains('off');
-}));
+check('nav: 「人物」「长河」可点进独立页', await page.evaluate(() =>
+  ['人物', '长河'].every((t) => {
+    const li = [...document.querySelectorAll('nav li')].find((l) => l.textContent.trim() === t);
+    return !!li && !li.classList.contains('off');
+  })));
 
 // 阅读页的顶栏与面包屑靠 ?sec= 跳回来，落地要停在那个板块上
 await page.goto(`${BASE}/home.html?sec=essay`, { waitUntil: 'networkidle' });
@@ -431,6 +432,61 @@ if (personId) {
 } else {
   check('person: 生平年表条数与档案一致', true, '(暂无人物，跳过)');
 }
+
+// ── 长河 ──
+failures.length = 0;
+await page.goto(`${BASE}/river.html`, { waitUntil: 'networkidle' });
+await page.waitForTimeout(900);
+const riverEras = await page.evaluate(async () => await fetch('data/eras.json').then((r) => r.json()));
+check('river: 无 404 资源', failures.length === 0, failures.join(', '));
+check('river: 顶栏「长河」高亮', await page.evaluate(() =>
+  [...document.querySelectorAll('nav li.on')].map((l) => l.textContent.trim()).join() === '长河'));
+check('river: 轴段数与 eras.json 一致',
+  (await page.locator('.axis .ax').count()) === riverEras.length, `${riverEras.length} 段`);
+// 空朝代不藏起来，它同时是「这个站还缺什么」的进度条
+check('river: 有收录的段亮起，空段留灰', await page.evaluate((eras) => {
+  const filled = eras.filter((e) => e.works.length + e.people.length > 0).length;
+  return document.querySelectorAll('.axis .ax.has').length === filled &&
+    document.querySelectorAll('.era-sec.bare').length === eras.length - filled;
+}, riverEras));
+// 导语一旦点名作品，加一篇就过期一次 —— schema 拦了，渲染这层再守一道
+check('river: 导语不点名具体作品', await page.evaluate(() =>
+  [...document.querySelectorAll('.era-shift')].every((p) => !/[《》]/.test(p.textContent))));
+check('river: 导语不点名站内作者', await page.evaluate(async () => {
+  const idx = await fetch('data/index.json').then((r) => r.json());
+  const authors = [...new Set(idx.map((w) => w.author))].filter((a) => a !== '佚名');
+  const text = [...document.querySelectorAll('.era-shift')].map((p) => p.textContent).join('');
+  return authors.every((a) => !text.includes(a));
+}));
+// 「站内有什么」由数据反查，不写进导语 —— 反查对不上就等于这条原则没落地
+check('river: 站内作品全部落到某一段', await page.evaluate(async (eras) => {
+  const idx = await fetch('data/index.json').then((r) => r.json());
+  const inRiver = eras.reduce((n, e) => n + e.works.length, 0);
+  return inRiver === idx.length && document.querySelectorAll('.ew').length === idx.length;
+}, riverEras));
+check('river: 站内人物全部落到某一段', await page.evaluate(async (eras) => {
+  const ppl = await fetch('data/people.json').then((r) => r.json());
+  return eras.reduce((n, e) => n + e.people.length, 0) === ppl.length &&
+    document.querySelectorAll('.ep').length === ppl.length;
+}, riverEras));
+check('river: 作品卡链到阅读页、人物卡链到人物页', await page.evaluate(() => {
+  const w = document.querySelector('.ew');
+  const p = document.querySelector('.ep');
+  return /^work\.html\?id=.+/.test(w?.getAttribute('href') ?? '') &&
+    /^person\.html\?id=.+/.test(p?.getAttribute('href') ?? '');
+}));
+const axHas = page.locator('.axis .ax.has').last();
+const axHref = await axHas.getAttribute('href');
+await axHas.click();
+await page.waitForTimeout(900);
+check('river: 点朝代轴跳到该段', await page.evaluate((href) => {
+  const sec = document.querySelector(`${href} .era-h`);
+  if (!sec) return false;
+  const top = sec.getBoundingClientRect().top;
+  return top > 0 && top < 200;
+}, axHref));
+check('river: 无横向溢出', await page.evaluate(() =>
+  document.documentElement.scrollWidth <= window.innerWidth + 1));
 
 // 旧的写死默认 id 曾导致 /work.html 不带参数时 404，这里守住。放在最后，
 // 因为它会重新加载页面、把阅读深度重置。

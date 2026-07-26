@@ -16,13 +16,18 @@ await mkdir(dest, { recursive: true });
 const DYNASTY_FIX = { 唐代: '唐', 宋代: '宋', 汉代: '汉', 明代: '明', 清代: '清', 元代: '元', 秦代: '秦' };
 const fixDynasty = (d) => DYNASTY_FIX[d] ?? d;
 
-// 生卒不详的人物按朝代落位，否则「孙武」会被排到苏轼后面去。
-const ERA_YEAR = {
-  先秦: -700, 春秋: -600, 战国: -350, 秦: -220, 汉: 0, 东汉: 100, 魏晋: 280,
-  南北朝: 450, 隋: 590, 初唐: 650, 唐: 750, 五代: 930, 北宋: 1050, 宋: 1100,
-  南宋: 1180, 元: 1300, 明: 1450, 清: 1700,
-};
-const eraYear = (d) => ERA_YEAR[fixDynasty(d)] ?? 9999;
+// 朝代 → 长河分段。顺序即优先级：先秦要排在秦前面（否则「先秦」被「秦」吃掉），
+// 五代、南唐要排在唐前面，南北朝要排在北朝/南朝的单字规则前面。
+const ERA_OF = [
+  ['先秦', 'xianqin'], ['春秋', 'xianqin'], ['战国', 'xianqin'], ['西周', 'xianqin'],
+  ['东周', 'xianqin'], ['商', 'xianqin'], ['周', 'xianqin'],
+  ['南北朝', 'nanbeichao'], ['南朝', 'nanbeichao'], ['北朝', 'nanbeichao'],
+  ['五代', 'wudai'], ['十国', 'wudai'], ['南唐', 'wudai'],
+  ['宋', 'song'], ['魏晋', 'weijin'], ['三国', 'weijin'], ['晋', 'weijin'], ['魏', 'weijin'],
+  ['唐', 'tang'], ['汉', 'han'], ['秦', 'qin'], ['隋', 'sui'],
+  ['元', 'yuan'], ['明', 'ming'], ['清', 'qing'],
+];
+const eraIdOf = (d) => ERA_OF.find(([k]) => fixDynasty(d).includes(k))?.[1] ?? null;
 
 const files = (await readdir(src).catch(() => [])).filter((f) => f.endsWith('.json'));
 if (files.length === 0) {
@@ -32,6 +37,17 @@ if (files.length === 0) {
 
 const index = [];
 const works = [];
+const eras = JSON.parse(await readFile(join(root, 'data', 'eras.json'), 'utf8').catch(() => '[]'));
+const eraById = new Map(eras.map((e) => [e.id, e]));
+// 朝代分段是长河与首页共用的口径，算一次写进索引，
+// 免得前端和断言各写一份归并规则、各漂各的。
+const eraFields = (dynasty) => {
+  const era = eraById.get(eraIdOf(dynasty));
+  return era
+    ? { eraId: era.id, eraName: era.name, eraStart: era.start }
+    : { eraId: null, eraName: fixDynasty(dynasty), eraStart: 9999 };
+};
+
 for (const file of files) {
   const raw = JSON.parse(await readFile(join(src, file), 'utf8'));
   const work = { ...raw, dynasty: fixDynasty(raw.dynasty) };
@@ -42,6 +58,7 @@ for (const file of files) {
     title: work.title,
     type: work.type,
     dynasty: work.dynasty,
+    ...eraFields(work.dynasty),
     author: work.author.name,
     hook: work.hook,
     moods: work.moods,
@@ -58,12 +75,12 @@ await writeFile(join(dest, 'index.json'), JSON.stringify(index), 'utf8');
 console.log(`\nprototypes/data/index.json  ${index.length} 篇`);
 
 // ── 人物 ──
+const peopleIndex = [];
 const peopleFiles = (await readdir(peopleSrc).catch(() => [])).filter((f) => f.endsWith('.json'));
 if (peopleFiles.length === 0) {
   console.log('data/people 下暂无人物档案（npm run people 可生成）');
 } else {
   await mkdir(join(dest, 'people'), { recursive: true });
-  const peopleIndex = [];
   for (const file of peopleFiles) {
     const rawPerson = JSON.parse(await readFile(join(peopleSrc, file), 'utf8'));
     const person = { ...rawPerson, dynasty: fixDynasty(rawPerson.dynasty) };
@@ -78,8 +95,9 @@ if (peopleFiles.length === 0) {
       name: person.name,
       dynasty: person.dynasty,
       era: person.era,
+      ...eraFields(person.dynasty),
       // 生卒不详就按朝代落位，人物列表本身就是一条时间线。
-      order: person.born ?? eraYear(person.dynasty),
+      order: person.born ?? eraFields(person.dynasty).eraStart,
       hook: person.hook,
       traits: person.traits,
       hero: person.media.hero ?? null,
@@ -90,4 +108,24 @@ if (peopleFiles.length === 0) {
   peopleIndex.sort((a, b) => a.order - b.order || a.id.localeCompare(b.id));
   await writeFile(join(dest, 'people.json'), JSON.stringify(peopleIndex), 'utf8');
   console.log(`prototypes/data/people.json  ${peopleIndex.length} 位`);
+}
+
+// ── 长河 ──
+// 导语只讲「这个时期文学在变什么」，站内有什么在这里反查后挂上去。
+// 加新作品自动出现在对应朝代下，导语一个字都不用改。
+if (eras.length === 0) {
+  console.log('data/eras.json 不存在（npm run eras 可生成）');
+} else {
+  const river = eras.map((era) => ({
+    ...era,
+    works: index
+      .filter((w) => w.eraId === era.id)
+      .map((w) => ({ id: w.id, title: w.title, type: w.type, author: w.author, dynasty: w.dynasty })),
+    people: peopleIndex
+      .filter((p) => p.eraId === era.id)
+      .map((p) => ({ id: p.id, name: p.name, era: p.era, hook: p.hook })),
+  }));
+  await writeFile(join(dest, 'eras.json'), JSON.stringify(river), 'utf8');
+  const filled = river.filter((e) => e.works.length + e.people.length > 0).length;
+  console.log(`prototypes/data/eras.json  ${river.length} 段，其中 ${filled} 段有收录`);
 }

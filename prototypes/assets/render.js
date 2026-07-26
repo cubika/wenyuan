@@ -13,7 +13,7 @@ const SECTIONS = {
 };
 
 /** 顶栏里指向独立页面的栏目 —— 不是体裁筛选，点了就换页。 */
-const PAGES = { 人物: 'people.html' };
+const PAGES = { 人物: 'people.html', 长河: 'river.html' };
 
 /** 顶栏各项与板块 key 的对应，HTML 里只写中文，映射放在这里。 */
 function navItems() {
@@ -437,27 +437,25 @@ async function linkAuthor(name) {
 }
 
 const DYNASTY_ORDER = ['先秦', '秦', '汉', '魏晋', '南北朝', '隋', '唐', '五代', '宋', '元', '明', '清'];
-/** 春秋、战国在长河里都算先秦，否则并排三根只差一个词的柱子。 */
-const DYNASTY_ALIAS = { 春秋: '先秦', 战国: '先秦' };
 
-/** 把「北宋」「初唐」「东汉」归到主朝代，长河不该被细分朝代打散。 */
-function normalizeDynasty(d) {
-  const alias = Object.keys(DYNASTY_ALIAS).find((k) => d.includes(k));
-  if (alias) return DYNASTY_ALIAS[alias];
-  const hit = DYNASTY_ORDER.find((era) => d.includes(era));
-  return hit ?? d;
+/**
+ * 首页长河按朝代分段。分段口径在 build-data 里算好写进索引（`eraName`），
+ * 前端不再自己归并 —— 归并规则写两份必然漂。
+ */
+function eraOf(work) {
+  return work.eraName ?? work.dynasty;
 }
 
 function renderRiver(index, onPick) {
   const counts = new Map();
+  const starts = new Map();
   for (const w of index) {
-    const era = normalizeDynasty(w.dynasty);
+    const era = eraOf(w);
     counts.set(era, (counts.get(era) ?? 0) + 1);
+    starts.set(era, w.eraStart ?? DYNASTY_ORDER.indexOf(era));
   }
   const max = Math.max(...counts.values(), 1);
-  const rows = [...counts.entries()].sort(
-    (a, b) => DYNASTY_ORDER.indexOf(a[0]) - DYNASTY_ORDER.indexOf(b[0]),
-  );
+  const rows = [...counts.entries()].sort((a, b) => (starts.get(a[0]) ?? 0) - (starts.get(b[0]) ?? 0));
   const host = document.querySelector('[data-river]');
   if (!host) return;
   host.innerHTML = rows
@@ -494,9 +492,7 @@ function renderPicks(index, filter) {
     ? index
     : index.filter((w) => {
         if (filter.kind === 'section') return SECTIONS[filter.value].types.includes(w.type);
-        return filter.kind === 'dynasty'
-          ? normalizeDynasty(w.dynasty) === filter.value
-          : w.moods.includes(filter.value);
+        return filter.kind === 'dynasty' ? eraOf(w) === filter.value : w.moods.includes(filter.value);
       });
   const host = $('.pick-row');
   host.innerHTML =
@@ -575,6 +571,80 @@ export async function renderHome(mount) {
   // 阅读页的顶栏与面包屑用 ?sec= 跳回来，落地就该停在那个板块上。
   const sec = new URLSearchParams(location.search).get('sec');
   apply(sec && SECTIONS[sec] ? { kind: 'section', value: sec } : null);
+}
+
+/* ══ 长河 ══ */
+
+/**
+ * 按朝代等宽分段，不按公元年线性排 —— 站内跨度两千多年，
+ * 真按年份画，先秦一个点之后就是一千多年空白。
+ * 空朝代不藏起来：它同时是「这个站还缺什么」的进度条。
+ */
+export async function renderRiverPage(mount) {
+  bindPageNav('长河');
+  const eras = await fetch('data/eras.json').then((r) => r.json());
+  document.title = '长河 — 文渊';
+  const total = eras.reduce((n, e) => n + e.works.length, 0);
+  const most = Math.max(...eras.map((e) => e.works.length + e.people.length), 1);
+
+  const filled = (e) => e.works.length + e.people.length > 0;
+
+  mount.innerHTML = `
+  <div class="crumb"><a href="home.html">首页</a><i>／</i>长河</div>
+  <div class="sec-h ppl-h"><h2>长 河</h2><u></u><em>${eras.length} 段 · 收录 ${total} 篇</em></div>
+  <div class="riv-lead">从先秦到清，看文学一路在变什么。灰的那几段还没有收录。</div>
+
+  <div class="axis">
+    ${eras
+      .map(
+        (e) => `<a class="ax${filled(e) ? ' has' : ''}" href="#era-${e.id}">
+      <b>${esc(e.name)}</b>
+      <i style="height:${filled(e) ? 6 + Math.round(((e.works.length + e.people.length) / most) * 26) : 3}px"></i>
+      <s>${filled(e) ? `${e.works.length}篇${e.people.length > 0 ? ` · ${e.people.length}人` : ''}` : '—'}</s>
+    </a>`,
+      )
+      .join('')}
+  </div>
+
+  ${eras
+    .map(
+      (e) => `<section class="era-sec${filled(e) ? '' : ' bare'}" id="era-${e.id}">
+    <div class="era-h">
+      <h3>${esc(e.name)}</h3><span class="era-range">${esc(e.range)}</span><u></u>
+      <em>${filled(e) ? `${e.works.length} 篇${e.people.length > 0 ? ` · ${e.people.length} 人` : ''}` : '尚无收录'}</em>
+    </div>
+    <div class="era-body">
+      <p class="era-shift">${esc(e.shift)}</p>
+      <div class="era-marks">${e.marks.map((m) => `<span>${esc(m)}</span>`).join('')}</div>
+      ${
+        e.works.length > 0
+          ? `<div class="era-works">${e.works
+              .map(
+                (w) => `<a class="ew" href="work.html?id=${encodeURIComponent(w.id)}">
+        <div class="cat">${esc(w.dynasty)} · ${esc(TYPE_LABEL[w.type])}</div>
+        <h4>${esc(w.title)}</h4><div class="by">${esc(w.author)}</div>
+      </a>`,
+              )
+              .join('')}</div>`
+          : ''
+      }
+      ${
+        e.people.length > 0
+          ? `<div class="era-people">${e.people
+              .map(
+                (p) => `<a class="ep" href="person.html?id=${encodeURIComponent(p.id)}">
+        <b>${esc(p.name)}<s>${esc(p.era)}</s></b><p>${esc(p.hook)}</p>
+      </a>`,
+              )
+              .join('')}</div>`
+          : ''
+      }
+    </div>
+  </section>`,
+    )
+    .join('')}
+
+  <footer>文渊 · 长河　导语只讲流变，站内收录由数据反查</footer>`;
 }
 
 /* ══ 人物 ══ */

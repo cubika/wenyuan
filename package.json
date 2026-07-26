@@ -13,6 +13,7 @@
     "check": "npm run typecheck && npm run test",
     "import": "node --experimental-strip-types packages/pipeline/src/cli.ts",
     "people": "node --experimental-strip-types packages/pipeline/src/cliPeople.ts",
+    "eras": "node --experimental-strip-types packages/pipeline/src/cliEras.ts",
     "media": "node --experimental-strip-types packages/pipeline/src/cliMedia.ts",
     "media:compress": "node scripts/compress-media.mjs",
     "verify:ui": "node scripts/verify-ui.mjs"

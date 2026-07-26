@@ -1,6 +1,7 @@
 import { z } from 'zod'
 
 export * from './person.ts'
+export * from './era.ts'
 
 /**
  * 一份 schema 同时喂三层阅读：

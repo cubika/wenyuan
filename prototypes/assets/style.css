@@ -239,6 +239,56 @@ body[data-mode="orig"] .prose .row:hover .tr{max-height:38em;opacity:1;margin-to
   .blk>b{line-height:1.6}
 }
 
+/* ══ 长河 ══ */
+.riv-lead{font-size:14px;line-height:2;color:var(--ink-2);margin-bottom:20px;
+  padding-left:15px;border-left:2px solid var(--cinnabar);max-width:44em}
+/* 朝代等宽排 —— 真按公元年画，先秦一个点之后就是一千多年空白 */
+.axis{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;align-items:end;
+  border:1px solid var(--rule);background:var(--card);padding:16px 18px 12px;margin-bottom:34px}
+.ax{display:flex;flex-direction:column;align-items:center;gap:7px;padding:6px 2px 4px;
+  cursor:pointer;transition:.2s;border-bottom:2px solid transparent}
+.ax b{font-weight:400;font-size:12.5px;letter-spacing:.06em;color:var(--ink-3);order:2}
+.ax i{width:100%;background:var(--rule-2);display:block;order:1;transition:.2s}
+.ax s{text-decoration:none;font-size:10px;color:var(--ink-3);opacity:.7;order:3;letter-spacing:.04em}
+.ax.has b{color:var(--ink)}
+.ax.has i{background:var(--celadon)}
+.ax:hover{border-bottom-color:var(--cinnabar)}
+.ax:hover i{background:var(--cinnabar)}
+
+.era-sec{scroll-margin-top:72px;padding-bottom:30px}
+.era-h{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}
+.era-h h3{font-size:20px;font-weight:400;letter-spacing:.2em}
+.era-range{font-size:11.5px;color:var(--ink-3);letter-spacing:.08em}
+.era-h u{text-decoration:none;flex:1;height:1px;background:var(--rule)}
+.era-h em{font-style:normal;font-size:11px;color:var(--ink-3);letter-spacing:.12em}
+.era-shift{font-size:15px;line-height:2.1;color:var(--ink-2);max-width:46em}
+.era-marks{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+.era-marks span{font-size:11px;padding:3px 10px;border:1px solid var(--rule);
+  color:var(--ink-3);letter-spacing:.08em;background:var(--card)}
+/* 空朝代压暗但不隐藏：它是「这个站还缺什么」的诚实呈现 */
+.era-sec.bare{padding-bottom:22px}
+.era-sec.bare .era-h h3,.era-sec.bare .era-shift{color:var(--ink-3)}
+.era-sec.bare .era-shift{font-size:14px}
+
+.era-works{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.ew{border:1px solid var(--rule);background:var(--card);padding:13px 15px 14px;transition:.24s}
+.ew:hover{border-color:var(--ink-3);transform:translateY(-2px);box-shadow:0 10px 22px rgba(28,26,23,.08)}
+.ew .cat{font-size:10px;letter-spacing:.2em;color:var(--cinnabar);margin-bottom:8px}
+.ew h4{font-size:16px;font-weight:400;letter-spacing:.08em}
+.ew .by{font-size:11.5px;color:var(--ink-3);letter-spacing:.1em;margin-top:4px}
+.era-people{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.ep{border:1px solid var(--rule);background:var(--paper-2);padding:10px 14px 11px;
+  max-width:24em;transition:.24s}
+.ep:hover{border-color:var(--cinnabar)}
+.ep b{font-weight:400;font-size:14.5px;letter-spacing:.08em}
+.ep b s{text-decoration:none;font-size:10.5px;color:var(--ink-3);margin-left:8px;letter-spacing:.04em}
+.ep p{font-size:12px;line-height:1.85;color:var(--ink-3);margin-top:4px}
+
+@media(max-width:900px){
+  .axis{grid-template-columns:repeat(6,1fr);row-gap:12px}
+  .era-works{grid-template-columns:1fr}
+}
+
 /* ══ 人物 ══ */
 .ppl-h,.life-h{margin-top:26px}
 .ppl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-bottom:34px}
