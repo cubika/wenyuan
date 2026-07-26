@@ -26,6 +26,9 @@ nav{position:sticky;top:0;z-index:40;background:rgba(245,241,232,.94);
 nav ul{display:flex;gap:26px;list-style:none;font-size:14px;letter-spacing:.14em;color:var(--ink-2)}
 nav li{cursor:pointer;padding:3px 0;border-bottom:1.5px solid transparent;transition:.2s}
 nav li:hover,nav li.on{color:var(--cinnabar);border-color:var(--cinnabar)}
+/* 还没做的栏目与空板块置灰 —— 点了没反应比不能点更让人困惑 */
+nav li.off{cursor:default;opacity:.42}
+nav li.off:hover{color:var(--ink-2);border-color:transparent}
 .search{margin-left:auto;display:flex;align-items:center;gap:8px;border:1px solid var(--rule);
   padding:6px 12px;background:var(--card);width:216px}
 .search input{border:0;background:transparent;outline:none;font-family:inherit;font-size:13px;width:100%;color:var(--ink)}
@@ -116,8 +119,16 @@ h1.verse span:nth-child(2){animation-delay:.15s}
   background:rgba(251,248,241,.7);color:var(--ink-3);letter-spacing:.1em}
 
 .r-grid{display:grid;grid-template-columns:206px minmax(0,1fr) 244px;gap:38px;align-items:start;padding-bottom:56px}
-.side{position:sticky;top:76px}
-.side .idx{font-size:11px;letter-spacing:.24em;color:var(--ink-3);margin-bottom:12px}
+/* 两侧 sticky 栏限高自滚：栏比正文长时既会把整页撑出大片空白，
+   sticky 元素高过视口时底部内容还根本滚不到。滚动条一律藏掉 ——
+   页面上同时出现两条滚动条很碍眼；改用底部渐隐提示，滚到底自动撤掉。 */
+.side,.aside{position:sticky;top:76px;max-height:calc(100vh - 96px);overflow-y:auto;
+  scrollbar-width:none;-ms-overflow-style:none}
+.side::-webkit-scrollbar,.aside::-webkit-scrollbar{width:0;height:0}
+.side.scrolls,.aside.scrolls{
+  -webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 34px),transparent);
+  mask-image:linear-gradient(to bottom,#000 calc(100% - 34px),transparent)}
+.side .idx{font-size:11px;letter-spacing:.24em;color:var(--ink-3);margin:18px 0 12px}
 .kv{display:flex;justify-content:space-between;gap:8px;font-size:12px;padding:7px 0;
   border-top:1px solid var(--rule);color:var(--ink-3);letter-spacing:.06em}
 .kv b{font-weight:400;color:var(--ink-2);text-align:right}
@@ -138,20 +149,40 @@ h1.verse span:nth-child(2){animation-delay:.15s}
   max-height:0;overflow:hidden;opacity:0;transition:.32s}
 body[data-mode="compare"] .tr{max-height:110px;opacity:1}
 body[data-mode="orig"] .row:hover .tr{max-height:110px;opacity:1}
+
+/* ── 文章 / 典籍：按段连排 ──
+   散文的单位是段不是句。逐句断行会把一篇文章排成分行诗，
+   所以句子在段内接续，只在段与段之间断开。 */
+.paper.prose{padding-bottom:66px}
+.paper.prose .row{padding:6px 0 15px}
+.prose .orig{text-indent:2em;font-size:19.5px;line-height:2.34;letter-spacing:.06em}
+/* 句级悬停：连排之后读者容易串行，给一层极淡的底衬帮着定位。 */
+.prose .orig .s{transition:background .2s;border-radius:2px}
+.prose .orig .s:hover{background:rgba(110,140,126,.15)}
+.prose .tr{text-indent:2em;font-size:14.5px;line-height:2.05;margin-top:0}
+body[data-mode="compare"] .prose .tr{max-height:38em;opacity:1;margin-top:10px}
+body[data-mode="orig"] .prose .row:hover .tr{max-height:38em;opacity:1;margin-top:10px}
 .seal{position:absolute;right:26px;bottom:22px;width:52px;height:52px;border:2px solid var(--cinnabar);
   color:var(--cinnabar);writing-mode:vertical-rl;display:grid;place-items:center;font-size:15px;
   letter-spacing:.06em;opacity:.8;transform:rotate(-5deg);border-radius:2px}
 
 .n{position:relative;cursor:pointer;background:linear-gradient(transparent 74%,rgba(156,46,46,.2) 74%);transition:.2s}
 .n.flash{background:rgba(156,46,46,.28)}
+/* 关闭态用 display:none 而不是 opacity:0 —— 不可见的浮层仍会撑大滚动区，
+   窄屏上靠右的注释会让整页能横向拖动。allow-discrete 保住淡入，
+   不支持的浏览器退化成直接出现，不影响功能。 */
 .pop{position:absolute;left:50%;bottom:132%;transform:translateX(-50%) translateY(6px);
   background:var(--ink);color:var(--paper);padding:11px 15px;width:max-content;max-width:262px;
   font-size:13px;line-height:1.8;letter-spacing:.03em;text-align:left;
-  opacity:0;pointer-events:none;transition:.22s;z-index:30;box-shadow:0 12px 30px rgba(28,26,23,.24)}
+  display:none;opacity:0;pointer-events:none;z-index:30;box-shadow:0 12px 30px rgba(28,26,23,.24);
+  transition:opacity .22s,transform .22s,display .22s allow-discrete}
 .pop b{display:block;color:#E8B4B4;font-weight:400;font-size:12px;letter-spacing:.12em;margin-bottom:3px}
-.n.open .pop{opacity:1;transform:translateX(-50%)}
+.n.open .pop{display:block;opacity:1;transform:translateX(-50%)}
+@starting-style{
+  .n.open .pop{opacity:0;transform:translateX(-50%) translateY(6px)}
+}
 
-.aside{position:sticky;top:76px;display:flex;flex-direction:column;gap:18px}
+.aside{display:flex;flex-direction:column;gap:18px}
 .box{border:1px solid var(--rule);background:var(--card);padding:15px 16px 16px}
 .box-t{font-size:10.5px;letter-spacing:.26em;color:var(--ink-3);margin-bottom:12px}
 .note-i{padding:8px 0;border-top:1px solid var(--rule-2);cursor:pointer;transition:.2s}
@@ -232,6 +263,7 @@ body[data-depth="L3"] .n::after{content:'';position:absolute;top:-3px;right:-6px
   nav ul{display:none}
   .pick-row{grid-template-columns:repeat(2,1fr)}
   .r-grid{grid-template-columns:1fr}
-  .side{position:static}
+  /* 单栏时侧栏跟着正文走，不该再自成一个滚动容器 */
+  .side{position:static;max-height:none;overflow:visible;-webkit-mask-image:none;mask-image:none}
   .wband-in{padding:0 20px}
 }

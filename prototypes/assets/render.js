@@ -5,6 +5,20 @@ const esc = (s) =>
 
 const STARS = (n) => '★'.repeat(n) + '☆'.repeat(5 - n);
 const TYPE_LABEL = { poem: '诗', ci: '词', essay: '文章', classic: '典籍' };
+/** 顶栏板块 → 体裁。诗、词同属「诗词」板块；人物/长河/地图 还没有数据，顶栏里置灰。 */
+const SECTIONS = {
+  poem: { label: '诗词', types: ['poem', 'ci'] },
+  essay: { label: '文章', types: ['essay'] },
+  classic: { label: '典籍', types: ['classic'] },
+};
+
+/** 顶栏各项与板块 key 的对应，HTML 里只写中文，映射放在这里。 */
+function navItems() {
+  return [...document.querySelectorAll('nav li')].map((li) => ({
+    li,
+    key: Object.keys(SECTIONS).find((k) => SECTIONS[k].label === li.textContent.trim()) ?? null,
+  }));
+}
 
 /** 模型的长文本用 \n 分段。HTML 会折叠换行，必须显式拆成 <p>。 */
 const paras = (s) =>
@@ -25,7 +39,7 @@ const block = (label, text) =>
  * 把注释挂回原文：按 term 在句中做子串定位并包成可点击的 <span class="n">。
  * 长词先替换，避免「芳甸」被「甸」抢先切开。
  */
-function renderLine(line, lineIndex) {
+function markNotes(line, lineIndex) {
   let html = esc(line.text);
   const notes = [...line.notes].sort((a, b) => b.term.length - a.term.length);
   notes.forEach((note, i) => {
@@ -38,7 +52,59 @@ function renderLine(line, lineIndex) {
       `<span class="n" id="${id}">${term}<span class="pop"><b>${term}${pin}</b>${esc(note.explain)}</span></span>`,
     );
   });
-  return `<div class="row"><div class="orig">${html}</div><div class="tr">${esc(line.translation)}</div></div>`;
+  return html;
+}
+
+/** 诗词：一行一句，换行本身就是作者的断句，逐句成行。 */
+function renderVerse(lines) {
+  return lines
+    .map(
+      (line, i) =>
+        `<div class="row"><div class="orig">${markNotes(line, i)}</div><div class="tr">${esc(line.translation)}</div></div>`,
+    )
+    .join('');
+}
+
+/**
+ * 文章 / 典籍：句子在段内连排，段落才是作者的章法 —— 逐句断行会把
+ * 一篇散文排成分行诗。对照也走段级：整段译文读着才连贯，
+ * 逐句对照反而把文气切碎。
+ */
+function renderProse(lines) {
+  const groups = [];
+  lines.forEach((line, i) => {
+    const para = line.para ?? 0;
+    const last = groups.at(-1);
+    if (last && last.para === para) last.items.push({ line, i });
+    else groups.push({ para, items: [{ line, i }] });
+  });
+  return groups
+    .map(
+      (g) => `<div class="row para">
+        <p class="orig">${g.items.map(({ line, i }) => `<span class="s">${markNotes(line, i)}</span>`).join('')}</p>
+        <p class="tr">${g.items.map(({ line }) => esc(line.translation)).join('')}</p>
+      </div>`,
+    )
+    .join('');
+}
+
+const VERSE_TYPES = new Set(['poem', 'ci']);
+
+/**
+ * 阅读页顶栏：高亮当前作品所属板块，点击回首页对应板块。
+ * 读一篇文章时不该还亮着「诗词」，更不该点了没反应。
+ */
+function bindWorkNav(type) {
+  navItems().forEach(({ li, key }) => {
+    if (!key) {
+      li.classList.add('off');
+      return;
+    }
+    li.classList.toggle('on', SECTIONS[key].types.includes(type));
+    li.onclick = () => {
+      location.href = `home.html?sec=${key}`;
+    };
+  });
 }
 
 function bindReader() {
@@ -72,7 +138,26 @@ function bindReader() {
   document.querySelectorAll('.lv').forEach((l) => {
     l.onclick = () => setDepth(l.dataset.depth);
   });
+  bindRailHints();
   setDepth('L2');
+}
+
+/**
+ * 两侧 sticky 栏内部滚动的渐隐提示。滚动条已藏起来（免得页面上出现多条），
+ * 于是要另给一个「下面还有」的信号；滚到底就撤掉。
+ */
+let refreshRailHints = () => {};
+
+function bindRailHints() {
+  const rails = [...document.querySelectorAll('.side, .aside')];
+  refreshRailHints = () => {
+    rails.forEach((rail) => {
+      rail.classList.toggle('scrolls', rail.scrollHeight - rail.clientHeight - rail.scrollTop > 2);
+    });
+  };
+  rails.forEach((rail) => rail.addEventListener('scroll', refreshRailHints));
+  window.addEventListener('resize', refreshRailHints);
+  refreshRailHints();
 }
 
 /**
@@ -82,6 +167,8 @@ function bindReader() {
 function setDepth(depth) {
   document.body.dataset.depth = depth;
   document.querySelectorAll('.lv').forEach((x) => x.classList.toggle('on', x.dataset.depth === depth));
+  // L1 会把注释一览收起来，侧栏高度跟着变，渐隐提示要重算。
+  refreshRailHints();
   // L1 只给画面和名句，正文的原文/对照切换在这一层没有意义。
   if (depth === 'L3') {
     const compare = document.querySelector('.modes button[data-m="compare"]');
@@ -100,9 +187,12 @@ export async function renderWork(mount) {
   });
 
   document.title = `${work.title} · ${work.author.name} — 文渊`;
+  bindWorkNav(work.type);
   const hero = work.media.hero;
   const chapter = work.chapters[0];
   const multi = work.chapters.length > 1;
+  const verse = VERSE_TYPES.has(work.type);
+  const sec = Object.keys(SECTIONS).find((k) => SECTIONS[k].types.includes(work.type));
 
   const allNotes = [];
   work.chapters.forEach((ch, ci) =>
@@ -112,7 +202,7 @@ export async function renderWork(mount) {
   );
 
   mount.innerHTML = `
-  <div class="crumb"><a href="home.html">首页</a><i>／</i><a href="home.html">${esc(TYPE_LABEL[work.type])}</a><i>／</i>${esc(work.dynasty)}<i>／</i>${esc(work.title)}</div>
+  <div class="crumb"><a href="home.html">首页</a><i>／</i><a href="home.html${sec ? `?sec=${sec}` : ''}">${esc(TYPE_LABEL[work.type])}</a><i>／</i>${esc(work.dynasty)}<i>／</i>${esc(work.title)}</div>
 
   <section class="wband">
     <img src="${esc(hero)}" alt="${esc(work.title)} 意境图">
@@ -125,6 +215,12 @@ export async function renderWork(mount) {
 
   <div class="r-grid">
     <aside class="side">
+      <div class="box lvbox">
+        <div class="box-t">阅 读 深 度</div>
+        <div class="lv" data-depth="L1"><i>L1</i><p>一眼　只看画面与名句</p></div>
+        <div class="lv on" data-depth="L2"><i>L2</i><p>通读　原文与白话对照</p></div>
+        <div class="lv" data-depth="L3"><i>L3</i><p>深读　注释全开 + 细读</p></div>
+      </div>
       <div class="idx">${esc(TYPE_LABEL[work.type])} · ${multi ? `全 ${work.chapters.length} 章` : '单篇'}</div>
       <div class="kv"><span>朝代</span><b>${esc(work.dynasty)}</b></div>
       <div class="kv"><span>心境</span><b>${work.moods.map(esc).join(' · ')}</b></div>
@@ -151,8 +247,8 @@ export async function renderWork(mount) {
       </div>
 
       <div class="modes"><button class="on" data-m="orig">原 文</button><button data-m="compare">对 照</button></div>
-      <div class="paper">
-        ${chapter.lines.map((line, i) => renderLine(line, i)).join('')}
+      <div class="paper${verse ? '' : ' prose'}">
+        ${verse ? renderVerse(chapter.lines) : renderProse(chapter.lines)}
         <div class="seal">${esc(work.title.slice(0, 2))}</div>
       </div>
 
@@ -208,12 +304,6 @@ export async function renderWork(mount) {
           )
           .join('')}
       </div>
-      <div class="box">
-        <div class="box-t">阅 读 深 度</div>
-        <div class="lv" data-depth="L1"><i>L1</i><p>一眼　只看画面与名句</p></div>
-        <div class="lv on" data-depth="L2"><i>L2</i><p>通读　原文与白话对照</p></div>
-        <div class="lv" data-depth="L3"><i>L3</i><p>深读　注释全开 + 细读</p></div>
-      </div>
     </aside>
   </div>
   <footer>文渊 · 阅读页　内容由导入流水线生成</footer>`;
@@ -250,12 +340,8 @@ function renderRiver(index, onPick) {
     )
     .join('');
   host.querySelectorAll('.era').forEach((el) => {
-    el.onclick = () => {
-      const on = el.classList.contains('on');
-      host.querySelectorAll('.era').forEach((x) => x.classList.remove('on'));
-      if (!on) el.classList.add('on');
-      onPick(on ? null : { kind: 'dynasty', value: el.dataset.era });
-    };
+    el.onclick = () =>
+      onPick(el.classList.contains('on') ? null : { kind: 'dynasty', value: el.dataset.era });
   });
 }
 
@@ -271,23 +357,20 @@ function renderMoods(index, onPick) {
     .map(([m, n]) => `<button class="mood" data-mood="${esc(m)}">${esc(m)}<s>${n}</s></button>`)
     .join('');
   host.querySelectorAll('.mood').forEach((el) => {
-    el.onclick = () => {
-      const on = el.classList.contains('on');
-      host.querySelectorAll('.mood').forEach((x) => x.classList.remove('on'));
-      if (!on) el.classList.add('on');
-      onPick(on ? null : { kind: 'mood', value: el.dataset.mood });
-    };
+    el.onclick = () =>
+      onPick(el.classList.contains('on') ? null : { kind: 'mood', value: el.dataset.mood });
   });
 }
 
 function renderPicks(index, filter) {
   const list = !filter
     ? index
-    : index.filter((w) =>
-        filter.kind === 'dynasty'
+    : index.filter((w) => {
+        if (filter.kind === 'section') return SECTIONS[filter.value].types.includes(w.type);
+        return filter.kind === 'dynasty'
           ? normalizeDynasty(w.dynasty) === filter.value
-          : w.moods.includes(filter.value),
-      );
+          : w.moods.includes(filter.value);
+      });
   const host = $('.pick-row');
   host.innerHTML =
     list.length === 0
@@ -303,6 +386,39 @@ function renderPicks(index, filter) {
           .join('');
   const label = $('[data-pick-count]');
   if (label) label.textContent = filter ? `${list.length} / ${index.length} 篇` : `${index.length} 篇`;
+}
+
+/**
+ * 首页顶栏板块：就地筛选，不跳页。空板块与还没做的栏目置灰，
+ * 点了没反应比不能点更让人困惑。
+ */
+function renderNav(index, onPick) {
+  navItems().forEach(({ li, key }) => {
+    const count = key ? index.filter((w) => SECTIONS[key].types.includes(w.type)).length : 0;
+    if (count === 0) {
+      li.classList.add('off');
+      li.title = key ? '这个板块还没有作品' : '还没做';
+      return;
+    }
+    li.dataset.sec = key;
+    li.onclick = () => {
+      const on = li.classList.contains('on');
+      onPick(on ? null : { kind: 'section', value: key });
+    };
+  });
+}
+
+/** 单一筛选条件：三处入口互斥，同时亮着两个筛选器会让人搞不清看到的是什么。 */
+function applyFilter(index, filter) {
+  document.querySelectorAll('nav li[data-sec]').forEach((li) =>
+    li.classList.toggle('on', filter?.kind === 'section' && li.dataset.sec === filter.value));
+  document.querySelectorAll('[data-river] .era').forEach((el) =>
+    el.classList.toggle('on', filter?.kind === 'dynasty' && el.dataset.era === filter.value));
+  document.querySelectorAll('[data-moods] .mood').forEach((el) =>
+    el.classList.toggle('on', filter?.kind === 'mood' && el.dataset.mood === filter.value));
+  renderPicks(index, filter);
+  const url = filter?.kind === 'section' ? `?sec=${filter.value}` : location.pathname;
+  history.replaceState(null, '', url);
 }
 
 export async function renderHome(mount) {
@@ -322,15 +438,13 @@ export async function renderHome(mount) {
   bandTxt.querySelector('.src').textContent = `${lead.author}《${lead.title}》· ${lead.dynasty}`;
   bandTxt.querySelector('a.btn').href = `work.html?id=${encodeURIComponent(lead.id)}`;
 
-  const apply = (filter) => renderPicks(index, filter);
-  renderRiver(index, (f) => {
-    document.querySelectorAll('[data-moods] .mood').forEach((x) => x.classList.remove('on'));
-    apply(f);
-  });
-  renderMoods(index, (f) => {
-    document.querySelectorAll('[data-river] .era').forEach((x) => x.classList.remove('on'));
-    apply(f);
-  });
-  apply(null);
+  const apply = (filter) => applyFilter(index, filter);
+  renderNav(index, apply);
+  renderRiver(index, apply);
+  renderMoods(index, apply);
+
+  // 阅读页的顶栏与面包屑用 ?sec= 跳回来，落地就该停在那个板块上。
+  const sec = new URLSearchParams(location.search).get('sec');
+  apply(sec && SECTIONS[sec] ? { kind: 'section', value: sec } : null);
 }
 

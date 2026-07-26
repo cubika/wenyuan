@@ -4,6 +4,7 @@ import { LineSchema } from '@wenyuan/schema'
 import type { Copilot } from '../copilot/client.ts'
 import { runWithEmit } from '../copilot/emit.ts'
 import type { RawChapter } from '../segment.ts'
+import { applyParas } from '../segment.ts'
 import { VOICE } from './voice.ts'
 
 const AnnotationSchema = z.object({
@@ -114,7 +115,7 @@ ${numbered}
 
   const chapter: Chapter = {
     index: input.chapter.index,
-    lines: value.lines,
+    lines: applyParas(value.lines, input.chapter.paras),
     summary: value.summary,
     difficulty: value.difficulty,
     hash: input.chapter.hash,

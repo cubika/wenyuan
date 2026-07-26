@@ -26,6 +26,11 @@ export const LineSchema = z.object({
   text: zh(1, 200, '原文句'),
   translation: zh(2, 300, '白话译文'),
   notes: z.array(NoteSchema).max(6, '单句注释最多 6 条').default([]),
+  /**
+   * 所属段落序号，切分阶段机械写入（不由模型给）。
+   * 文章与典籍靠它还原分段连排；诗词一行一句，用不上，故可选。
+   */
+  para: z.number().int().min(0).optional(),
 })
 
 export const ChapterSchema = z.object({

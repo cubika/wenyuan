@@ -30,13 +30,16 @@ node scripts/build-data.mjs                          # 同步进站点并生成�
 
 ```bash
 npm run typecheck                       # 全量 tsc --noEmit
-npm run test                            # vitest（schema 单测）
+npm run test                            # vitest（schema 契约 + pipeline 切分）
 npm run check                           # 上面两个
 
 cd prototypes && python -m http.server 5180
-node scripts/verify-ui.mjs              # 20 项 UI 断言（需 dev server）
+node scripts/verify-ui.mjs              # 56 项 UI 断言（需 dev server）
 node scripts/verify-ui.mjs https://cubika.github.io/wenyuan   # 也可跑线上
 ```
+
+`npm run media -- <json> --force` 里的 `--force` 会被 npm 自己吃掉，重出图要直接调
+`node --experimental-strip-types packages/pipeline/src/cliMedia.ts <json> --force`。
 
 ## 约定
 
@@ -51,9 +54,10 @@ node scripts/verify-ui.mjs https://cubika.github.io/wenyuan   # 也可跑线上
 - **AI 只能通过 emit 工具交付**，不解析自由文本 JSON。校验失败时把逐条错误当作**工具返回值**回灌给模型，在同一会话内自修复。
 - **切分不交给 AI**。模型做切分又慢又会漏字改字；正则切完再喂给 AI 逐块解析。
 - **原文一字不改**是硬校验。`annotate` 会逐句比对模型返回的 `text` 与投入的原文，不一致就打回。
+- **段落归属由切分算，不问模型**。`Line.para` 在 `segment` 阶段写死并覆盖模型返回值 —— 文章要按段连排，段落信息一旦在切分时丢掉就补不回来。段号不进 content hash，改分段不会让译注缓存全部落空。
 - **注释的 `term` 必须是原句连续子串**。前端靠子串定位挂高亮，锚不上的注释等于废注，schema 层直接拒绝。
 - **名句必须逐字出自原文**（忽略标点），防止模型凭印象编造。
-- **出图 prompt 由读过原文的模型产出**，不套模板 —— 这是配图质量的关键。风格锚按体裁固定，构图强制一侧留白给压字。
+- **出图 prompt 由读过原文的模型产出**，不套模板 —— 这是配图质量的关键。风格锚按体裁固定；**主体必须在画面右侧、左侧留白**，因为站点的标题固定压在图片左边。
 - **图片必须串行生成**，且只提交 webp。GitHub Pages 不解析 Git LFS 指针，体积得靠压缩控住。
 
 ## Git

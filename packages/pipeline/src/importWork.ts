@@ -3,7 +3,7 @@ import { dirname, join } from 'node:path'
 import type { Chapter, Work } from '@wenyuan/schema'
 import { parseWork } from '@wenyuan/schema'
 import { Copilot } from './copilot/client.ts'
-import { segment } from './segment.ts'
+import { segment, applyParas } from './segment.ts'
 import { identify } from './stages/identify.ts'
 import { annotate } from './stages/annotate.ts'
 import { overview } from './stages/overview.ts'
@@ -88,7 +88,12 @@ export async function importWork(options: ImportOptions): Promise<Work> {
       const hit = cached.get(rawChapter.hash)
       if (hit) {
         console.log(`      ${rawChapter.index}/${parsed.chapters.length} 命中缓存，跳过`)
-        chapters.push({ ...hit, index: rawChapter.index })
+        // 段落序号不进指纹，命中缓存时按本次切分结果刷新，免得排版信息陈旧。
+        chapters.push({
+          ...hit,
+          index: rawChapter.index,
+          lines: applyParas(hit.lines, rawChapter.paras),
+        })
         continue
       }
       process.stdout.write(`      ${rawChapter.index}/${parsed.chapters.length} 译注中…`)

@@ -98,7 +98,7 @@ ${digest}
 
 - 以这个画风开头：\`${STYLE_ANCHOR[input.identity.type]}\`
 - 画**这篇作品最核心的那个意象**，不要泛泛的「中国风山水」
-- **构图必须把主体压在画面一侧，另一侧三分之二留白**（雾气、空白宣纸、淡墨），因为要在留白处压标题文字。明确写出主体在左还是在右。
+- **主体必须压在画面右侧三分之一，左侧三分之二留白**（雾气、空白宣纸、淡墨）。留白的一侧不能由模型自选 —— 站点的标题与名句固定压在图片左侧，主体一旦落在左边就会被文字盖住。prompt 里要明确写出 \`main subject on the right third, left two-thirds empty\`。
 - 结尾必须加上：\`No people, no faces, no figures, no text, no calligraphy, no seals, no borders.\`
 - 只描述画面，不要出现中文，不要解释你的思路。`,
   })
