@@ -58,4 +58,11 @@ node scripts/verify-ui.mjs https://cubika.github.io/wenyuan   # 也可跑线上
 
 ## Git
 
-不直接提交 `main`，走 `feature/<desc>` 分支。
+直接提交 `main`，不走 PR。每轮改动经确认后即推送，GitHub Actions 自动部署到 Pages。
+
+推送前先跑：
+
+```bash
+npm run check                 # typecheck + test
+node scripts/verify-ui.mjs    # UI 断言
+```

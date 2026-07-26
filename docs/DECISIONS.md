@@ -176,6 +176,7 @@ Note    { term, pinyin?, explain, type: 'word'|'allusion'|'person'|'place' }
 - 原型页面**一页一职责**：`home.html` 是首页，`work.html` 是阅读页，不要把两者塞进同一个滚动页
 - `data/works/*.json` 是流水线产物，**进版本库**（重跑要花 token，不能让 CI 每次重生成）
 - `prototypes/data/` 由 `scripts/build-data.mjs` 生成，**不进版本库**
+- **直接提交 `main`，不走 PR**。每轮改动经确认后即推送，Actions 自动部署。推送前必须跑通 `npm run check` 与 `node scripts/verify-ui.mjs`。
 
 ## 十二、已落地（2026-07-26）
 
