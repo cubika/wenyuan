@@ -1,0 +1,13 @@
+{
+  "name": "wenyuan",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "description": "文渊 — 中国古典文学阅读站",
+  "scripts": {
+    "media:compress": "node scripts/compress-media.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.2"
+  }
+}

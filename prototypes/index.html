@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>文渊 · 原型索引</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css">
+<style>
+:root{--bg:#F2EFE7;--ink:#1C1A17;--ink-2:#5A5346;--ink-3:#948B7A;--line:#D8D0BE;--cinnabar:#9C2E2E}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);
+  font-family:'LXGW WenKai','Noto Serif SC','Songti SC',STSong,SimSun,serif;padding:6vh 6vw 10vh}
+h1{font-size:32px;letter-spacing:.28em;font-weight:400;margin-bottom:12px}
+.sub{font-size:14px;color:var(--ink-3);letter-spacing:.14em;margin-bottom:8px}
+.note{font-size:13.5px;color:var(--ink-2);line-height:2;max-width:52em;margin-bottom:40px;
+  padding-left:16px;border-left:2px solid var(--cinnabar)}
+h2.grp{font-size:12px;letter-spacing:.32em;color:var(--ink-3);margin:34px 0 16px;font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+a.card{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);
+  transition:.28s;overflow:hidden}
+a.card:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(0,0,0,.13);border-color:var(--ink-3)}
+.swatch{height:124px;display:flex;align-items:center;justify-content:center;font-size:24px;letter-spacing:.2em}
+.s-home{background:#F5F1E8 url(media/chunjiang-hero.webp) center/cover;color:#1C1A17;text-shadow:0 1px 12px #F5F1E8,0 0 30px #F5F1E8}
+.s-work{background:#FBF8F1;color:#1C1A17;border-bottom:1px solid #D6CDBA}
+.s-a{background:#F5F1E8;color:#1C1A17;border-bottom:1px solid #D6CDBA}
+.s-b{background:linear-gradient(135deg,#12100D,#1F2A24);color:#E4D9BE}
+.s-c{background:#2E4057;color:#EDE3CC}
+.s-d{background:#FCFCFA;color:#0E0E0C;border-bottom:1px solid #E4E2DC}
+.body{padding:18px 20px 22px}
+.body h3{font-size:18px;letter-spacing:.14em;font-weight:400;margin-bottom:8px}
+.body h3 i{font-style:normal;color:var(--cinnabar);margin-right:9px;font-size:13px}
+.body p{font-size:13px;line-height:1.95;color:var(--ink-2)}
+.kw{margin-top:13px;display:flex;gap:7px;flex-wrap:wrap}
+.kw span{font-size:11px;padding:3px 10px;border:1px solid var(--line);color:var(--ink-3);letter-spacing:.1em}
+.dim a.card{opacity:.72}
+</style>
+</head>
+<body>
+<h1>文 渊</h1>
+<div class="sub">中国古典文学 · 原型索引</div>
+<div class="note">
+交互试这三处：点<b>朱色字词</b>看注释 · 切换<b>原文／对照</b>模式 · 原文模式下<b>悬停某句</b>浮出译文。<br>
+设计与技术决策见 <b>docs/DECISIONS.md</b>。
+</div>
+
+<h2 class="grp">当 前 方 案 · A2 宣纸素卷（紧凑版）</h2>
+<div class="grid">
+  <a class="card" href="home.html">
+    <div class="swatch s-home">首 页</div>
+    <div class="body">
+      <h3><i>01</i>首页</h3>
+      <p>配图横幅打底，每日一句压在画面左侧留白上。下方「卷首精选」卡片 ＋「时空长河 / 今日心境」侧栏两栏并排，横向空间用满。</p>
+      <div class="kw"><span>入口钩子</span><span>已配图</span><span>两栏</span></div>
+    </div>
+  </a>
+  <a class="card" href="work.html">
+    <div class="swatch s-work">阅 读 页</div>
+    <div class="body">
+      <h3><i>02</i>阅读页</h3>
+      <p>页首窄幅配图带标题，正文三栏：左作品信息 ／ 中原文与译文 ／ 右注释一览与阅读深度。深读部分双栏排版。</p>
+      <div class="kw"><span>三层阅读</span><span>点词出注</span><span>三栏</span></div>
+    </div>
+  </a>
+</div>
+
+<h2 class="grp">早 期 比 稿 · 存 档</h2>
+<div class="grid dim">
+  <a class="card" href="a-xuanzhi.html">
+    <div class="swatch s-a">宣 纸 素 卷</div>
+    <div class="body"><h3><i>A</i>宣纸素卷</h3>
+      <p>调性对，但垂直方向撑太开、横向没用起来，小屏上大片空白。已据此改造为 A2。</p></div>
+  </a>
+  <a class="card" href="b-moye.html">
+    <div class="swatch s-b">墨 色 夜 读</div>
+    <div class="body"><h3><i>B</i>墨色夜读</h3>
+      <p>氛围与冲击力最强，但长文阅读疲劳。氛围手法可留给未来的开屏动效。</p></div>
+  </a>
+  <a class="card" href="c-xianzhuang.html">
+    <div class="swatch s-c">线 装 竖 排</div>
+    <div class="body"><h3><i>C</i>线装竖排</h3>
+      <p>最有仪式感，但竖排阅读习惯成本高。降级为未来可选的「古籍模式」开关。</p></div>
+  </a>
+  <a class="card" href="d-jijian.html">
+    <div class="swatch s-d">新 东 方 极 简</div>
+    <div class="body"><h3><i>D</i>新东方极简</h3>
+      <p>干净现代，但古意偏淡，与项目调性不符。</p></div>
+  </a>
+</div>
+</body>
+</html>

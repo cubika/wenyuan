@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.env.local
+*.log
+.DS_Store
+Thumbs.db
+
+# 出图中间产物：只提交压缩后的 webp，不提交原始 png
+prototypes/media/*.png
+public/media/**/*.png
+
+# 截图只用于本地核对
+shots/

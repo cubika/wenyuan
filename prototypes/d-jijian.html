@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>方案四 · 新东方极简</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css">
+<style>
+:root{
+  --bg:#FCFCFA; --line:#E4E2DC; --ink:#0E0E0C; --ink-2:#565450; --ink-3:#9C9890;
+  --cinnabar:#C0392B;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.serif{font-family:'LXGW WenKai','Noto Serif SC','Source Han Serif SC','Songti SC',STSong,SimSun,serif}
+
+nav{
+  display:flex;align-items:center;justify-content:space-between;padding:26px 5vw;
+  position:sticky;top:0;background:rgba(252,252,250,.9);backdrop-filter:blur(12px);z-index:30;
+}
+.logo{display:flex;align-items:center;gap:11px}
+.dot{width:7px;height:7px;background:var(--cinnabar);border-radius:50%}
+.logo b{font-size:16px;letter-spacing:.4em;font-weight:500}
+nav ul{display:flex;gap:34px;list-style:none;font-size:12.5px;letter-spacing:.16em;color:var(--ink-3);font-weight:500}
+nav li{cursor:pointer;transition:.2s}
+nav li:hover,nav li.on{color:var(--ink)}
+
+/* 开篇 —— 编辑式大版面 */
+header{padding:12vh 5vw 9vh;border-bottom:1px solid var(--line)}
+.kicker{display:flex;align-items:center;gap:16px;font-size:11px;letter-spacing:.3em;color:var(--ink-3);margin-bottom:52px;font-weight:600}
+.kicker s{text-decoration:none;color:var(--cinnabar)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:end}
+h1.verse{
+  font-size:clamp(34px,5vw,64px);line-height:1.72;font-weight:400;letter-spacing:.06em;
+}
+h1.verse span{display:block;opacity:0;transform:translateY(20px);animation:up .8s cubic-bezier(.2,.8,.3,1) forwards}
+h1.verse span:nth-child(2){animation-delay:.16s}
+@keyframes up{to{opacity:1;transform:none}}
+.right{padding-bottom:14px;opacity:0;animation:up .8s .4s forwards}
+.gloss{font-size:16px;line-height:2.1;color:var(--ink-2)}
+.rule{height:1px;background:var(--line);margin:30px 0 22px}
+.src{display:flex;justify-content:space-between;font-size:12px;letter-spacing:.14em;color:var(--ink-3);font-weight:500}
+.cta{
+  margin-top:34px;display:inline-flex;align-items:center;gap:12px;padding:15px 30px;
+  background:var(--ink);color:var(--bg);border:0;cursor:pointer;font-family:inherit;
+  font-size:13px;letter-spacing:.2em;font-weight:500;transition:.25s;
+}
+.cta:hover{background:var(--cinnabar)}
+
+/* 心境 */
+.moods{padding:78px 5vw;border-bottom:1px solid var(--line);display:grid;grid-template-columns:220px 1fr;gap:5vw;align-items:start}
+.sec-t{font-size:11px;letter-spacing:.3em;color:var(--ink-3);font-weight:600;padding-top:6px}
+.mood-row{display:flex;flex-wrap:wrap;gap:10px}
+.mood{
+  padding:12px 24px;border:1px solid var(--line);background:transparent;cursor:pointer;
+  font-family:inherit;font-size:14px;letter-spacing:.1em;color:var(--ink-2);transition:.22s;border-radius:2px;
+}
+.mood:hover{border-color:var(--ink);color:var(--ink);transform:translateY(-2px)}
+
+/* 阅读 */
+.reader{padding:82px 5vw 40px;display:grid;grid-template-columns:220px minmax(0,1fr) 240px;gap:5vw;align-items:start}
+.side{position:sticky;top:110px}
+.side .num{font-size:52px;font-weight:200;color:var(--line);line-height:1;margin-bottom:20px}
+.side h2{font-size:26px;font-weight:400;letter-spacing:.1em;margin-bottom:10px}
+.side em{font-style:normal;font-size:12.5px;color:var(--ink-3);letter-spacing:.14em;display:block;margin-bottom:26px}
+.tag{display:block;font-size:11.5px;color:var(--ink-3);padding:7px 0;border-top:1px solid var(--line);letter-spacing:.1em}
+
+.modes{display:flex;gap:0;margin-bottom:44px;border:1px solid var(--line);width:fit-content;border-radius:2px;overflow:hidden}
+.modes button{padding:9px 22px;border:0;background:transparent;cursor:pointer;font-family:inherit;
+  font-size:12.5px;letter-spacing:.14em;color:var(--ink-3);transition:.2s;font-weight:500}
+.modes button.on{background:var(--ink);color:var(--bg)}
+
+.row{padding:18px 0;border-bottom:1px solid transparent;transition:.3s}
+.row:hover{border-color:var(--line)}
+.orig{font-size:25px;line-height:2.2;letter-spacing:.09em}
+.tr{font-size:14px;line-height:1.95;color:var(--ink-3);margin-top:10px;max-height:0;overflow:hidden;opacity:0;transition:.35s}
+body[data-mode="compare"] .tr{max-height:120px;opacity:1}
+body[data-mode="orig"] .row:hover .tr{max-height:120px;opacity:1}
+
+.n{position:relative;cursor:pointer;border-bottom:1.5px solid var(--cinnabar)}
+.pop{
+  position:absolute;left:50%;bottom:132%;transform:translateX(-50%) translateY(6px);
+  background:var(--ink);color:#F4F3F0;padding:13px 17px;width:max-content;max-width:270px;border-radius:3px;
+  font-size:13px;line-height:1.8;letter-spacing:.02em;text-align:left;font-family:inherit;
+  opacity:0;pointer-events:none;transition:.24s;z-index:40;box-shadow:0 16px 40px rgba(0,0,0,.16);
+}
+.pop b{display:block;color:#F0A29A;font-weight:600;font-size:11.5px;letter-spacing:.12em;margin-bottom:4px}
+.n.open .pop{opacity:1;transform:translateX(-50%)}
+
+/* 右栏：阅读进度 / 层级切换 */
+.layers{position:sticky;top:110px}
+.layers .sec-t{margin-bottom:18px}
+.layer{padding:13px 0;border-top:1px solid var(--line);cursor:pointer}
+.layer span{font-size:10.5px;letter-spacing:.2em;color:var(--ink-3);font-weight:600}
+.layer p{font-size:13.5px;color:var(--ink-2);margin-top:5px}
+.layer.on span{color:var(--cinnabar)}
+
+.deep{padding:0 5vw 110px;display:grid;grid-template-columns:220px minmax(0,1fr) 240px;gap:5vw}
+.deep-body{grid-column:2}
+.deep-body h3{font-size:11px;letter-spacing:.3em;color:var(--ink-3);font-weight:600;margin:44px 0 20px;padding-top:34px;border-top:1px solid var(--line)}
+.deep-body p{font-size:15px;line-height:2.15;color:var(--ink-2);margin-bottom:22px}
+.deep-body b{color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.06em;display:block;margin-bottom:6px}
+footer{padding:30px 5vw;font-size:11px;letter-spacing:.2em;color:var(--ink-3);border-top:1px solid var(--line)}
+@media(max-width:980px){.hero-grid,.moods,.reader,.deep{grid-template-columns:1fr}.side,.layers{position:static}}
+</style>
+</head>
+<body data-mode="orig">
+
+<nav>
+  <div class="logo"><i class="dot"></i><b>文渊</b></div>
+  <ul><li class="on">诗词</li><li>文章</li><li>典籍</li><li>人物</li><li>长河</li></ul>
+</nav>
+
+<header>
+  <div class="kicker"><s>●</s> 每日一句 <span>／</span> No.0726</div>
+  <div class="hero-grid">
+    <h1 class="verse serif"><span>春江潮水连海平，</span><span>海上明月共潮生。</span></h1>
+    <div class="right">
+      <div class="gloss serif">江水涨得与海一样平，一轮明月就跟着潮头，从海面上升起来了。</div>
+      <div class="rule"></div>
+      <div class="src"><span>张若虚《春江花月夜》</span><span>唐 · 约 660—720</span></div>
+      <button class="cta">读 全 篇 　→</button>
+    </div>
+  </div>
+</header>
+
+<section class="moods">
+  <div class="sec-t">今 日 心 境</div>
+  <div class="mood-row">
+    <button class="mood serif">孤独</button><button class="mood serif">壮志</button>
+    <button class="mood serif">闲适</button><button class="mood serif">离别</button>
+    <button class="mood serif">思乡</button><button class="mood serif">释然</button>
+  </div>
+</section>
+
+<section class="reader">
+  <aside class="side">
+    <div class="num">01</div>
+    <h2 class="serif">春江花月夜</h2>
+    <em>张若虚 · 唐</em>
+    <div class="tag">体裁　乐府</div>
+    <div class="tag">评价　孤篇盖全唐</div>
+    <div class="tag">难度　★★☆☆☆</div>
+    <div class="tag">主题　宇宙 · 时间 · 相思</div>
+  </aside>
+
+  <div>
+    <div class="modes"><button class="on" data-m="orig">原 文</button><button data-m="compare">对 照</button></div>
+    <div class="row"><div class="orig serif">春江潮水连海平，海上明月共潮生。</div><div class="tr">春天的江潮浩浩荡荡涨得与海相平，一轮明月伴着潮头，从海上冉冉升起。</div></div>
+    <div class="row"><div class="orig serif"><span class="n">滟滟<span class="pop"><b>滟滟 yàn yàn</b>波光荡漾、随水闪动的样子。</span></span>随波千万里，何处春江无月明！</div><div class="tr">月光随着波浪闪耀千万里，哪一处春江没有明亮的月色呢！</div></div>
+    <div class="row"><div class="orig serif">江流宛转绕<span class="n">芳甸<span class="pop"><b>芳甸 fāng diàn</b>长满花草的原野。甸，郊外之地。</span></span>，月照花林皆似<span class="n">霰<span class="pop"><b>霰 xiàn</b>空中降落的白色小冰粒。此处形容月光洒在花林上，如缀满雪珠。</span></span>。</div><div class="tr">江水曲折地绕过开满花草的原野，月光照在花林上，像撒了一层细碎的雪珠。</div></div>
+    <div class="row"><div class="orig serif">空里流霜不觉飞，<span class="n">汀<span class="pop"><b>汀 tīng</b>水边的平地、小洲。</span></span>上白沙看不见。</div><div class="tr">月色如霜在空中流动，让人察觉不到它的飞舞；水边的白沙与月光融成一色，几乎看不见了。</div></div>
+    <div class="row"><div class="orig serif">江畔何人初见月？江月何年初照人？</div><div class="tr">江边上是谁最先见到这轮月亮？江上的月亮又是哪一年最早照见了人？</div></div>
+    <div class="row"><div class="orig serif">人生代代无穷已，江月年年望相似。</div><div class="tr">人生一代代地传下去，没有穷尽；江上的月亮却年年岁岁，看上去都是一个模样。</div></div>
+  </div>
+
+  <aside class="layers">
+    <div class="sec-t">阅 读 深 度</div>
+    <div class="layer"><span>L1 一眼</span><p>只看名句与画面</p></div>
+    <div class="layer on"><span>L2 通读</span><p>原文 + 白话对照</p></div>
+    <div class="layer"><span>L3 深读</span><p>注释 · 背景 · 赏析</p></div>
+  </aside>
+</section>
+
+<section class="deep">
+  <div class="deep-body">
+    <h3>细 读</h3>
+    <p><b>时代背景</b>张若虚身处初唐向盛唐过渡之际，诗坛正从六朝的浮艳中挣脱。这首诗把宫体诗的旧题，写成了一场对宇宙与人生的追问 —— 闻一多称它是「诗中的诗，顶峰上的顶峰」。</p>
+    <p><b>为什么好</b>前八句只写景，第九句忽然一转：「江畔何人初见月？」把一个人的赏月，推到整个人类的时间尺度上。个体是短暂的，人类是绵延的，月亮是恒常的 —— 三重时间叠在同一轮月光里，这是全诗的骨架。</p>
+    <p><b>作者</b>张若虚，扬州人，与贺知章、张旭、包融并称「吴中四士」。全唐诗仅存其诗两首，却凭这一篇立于唐诗之巅。</p>
+  </div>
+</section>
+
+<footer>文渊 · 原型 D「新东方极简」</footer>
+
+<script>
+document.querySelectorAll('.modes button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.modes button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');document.body.dataset.mode=b.dataset.m;});
+document.querySelectorAll('.n').forEach(n=>n.onclick=e=>{
+  e.stopPropagation();const o=n.classList.contains('open');
+  document.querySelectorAll('.n').forEach(x=>x.classList.remove('open'));
+  if(!o)n.classList.add('open');});
+document.onclick=()=>document.querySelectorAll('.n').forEach(x=>x.classList.remove('open'));
+document.querySelectorAll('.layer').forEach(l=>l.onclick=()=>{
+  document.querySelectorAll('.layer').forEach(x=>x.classList.remove('on'));l.classList.add('on');});
+</script>
+</body>
+</html>

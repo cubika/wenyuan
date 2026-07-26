@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>方案三 · 线装竖排</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css">
+<style>
+:root{
+  --cover:#2E4057; --cover-d:#22304180; --leaf:#EDE3CC; --leaf-d:#E2D5B8;
+  --ink:#211E19; --ink-2:#5A5346; --ink-3:#918872; --cinnabar:#A83A2E; --rule:#C0B291;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--cover);color:var(--ink);
+  font-family:'LXGW WenKai','Noto Serif SC','Source Han Serif SC','Songti SC',STSong,SimSun,serif;
+  -webkit-font-smoothing:antialiased;
+}
+/* 封面纹理 */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;opacity:.16;pointer-events:none;
+  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 1px,transparent 1px 4px),
+                   repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 1px,transparent 1px 4px);
+}
+.wrap{position:relative;z-index:1}
+
+nav{
+  display:flex;align-items:center;justify-content:space-between;padding:18px 5vw;
+  color:var(--leaf);border-bottom:1px solid rgba(237,227,204,.16);
+  position:sticky;top:0;background:rgba(46,64,87,.9);backdrop-filter:blur(8px);z-index:30;
+}
+.logo b{font-size:20px;letter-spacing:.34em;font-weight:400}
+nav ul{display:flex;gap:32px;list-style:none;font-size:13.5px;letter-spacing:.2em;color:rgba(237,227,204,.62)}
+nav li{cursor:pointer;transition:.25s}
+nav li:hover,nav li.on{color:#E8C87A}
+
+/* ── 书页 ── */
+.book{
+  max-width:1180px;margin:44px auto;background:var(--leaf);
+  box-shadow:0 26px 70px rgba(0,0,0,.42);position:relative;
+  border:1px solid #C9B994;
+}
+/* 装订线 */
+.book::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:46px;
+  background:linear-gradient(90deg,var(--leaf-d),rgba(0,0,0,.05) 60%,transparent);
+  border-right:1px solid var(--rule);
+}
+.holes{position:absolute;left:20px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:space-evenly;align-items:center;z-index:3}
+.holes i{width:7px;height:7px;border-radius:50%;background:var(--cover);box-shadow:inset 0 1px 2px rgba(0,0,0,.6)}
+
+.page{padding:56px 60px 56px 96px}
+
+/* 版心（界栏） */
+.frame{border:2px solid var(--ink);padding:34px 30px;position:relative;background:
+  repeating-linear-gradient(90deg,transparent 0 calc(100% / 1),rgba(0,0,0,0) 0)}
+.frame::before{
+  content:'';position:absolute;inset:5px;border:1px solid var(--ink);pointer-events:none;opacity:.5;
+}
+
+/* 竖排正文 */
+.vtext{
+  writing-mode:vertical-rl;text-orientation:upright;
+  height:62vh;min-height:440px;overflow-x:auto;overflow-y:hidden;
+  padding:4px 6px;direction:ltr;
+}
+.vtext::-webkit-scrollbar{height:7px}
+.vtext::-webkit-scrollbar-thumb{background:var(--rule);border-radius:9px}
+.title-col{
+  font-size:29px;letter-spacing:.22em;margin-left:34px;padding-left:22px;
+  border-left:1px solid var(--rule);display:flex;align-items:flex-start;
+}
+.title-col small{font-size:13px;color:var(--ink-3);letter-spacing:.2em;margin-top:26px;margin-left:10px}
+.col{
+  font-size:23px;line-height:1.95;letter-spacing:.16em;margin-left:26px;
+  border-left:1px dashed transparent;padding-left:8px;transition:.3s;position:relative;
+}
+.col:hover{border-color:var(--rule)}
+.col .tr{
+  font-size:12.5px;line-height:1.9;color:var(--ink-3);letter-spacing:.06em;
+  max-width:0;overflow:hidden;opacity:0;transition:.4s;margin-top:0;
+}
+body[data-mode="compare"] .col .tr{max-width:2.6em;opacity:1;margin-top:14px}
+body[data-mode="orig"] .col:hover .tr{max-width:2.6em;opacity:1;margin-top:14px}
+
+/* 词注：竖排小字夹注 */
+.n{position:relative;cursor:pointer;color:var(--cinnabar)}
+.n::after{content:'';position:absolute;left:-6px;top:0;bottom:0;width:2px;background:var(--cinnabar);opacity:.45}
+.pop{
+  position:absolute;right:120%;top:0;writing-mode:horizontal-tb;text-orientation:mixed;
+  background:var(--ink);color:var(--leaf);padding:12px 16px;width:max-content;max-width:250px;
+  font-size:13px;line-height:1.85;letter-spacing:.03em;text-align:left;
+  opacity:0;pointer-events:none;transition:.24s;z-index:40;box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+.pop b{display:block;color:#E7A79C;font-weight:400;font-size:12px;letter-spacing:.12em;margin-bottom:4px}
+.n.open .pop{opacity:1}
+
+/* 印章 */
+.seal{
+  position:absolute;right:34px;bottom:28px;width:62px;height:62px;border:2px solid var(--cinnabar);
+  color:var(--cinnabar);writing-mode:vertical-rl;display:grid;place-items:center;
+  font-size:17px;letter-spacing:.08em;opacity:.82;transform:rotate(-4deg);border-radius:2px;
+}
+
+/* 工具条 */
+.bar{display:flex;align-items:center;gap:26px;margin-bottom:26px;flex-wrap:wrap}
+.modes{display:flex;border:1px solid var(--rule)}
+.modes button{padding:8px 20px;border:0;background:transparent;cursor:pointer;font-family:inherit;
+  font-size:13px;letter-spacing:.18em;color:var(--ink-3);transition:.2s}
+.modes button.on{background:var(--ink);color:var(--leaf)}
+.tags{display:flex;gap:8px}
+.tag{font-size:11px;padding:4px 11px;border:1px solid var(--rule);color:var(--ink-3);letter-spacing:.14em}
+.hint{font-size:11.5px;color:var(--ink-3);letter-spacing:.14em}
+
+/* 横排深读 */
+.deep{margin-top:46px;padding-top:34px;border-top:1px solid var(--rule)}
+.deep h3{font-size:12.5px;letter-spacing:.42em;color:var(--cinnabar);margin-bottom:20px;font-weight:400}
+.deep p{font-size:14.5px;line-height:2.2;color:var(--ink-2);margin-bottom:20px;max-width:46em}
+.deep b{color:var(--ink);font-weight:400}
+footer{padding:26px 5vw 46px;text-align:center;font-size:11px;letter-spacing:.22em;color:rgba(237,227,204,.42)}
+</style>
+</head>
+<body data-mode="orig">
+<div class="wrap">
+
+<nav>
+  <div class="logo"><b>文渊</b></div>
+  <ul><li class="on">诗词</li><li>文章</li><li>典籍</li><li>人物</li><li>长河</li></ul>
+</nav>
+
+<div class="book">
+  <div class="holes"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="page">
+
+    <div class="bar">
+      <div class="modes"><button class="on" data-m="orig">原 文</button><button data-m="compare">对 照</button></div>
+      <div class="tags"><span class="tag">乐府</span><span class="tag">孤篇盖全唐</span><span class="tag">难度 ★★☆☆☆</span></div>
+      <div class="hint">← 右起竖读，横向滚动 · 点朱字看注</div>
+    </div>
+
+    <div class="frame">
+      <div class="vtext">
+        <div class="title-col">春江花月夜<small>唐 · 张若虚</small></div>
+
+        <div class="col">春江潮水连海平　海上明月共潮生
+          <div class="tr">春潮涨得与海相平，明月伴着潮头自海上升起。</div></div>
+        <div class="col"><span class="n">滟滟<span class="pop"><b>滟滟 yàn yàn</b>波光荡漾、随水闪动的样子。</span></span>随波千万里　何处春江无月明
+          <div class="tr">月光随波闪耀千万里，哪一处春江没有明月。</div></div>
+        <div class="col">江流宛转绕<span class="n">芳甸<span class="pop"><b>芳甸 fāng diàn</b>长满花草的原野。甸，郊外之地。</span></span>　月照花林皆似<span class="n">霰<span class="pop"><b>霰 xiàn</b>白色小冰粒。此处形容月光洒在花林上如缀雪珠。</span></span>
+          <div class="tr">江水绕过花草原野，月照花林如撒碎雪。</div></div>
+        <div class="col">空里流霜不觉飞　<span class="n">汀<span class="pop"><b>汀 tīng</b>水边的平地、小洲。</span></span>上白沙看不见
+          <div class="tr">月色如霜流动而不觉其飞，白沙与月光融成一色。</div></div>
+        <div class="col">江畔何人初见月　江月何年初照人
+          <div class="tr">江边是谁最先见到这轮月？江月又哪一年最早照见人？</div></div>
+        <div class="col">人生代代无穷已　江月年年望相似
+          <div class="tr">人生代代相传无穷尽，江月年年看去却相似。</div></div>
+      </div>
+      <div class="seal">春江</div>
+    </div>
+
+    <div class="deep">
+      <h3>细 读</h3>
+      <p><b>时代背景</b>　张若虚身处初唐向盛唐过渡之际，诗坛正从六朝的浮艳中挣脱。这首诗把宫体诗的旧题，写成了一场对宇宙与人生的追问 —— 闻一多称它是「诗中的诗，顶峰上的顶峰」。</p>
+      <p><b>为什么好</b>　前八句只写景，第九句忽然一转：「江畔何人初见月？」把一个人的赏月推到整个人类的时间尺度。个体短暂、人类绵延、月亮恒常 —— 三重时间叠在同一轮月光里，这是全诗的骨架。</p>
+      <p><b>作者</b>　张若虚，扬州人，与贺知章、张旭、包融并称「吴中四士」。全唐诗仅存其诗两首，却凭这一篇立于唐诗之巅。</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>文渊 · 原型 C「线装竖排」</footer>
+</div>
+
+<script>
+document.querySelectorAll('.modes button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.modes button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');document.body.dataset.mode=b.dataset.m;});
+document.querySelectorAll('.n').forEach(n=>n.onclick=e=>{
+  e.stopPropagation();const o=n.classList.contains('open');
+  document.querySelectorAll('.n').forEach(x=>x.classList.remove('open'));
+  if(!o)n.classList.add('open');});
+document.onclick=()=>document.querySelectorAll('.n').forEach(x=>x.classList.remove('open'));
+/* 竖排容器：滚轮转横向滚动 */
+const v=document.querySelector('.vtext');
+v.addEventListener('wheel',e=>{if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){v.scrollLeft-=e.deltaY;e.preventDefault();}},{passive:false});
+</script>
+</body>
+</html>
