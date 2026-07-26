@@ -1,0 +1,63 @@
+{
+  "id": "sun-wu",
+  "name": "孙武",
+  "aka": [],
+  "dynasty": "春秋",
+  "era": "约活动于春秋末期",
+  "hook": "他把用兵经验压缩成十三篇可操作的方法，让后世在开战前先算清“能不能打、值不值得打”。",
+  "bio": "孙武，后世常称“孙子”，一般认为是春秋末期活跃的兵家人物。早期经历记载不多，较可靠的叙述主要见于《史记》：他在吴国受到重视，以兵法服务于吴国军政。围绕他是否直接统军、参与到何种程度的具体战事，史料并不完全一致，也夹杂后世演绎。尽管生平细节有空白，《孙子兵法》所呈现的核心方法——先算后战、因势制胜、以最小代价达成目标——使他在中国军事思想史上占据源头位置，并长期影响政治、战略与组织决策的思考方式。",
+  "traits": [
+    "审势",
+    "慎战",
+    "务实",
+    "重算"
+  ],
+  "timeline": [
+    {
+      "year": -512,
+      "label": "约前512年",
+      "title": "兵法见吴王",
+      "detail": "《史记》记其以兵法受吴王阖闾重视，标志这套理论进入吴国的实际军事决策。"
+    },
+    {
+      "year": -506,
+      "label": "前506年",
+      "title": "吴楚大战",
+      "detail": "吴军攻入楚都郢；后世常据此推测孙武参与策划，但其具体战场职责在史料中并不统一。"
+    },
+    {
+      "year": -496,
+      "label": "前496年后",
+      "title": "史载渐稀",
+      "detail": "阖闾去世后，关于孙武的同时代记载明显减少，其后行迹多不可考。"
+    }
+  ],
+  "circle": [
+    {
+      "name": "伍子胥",
+      "relation": "同僚",
+      "note": "二人同在吴国军政体系中活动，后世叙述中常并称为吴国扩张阶段的重要谋划者。"
+    },
+    {
+      "name": "吴王阖闾",
+      "relation": "同僚",
+      "note": "《史记》所见关键关联人物；孙武因向其陈兵法而进入吴国核心军事决策层。"
+    },
+    {
+      "name": "孙膑",
+      "relation": "后世追随",
+      "note": "虽非同时代人物，但后世兵家常以“孙武—孙膑”并举，显示其理论谱系影响。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "孙子兵法",
+      "note": "以十三篇建立系统的战略分析框架，强调全局计算与节制用兵，成为先秦兵书中流传最广者之一。",
+      "workId": "sunzi-bingfa"
+    }
+  ],
+  "media": {
+    "heroPrompt": "A widescreen 2.35:1 scene at dusk beside a Wu-state riverside command camp: on the right third, a low lacquered war table holds neatly arranged bamboo slips, a bronze sword, and small wooden troop markers over a hand-drawn terrain map; behind it stands a tall campaign banner and distant river mist with faint city-wall silhouettes, all sharply focused on the right side. The left two-thirds are open negative space with soft fog, subdued water reflections, and minimal tonal gradients for overlay text area. Cinematic, historical, restrained color palette, fine texture, no fantasy elements. No people, no faces, no figures, no text, no calligraphy, no seals, no borders.",
+    "hero": "media/people/sun-wu/hero.webp"
+  }
+}

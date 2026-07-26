@@ -1,5 +1,7 @@
 import { z } from 'zod'
 
+export * from './person.ts'
+
 /**
  * 一份 schema 同时喂三层阅读：
  * L1 一眼 → hook / famousLines / media

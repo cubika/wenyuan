@@ -1,0 +1,138 @@
+{
+  "id": "su-shi",
+  "name": "苏轼",
+  "aka": [
+    "子瞻",
+    "和仲",
+    "东坡居士",
+    "苏东坡"
+  ],
+  "dynasty": "宋",
+  "era": "1037—1101",
+  "born": 1037,
+  "died": 1101,
+  "hook": "他把仕途沉浮、日常吃喝和山水宇宙写进同一支笔，让宋代文学一下子有了活气。",
+  "bio": "苏轼，眉州眉山人，北宋文人、官员，与父苏洵、弟苏辙并称“三苏”。他早年以文章受欧阳修赏识，入仕后历任地方与中央官职，却因政争多次外放，先后在黄州、惠州、儋州等地生活。长期的贬谪没有压垮他，反而让他的写作更开阔：政论有锋芒，诗词有气象，散文有议论与叙事的张力，书法也自成面目。苏轼打通了“雅”与“俗”、严肃与诙谐，把个人生命经验与时代处境写得可感可亲，是宋代文学转向成熟与多样的关键人物。",
+  "traits": [
+    "旷达",
+    "多面手",
+    "议论锋利",
+    "重情",
+    "好奇好学"
+  ],
+  "timeline": [
+    {
+      "year": 1037,
+      "label": "景祐四年（1037）",
+      "title": "生于眉山",
+      "detail": "出生于眉州眉山，家学背景深厚，为其文章与见识奠定基础。"
+    },
+    {
+      "year": 1057,
+      "label": "嘉祐二年（1057）",
+      "title": "进士及第",
+      "detail": "在科举中脱颖而出，得到欧阳修等前辈注意，正式进入士大夫政治与文坛。"
+    },
+    {
+      "year": 1079,
+      "label": "元丰二年（1079）",
+      "title": "乌台诗案",
+      "detail": "因诗文获罪入狱，成为其政治生涯与写作气质的重要转折点。"
+    },
+    {
+      "year": 1080,
+      "label": "元丰三年（1080）",
+      "title": "贬居黄州",
+      "detail": "在黄州的困顿生活中完成自我调适，“东坡”名号与其成熟文风在此定型。"
+    },
+    {
+      "year": 1082,
+      "label": "元丰五年（1082）",
+      "title": "赤壁创作",
+      "detail": "围绕赤壁写下诗词文名篇，把历史想象、人生感慨与宇宙意识熔于一炉。"
+    },
+    {
+      "year": 1089,
+      "label": "元祐四年（1089）",
+      "title": "知杭州",
+      "detail": "任杭州地方官期间兴修水利、整治西湖，展现其务实行政能力与民生关怀。"
+    },
+    {
+      "year": 1094,
+      "label": "绍圣元年（1094）",
+      "title": "贬谪惠州",
+      "detail": "再遭外放至岭南，处境更艰，但写作与日常记录更见从容与生命力。"
+    },
+    {
+      "year": 1097,
+      "label": "绍圣四年（1097）",
+      "title": "远贬儋州",
+      "detail": "被贬至海南儋州，几近政治生涯边缘，却仍讲学作文，影响地方文教。"
+    },
+    {
+      "year": 1101,
+      "label": "建中靖国元年（1101）",
+      "title": "病逝常州",
+      "detail": "北还后不久卒于常州，身后文名日隆，对后世诗文与士人精神影响深远。"
+    }
+  ],
+  "circle": [
+    {
+      "name": "苏辙",
+      "relation": "亲属",
+      "note": "其弟，文章与政论并重，兄弟一生互相扶持、唱和酬答甚多。"
+    },
+    {
+      "name": "苏洵",
+      "relation": "亲属",
+      "note": "其父，以古文见长，对苏轼早年学术与文章路径影响明显。"
+    },
+    {
+      "name": "欧阳修",
+      "relation": "师友",
+      "note": "科举与文坛上的关键前辈，早期赏识并推重苏轼文章。"
+    },
+    {
+      "name": "王安石",
+      "relation": "同僚",
+      "note": "同处北宋政坛，政见多有分歧，但彼此在文学与才识上互相知重。"
+    },
+    {
+      "name": "黄庭坚",
+      "relation": "门生",
+      "note": "“苏门”重要成员之一，承续并发展苏轼的诗文与书法影响。"
+    },
+    {
+      "name": "秦观",
+      "relation": "门生",
+      "note": "“苏门”代表作家，词风与文学道路都受苏轼提携与影响。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "赤壁赋",
+      "note": "以江上夜游展开议论与抒情，历史、人生与宇宙感在一篇中并置。"
+    },
+    {
+      "title": "念奴娇·赤壁怀古",
+      "note": "借古战场写英雄与自我，开宋词雄浑一路的代表篇章。"
+    },
+    {
+      "title": "江城子·乙卯正月二十日夜记梦",
+      "note": "悼亡词名作，以梦写哀，语浅情深，克制中见巨大悲痛。",
+      "workId": "jiangchengzi-jimeng"
+    },
+    {
+      "title": "定风波·莫听穿林打叶声",
+      "note": "把风雨行旅写成处世态度，语言平易却有强烈人格力量。"
+    },
+    {
+      "title": "水调歌头·明月几时有",
+      "note": "以中秋明月贯通离合悲欢，兼具哲思与歌行之美。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Ultra-wide 2.35:1 cinematic banner of Su Shi’s Red Cliff world: moonlit Yangtze at night, steep weathered cliff wall and a small wooden boat with a wine jar, cup, and bamboo flute beside a dim lantern; keep the main visual weight strictly in the right third (boat, lantern glow, cliff edge), leave the left two-thirds as open misty water and night sky for clean negative space; Song-dynasty ink-and-color mood, subtle brush texture, restrained palette, tranquil yet immense atmosphere. No people, no faces, no figures, no text, no calligraphy, no seals, no borders.",
+    "hero": "media/people/su-shi/hero.webp"
+  }
+}

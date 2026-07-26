@@ -90,9 +90,13 @@ await navEssay.click();
 await page.waitForTimeout(300);
 check('nav: 再点取消筛选', (await page.locator('.pick').count()) === indexCount);
 check('nav: 未开放栏目置灰不可点', await page.evaluate(() =>
-  ['人物', '长河', '地图'].every((t) =>
+  ['长河', '地图'].every((t) =>
     [...document.querySelectorAll('nav li')].find((l) => l.textContent.trim() === t)
       ?.classList.contains('off'))));
+check('nav: 「人物」可点进人物页', await page.evaluate(() => {
+  const li = [...document.querySelectorAll('nav li')].find((l) => l.textContent.trim() === '人物');
+  return !!li && !li.classList.contains('off');
+}));
 
 // 阅读页的顶栏与面包屑靠 ?sec= 跳回来，落地要停在那个板块上
 await page.goto(`${BASE}/home.html?sec=essay`, { waitUntil: 'networkidle' });
@@ -361,6 +365,71 @@ if (classicWork) {
     document.documentElement.scrollWidth <= window.innerWidth + 1));
 } else {
   check('classic: 全部章节都渲染', true, '(索引里没有典籍，跳过)');
+}
+
+// ── 人物 ──
+failures.length = 0;
+await page.goto(`${BASE}/people.html`, { waitUntil: 'networkidle' });
+await page.waitForTimeout(900);
+const people = await page.evaluate(async () => await fetch('data/people.json').then((r) => r.json()));
+check('people: 无 404 资源', failures.length === 0, failures.join(', '));
+check('people: 卡片数与 people.json 一致',
+  (await page.locator('.pcard').count()) === people.length, `${people.length} 位`);
+check('people: 顶栏「人物」高亮', await page.evaluate(() =>
+  [...document.querySelectorAll('nav li.on')].map((l) => l.textContent.trim()).join() === '人物'));
+// 生卒不详的人物要按朝代落位，否则孙武会被排到苏轼后面去
+check('people: 按时间先后排列', await page.evaluate(() => {
+  const names = [...document.querySelectorAll('.pcard h3')].map((h) => h.textContent.trim());
+  return names.length < 2 || names[0] === '孙武';
+}));
+check('people: 卡片链接到人物页',
+  /^person\.html\?id=.+/.test((await page.locator('.pcard').first().getAttribute('href')) ?? ''));
+check('people: 卡片给出站内作品', await page.evaluate(() =>
+  [...document.querySelectorAll('.pworks')].every((e) => e.textContent.trim().length > 0)));
+check('people: 无横向溢出', await page.evaluate(() =>
+  document.documentElement.scrollWidth <= window.innerWidth + 1));
+
+const personId = people.find((p) => p.works.length > 0)?.id ?? people[0]?.id;
+if (personId) {
+  failures.length = 0;
+  await page.goto(`${BASE}/person.html?id=${personId}`, { waitUntil: 'networkidle' });
+  await page.waitForTimeout(900);
+  const pdata = await page.evaluate(async (id) =>
+    await fetch(`data/people/${id}.json`).then((r) => r.json()), personId);
+
+  check(`person: ${pdata.name} 无 404 资源`, failures.length === 0, failures.join(', '));
+  check('person: 生平年表条数与档案一致',
+    (await page.locator('.life li').count()) === pdata.timeline.length,
+    `${pdata.timeline.length} 节点`);
+  check('person: 年表按时间升序呈现', await page.evaluate(() =>
+    [...document.querySelectorAll('.life li i')].map((e) => e.textContent).length > 0));
+  check('person: 交游条数与档案一致',
+    (await page.locator('.cc').count()) === pdata.circle.length, `${pdata.circle.length} 位`);
+  check('person: 站内作品可点进阅读页', await page.evaluate(() => {
+    const a = document.querySelector('.aside a.note-i');
+    return !!a && /^work\.html\?id=.+/.test(a.getAttribute('href') ?? '');
+  }));
+  check('person: 配图已加载', await page.evaluate(() => {
+    const i = document.querySelector('.wband img');
+    return !!i && i.naturalWidth > 100;
+  }));
+  check('person: 侧栏不出现第二条滚动条', await page.evaluate(() =>
+    [...document.querySelectorAll('.side, .aside')].every((el) => el.offsetWidth - el.clientWidth === 0)));
+  check('person: 无横向溢出', await page.evaluate(() =>
+    document.documentElement.scrollWidth <= window.innerWidth + 1));
+
+  // 作品页的作者名要能接回人物页
+  const w = pdata.works[0];
+  if (w) {
+    await page.goto(`${BASE}/work.html?id=${w.id}`, { waitUntil: 'networkidle' });
+    await page.waitForTimeout(900);
+    check('work: 作者名链到人物页', await page.evaluate((id) => {
+      const a = document.querySelector('.wband-in a.who');
+      return !!a && a.getAttribute('href') === `person.html?id=${id}`;
+    }, personId));
+  }
+} else {
+  check('person: 生平年表条数与档案一致', true, '(暂无人物，跳过)');
 }
 
 // 旧的写死默认 id 曾导致 /work.html 不带参数时 404，这里守住。放在最后，

@@ -1,0 +1,98 @@
+{
+  "id": "liu-yuxi",
+  "name": "刘禹锡",
+  "aka": [
+    "字梦得",
+    "刘宾客",
+    "诗豪"
+  ],
+  "dynasty": "唐",
+  "era": "772—842",
+  "born": 772,
+  "died": 842,
+  "hook": "他把长期贬谪活成了创作高峰，诗文里既有硬气的讽刺，也有穿透世事后的明亮劲头。",
+  "bio": "刘禹锡，字梦得，中唐诗人、散文家。早年进士及第，入仕后卷入永贞革新，失败后长期外放，历任多地州郡官。反复贬谪的经历，塑造了他作品里少见的硬朗与清醒：一面敢于针砭时政与门阀习气，一面又能在日常景物中写出开阔与自持。诗歌上，他与柳宗元并称“刘柳”，晚年又与白居易多有唱和，并称“刘白”；文体上，他的铭、序等短文语言精炼、骨力劲健。《陋室铭》以极短篇幅把“安贫守志”写得有筋有节，成为后世传诵最广的名篇之一。",
+  "traits": [
+    "刚健",
+    "旷达",
+    "讽喻",
+    "贬谪书写",
+    "骨力"
+  ],
+  "timeline": [
+    {
+      "year": 772,
+      "label": "大历七年（772）",
+      "title": "出生",
+      "detail": "生于中唐士人家庭背景中，后来在诗文与政坛两线并进，形成其独特的书写视角。"
+    },
+    {
+      "year": 793,
+      "label": "贞元九年（793）",
+      "title": "进士及第",
+      "detail": "科举入仕是其政治与文学生涯的起点，也使他进入中唐核心士人网络。"
+    },
+    {
+      "year": 805,
+      "label": "永贞元年（805）",
+      "title": "贬为司马",
+      "detail": "永贞革新失败后被贬朗州司马，政治挫折直接推动其贬谪时期的大量诗文创作。"
+    },
+    {
+      "year": 815,
+      "label": "元和十年（815）",
+      "title": "再返长安",
+      "detail": "一度召还京师后又外放，仕途起伏加深了他诗中对权势、世态与自我节操的持续书写。"
+    },
+    {
+      "year": 842,
+      "label": "会昌二年（842）",
+      "title": "病逝",
+      "detail": "晚年仍有诗文流传，身后以诗文兼擅、风骨鲜明而长期影响唐后文学。"
+    }
+  ],
+  "circle": [
+    {
+      "name": "柳宗元",
+      "relation": "同僚",
+      "note": "同属永贞革新集团，皆遭贬谪，诗文往来密切，后世常并称“刘柳”。"
+    },
+    {
+      "name": "白居易",
+      "relation": "知音",
+      "note": "晚年唱和频繁，题材互通、风格互补，文学史上并称“刘白”。"
+    },
+    {
+      "name": "王叔文",
+      "relation": "同僚",
+      "note": "永贞革新中的核心同阵营人物，刘禹锡因这场政治实践而深受牵连。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "陋室铭",
+      "note": "以简驭繁，借“陋室”立人格与志趣，短章而气骨充实。",
+      "workId": "loushiming"
+    },
+    {
+      "title": "酬乐天扬州初逢席上见赠",
+      "note": "困顿之后仍见昂扬，名句“沉舟侧畔千帆过”体现其精神力度。"
+    },
+    {
+      "title": "乌衣巷",
+      "note": "以金陵旧地写盛衰更替，尺幅短小却历史感强。"
+    },
+    {
+      "title": "西塞山怀古",
+      "note": "借古战场与旧事兴亡，写出中唐士人的历史反思。"
+    },
+    {
+      "title": "秋词（其一）",
+      "note": "“我言秋日胜春朝”反转悲秋传统，鲜明呈现其昂扬气质。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Ultra-wide cinematic banner, ratio 2.35:1. Left two-thirds is clean atmospheric negative space with soft river mist and pale autumn sky over a Tang-era southern water town at dawn. On the right third, place a humble scholar’s room by the river: a simple rough wooden desk, an unadorned qin, a bronze inkstone, rolled bamboo manuscripts, and a small window opening to distant hills and water, suggesting exile and inner composure. Muted ink-wash palette, subtle texture, quiet resilience, historical realism, no dramatic fantasy lighting. No people, no faces, no figures, no text, no calligraphy, no seals, no borders.",
+    "hero": "media/people/liu-yuxi/hero.webp"
+  }
+}

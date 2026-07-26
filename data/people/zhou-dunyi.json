@@ -1,0 +1,95 @@
+{
+  "id": "zhou-dunyi",
+  "name": "周敦颐",
+  "aka": [
+    "茂叔",
+    "濂溪先生",
+    "周子"
+  ],
+  "dynasty": "北宋",
+  "era": "1017—1073",
+  "born": 1017,
+  "died": 1073,
+  "hook": "他用一篇《爱莲说》把“出淤泥而不染”写成了后世反复引用的君子标准。",
+  "bio": "周敦颐是北宋道州人，字茂叔，后世常称濂溪先生。其一生长期在地方任职，政声以清简平实著称，同时持续讲学与著述。他的文字不以铺陈辞采见长，而是用极简的篇幅把道德理想、人格标准和日常感受连在一起，《爱莲说》就是这种写法的典型。学术上，他以《太极图说》《通书》建立起一套从宇宙本原到人伦修养的论述路径，被视为宋代理学的重要先驱；文学史上，他的短文把“说理”与“可诵读”结合，影响了后来的宋明散文风格。",
+  "traits": [
+    "清简自持",
+    "理学先驱",
+    "短文精炼",
+    "重德性"
+  ],
+  "timeline": [
+    {
+      "year": 1017,
+      "label": "天禧元年（1017）",
+      "title": "出生道州",
+      "detail": "生于道州营道，此后以地方治理经验与讲学著述并行，形成其思想底色。"
+    },
+    {
+      "year": 1040,
+      "label": "约庆历初（约1040）",
+      "title": "步入仕途",
+      "detail": "约在这一时期进入地方官场，长期处理州县实务，形成务实而清约的从政风格。"
+    },
+    {
+      "year": 1060,
+      "label": "约嘉祐中（约1060）",
+      "title": "讲学成名",
+      "detail": "在任官之外持续讲学，门人问学渐多，其义理思考开始形成较完整体系。"
+    },
+    {
+      "year": 1065,
+      "label": "约治平年间（约1065）",
+      "title": "撰太极图说",
+      "detail": "约在这一阶段完成《太极图说》，把宇宙论与道德修养打通，奠定其学术地位。"
+    },
+    {
+      "year": 1071,
+      "label": "熙宁四年（1071）",
+      "title": "作爱莲说",
+      "detail": "借莲花形象提出君子人格标准，篇幅短小却层次分明，成为流传最广的名篇之一。"
+    },
+    {
+      "year": 1073,
+      "label": "熙宁六年（1073）",
+      "title": "病逝",
+      "detail": "晚年仍重讲学与著述，去世后其思想被宋明儒者持续阐发，影响深远。"
+    }
+  ],
+  "circle": [
+    {
+      "name": "程颢",
+      "relation": "门生",
+      "note": "程颢曾向周敦颐问学，后在北宋理学展开中继承并发展其核心问题意识。"
+    },
+    {
+      "name": "程颐",
+      "relation": "门生",
+      "note": "程颐早年受其启发，后来把义理讨论推进到更系统的层面。"
+    },
+    {
+      "name": "朱熹",
+      "relation": "后世追随",
+      "note": "朱熹高度推重周敦颐，把他置于宋代理学谱系前端并加以阐释传播。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "爱莲说",
+      "note": "以“莲”喻“君子”，以极简结构完成德性论述，是最具大众传播力的代表作。",
+      "workId": "ailianshuo"
+    },
+    {
+      "title": "太极图说",
+      "note": "以简练文字说明太极、阴阳与万物生成关系，是其义理建构的关键文本。"
+    },
+    {
+      "title": "通书",
+      "note": "围绕诚、静、动等核心观念展开，连接宇宙论与修养论，影响后世理学论述方式。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Cinematic 2.35:1 banner scene inspired by Zhou Dunyi’s Lianxi imagery: on the right third, a quiet lotus pond edge with dark mud, slender green stems, and one luminous white lotus rising clean above the water, beside a small weathered scholar’s stone and a narrow stream feeding the pond; far behind, faint Northern Song academy rooflines dissolve into mist. Keep the left two-thirds mostly open water, pale haze, and soft negative space for overlay text, with restrained ink-wash tones, subtle paper texture, and calm austere mood. No people, no faces, no figures, no text, no calligraphy, no seals, no borders.",
+    "hero": "media/people/zhou-dunyi/hero.webp"
+  }
+}

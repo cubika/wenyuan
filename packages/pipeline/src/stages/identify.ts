@@ -47,7 +47,7 @@ export async function identify(input: IdentifyInput): Promise<Identity> {
 - id：作品名的小写拼音 kebab-case，如 chun-jiang-hua-yue-ye、dao-de-jing
 - title：作品标题
 - type：poem（诗）/ ci（词）/ essay（辞赋散文）/ classic（成体系的典籍）
-- dynasty：朝代
+- dynasty：朝代。用最简称呼（唐 / 宋 / 先秦 / 春秋），不要写「唐代」「宋朝」，站内要能对齐。分期有意义时可写「北宋」「初唐」。
 - author：姓名、生卒或活动年代、小传。小传写这个人**为什么值得认识**，而不是罗列官职履历。作者不详就写「佚名」，小传交代作品的来源与流传。
 - hook：一句话钩子。这是首页给路人看的第一句，要说清**为什么这篇值得点开**，说人话，不要用「千古名篇」「脍炙人口」这种套话。
 - moods：从 ${MOODS.join(' / ')} 中选 1-3 个最贴合的

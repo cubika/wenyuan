@@ -5,19 +5,36 @@ const esc = (s) =>
 
 const STARS = (n) => '★'.repeat(n) + '☆'.repeat(5 - n);
 const TYPE_LABEL = { poem: '诗', ci: '词', essay: '文章', classic: '典籍' };
-/** 顶栏板块 → 体裁。诗、词同属「诗词」板块；人物/长河/地图 还没有数据，顶栏里置灰。 */
+/** 顶栏板块 → 体裁。诗、词同属「诗词」板块；长河/地图 还没有数据，顶栏里置灰。 */
 const SECTIONS = {
   poem: { label: '诗词', types: ['poem', 'ci'] },
   essay: { label: '文章', types: ['essay'] },
   classic: { label: '典籍', types: ['classic'] },
 };
 
+/** 顶栏里指向独立页面的栏目 —— 不是体裁筛选，点了就换页。 */
+const PAGES = { 人物: 'people.html' };
+
 /** 顶栏各项与板块 key 的对应，HTML 里只写中文，映射放在这里。 */
 function navItems() {
   return [...document.querySelectorAll('nav li')].map((li) => ({
     li,
+    label: li.textContent.trim(),
     key: Object.keys(SECTIONS).find((k) => SECTIONS[k].label === li.textContent.trim()) ?? null,
   }));
+}
+
+/** 独立页面栏目在每个页面都要能点，选中态由当前页面决定。 */
+function bindPageNav(activeLabel) {
+  navItems().forEach(({ li, label }) => {
+    const href = PAGES[label];
+    if (!href) return;
+    li.classList.remove('off');
+    li.classList.toggle('on', label === activeLabel);
+    li.onclick = () => {
+      location.href = href;
+    };
+  });
 }
 
 /** 模型的长文本用 \n 分段。HTML 会折叠换行，必须显式拆成 <p>。 */
@@ -96,7 +113,9 @@ const VERSE_TYPES = new Set(['poem', 'ci']);
  * 读一篇文章时不该还亮着「诗词」，更不该点了没反应。
  */
 function bindWorkNav(type) {
-  navItems().forEach(({ li, key }) => {
+  bindPageNav(null);
+  navItems().forEach(({ li, label, key }) => {
+    if (PAGES[label]) return;
     if (!key) {
       li.classList.add('off');
       return;
@@ -280,7 +299,7 @@ export async function renderWork(mount) {
     <img src="${esc(hero)}" alt="${esc(work.title)} 意境图">
     <div class="wband-in">
       <h1>${esc(work.title)}</h1>
-      <div class="by">${esc(work.author.name)} · ${esc(work.dynasty)}</div>
+      <div class="by"><span class="who">${esc(work.author.name)}</span> · ${esc(work.dynasty)}</div>
       <div class="tags">${work.themes.map((t) => `<span>${esc(t)}</span>`).join('')}<span>难度 ${STARS(work.overview.difficulty)}</span></div>
     </div>
   </section>
@@ -292,8 +311,7 @@ export async function renderWork(mount) {
         <div class="lv" data-depth="L1"><i>L1</i><p>一眼　只看画面与名句</p></div>
         <div class="lv on" data-depth="L2"><i>L2</i><p>通读　原文与白话对照</p></div>
         <div class="lv" data-depth="L3"><i>L3</i><p>深读　注释全开 + 细读</p></div>
-      </div>
-      <div class="idx">${esc(TYPE_LABEL[work.type])} · ${multi ? `全 ${work.chapters.length} 章` : '单篇'}</div>
+      </div>      <div class="idx">${esc(TYPE_LABEL[work.type])} · ${multi ? `全 ${work.chapters.length} 章` : '单篇'}</div>
       ${
         multi
           ? `<div class="box tocbox">
@@ -388,8 +406,34 @@ export async function renderWork(mount) {
   <footer>文渊 · 阅读页　内容由导入流水线生成</footer>`;
 
   bindReader();
+  linkAuthor(work.author.name).catch(() => undefined);
   const more = mount.querySelector('.l1-more');
   if (more) more.onclick = () => setDepth('L2');
+}
+
+/**
+ * 把作品页的作者名接到人物页。人物档案是后立的，可能还没有这个人，
+ * 查不到就保持纯文本 —— 不能因为缺档案而让阅读页出现死链。
+ */
+async function linkAuthor(name) {
+  const people = await fetch('data/people.json')
+    .then((r) => (r.ok ? r.json() : []))
+    .catch(() => []);
+  const hit = people.find((p) => p.name === name);
+  if (!hit) return;
+  const href = `person.html?id=${encodeURIComponent(hit.id)}`;
+  const who = document.querySelector('.wband-in .who');
+  if (who) who.outerHTML = `<a class="who" href="${href}">${esc(name)}</a>`;
+  const blk = [...document.querySelectorAll('.deep .blk')].find(
+    (b) => b.querySelector('b')?.textContent === '作者',
+  );
+  const body = blk?.querySelector('div');
+  if (body) {
+    body.insertAdjacentHTML(
+      'beforeend',
+      `<p><a class="who-link" href="${href}">读 ${esc(name)} 的人物档案　→</a></p>`,
+    );
+  }
 }
 
 const DYNASTY_ORDER = ['先秦', '秦', '汉', '魏晋', '南北朝', '隋', '唐', '五代', '宋', '元', '明', '清'];
@@ -476,7 +520,9 @@ function renderPicks(index, filter) {
  * 点了没反应比不能点更让人困惑。
  */
 function renderNav(index, onPick) {
-  navItems().forEach(({ li, key }) => {
+  bindPageNav(null);
+  navItems().forEach(({ li, label, key }) => {
+    if (PAGES[label]) return;
     const count = key ? index.filter((w) => SECTIONS[key].types.includes(w.type)).length : 0;
     if (count === 0) {
       li.classList.add('off');
@@ -529,5 +575,158 @@ export async function renderHome(mount) {
   // 阅读页的顶栏与面包屑用 ?sec= 跳回来，落地就该停在那个板块上。
   const sec = new URLSearchParams(location.search).get('sec');
   apply(sec && SECTIONS[sec] ? { kind: 'section', value: sec } : null);
+}
+
+/* ══ 人物 ══ */
+
+/** 人物列表按生年排，本身就是一条时间线。 */
+export async function renderPeople(mount) {
+  bindPageNav('人物');
+  const people = await fetch('data/people.json').then((r) => r.json());
+  document.title = '人物 — 文渊';
+  mount.innerHTML = `
+  <div class="crumb"><a href="home.html">首页</a><i>／</i>人物</div>
+  <div class="sec-h ppl-h"><h2>人 物</h2><u></u><em>${people.length} 位</em></div>
+  ${
+    people.length === 0
+      ? '<div class="empty">还没有人物档案，先跑 npm run people。</div>'
+      : `<div class="ppl">${people
+          .map(
+            (p) => `<a class="pcard" href="person.html?id=${encodeURIComponent(p.id)}">
+      ${p.hero ? `<i class="thumb" style="background-image:url(${esc(p.hero)})"></i>` : ''}
+      <div class="cat">${esc(p.dynasty)}<s>${esc(p.era)}</s></div>
+      <h3>${esc(p.name)}</h3>
+      <q>${esc(p.hook)}</q>
+      <div class="ptags">${p.traits.slice(0, 3).map((t) => `<span>${esc(t)}</span>`).join('')}</div>
+      <div class="pworks">${
+        p.works.length > 0
+          ? `站内 ${p.works.length} 篇 · ${p.works.map((w) => esc(w.title)).join('、')}`
+          : '站内暂无作品'
+      }</div>
+    </a>`,
+          )
+          .join('')}</div>`
+  }
+  <footer>文渊 · 人物　档案由导入流水线生成</footer>`;
+}
+
+const RELATION_HINT = {
+  师友: '师友',
+  同僚: '同僚',
+  亲属: '亲属',
+  门生: '门生',
+  政敌: '政敌',
+  知音: '知音',
+  后世追随: '后世',
+};
+
+export async function renderPerson(mount) {
+  bindPageNav('人物');
+  const wanted = new URLSearchParams(location.search).get('id');
+  // 不写死默认 id —— 人物增删或改名后，写死的兜底会直接 404。
+  const id = wanted ?? (await fetch('data/people.json').then((r) => r.json()))[0]?.id;
+  if (!id) throw new Error('data/people.json 是空的，先跑 npm run people');
+  const p = await fetch(`data/people/${id}.json`).then((r) => {
+    if (!r.ok) throw new Error(`找不到人物 ${id}`);
+    return r.json();
+  });
+
+  document.title = `${p.name} · ${p.dynasty} — 文渊`;
+  const inSite = new Map((p.works ?? []).map((w) => [w.title, w.id]));
+
+  mount.innerHTML = `
+  <div class="crumb"><a href="home.html">首页</a><i>／</i><a href="people.html">人物</a><i>／</i>${esc(p.dynasty)}<i>／</i>${esc(p.name)}</div>
+
+  <section class="wband">
+    ${p.media.hero ? `<img src="${esc(p.media.hero)}" alt="${esc(p.name)} 意境图">` : ''}
+    <div class="wband-in">
+      <h1>${esc(p.name)}</h1>
+      <div class="by">${esc(p.dynasty)} · ${esc(p.era)}${p.aka.length > 0 ? `　${p.aka.map(esc).join('　')}` : ''}</div>
+      <div class="tags">${p.traits.map((t) => `<span>${esc(t)}</span>`).join('')}</div>
+    </div>
+  </section>
+
+  <div class="r-grid">
+    <aside class="side">
+      <div class="idx">人物 · ${(p.works ?? []).length > 0 ? `站内 ${p.works.length} 篇` : '站内暂无作品'}</div>
+      <div class="kv"><span>朝代</span><b>${esc(p.dynasty)}</b></div>
+      <div class="kv"><span>生卒</span><b>${esc(p.era)}</b></div>
+      ${p.aka.length > 0 ? `<div class="kv"><span>别称</span><b>${p.aka.map(esc).join('<br>')}</b></div>` : ''}
+      <div class="kv"><span>年表</span><b>${p.timeline.length} 节点</b></div>
+      <div class="kv"><span>交游</span><b>${p.circle.length} 位</b></div>
+      ${
+        p.media.hero
+          ? `<div class="figbox">
+        <img src="${esc(p.media.hero)}" alt="${esc(p.name)} 配图">
+        <figcaption>人物意境图 · 只出意境不画人像</figcaption>
+      </div>`
+          : ''
+      }
+    </aside>
+
+    <div class="main">
+      <div class="lead">${esc(p.hook)}</div>
+
+      <div class="deep-in plain">
+        ${block('小传', p.bio)}
+      </div>
+
+      <div class="sec-h life-h"><h2>生 平</h2><u></u><em>${p.timeline.length} 个节点</em></div>
+      <ol class="life">
+        ${p.timeline
+          .map(
+            (t) => `<li>
+          <i>${esc(t.label)}</i>
+          <div><b>${esc(t.title)}</b><p>${esc(t.detail)}</p></div>
+        </li>`,
+          )
+          .join('')}
+      </ol>
+
+      ${
+        p.circle.length > 0
+          ? `<div class="sec-h"><h2>交 游</h2><u></u><em>${p.circle.length} 位</em></div>
+      <div class="circle">
+        ${p.circle
+          .map(
+            (c) => `<div class="cc"><b>${esc(c.name)}<s>${esc(RELATION_HINT[c.relation] ?? c.relation)}</s></b><p>${esc(c.note)}</p></div>`,
+          )
+          .join('')}
+      </div>`
+          : ''
+      }
+    </div>
+
+    <aside class="aside">
+      <div class="box">
+        <div class="box-t">代 表 作　${p.masterpieces.length}</div>
+        ${p.masterpieces
+          .map((m) => {
+            const wid = m.workId ?? inSite.get(m.title);
+            const body = `<b>${esc(m.title)}${wid ? '<s>站内可读</s>' : ''}</b><p>${esc(m.note)}</p>`;
+            return wid
+              ? `<a class="note-i" href="work.html?id=${encodeURIComponent(wid)}">${body}</a>`
+              : `<div class="note-i plain">${body}</div>`;
+          })
+          .join('')}
+      </div>
+      ${
+        (p.works ?? []).length > 0
+          ? `<div class="box">
+        <div class="box-t">站 内 作 品　${p.works.length}</div>
+        ${p.works
+          .map(
+            (w) =>
+              `<a class="note-i" href="work.html?id=${encodeURIComponent(w.id)}"><b>${esc(w.title)}<s>${esc(TYPE_LABEL[w.type])}</s></b></a>`,
+          )
+          .join('')}
+      </div>`
+          : ''
+      }
+    </aside>
+  </div>
+  <footer>文渊 · 人物　档案由导入流水线生成</footer>`;
+
+  bindRailHints();
 }
 

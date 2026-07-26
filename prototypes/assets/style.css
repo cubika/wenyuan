@@ -114,6 +114,10 @@ h1.verse span:nth-child(2){animation-delay:.15s}
 .wband-in{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:0 34px}
 .wband-in h1{font-size:clamp(26px,3vw,38px);font-weight:400;letter-spacing:.16em;line-height:1.5}
 .wband-in .by{font-size:13px;color:var(--ink-2);letter-spacing:.16em;margin-top:8px}
+a.who{border-bottom:1px solid var(--rule);transition:.2s}
+a.who:hover{color:var(--cinnabar);border-color:var(--cinnabar)}
+.who-link{color:var(--cinnabar);font-size:13.5px;letter-spacing:.08em}
+.who-link:hover{border-bottom:1px solid var(--cinnabar)}
 .wband-in .tags{display:flex;gap:8px;margin-top:14px}
 .wband-in .tags span{font-size:11px;padding:3px 10px;border:1px solid var(--rule);
   background:rgba(251,248,241,.7);color:var(--ink-3);letter-spacing:.1em}
@@ -235,8 +239,65 @@ body[data-mode="orig"] .prose .row:hover .tr{max-height:38em;opacity:1;margin-to
   .blk>b{line-height:1.6}
 }
 
-.loading{padding:70px 0;font-size:14px;color:var(--ink-3);letter-spacing:.16em}
-.lead{font-size:15px;line-height:2;color:var(--ink-2);margin-bottom:20px;
+/* ══ 人物 ══ */
+.ppl-h,.life-h{margin-top:26px}
+.ppl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-bottom:34px}
+.pcard{border:1px solid var(--rule);background:var(--card);padding:16px 17px 17px;cursor:pointer;
+  transition:.24s;display:flex;flex-direction:column;min-height:186px;position:relative;overflow:hidden}
+.pcard:hover{border-color:var(--ink-3);transform:translateY(-3px);box-shadow:0 12px 26px rgba(28,26,23,.09)}
+.pcard .thumb{position:absolute;inset:0;opacity:0;transition:.3s;background-size:cover;background-position:center}
+.pcard:hover .thumb{opacity:.14}
+.pcard>*{position:relative;z-index:1}
+.pcard .cat{font-size:10px;letter-spacing:.2em;color:var(--cinnabar);margin-bottom:9px;
+  display:flex;justify-content:space-between;gap:8px}
+.pcard .cat s{text-decoration:none;color:var(--ink-3);letter-spacing:.06em}
+.pcard h3{font-size:19px;font-weight:400;letter-spacing:.14em;margin-bottom:9px}
+.pcard q{quotes:none;font-size:13.5px;line-height:1.9;color:var(--ink-2)}
+.ptags{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+.ptags span{font-size:10.5px;padding:2px 9px;border:1px solid var(--rule);color:var(--ink-3);letter-spacing:.08em}
+.pworks{margin-top:auto;padding-top:11px;border-top:1px solid var(--rule-2);
+  font-size:11.5px;line-height:1.8;color:var(--ink-3)}
+
+/* 生平年表：年份在左，事件在右，中间一条时间线 */
+.life{list-style:none;margin:0 0 8px;padding:0}
+.life li{display:grid;grid-template-columns:9.5em minmax(0,1fr);gap:0 22px;
+  padding:14px 0 16px;border-top:1px solid var(--rule-2);position:relative}
+.life li:first-child{border-top:0}
+.life i{font-style:normal;font-size:12px;line-height:2;color:var(--cinnabar);letter-spacing:.06em}
+.life b{font-weight:400;font-size:16px;letter-spacing:.08em;display:block;margin-bottom:5px}
+.life p{font-size:14px;line-height:2;color:var(--ink-2);max-width:44em}
+/* 时间线的点与竖线画在两列之间 */
+.life li::before{content:'';position:absolute;left:calc(9.5em + 4px);top:22px;
+  width:5px;height:5px;border-radius:50%;background:var(--cinnabar)}
+.life li::after{content:'';position:absolute;left:calc(9.5em + 6px);top:30px;bottom:-2px;
+  width:1px;background:var(--rule)}
+.life li:last-child::after{display:none}
+
+.circle{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding-bottom:34px}
+.cc{border:1px solid var(--rule);background:var(--card);padding:13px 15px 14px}
+.cc b{font-weight:400;font-size:15px;letter-spacing:.08em;display:flex;align-items:baseline;gap:9px}
+.cc b s{text-decoration:none;font-size:10px;color:var(--cinnabar);border:1px solid var(--rule);
+  padding:1px 7px;letter-spacing:.1em}
+.cc p{font-size:12.5px;line-height:1.9;color:var(--ink-3);margin-top:6px}
+
+.deep-in.plain{background:var(--card);border:1px solid var(--rule);padding:6px 26px}
+a.note-i{display:block}
+.note-i.plain{cursor:default}
+.note-i.plain:hover b{color:inherit}
+.note-i b s{text-decoration:none;color:var(--ink-3);font-size:11px;margin-left:6px;
+  letter-spacing:.04em;white-space:nowrap}
+
+@media(max-width:1100px){
+  .ppl{grid-template-columns:repeat(2,1fr)}
+  .circle{grid-template-columns:1fr}
+}
+@media(max-width:820px){
+  .ppl{grid-template-columns:1fr}
+  .life li{grid-template-columns:1fr;gap:4px}
+  .life li::before,.life li::after{display:none}
+}
+
+.loading{padding:70px 0;font-size:14px;color:var(--ink-3);letter-spacing:.16em}.lead{font-size:15px;line-height:2;color:var(--ink-2);margin-bottom:20px;
   padding-left:15px;border-left:2px solid var(--cinnabar);max-width:44em}
 .empty{padding:34px 0;font-size:13px;color:var(--ink-3);letter-spacing:.12em}
 
