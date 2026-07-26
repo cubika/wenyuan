@@ -51,6 +51,10 @@ export const OverviewSchema = z.object({
   background: zh(30, 900, '时代背景'),
   coreIdea: zh(20, 700, '核心思想'),
   structure: zh(20, 700, '结构脉络'),
+  /** 怎么写的：手法、语言、节奏。读者常问「好在哪」，答案多半在这一段。 */
+  artistry: zh(30, 900, '艺术手法'),
+  /** 后世如何评价、化用、误读。让作品接上今天。 */
+  legacy: zh(30, 900, '影响与流传'),
   /** 「先读第 1、8、33 章」—— 典籍必须给，否则读者不知从何下口。 */
   readingPath: z.array(zh(2, 120, '阅读路线条目')).max(8).default([]),
   difficulty: z.number().int().min(1).max(5),
@@ -59,6 +63,8 @@ export const OverviewSchema = z.object({
 export const FamousLineSchema = z.object({
   text: zh(2, 60, '名句'),
   translation: zh(2, 120, '名句白话'),
+  /** 名句精讲：这一句为什么能流传，不是复述译文。 */
+  note: zh(20, 400, '名句精讲'),
 })
 
 export const MediaSchema = z.object({

@@ -167,15 +167,60 @@ body[data-mode="orig"] .row:hover .tr{max-height:110px;opacity:1}
 .lv.on i{background:var(--cinnabar);color:var(--card);border-color:var(--cinnabar)}
 
 .deep{margin-top:26px}
-.deep-in{background:var(--card);border:1px solid var(--rule);padding:24px 30px 26px;
-  columns:2;column-gap:44px;column-rule:1px solid var(--rule-2)}
-.deep-in h3{font-size:11px;letter-spacing:.3em;color:var(--cinnabar);margin-bottom:12px;font-weight:400;break-after:avoid}
-.deep-in p{font-size:14.5px;line-height:2.05;color:var(--ink-2);margin-bottom:16px;break-inside:avoid}
-.deep-in b{color:var(--ink);font-weight:400}
+.deep-in{background:var(--card);border:1px solid var(--rule);padding:24px 30px 8px}
+.deep-in h3{font-size:11px;letter-spacing:.3em;color:var(--cinnabar);margin-bottom:6px;font-weight:400}
+
+/* 标签左、正文右。内容变厚后双栏会让视线来回跳，改成编辑式两列更好读。 */
+.blk{display:grid;grid-template-columns:6.5em minmax(0,1fr);gap:0 26px;
+  padding:18px 0;border-top:1px solid var(--rule-2)}
+.blk>b{font-size:12px;letter-spacing:.2em;color:var(--cinnabar);font-weight:400;
+  line-height:2.1;padding-top:1px}
+.blk p{font-size:14.5px;line-height:2.1;color:var(--ink-2);margin-bottom:14px;max-width:44em}
+.blk p:last-child{margin-bottom:0}
+.blk.jiang{grid-template-columns:1fr}
+.blk.jiang>b{font-size:16.5px;letter-spacing:.08em;color:var(--ink);line-height:1.9;margin-bottom:8px}
+.blk.jiang div{padding-left:15px;border-left:2px solid var(--rule)}
+
+@media(max-width:900px){
+  .blk,.blk.jiang{grid-template-columns:1fr;gap:8px}
+  .blk>b{line-height:1.6}
+}
 
 .loading{padding:70px 0;font-size:14px;color:var(--ink-3);letter-spacing:.16em}
 .lead{font-size:15px;line-height:2;color:var(--ink-2);margin-bottom:20px;
   padding-left:15px;border-left:2px solid var(--cinnabar);max-width:44em}
+.empty{padding:34px 0;font-size:13px;color:var(--ink-3);letter-spacing:.12em}
+
+/* ══ 三层阅读深度 ══ */
+/* L1 一眼：只留画面与名句，正文与细读收起 */
+.l1{display:none}
+body[data-depth="L1"] .l1{display:block}
+body[data-depth="L1"] .modes,
+body[data-depth="L1"] .paper,
+body[data-depth="L1"] .deep,
+body[data-depth="L1"] .aside .box:nth-child(2){display:none}
+.fl{border-left:2px solid var(--cinnabar);padding:2px 0 2px 18px;margin:0 0 22px}
+.fl p{font-size:clamp(20px,2.1vw,27px);line-height:1.95;letter-spacing:.1em;margin-bottom:8px}
+.fl cite{font-style:normal;font-size:13.5px;line-height:1.9;color:var(--ink-3)}
+.l1-more{margin-top:6px}
+
+/* L2 通读：正文与对照，细读折叠 */
+body[data-depth="L2"] .deep{display:none}
+
+/* L3 深读：注释常亮，不必逐个点 */
+body[data-depth="L3"] .n{background:linear-gradient(transparent 70%,rgba(156,46,46,.3) 70%)}
+body[data-depth="L3"] .n::after{content:'';position:absolute;top:-3px;right:-6px;
+  width:4px;height:4px;border-radius:50%;background:var(--cinnabar)}
+
+.deep-in.jiang{columns:1}
+
+/* 长河 / 心境的计数与选中态 */
+.era.on b{color:var(--cinnabar)}
+.era.on .bar i{background:var(--cinnabar)}
+.mood s{text-decoration:none;font-size:10.5px;color:var(--ink-3);margin-left:6px}
+.mood.on{background:var(--cinnabar);border-color:var(--cinnabar);color:var(--paper)}
+.mood.on s{color:var(--paper);opacity:.8}
+.rail-t b{font-weight:400;color:var(--ink-3)}
 
 @media(max-width:1180px){
   .two{grid-template-columns:1fr;gap:28px}
@@ -188,6 +233,5 @@ body[data-mode="orig"] .row:hover .tr{max-height:110px;opacity:1}
   .pick-row{grid-template-columns:repeat(2,1fr)}
   .r-grid{grid-template-columns:1fr}
   .side{position:static}
-  .deep-in{columns:1}
   .wband-in{padding:0 20px}
 }

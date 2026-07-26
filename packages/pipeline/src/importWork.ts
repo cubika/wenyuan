@@ -27,6 +27,23 @@ async function loadExisting(path: string): Promise<Work | null> {
   }
 }
 
+/**
+ * id 必须在多次重跑之间保持稳定，否则增量缓存会全部落空、
+ * 配图路径漂移、已分享的链接失效。模型每次挑的 id 都不一样，
+ * 所以优先用源文件名（由人控制、天然稳定），实在不可用才退回模型的。
+ */
+function resolveId(rawPath: string, modelId: string): string {
+  const base = rawPath
+    .split(/[\\/]/)
+    .pop()
+    ?.replace(/\.[^.]+$/, '')
+    .toLowerCase()
+    .replace(/[_\s]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+  return base !== undefined && /^[a-z0-9]+(-[a-z0-9]+)*$/.test(base) ? base : modelId
+}
+
 export async function importWork(options: ImportOptions): Promise<Work> {
   const raw = await readFile(options.rawPath, 'utf8')
   const hintTitle = options.rawPath.split(/[\\/]/).pop()?.replace(/\.[^.]+$/, '')
@@ -51,16 +68,21 @@ export async function importWork(options: ImportOptions): Promise<Work> {
     console.log(`      《${identity.title}》 ${identity.author.name} · ${identity.dynasty} · ${identity.type}`)
 
     const parsed = segment(raw, identity.type)
-    const outPath = join(options.outDir, `${identity.id}.json`)
-    const existing = options.force ? null : await loadExisting(outPath)
+    const id = resolveId(options.rawPath, identity.id)
+    const outPath = join(options.outDir, `${id}.json`)
+    // 已有产物一律读取：--force 只该跳过章节缓存去重新译注，
+    // 不该把已经花钱生成的配图路径一并丢掉。
+    const existing = await loadExisting(outPath)
     const cached = new Map<string, Chapter>()
-    for (const chapter of existing?.chapters ?? []) {
-      cached.set(chapter.hash, chapter)
+    if (!options.force) {
+      for (const chapter of existing?.chapters ?? []) {
+        cached.set(chapter.hash, chapter)
+      }
     }
 
     console.log(`[3/4] 逐章译注（${parsed.chapters.length} 章）…`)
-    // 典籍逐章都要赏析；单篇诗文的赏析集中放在导读里，章内不重复。
-    const wantCommentary = identity.type === 'classic' && parsed.chapters.length > 1
+    // 赏析一律要。之前只给多章典籍写，导致单篇诗词的「细读」内容太薄。
+    const wantCommentary = true
     const chapters: Chapter[] = []
     for (const rawChapter of parsed.chapters) {
       const hit = cached.get(rawChapter.hash)
@@ -96,7 +118,7 @@ export async function importWork(options: ImportOptions): Promise<Work> {
     })
 
     const work: Work = {
-      id: identity.id,
+      id,
       title: identity.title,
       type: identity.type,
       dynasty: identity.dynasty,

@@ -105,6 +105,10 @@ ${numbered}
       input.wantCommentary
         ? '\n4. **commentary**：本章赏析。指出具体的字句和写法，说清楚好在哪里、要害是什么。'
         : ''
+    }${
+      input.wantCommentary
+        ? '\n\n注意：commentary 要**具体**。指出是哪一句、哪个字，用了什么手法，达到了什么效果。逐段推进，不要写成一段笼统的读后感。'
+        : ''
     }${input.chapter.title ? '\n\n另外给出 title：本章标题（可整理得更清晰）。' : ''}`,
   })
 

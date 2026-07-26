@@ -6,6 +6,21 @@ const esc = (s) =>
 const STARS = (n) => '★'.repeat(n) + '☆'.repeat(5 - n);
 const TYPE_LABEL = { poem: '诗', ci: '词', essay: '文章', classic: '典籍' };
 
+/** 模型的长文本用 \n 分段。HTML 会折叠换行，必须显式拆成 <p>。 */
+const paras = (s) =>
+  String(s ?? '')
+    .split(/\n+/)
+    .map((t) => t.trim())
+    .filter(Boolean);
+
+/** 细读里的一个小节：标签在左，正文在右，段落逐条成 <p>。 */
+const block = (label, text) =>
+  !text
+    ? ''
+    : `<section class="blk"><b>${esc(label)}</b><div>${paras(text)
+        .map((p) => `<p>${esc(p)}</p>`)
+        .join('')}</div></section>`;
+
 /**
  * 把注释挂回原文：按 term 在句中做子串定位并包成可点击的 <span class="n">。
  * 长词先替换，避免「芳甸」被「甸」抢先切开。
@@ -47,28 +62,45 @@ function bindReader() {
     i.onclick = () => {
       const t = document.getElementById(i.dataset.t);
       if (!t) return;
+      // 注释在 L1 下是藏起来的，跳过去之前先切到能看见它的层。
+      if (document.body.dataset.depth === 'L1') setDepth('L2');
       t.scrollIntoView({ block: 'center', behavior: 'smooth' });
       t.classList.add('flash');
       setTimeout(() => t.classList.remove('flash'), 1100);
     };
   });
   document.querySelectorAll('.lv').forEach((l) => {
-    l.onclick = () => {
-      document.querySelectorAll('.lv').forEach((x) => x.classList.remove('on'));
-      l.classList.add('on');
-    };
+    l.onclick = () => setDepth(l.dataset.depth);
   });
+  setDepth('L2');
+}
+
+/**
+ * 三层阅读的唯一开关。CSS 靠 body[data-depth] 决定各区块的显隐，
+ * 这里只负责改状态 —— 避免显隐逻辑散落在多处。
+ */
+function setDepth(depth) {
+  document.body.dataset.depth = depth;
+  document.querySelectorAll('.lv').forEach((x) => x.classList.toggle('on', x.dataset.depth === depth));
+  // L1 只给画面和名句，正文的原文/对照切换在这一层没有意义。
+  if (depth === 'L3') {
+    const compare = document.querySelector('.modes button[data-m="compare"]');
+    if (compare && !compare.classList.contains('on')) compare.click();
+  }
 }
 
 export async function renderWork(mount) {
-  const id = new URLSearchParams(location.search).get('id') ?? 'chun-jiang-hua-yue-ye';
+  const wanted = new URLSearchParams(location.search).get('id');
+  // 不写死默认 id —— 作品增删或改名后，写死的兜底会直接 404。
+  const id = wanted ?? (await fetch('data/index.json').then((r) => r.json()))[0]?.id;
+  if (!id) throw new Error('data/index.json 是空的，先跑 npm run import');
   const work = await fetch(`data/${id}.json`).then((r) => {
     if (!r.ok) throw new Error(`找不到作品 ${id}`);
     return r.json();
   });
 
   document.title = `${work.title} · ${work.author.name} — 文渊`;
-  const hero = work.media.hero ?? 'media/chunjiang-hero.webp';
+  const hero = work.media.hero;
   const chapter = work.chapters[0];
   const multi = work.chapters.length > 1;
 
@@ -107,6 +139,17 @@ export async function renderWork(mount) {
 
     <div class="main">
       <div class="lead">${esc(work.hook)}</div>
+
+      <div class="l1">
+        ${work.famousLines
+          .map(
+            (f) =>
+              `<blockquote class="fl"><p>${esc(f.text)}</p><cite>${esc(f.translation)}</cite></blockquote>`,
+          )
+          .join('')}
+        <button class="btn ghost l1-more">继 续 读 全 篇　→</button>
+      </div>
+
       <div class="modes"><button class="on" data-m="orig">原 文</button><button data-m="compare">对 照</button></div>
       <div class="paper">
         ${chapter.lines.map((line, i) => renderLine(line, i)).join('')}
@@ -115,12 +158,40 @@ export async function renderWork(mount) {
 
       <div class="deep"><div class="deep-in">
         <h3>细 读</h3>
-        <p><b>大意</b>　${esc(chapter.summary)}</p>
-        <p><b>时代背景</b>　${esc(work.overview.background)}</p>
-        <p><b>核心</b>　${esc(work.overview.coreIdea)}</p>
-        <p><b>结构</b>　${esc(work.overview.structure)}</p>
-        <p><b>作者</b>　${esc(work.author.name)}${work.author.era ? `（${esc(work.author.era)}）` : ''}　${esc(work.author.bio)}</p>
+        ${block('大意', chapter.summary)}
+        ${block('逐段赏析', chapter.commentary)}
+        ${block('时代背景', work.overview.background)}
+        ${block('核心', work.overview.coreIdea)}
+        ${block('结构', work.overview.structure)}
+        ${block('艺术手法', work.overview.artistry)}
+        ${block('影响与流传', work.overview.legacy)}
+        ${
+          work.overview.readingPath?.length
+            ? block('阅读路线', work.overview.readingPath.join('\n'))
+            : ''
+        }
+        ${block(
+          '作者',
+          `${work.author.name}${work.author.era ? `（${work.author.era}）` : ''}\n${work.author.bio}`,
+        )}
       </div></div>
+
+      ${
+        work.famousLines.some((f) => f.note)
+          ? `<div class="deep"><div class="deep-in">
+        <h3>名 句 精 讲</h3>
+        ${work.famousLines
+          .filter((f) => f.note)
+          .map(
+            (f) =>
+              `<section class="blk jiang"><b>${esc(f.text)}</b><div>${paras(f.note)
+                .map((p) => `<p>${esc(p)}</p>`)
+                .join('')}</div></section>`,
+          )
+          .join('')}
+      </div></div>`
+          : ''
+      }
     </div>
 
     <aside class="aside">
@@ -139,22 +210,106 @@ export async function renderWork(mount) {
       </div>
       <div class="box">
         <div class="box-t">阅 读 深 度</div>
-        <div class="lv"><i>L1</i><p>只看名句与画面</p></div>
-        <div class="lv on"><i>L2</i><p>原文 + 白话对照</p></div>
-        <div class="lv"><i>L3</i><p>注释 · 背景 · 赏析</p></div>
+        <div class="lv" data-depth="L1"><i>L1</i><p>一眼　只看画面与名句</p></div>
+        <div class="lv on" data-depth="L2"><i>L2</i><p>通读　原文与白话对照</p></div>
+        <div class="lv" data-depth="L3"><i>L3</i><p>深读　注释全开 + 细读</p></div>
       </div>
     </aside>
   </div>
   <footer>文渊 · 阅读页　内容由导入流水线生成</footer>`;
 
   bindReader();
+  const more = mount.querySelector('.l1-more');
+  if (more) more.onclick = () => setDepth('L2');
+}
+
+const DYNASTY_ORDER = ['先秦', '秦', '汉', '魏晋', '南北朝', '隋', '唐', '五代', '宋', '元', '明', '清'];
+
+/** 把「北宋」「初唐」「东汉」归到主朝代，长河不该被细分朝代打散。 */
+function normalizeDynasty(d) {
+  const hit = DYNASTY_ORDER.find((era) => d.includes(era));
+  return hit ?? d;
+}
+
+function renderRiver(index, onPick) {
+  const counts = new Map();
+  for (const w of index) {
+    const era = normalizeDynasty(w.dynasty);
+    counts.set(era, (counts.get(era) ?? 0) + 1);
+  }
+  const max = Math.max(...counts.values(), 1);
+  const rows = [...counts.entries()].sort(
+    (a, b) => DYNASTY_ORDER.indexOf(a[0]) - DYNASTY_ORDER.indexOf(b[0]),
+  );
+  const host = document.querySelector('[data-river]');
+  if (!host) return;
+  host.innerHTML = rows
+    .map(
+      ([era, n]) =>
+        `<div class="era" data-era="${esc(era)}"><b>${esc(era)}</b><span class="bar"><i style="width:${Math.round((n / max) * 100)}%"></i></span><s>${n}</s></div>`,
+    )
+    .join('');
+  host.querySelectorAll('.era').forEach((el) => {
+    el.onclick = () => {
+      const on = el.classList.contains('on');
+      host.querySelectorAll('.era').forEach((x) => x.classList.remove('on'));
+      if (!on) el.classList.add('on');
+      onPick(on ? null : { kind: 'dynasty', value: el.dataset.era });
+    };
+  });
+}
+
+function renderMoods(index, onPick) {
+  const counts = new Map();
+  for (const w of index) {
+    for (const m of w.moods) counts.set(m, (counts.get(m) ?? 0) + 1);
+  }
+  const host = document.querySelector('[data-moods]');
+  if (!host) return;
+  host.innerHTML = [...counts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([m, n]) => `<button class="mood" data-mood="${esc(m)}">${esc(m)}<s>${n}</s></button>`)
+    .join('');
+  host.querySelectorAll('.mood').forEach((el) => {
+    el.onclick = () => {
+      const on = el.classList.contains('on');
+      host.querySelectorAll('.mood').forEach((x) => x.classList.remove('on'));
+      if (!on) el.classList.add('on');
+      onPick(on ? null : { kind: 'mood', value: el.dataset.mood });
+    };
+  });
+}
+
+function renderPicks(index, filter) {
+  const list = !filter
+    ? index
+    : index.filter((w) =>
+        filter.kind === 'dynasty'
+          ? normalizeDynasty(w.dynasty) === filter.value
+          : w.moods.includes(filter.value),
+      );
+  const host = $('.pick-row');
+  host.innerHTML =
+    list.length === 0
+      ? '<div class="empty">这一格还没有作品。</div>'
+      : list
+          .map(
+            (w) => `<a class="pick" href="work.html?id=${encodeURIComponent(w.id)}">
+        ${w.hero ? `<i class="thumb" style="background-image:url(${esc(w.hero)})"></i>` : ''}
+        <div class="cat">${esc(w.dynasty)} · ${esc(TYPE_LABEL[w.type])}</div>
+        <h3>${esc(w.title)}</h3><div class="by">${esc(w.author)}</div>
+        <q>${esc(w.lead.text)}</q></a>`,
+          )
+          .join('');
+  const label = $('[data-pick-count]');
+  if (label) label.textContent = filter ? `${list.length} / ${index.length} 篇` : `${index.length} 篇`;
 }
 
 export async function renderHome(mount) {
   const index = await fetch('data/index.json').then((r) => r.json());
   const lead = index[0];
   if (!lead) return;
-  const hero = lead.hero ?? 'media/chunjiang-hero.webp';
+  const hero = lead.hero;
 
   const bandTxt = $('.band-txt', mount) ?? mount;
   $('.band img', mount).src = hero;
@@ -167,13 +322,15 @@ export async function renderHome(mount) {
   bandTxt.querySelector('.src').textContent = `${lead.author}《${lead.title}》· ${lead.dynasty}`;
   bandTxt.querySelector('a.btn').href = `work.html?id=${encodeURIComponent(lead.id)}`;
 
-  $('.pick-row', mount).innerHTML = index
-    .map(
-      (w) => `<a class="pick" href="work.html?id=${encodeURIComponent(w.id)}">
-        ${w.hero ? `<i class="thumb" style="background-image:url(${esc(w.hero)})"></i>` : ''}
-        <div class="cat">${esc(w.dynasty)} · ${esc(TYPE_LABEL[w.type])}</div>
-        <h3>${esc(w.title)}</h3><div class="by">${esc(w.author)}</div>
-        <q>${esc(w.lead.text)}</q></a>`,
-    )
-    .join('');
+  const apply = (filter) => renderPicks(index, filter);
+  renderRiver(index, (f) => {
+    document.querySelectorAll('[data-moods] .mood').forEach((x) => x.classList.remove('on'));
+    apply(f);
+  });
+  renderMoods(index, (f) => {
+    document.querySelectorAll('[data-river] .era').forEach((x) => x.classList.remove('on'));
+    apply(f);
+  });
+  apply(null);
 }
+

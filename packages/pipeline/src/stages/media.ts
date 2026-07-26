@@ -1,5 +1,5 @@
 import { execFile } from 'node:child_process'
-import { mkdir, readFile, unlink, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, stat, unlink, writeFile } from 'node:fs/promises'
 import { dirname, join, resolve } from 'node:path'
 import { promisify } from 'node:util'
 import { parseWork, type Work } from '@wenyuan/schema'
@@ -37,7 +37,19 @@ export async function generateMedia(options: MediaOptions): Promise<Work> {
   const webp = join(options.mediaDir, work.id, 'hero.webp')
   const png = join(options.mediaDir, work.id, 'hero.png')
 
-  if (work.media.hero === rel && !options.force) {
+  const onDisk = await stat(webp).then(
+    () => true,
+    () => false,
+  )
+  if (onDisk && !options.force) {
+    // 图还在盘上，只是 JSON 里的路径丢了（例如 --force 重跑过导入），
+    // 重新挂回去即可，没必要再花一次出图。
+    if (work.media.hero !== rel) {
+      const relinked: Work = { ...work, media: { ...work.media, hero: rel } }
+      await writeFile(options.workPath, `${JSON.stringify(relinked, null, 2)}\n`, 'utf8')
+      console.log(`《${work.title}》配图已在盘上，重新挂回 ${rel}`)
+      return relinked
+    }
     console.log(`《${work.title}》配图已存在，跳过（--force 可重出）`)
     return work
   }

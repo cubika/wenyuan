@@ -11,11 +11,13 @@ function baseWork(): Work {
     hook: '一个人在江边看月亮，忽然想到了整个人类的时间。',
     moods: ['孤独'],
     themes: ['宇宙', '时间'],
-    famousLines: [{ text: '春江潮水连海平', translation: '春潮涨得与海一样平。' }],
+    famousLines: [{ text: '春江潮水连海平', translation: '春潮涨得与海一样平。', note: '开篇不写月而先写水，把画面推到最开阔处，明月才有地方升起来。' }],
     overview: {
       background: '张若虚身处初唐向盛唐过渡之际，诗坛正从六朝的浮艳中挣脱出来，题材与气象都在变。',
       coreIdea: '把一个人的赏月推到整个人类的时间尺度上，追问个体、人类与永恒之间的关系。',
       structure: '前八句写景，第九句一转发问，此后由宇宙落回人间相思，以月起以月落收束。',
+      artistry: '全篇以「月」贯穿，月生、月悬、月问、月斜、月落，景随月移而情随景转，三十六句不离一轮月。',
+      legacy: '闻一多称其为「诗中的诗，顶峰上的顶峰」，此说流传极广，也使这首诗在近代被重新发现。',
       readingPath: [],
       difficulty: 2,
     },
@@ -74,7 +76,7 @@ describe('parseWork', () => {
 
   it('拒绝原文里找不到的名句', () => {
     const work = baseWork()
-    work.famousLines = [{ text: '举头望明月', translation: '抬头看着天上的月亮。' }]
+    work.famousLines = [{ text: '举头望明月', translation: '抬头看着天上的月亮。', note: '这是另一首诗里的句子，用来验证出处校验能拦住它。' }]
     const result = parseWork(work)
     expect(result.work).toBeNull()
     expect(result.failures[0]?.path).toBe('famousLines.0.text')
@@ -82,7 +84,7 @@ describe('parseWork', () => {
 
   it('忽略标点差异来匹配名句', () => {
     const work = baseWork()
-    work.famousLines = [{ text: '春江潮水连海平，海上明月共潮生', translation: '春潮与海相平，明月伴潮升起。' }]
+    work.famousLines = [{ text: '春江潮水连海平，海上明月共潮生', translation: '春潮与海相平，明月伴潮升起。', note: '两句连读才见气象，前句铺开水面，后句让月亮从水面长出来。' }]
     expect(parseWork(work).work).not.toBeNull()
   })
 
