@@ -1,0 +1,317 @@
+{
+  "id": "chun-jiang-hua-yue-ye",
+  "title": "春江花月夜",
+  "type": "poem",
+  "dynasty": "唐",
+  "author": {
+    "name": "张若虚",
+    "era": "初唐",
+    "bio": "张若虚是初唐诗人，现存作品不多，却以《春江花月夜》把写景、哲思与离情熔于一炉，显著提升了唐诗中“月夜”题材的审美高度，因此常被视为从宫体余风走向盛唐气象的重要一环。"
+  },
+  "hook": "一轮江月，把宇宙的辽阔、人生的短暂和人间相思写进同一首诗里。",
+  "moods": [
+    "离别",
+    "思乡"
+  ],
+  "themes": [
+    "月夜",
+    "宇宙",
+    "时间",
+    "相思",
+    "人生"
+  ],
+  "famousLines": [
+    {
+      "text": "春江潮水连海平，海上明月共潮生。",
+      "translation": "春天江里的潮水和大海几乎连成一片，一轮明月就在海上跟着潮头一起升起。"
+    },
+    {
+      "text": "江畔何人初见月？江月何年初照人？",
+      "translation": "最早在江边看见月亮的人是谁？江上的月光又是从哪一年开始照着人间的呢？"
+    },
+    {
+      "text": "人生代代无穷已，江月年年望相似。",
+      "translation": "人世代代更替没有尽头，可江上的月亮看上去每一年都差不多。"
+    },
+    {
+      "text": "不知乘月几人归，落月摇情满江树。",
+      "translation": "不知道今夜有几个人能借着月色回家，只有将落的月光把离情摇满了江边的树。"
+    }
+  ],
+  "overview": {
+    "background": "这首诗大约写在初唐到盛唐气象转换的阶段。文坛一方面还带着南朝宫体诗的细腻辞采，另一方面开始追求更开阔的气象与更深的思考；山水审美、宇宙意识与人生感慨在诗里逐渐合流。《春江花月夜》正是在这样的文化空气里，把宫体常见的“月夜相思”题材，提升成关于时间、生命与存在的追问。",
+    "coreIdea": "全诗表面写春江月夜，核心却在“永恒”与“有限”的对照：江月与江流似乎年年如旧，人却代代更替、聚散无常。诗人先写天地之美，再转入“谁初见月、月初照谁”的追问，最后落到离愁与归期难定，让个体情感嵌进宇宙时间里。",
+    "structure": "全篇可分三层：前半先铺景（春江、明月、花林、白沙），把空间写到极阔、极净；中段由景入理，以设问推进到人生与时间的哲思；后段由理入情，转写游子与思妇的两地相望、春将尽而人未归。结尾“落月摇情满江树”以景收情，把不尽的惆怅留在江天月色中。",
+    "readingPath": [],
+    "difficulty": 3
+  },
+  "media": {
+    "heroPrompt": "Tang dynasty blue-green (qinglu) landscape painting, mineral azurite and malachite pigments on aged xuan rice paper, ultra-wide 2.35:1 banner composition. Main subject placed on the left third: a luminous full moon rising with the spring tide over a winding river that opens toward the sea, silver ripples stretching far, faint flowered riverbank and pale sand dissolved in moonlight, layered blue-green headlands in soft distance. The right two-thirds intentionally reserved as vast negative space: drifting mist, diluted ink wash, and quiet untouched paper texture for title placement. Serene, cosmic, contemplative atmosphere, subtle tonal transitions, high air perspective, no modern elements. No people, no faces, no figures, no text, no calligraphy, no seals, no borders.",
+    "hero": "media/works/chun-jiang-hua-yue-ye/hero.webp"
+  },
+  "chapters": [
+    {
+      "index": 1,
+      "title": "春江花月夜",
+      "lines": [
+        {
+          "text": "春江潮水连海平，海上明月共潮生。",
+          "translation": "春天江里的潮水和海面齐平，海上的明月仿佛也和潮水一起涌了出来。",
+          "notes": [
+            {
+              "term": "共潮生",
+              "explain": "和潮水一同升起，写月亮初上时的动态。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "滟滟随波千万里，何处春江无月明！",
+          "translation": "波光闪闪，随着江流铺开千万里，春江上哪一处没有明亮的月光呢！",
+          "notes": [
+            {
+              "term": "滟滟",
+              "pinyin": "yàn yàn",
+              "explain": "水波闪动的样子，这里指月光下的粼粼波光。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "江流宛转绕芳甸，月照花林皆似霰。",
+          "translation": "江水曲曲折折地绕着花草繁茂的岸地，月光照着花林，像撒上了一层雪珠。",
+          "notes": [
+            {
+              "term": "芳甸",
+              "pinyin": "fāng diàn",
+              "explain": "长满花草的郊野、岸地。",
+              "type": "word"
+            },
+            {
+              "term": "霰",
+              "pinyin": "xiàn",
+              "explain": "像雪粒一样的小冰珠，这里比喻月下花林的白亮。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "空里流霜不觉飞，汀上白沙看不见。",
+          "translation": "空中像有流动的霜光，却感觉不到它在飞；沙洲上的白沙和月色融成一片，都分辨不出了。",
+          "notes": [
+            {
+              "term": "流霜",
+              "explain": "像霜一样流动的月光，不是真的霜。",
+              "type": "word"
+            },
+            {
+              "term": "汀",
+              "pinyin": "tīng",
+              "explain": "水边平地或小洲。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "江天一色无纤尘，皎皎空中孤月轮。",
+          "translation": "江面和天空一个颜色，没有一点杂尘，只有一轮明净的孤月挂在空中。",
+          "notes": [
+            {
+              "term": "纤尘",
+              "explain": "极细微的尘埃，这里写天空澄净。",
+              "type": "word"
+            },
+            {
+              "term": "月轮",
+              "explain": "指圆圆的月亮。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "江畔何人初见月？江月何年初照人？",
+          "translation": "江边最早看见月亮的是谁？江上的月亮又是从哪一年开始照着人的呢？",
+          "notes": []
+        },
+        {
+          "text": "人生代代无穷已，江月年年望相似。",
+          "translation": "人的生命一代代接续不绝，江上的月亮却年年看起来都差不多。",
+          "notes": [
+            {
+              "term": "无穷已",
+              "explain": "没有穷尽，“已”是停止、完结的意思。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "不知江月待何人，但见长江送流水。",
+          "translation": "不知道江上的月亮在等待谁，只看见长江不断把流水送向远方。",
+          "notes": [
+            {
+              "term": "待何人",
+              "explain": "在等什么人，含有对人生归宿的追问。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "白云一片去悠悠，青枫浦上不胜愁。",
+          "translation": "一片白云悠悠飘远，青枫浦边的愁绪多得承受不住。",
+          "notes": [
+            {
+              "term": "青枫浦",
+              "explain": "地名意象，写江边送别、怀人的场景。",
+              "type": "place"
+            },
+            {
+              "term": "不胜愁",
+              "explain": "愁苦深重，几乎承受不了。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "谁家今夜扁舟子？何处相思明月楼？",
+          "translation": "今夜是哪家的游子漂在小船上？又是哪里的人在明月照着的楼上相思？",
+          "notes": [
+            {
+              "term": "扁舟子",
+              "explain": "乘小船漂泊的人，多指在外的游子。",
+              "type": "word"
+            },
+            {
+              "term": "明月楼",
+              "explain": "月下高楼，常用来写思妇怀人之处。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "可怜楼上月裴回，应照离人妆镜台。",
+          "translation": "那楼上的月光让人怜惜，来回徘徊，想必正照着离家之人的梳妆镜台。",
+          "notes": [
+            {
+              "term": "裴回",
+              "pinyin": "péi huí",
+              "explain": "同“徘徊”，来回停留不去。",
+              "type": "word"
+            },
+            {
+              "term": "离人",
+              "explain": "与亲人分离的人，这里偏指思妇。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "玉户帘中卷不去，捣衣砧上拂还来。",
+          "translation": "月光照在闺房门帘里，卷起帘子也赶不走；照在捣衣的石砧上，拂开了又回来。",
+          "notes": [
+            {
+              "term": "玉户",
+              "explain": "华美的门户，这里代指女子居处。",
+              "type": "word"
+            },
+            {
+              "term": "捣衣砧",
+              "pinyin": "dǎo yī zhēn",
+              "explain": "捶洗衣物用的石砧，古诗里常连着秋思与离愁。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "此时相望不相闻，愿逐月华流照君。",
+          "translation": "这时彼此只能共望明月却听不到对方消息，只愿追着月光流去，照到你身边。",
+          "notes": [
+            {
+              "term": "月华",
+              "explain": "清亮的月光。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "鸿雁长飞光不度，鱼龙潜跃水成文。",
+          "translation": "鸿雁飞得再远也飞不出这片月光，鱼龙在水中潜游跃动，水面荡开层层纹波。",
+          "notes": [
+            {
+              "term": "光不度",
+              "explain": "月光照不到、渡不过去，写相思难以凭物传达。",
+              "type": "word"
+            },
+            {
+              "term": "鱼龙",
+              "explain": "泛指水中生物，这里写江面夜色生动。",
+              "type": "word"
+            },
+            {
+              "term": "水成文",
+              "explain": "水面形成纹理波纹。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "昨夜闲潭梦落花，可怜春半不还家。",
+          "translation": "昨夜在寂静的水潭边梦见落花，可叹春天已经过半还不能回家。",
+          "notes": [
+            {
+              "term": "闲潭",
+              "explain": "幽静的水潭。",
+              "type": "word"
+            },
+            {
+              "term": "春半",
+              "explain": "春天过了一半。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "江水流春去欲尽，江潭落月复西斜。",
+          "translation": "江水把春光一路带走，眼看快要尽了；江潭上那轮将落的月又向西斜去。",
+          "notes": [
+            {
+              "term": "流春",
+              "explain": "春光随着流水逝去。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "斜月沉沉藏海雾，碣石潇湘无限路。",
+          "translation": "斜月渐渐沉落，隐没在海雾里；从碣石到潇湘，归路漫长得没有尽头。",
+          "notes": [
+            {
+              "term": "碣石",
+              "pinyin": "jié shí",
+              "explain": "古地名，常借指北方海边一带。",
+              "type": "place"
+            },
+            {
+              "term": "潇湘",
+              "explain": "湘水流域一带，常借指南方遥远之地。",
+              "type": "place"
+            }
+          ]
+        },
+        {
+          "text": "不知乘月几人归，落月摇情满江树。",
+          "translation": "不知道有几个人能乘着月色回家，只见西沉的月亮把离愁摇动，洒满江边树木。",
+          "notes": [
+            {
+              "term": "摇情",
+              "explain": "摇动人的情思，这里主要是离愁。",
+              "type": "word"
+            }
+          ]
+        }
+      ],
+      "summary": "这首诗从“春江、潮水、明月”起笔，先写月夜江景的浩渺澄澈，再转入对人生与时间的追问：人世代代更替，江月却年年如旧。随后由景入情，写游子与思妇同在月下而两地相望，消息难通，思念无处寄达。结尾以春将尽、月西沉、路漫长作收，把宇宙之大、人生之短和离别之苦交织在一起。",
+      "difficulty": 4,
+      "hash": "1437249dac5ad870"
+    }
+  ]
+}

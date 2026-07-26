@@ -18,13 +18,16 @@ page.on('response', (r) => {
 
 // ── 首页 ──
 await page.goto(`${BASE}/home.html`, { waitUntil: 'networkidle' });
-await page.waitForTimeout(900);
+await page.waitForTimeout(1200);
+const indexCount = await page.evaluate(async () =>
+  (await fetch('data/index.json').then((r) => r.json())).length);
 check('home: 无 404 资源', failures.length === 0, failures.join(', '));
 check('home: 横幅配图已加载', await page.evaluate(() => {
   const i = document.querySelector('.band img');
   return !!i && i.naturalWidth > 100;
 }));
-check('home: 精选卡片 6 张', (await page.locator('.pick').count()) === 6);
+check('home: 卡片数与 index.json 一致',
+  (await page.locator('.pick').count()) === indexCount, `${indexCount} 篇`);
 check('home: 侧栏与精选并排（两栏未塌）', await page.evaluate(() => {
   const a = document.querySelector('.pick-row').getBoundingClientRect();
   const b = document.querySelector('.rail').getBoundingClientRect();
@@ -33,8 +36,12 @@ check('home: 侧栏与精选并排（两栏未塌）', await page.evaluate(() =>
 check('home: 无横向溢出', await page.evaluate(() =>
   document.documentElement.scrollWidth <= window.innerWidth + 1));
 check('home: 不含阅读页区块', (await page.locator('.r-grid').count()) === 0);
-check('home: 「读全篇」跳转阅读页',
-  (await page.locator('a.btn').first().getAttribute('href')) === 'work.html');
+check('home: 名句由数据填充', await page.evaluate(() =>
+  (document.querySelector('h1.verse')?.textContent ?? '').trim().length > 4));
+check('home: 「读全篇」带作品 id',
+  /^work\.html\?id=.+/.test((await page.locator('a.btn').first().getAttribute('href')) ?? ''));
+check('home: 卡片链接到阅读页',
+  /^work\.html\?id=.+/.test((await page.locator('.pick').first().getAttribute('href')) ?? ''));
 
 // ── 阅读页 ──
 failures.length = 0;
@@ -49,16 +56,24 @@ check('work: 三栏并排', await page.evaluate(() => {
   const g = getComputedStyle(document.querySelector('.r-grid')).gridTemplateColumns;
   return g.split(' ').length === 3;
 }));
+check('work: 内容来自生成的 JSON', await page.evaluate(() =>
+  (document.querySelector('.wband-in h1')?.textContent ?? '').trim().length > 0 &&
+  document.querySelectorAll('.paper .row').length >= 10));
+check('work: 注释由 term 自动挂回原文', await page.evaluate(() =>
+  document.querySelectorAll('.paper .n').length >= 5));
 check('work: 不含首页精选/长河区块',
   (await page.locator('.pick').count()) === 0 && (await page.locator('.era').count()) === 0);
 check('work: 无横向溢出', await page.evaluate(() =>
   document.documentElement.scrollWidth <= window.innerWidth + 1));
 
 // 交互：点词出注
-await page.locator('#n1').click();
+const firstNote = page.locator('.paper .n').first();
+await firstNote.click();
 await page.waitForTimeout(500);
-check('work: 点词浮出注释', await page.evaluate(() =>
-  parseFloat(getComputedStyle(document.querySelector('#n1 .pop')).opacity) > 0.9));
+check('work: 点词浮出注释', await page.evaluate(() => {
+  const open = document.querySelector('.paper .n.open .pop');
+  return !!open && parseFloat(getComputedStyle(open).opacity) > 0.9;
+}));
 
 // 交互：对照模式
 await page.locator('.modes button[data-m="compare"]').click();
@@ -68,10 +83,12 @@ check('work: 对照模式显示译文', await page.evaluate(() =>
 
 // 交互：右栏注释跳转并高亮
 await page.locator('.modes button[data-m="orig"]').click();
-await page.locator('.note-i[data-t="n3"]').click();
+const noteItem = page.locator('.note-i[data-t]').first();
+const targetId = await noteItem.getAttribute('data-t');
+await noteItem.click();
 await page.waitForTimeout(400);
-check('work: 注释一览可定位高亮', await page.evaluate(() =>
-  document.querySelector('#n3').classList.contains('flash')));
+check('work: 注释一览可定位高亮', await page.evaluate((id) =>
+  document.getElementById(id)?.classList.contains('flash') === true, targetId));
 
 // 窄屏回退
 await page.setViewportSize({ width: 768, height: 900 });

@@ -173,6 +173,10 @@ body[data-mode="orig"] .row:hover .tr{max-height:110px;opacity:1}
 .deep-in p{font-size:14.5px;line-height:2.05;color:var(--ink-2);margin-bottom:16px;break-inside:avoid}
 .deep-in b{color:var(--ink);font-weight:400}
 
+.loading{padding:70px 0;font-size:14px;color:var(--ink-3);letter-spacing:.16em}
+.lead{font-size:15px;line-height:2;color:var(--ink-2);margin-bottom:20px;
+  padding-left:15px;border-left:2px solid var(--cinnabar);max-width:44em}
+
 @media(max-width:1180px){
   .two{grid-template-columns:1fr;gap:28px}
   .r-grid{grid-template-columns:180px minmax(0,1fr)}

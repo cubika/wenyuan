@@ -1,0 +1,245 @@
+{
+  "id": "jian-jia",
+  "title": "蒹葭",
+  "type": "poem",
+  "dynasty": "先秦",
+  "author": {
+    "name": "佚名",
+    "era": "约西周至春秋间",
+    "bio": "《蒹葭》出自《诗经·秦风》，作者不详，通常视为先秦民间歌辞。它以反复回环的章法和“在水一方”的空间阻隔，写出对理想之人可望难即的追寻，集中体现了《诗经》把日常情感写得含蓄而有余味的能力。"
+  },
+  "hook": "你会看到一个人一再逆水追寻“在水一方”的人，越靠近越遥远，这首诗把“得不到”的心情写到了极致。",
+  "moods": [
+    "离别",
+    "孤独"
+  ],
+  "themes": [
+    "追寻",
+    "相思",
+    "可望难即",
+    "自然意象"
+  ],
+  "famousLines": [
+    {
+      "text": "蒹葭苍苍，白露为霜。",
+      "translation": "芦苇一片青苍，清晨的露水已经凝成了霜。"
+    },
+    {
+      "text": "所谓伊人，在水一方。",
+      "translation": "我惦念的那个人，就在河水的另一边。"
+    },
+    {
+      "text": "溯洄从之，道阻且长。",
+      "translation": "我想逆着水流去追她，可路又险又远。"
+    },
+    {
+      "text": "溯游从之，宛在水中央。",
+      "translation": "我再顺着水流去找，她却仿佛正在水中央。"
+    }
+  ],
+  "overview": {
+    "background": "《蒹葭》出自《诗经·秦风》，大致形成于先秦礼乐秩序仍在、但社会关系已开始变动的时期。那时的诗歌主要服务于歌唱与抒情，不重个人“传奇经历”，而重可反复吟咏的情感模型。《蒹葭》就在这样的语境里，把“隔水相望、可望难即”的经验写成了人人都能代入的经典母题。",
+    "coreIdea": "这首诗的要害，不是“有没有追到”，而是“不断追寻却始终隔着一层”的心理状态。它把爱慕、理想、执念都压进同一组动作里：逆流追、顺流找，一次次以为接近，却总在“在水一方”的距离感中落空。真正的核心是“永恒的未抵达”。",
+    "structure": "全诗三章重章叠唱，结构几乎平行：先写秋水与芦苇的清冷场景，再点出“伊人”在彼岸，随后写两种追寻路径都受阻，最后以“宛在”收束，造成若近若远的幻感。三章的变化很细：景物由“苍苍”到“萋萋”到“采采”，地点由“一方”到“湄”“涘”，道路由“长”“跻”“右”，层层递进，把追寻的时间感和挫败感越压越深。",
+    "readingPath": [],
+    "difficulty": 2
+  },
+  "media": {
+    "heroPrompt": "Tang dynasty blue-green (qinglu) landscape painting, mineral azurite and malachite pigments on aged xuan rice paper, ultra-wide 2.35:1 banner composition. Main subject on the left third: dense pale-green reeds and silver-white dew turning to frost along a cold autumn riverbank; across the water, faint low islets and distant shoreline dissolve into mist, suggesting an unreachable presence without depicting any person. The right two-thirds are largely empty negative space of layered fog, light wash, and exposed paper texture for title placement; quiet dawn atmosphere, subtle ripples, restrained brushwork, poetic distance and longing. No people, no faces, no figures, no text, no calligraphy, no seals, no borders.",
+    "hero": "media/works/jian-jia/hero.webp"
+  },
+  "chapters": [
+    {
+      "index": 1,
+      "title": "《蒹葭》逐句译注",
+      "lines": [
+        {
+          "text": "蒹葭苍苍，白露为霜。",
+          "translation": "河边的芦苇一片青苍，清晨的露水已经凝成了霜。",
+          "notes": [
+            {
+              "term": "蒹葭",
+              "pinyin": "jiān jiā",
+              "explain": "指芦苇一类的水边植物，这里用来点出秋日河岸景象。",
+              "type": "word"
+            },
+            {
+              "term": "苍苍",
+              "explain": "青色浓重、茂密的样子。",
+              "type": "word"
+            },
+            {
+              "term": "白露为霜",
+              "explain": "露水冷到像霜，写出时令已深秋、寒意渐重。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "所谓伊人，在水一方。",
+          "translation": "我所惦念的那个人，就在河水的那一边。",
+          "notes": [
+            {
+              "term": "伊人",
+              "explain": "那个人，这里多指诗中追寻、思慕的对象。",
+              "type": "word"
+            },
+            {
+              "term": "一方",
+              "explain": "一边、那一侧。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "溯洄从之，道阻且长。",
+          "translation": "逆着曲折的水流去追她，道路艰难而且很长。",
+          "notes": [
+            {
+              "term": "溯洄",
+              "pinyin": "sù huí",
+              "explain": "逆流而上并沿着弯曲水道前行。",
+              "type": "word"
+            },
+            {
+              "term": "从之",
+              "explain": "跟随、追寻她。",
+              "type": "word"
+            },
+            {
+              "term": "阻",
+              "explain": "险阻难行。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "溯游从之，宛在水中央。",
+          "translation": "顺着水流去寻找她，她又仿佛就在水中央。",
+          "notes": [
+            {
+              "term": "溯游",
+              "pinyin": "sù yóu",
+              "explain": "沿着水道前行去追寻，与“溯洄”相对。",
+              "type": "word"
+            },
+            {
+              "term": "宛",
+              "explain": "在这里是“仿佛、似乎”的意思。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "蒹葭萋萋，白露未晞。",
+          "translation": "芦苇长得更茂密，露水还没有晒干。",
+          "notes": [
+            {
+              "term": "萋萋",
+              "pinyin": "qī qī",
+              "explain": "草木茂盛的样子。",
+              "type": "word"
+            },
+            {
+              "term": "晞",
+              "pinyin": "xī",
+              "explain": "在这里指被日光晒干。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "所谓伊人，在水之湄。",
+          "translation": "我思念的那个人，就在河岸那边。",
+          "notes": [
+            {
+              "term": "湄",
+              "pinyin": "méi",
+              "explain": "水边、岸边。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "溯洄从之，道阻且跻。",
+          "translation": "逆流去追寻她，路上险阻重重，还要往高处攀登。",
+          "notes": [
+            {
+              "term": "跻",
+              "pinyin": "jī",
+              "explain": "登高、向上走，这里写道路陡险难行。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "溯游从之，宛在水中坻。",
+          "translation": "顺流去找她，她又像是在水中的小洲上。",
+          "notes": [
+            {
+              "term": "坻",
+              "pinyin": "chí",
+              "explain": "水中高起的小块陆地。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "蒹葭采采，白露未已。",
+          "translation": "芦苇鲜明繁茂，露水还没有完全消散。",
+          "notes": [
+            {
+              "term": "采采",
+              "pinyin": "cǎi cǎi",
+              "explain": "草木繁盛、色泽鲜明的样子。",
+              "type": "word"
+            },
+            {
+              "term": "未已",
+              "explain": "还没有停止，这里指露气未退。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "所谓伊人，在水之涘。",
+          "translation": "我挂念的那个人，还在河边那一侧。",
+          "notes": [
+            {
+              "term": "涘",
+              "pinyin": "sì",
+              "explain": "水边、岸边。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "溯洄从之，道阻且右。",
+          "translation": "逆流去追寻她，道路艰难而且迂回曲折。",
+          "notes": [
+            {
+              "term": "右",
+              "explain": "这里不是“右边”，而是“迂回、弯曲”的意思。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "溯游从之，宛在水中沚。",
+          "translation": "顺流去寻找她，她又仿佛在水中的小沙洲上。",
+          "notes": [
+            {
+              "term": "沚",
+              "pinyin": "zhǐ",
+              "explain": "水中的小洲。",
+              "type": "word"
+            }
+          ]
+        }
+      ],
+      "summary": "这首诗三章反复咏唱：诗中人一再追寻“在水一方”的意中人，不管逆流还是顺流，总觉得近在眼前却始终难以抵达。诗句通过“苍苍—萋萋—采采”和“为霜—未晞—未已”的递进，写出时间推移与追寻不止，也写出可望而不可即的怅惘。",
+      "difficulty": 3,
+      "hash": "376dcf0b7306b31b"
+    }
+  ]
+}
