@@ -62,5 +62,10 @@
   <footer>文渊 · 首页原型</footer>
 </div>
 
+<script type="module">
+import { renderHome } from './assets/render.js';
+renderHome(document.body).catch((e) => console.error(e));
+</script>
+
 </body>
 </html>

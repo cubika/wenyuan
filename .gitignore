@@ -8,7 +8,15 @@ Thumbs.db
 
 # 出图中间产物：只提交压缩后的 webp，不提交原始 png
 prototypes/media/*.png
+prototypes/media/**/*.png
 public/media/**/*.png
+
+# 由 scripts/build-data.mjs 从 data/works 生成
+prototypes/data/
+
+# Copilot SDK 以仓库根为 workingDirectory 时留下的运行时产物
+/config.json
+/session-state/
 
 # 截图只用于本地核对
 shots/

@@ -1,0 +1,164 @@
+{
+  "id": "jiang-cheng-zi-yi-mao-zheng-yue-er-shi-ri-ye-ji-meng",
+  "title": "江城子·乙卯正月二十日夜记梦",
+  "type": "ci",
+  "dynasty": "北宋",
+  "author": {
+    "name": "苏轼",
+    "era": "1037—1101",
+    "bio": "苏轼是北宋最具创造力的文学家之一，诗词文书画都成就极高，能把人生的大起大落写得既深情又开阔。这首《江城子》写于悼念亡妻王弗，是他词作中最动人的悼亡名篇之一，也让后人看到豪放词人极其柔软、克制的一面。"
+  },
+  "hook": "如果你想知道“想念一个人十年”在古诗词里会怎样被写出来，这首词几乎句句都能直击人心。",
+  "moods": [
+    "离别",
+    "孤独"
+  ],
+  "themes": [
+    "悼亡",
+    "梦境",
+    "时间",
+    "相思"
+  ],
+  "famousLines": [
+    {
+      "text": "十年生死两茫茫，不思量，自难忘。",
+      "translation": "你我已经阴阳相隔十年了，不是我故意去想，而是根本忘不掉。"
+    },
+    {
+      "text": "千里孤坟，无处话凄凉。",
+      "translation": "你孤零零的坟远在千里之外，我连想对你诉苦都找不到地方。"
+    },
+    {
+      "text": "相顾无言，惟有泪千行。",
+      "translation": "我们彼此看着，一句话也说不出，只有眼泪不停地流。"
+    },
+    {
+      "text": "料得年年肠断处，明月夜，短松冈。",
+      "translation": "我想每年最让我痛断肠的地方，还是那片明月照着、长着矮松的山冈。"
+    }
+  ],
+  "overview": {
+    "background": "这首词写在苏轼仕途受挫、长期在外奔波之后。亡妻已去多年，他平日未必时时提起，但情感并未消失，反而在岁月里沉成更深的痛。北宋文坛当时重视“以文为诗、以才学入词”，词的题材也从宴饮艳情不断扩展到人生感喟、身世之悲。苏轼正是在这种转变中，把原本多写儿女情的词体，推进到能承载生死之痛与生命追问的高度。",
+    "coreIdea": "它的要害不是“回忆往事”本身，而是写“时间并不能抹平至亲之丧”。上片先写现实：生死永隔、容颜已改、无人可诉；下片写梦中重逢：越是安静克制，越见悲痛深重。全词把“不能见”与“见了也无言”并置，最后落到“明月夜，短松冈”，把个人哀思定格成一生反复发作的伤口。",
+    "structure": "全词按“现实—设想—梦境—再回现实”的脉络推进。起句先下重锤，直接点出生死两隔；接着写千里孤坟，把痛感落到具体空间。随后一转，用“纵使相逢应不识”把岁月摧折写出来。下片再转入梦：还乡、轩窗、梳妆，画面极静；“相顾无言，惟有泪千行”达到情感顶点。结尾由梦醒后的推想收束，以月夜松冈回扣孤坟，形成前后照应。",
+    "readingPath": [],
+    "difficulty": 2
+  },
+  "media": {
+    "heroPrompt": "Song dynasty literati ink-wash painting, sparse brushwork, pale washes, restrained color on aged silk, ultra-wide 2.35:1 banner. Main subject on the right third: a lonely low grave mound on a short pine-covered ridge under a cold bright moon, with faint winter grass and a few dark pine silhouettes. The left two-thirds is expansive negative space of mist, pale silk texture, and diluted ink haze, quiet and desolate, with subtle depth and no architectural elements. No people, no faces, no figures, no text, no calligraphy, no seals, no borders.",
+    "hero": "media/works/jiang-cheng-zi-yi-mao-zheng-yue-er-shi-ri-ye-ji-meng/hero.webp"
+  },
+  "chapters": [
+    {
+      "index": 1,
+      "title": "江城子·乙卯正月二十日夜记梦",
+      "lines": [
+        {
+          "text": "十年生死两茫茫，不思量，自难忘。",
+          "translation": "你我已经生死相隔十年，彼此都渺茫难寻；不去想你，也终究忘不掉你。",
+          "notes": [
+            {
+              "term": "茫茫",
+              "explain": "这里指生者与死者相隔两界，前路渺远、无法相见的迷惘感。",
+              "type": "word"
+            },
+            {
+              "term": "思量",
+              "explain": "在这里是“刻意思念、反复去想”的意思。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "千里孤坟，无处话凄凉。",
+          "translation": "你的孤坟远在千里之外，我连想对你说说这份凄凉，都找不到地方。",
+          "notes": [
+            {
+              "term": "孤坟",
+              "explain": "指亡妻孤零零的坟墓，点出死别后的冷清。",
+              "type": "word"
+            },
+            {
+              "term": "话凄凉",
+              "explain": "意为“诉说内心的凄苦悲凉”。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "纵使相逢应不识，尘满面，鬓如霜。",
+          "translation": "就算真能再见，你大概也认不出我了：满面风尘，两鬓都白得像霜。",
+          "notes": [
+            {
+              "term": "纵使",
+              "explain": "即“即使、就算”，表示退一步设想。",
+              "type": "word"
+            },
+            {
+              "term": "鬓如霜",
+              "explain": "形容两鬓斑白，像覆着霜一样，写出衰老憔悴。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "夜来幽梦忽还乡，小轩窗，正梳妆。",
+          "translation": "昨夜在一场恍惚的梦里，我忽然回到家乡；你在小窗前，正对镜梳妆。",
+          "notes": [
+            {
+              "term": "幽梦",
+              "explain": "这里指朦胧而深沉的梦境。",
+              "type": "word"
+            },
+            {
+              "term": "小轩窗",
+              "explain": "小小的窗前。“轩”在这里是有窗的房间。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "相顾无言，惟有泪千行。",
+          "translation": "我们彼此对望，却一句话也说不出来，只有眼泪不断地流。",
+          "notes": [
+            {
+              "term": "相顾",
+              "explain": "互相看着对方。",
+              "type": "word"
+            },
+            {
+              "term": "惟有",
+              "explain": "只有、只剩下。",
+              "type": "word"
+            }
+          ]
+        },
+        {
+          "text": "料得年年肠断处，明月夜，短松冈。",
+          "translation": "想来每年让我痛断肝肠的地方，就是那明月照着的、长着矮松的坟冈。",
+          "notes": [
+            {
+              "term": "料得",
+              "explain": "想来、料想。",
+              "type": "word"
+            },
+            {
+              "term": "肠断处",
+              "explain": "指最令人悲痛欲绝的所在。",
+              "type": "word"
+            },
+            {
+              "term": "短松冈",
+              "explain": "长着矮松的小山冈，常被理解为亡妻墓地所在。",
+              "type": "place"
+            }
+          ]
+        }
+      ],
+      "summary": "这首词写词人梦见亡妻。开篇先写十年死别、强压不住的思念，再写坟墓遥远、无处倾诉；接着以“相逢不识”写自己风尘衰老。下片转入梦境：亡妻在窗前梳妆，夫妻相对无言，只有泪流。结尾落到现实，想到年年最伤心的地方，仍是明月下的墓地。",
+      "commentary": "这首词最动人的地方在“层层推进”。先是“生死两茫茫”的总痛，再到“无处话凄凉”的无处安放，情绪一步步压低。到“夜来幽梦忽还乡”突然转亮，像镜头切进一幅日常小景——“小轩窗，正梳妆”越平静越刺痛。末句“明月夜，短松冈”用三个短顿收束，画面冷清，余痛绵长，不直接喊悲，却比直说更重。",
+      "difficulty": 2,
+      "hash": "856da5bcebd2c768"
+    }
+  ]
+}

@@ -25,9 +25,14 @@ jobs:
 
       - uses: actions/configure-pages@v5
 
-      # 目前站点是纯静态原型，直接上传 prototypes/。
-      # 接入 Vite 之后，把这一步换成 setup-node + npm ci + npm run build，
-      # 并把 path 改成 dist/。
+      # 站点是纯静态原型。data/works 由流水线离线生成后提交，
+      # CI 只负责把它同步进 prototypes/data 再上传。
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: node scripts/build-data.mjs
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: prototypes
