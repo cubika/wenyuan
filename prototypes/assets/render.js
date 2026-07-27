@@ -5,7 +5,7 @@ const esc = (s) =>
 
 const STARS = (n) => '★'.repeat(n) + '☆'.repeat(5 - n);
 const TYPE_LABEL = { poem: '诗', ci: '词', essay: '文章', classic: '典籍' };
-/** 顶栏板块 → 体裁。诗、词同属「诗词」板块；长河/地图 还没有数据，顶栏里置灰。 */
+/** 顶栏板块 → 体裁。诗、词同属「诗词」板块。 */
 const SECTIONS = {
   poem: { label: '诗词', types: ['poem', 'ci'] },
   essay: { label: '文章', types: ['essay'] },
@@ -24,15 +24,49 @@ function navItems() {
   }));
 }
 
-/** 独立页面栏目在每个页面都要能点，选中态由当前页面决定。 */
-function bindPageNav(activeLabel) {
-  navItems().forEach(({ li, label }) => {
-    const href = PAGES[label];
-    if (!href) return;
+/**
+ * 顶栏只在这一处绑定，每个页面都把六项全绑一遍。
+ *
+ * 之前是各页各绑一部分：首页绑体裁筛选、阅读页绑跳转、人物/长河/地图
+ * 只绑了自己那一项 —— 于是那三页里的「诗词/文章/典籍」压根没有点击行为，
+ * 看着能点，点了没反应。顶栏的状态必须一次算完，不能按页拼。
+ *
+ * - `activePage`：当前所在的独立页面（人物 / 长河 / 地图）
+ * - `activeType`：阅读页当前作品的体裁，用来高亮所属板块
+ * - `index`+`onSection`：只有首页给，表示体裁项做就地筛选而不是跳转
+ */
+function bindNav({ activePage = null, activeType = null, index = null, onSection = null } = {}) {
+  navItems().forEach(({ li, label, key }) => {
+    const page = PAGES[label];
+    if (page) {
+      li.classList.remove('off');
+      li.classList.toggle('on', label === activePage);
+      li.onclick = () => {
+        location.href = page;
+      };
+      return;
+    }
+    if (!key) {
+      li.classList.add('off');
+      li.title = '还没做';
+      return;
+    }
+    li.dataset.sec = key;
+    if (index) {
+      // 首页：就地筛选。空板块置灰 —— 点了没反应比不能点更让人困惑。
+      if (index.filter((w) => SECTIONS[key].types.includes(w.type)).length === 0) {
+        li.classList.add('off');
+        li.title = '这个板块还没有作品';
+        return;
+      }
+      li.classList.remove('off');
+      li.onclick = () => onSection(li.classList.contains('on') ? null : { kind: 'section', value: key });
+      return;
+    }
     li.classList.remove('off');
-    li.classList.toggle('on', label === activeLabel);
+    li.classList.toggle('on', activeType !== null && SECTIONS[key].types.includes(activeType));
     li.onclick = () => {
-      location.href = href;
+      location.href = `home.html?sec=${key}`;
     };
   });
 }
@@ -107,25 +141,6 @@ function renderProse(lines, ci) {
 }
 
 const VERSE_TYPES = new Set(['poem', 'ci']);
-
-/**
- * 阅读页顶栏：高亮当前作品所属板块，点击回首页对应板块。
- * 读一篇文章时不该还亮着「诗词」，更不该点了没反应。
- */
-function bindWorkNav(type) {
-  bindPageNav(null);
-  navItems().forEach(({ li, label, key }) => {
-    if (PAGES[label]) return;
-    if (!key) {
-      li.classList.add('off');
-      return;
-    }
-    li.classList.toggle('on', SECTIONS[key].types.includes(type));
-    li.onclick = () => {
-      location.href = `home.html?sec=${key}`;
-    };
-  });
-}
 
 function bindReader() {
   document.querySelectorAll('.modes button').forEach((b) => {
@@ -264,7 +279,7 @@ export async function renderWork(mount) {
   });
 
   document.title = `${work.title} · ${work.author.name} — 文渊`;
-  bindWorkNav(work.type);
+  bindNav({ activeType: work.type });
   const hero = work.media.hero;
   const chapter = work.chapters[0];
   const multi = work.chapters.length > 1;
@@ -520,28 +535,6 @@ function renderPicks(index, filter) {
   if (label) label.textContent = filter ? `${list.length} / ${index.length} 篇` : `${index.length} 篇`;
 }
 
-/**
- * 首页顶栏板块：就地筛选，不跳页。空板块与还没做的栏目置灰，
- * 点了没反应比不能点更让人困惑。
- */
-function renderNav(index, onPick) {
-  bindPageNav(null);
-  navItems().forEach(({ li, label, key }) => {
-    if (PAGES[label]) return;
-    const count = key ? index.filter((w) => SECTIONS[key].types.includes(w.type)).length : 0;
-    if (count === 0) {
-      li.classList.add('off');
-      li.title = key ? '这个板块还没有作品' : '还没做';
-      return;
-    }
-    li.dataset.sec = key;
-    li.onclick = () => {
-      const on = li.classList.contains('on');
-      onPick(on ? null : { kind: 'section', value: key });
-    };
-  });
-}
-
 /** 单一筛选条件：三处入口互斥，同时亮着两个筛选器会让人搞不清看到的是什么。 */
 function applyFilter(index, filter) {
   document.querySelectorAll('nav li[data-sec]').forEach((li) =>
@@ -573,7 +566,7 @@ export async function renderHome(mount) {
   bandTxt.querySelector('a.btn').href = `work.html?id=${encodeURIComponent(lead.id)}`;
 
   const apply = (filter) => applyFilter(index, filter);
-  renderNav(index, apply);
+  bindNav({ index, onSection: apply });
   renderRiver(index, apply);
   renderMoods(index, apply);
 
@@ -590,7 +583,7 @@ export async function renderHome(mount) {
  * 空朝代不藏起来：它同时是「这个站还缺什么」的进度条。
  */
 export async function renderRiverPage(mount) {
-  bindPageNav('长河');
+  bindNav({ activePage: '长河' });
   const eras = await fetch('data/eras.json').then((r) => r.json());
   document.title = '长河 — 文渊';
   const total = eras.reduce((n, e) => n + e.works.length, 0);
@@ -712,7 +705,7 @@ function polyline(points, close = false) {
 }
 
 export async function renderMap(mount) {
-  bindPageNav('地图');
+  bindNav({ activePage: '地图' });
   const data = await fetch('data/map.json').then((r) => r.json());
   document.title = '地图 — 文渊';
   const { places, routes } = data;
@@ -878,7 +871,7 @@ function bindMap(mount, data, byId, visitors) {
 
 /** 人物列表按生年排，本身就是一条时间线。 */
 export async function renderPeople(mount) {
-  bindPageNav('人物');
+  bindNav({ activePage: '人物' });
   const people = await fetch('data/people.json').then((r) => r.json());
   document.title = '人物 — 文渊';
   mount.innerHTML = `
@@ -918,7 +911,7 @@ const RELATION_HINT = {
 };
 
 export async function renderPerson(mount) {
-  bindPageNav('人物');
+  bindNav({ activePage: '人物' });
   const wanted = new URLSearchParams(location.search).get('id');
   // 不写死默认 id —— 人物增删或改名后，写死的兜底会直接 404。
   const id = wanted ?? (await fetch('data/people.json').then((r) => r.json()))[0]?.id;

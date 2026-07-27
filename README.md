@@ -40,7 +40,7 @@ npm run test                            # vitest（schema 契约 + 人物/长河
 npm run check                           # 上面两个
 
 cd prototypes && python -m http.server 5180
-node scripts/verify-ui.mjs              # 108 项 UI 断言（需 dev server）
+node scripts/verify-ui.mjs              # 114 项 UI 断言（需 dev server）
 node scripts/verify-ui.mjs https://cubika.github.io/wenyuan   # 也可跑线上
 ```
 
@@ -66,6 +66,7 @@ node scripts/verify-ui.mjs https://cubika.github.io/wenyuan   # 也可跑线上
 - **「站内有什么」永远反查，绝不写进 AI 文本**。长河的朝代导语只讲这个时期文学在变什么，schema 层禁止出现书名号与站内作者名 —— 挂了钩就得跟着每次新增作品重写。
 - **文案要去 AI 味**。忌「不是 A，而是 B」「不仅…更…」这类对仗式总结句连用，忌套话，忌句式雷同。约束写在 `stages/voice.ts`，各阶段共用。
 - **地图不画国界**，只画水系与海岸走向；地名坐标全部来自手写的 `data/places.json`，模型只能从表里挑 id。
+- **顶栏在一处绑完**。`bindNav` 一次算完六项的状态与行为，不按页拼。曾经是各页各绑一部分，人物/长河/地图 三页的体裁项没绑点击，看着能点、点了没反应。
 - **看截图一律派 subagent**，不要读进主上下文。详见 [AGENTS.md](AGENTS.md)。
 - **注释的 `term` 必须是原句连续子串**。前端靠子串定位挂高亮，锚不上的注释等于废注，schema 层直接拒绝。
 - **名句必须逐字出自原文**（忽略标点），防止模型凭印象编造。
@@ -82,3 +83,4 @@ node scripts/verify-ui.mjs https://cubika.github.io/wenyuan   # 也可跑线上
 npm run check                 # typecheck + test
 node scripts/verify-ui.mjs    # UI 断言
 ```
+

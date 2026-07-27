@@ -16,6 +16,16 @@ page.on('response', (r) => {
   if (r.status() >= 400) failures.push(`${r.status()} ${r.url()}`);
 });
 
+/**
+ * 顶栏每一项要么可点，要么明确置灰。之前顶栏是各页各绑一部分，
+ * 人物/长河/地图 三页里的体裁项没绑点击，看着能点、点了没反应。
+ */
+const navAllBound = () =>
+  page.evaluate(() =>
+    [...document.querySelectorAll('nav li')].every(
+      (li) => li.classList.contains('off') || typeof li.onclick === 'function',
+    ));
+
 // ── 首页 ──
 await page.goto(`${BASE}/home.html`, { waitUntil: 'networkidle' });
 await page.waitForTimeout(1200);
@@ -27,6 +37,7 @@ const verseId = (indexData.find((w) => w.type === 'poem' || w.type === 'ci') ?? 
 const proseWork = indexData.find((w) => w.type === 'essay' || w.type === 'classic');
 const classicWork = indexData.find((w) => w.type === 'classic');
 check('home: 无 404 资源', failures.length === 0, failures.join(', '));
+check('home: 顶栏六项全部可点或明确置灰', await navAllBound());
 check('home: 横幅配图已加载', await page.evaluate(() => {
   const i = document.querySelector('.band img');
   return !!i && i.naturalWidth > 100;
@@ -109,6 +120,7 @@ failures.length = 0;
 await page.goto(`${BASE}/work.html?id=${verseId}`, { waitUntil: 'networkidle' });
 await page.waitForTimeout(900);
 check('work: 无 404 资源', failures.length === 0, failures.join(', '));
+check('work: 顶栏六项全部可点或明确置灰', await navAllBound());
 check('work: 页首配图已加载', await page.evaluate(() => {
   const i = document.querySelector('.wband img');
   return !!i && i.naturalWidth > 100;
@@ -372,6 +384,7 @@ await page.goto(`${BASE}/people.html`, { waitUntil: 'networkidle' });
 await page.waitForTimeout(900);
 const people = await page.evaluate(async () => await fetch('data/people.json').then((r) => r.json()));
 check('people: 无 404 资源', failures.length === 0, failures.join(', '));
+check('people: 顶栏六项全部可点或明确置灰', await navAllBound());
 check('people: 卡片数与 people.json 一致',
   (await page.locator('.pcard').count()) === people.length, `${people.length} 位`);
 check('people: 顶栏「人物」高亮', await page.evaluate(() =>
@@ -437,6 +450,7 @@ await page.goto(`${BASE}/river.html`, { waitUntil: 'networkidle' });
 await page.waitForTimeout(900);
 const riverEras = await page.evaluate(async () => await fetch('data/eras.json').then((r) => r.json()));
 check('river: 无 404 资源', failures.length === 0, failures.join(', '));
+check('river: 顶栏六项全部可点或明确置灰', await navAllBound());
 check('river: 顶栏「长河」高亮', await page.evaluate(() =>
   [...document.querySelectorAll('nav li.on')].map((l) => l.textContent.trim()).join() === '长河'));
 check('river: 轴段数与 eras.json 一致',
@@ -492,6 +506,7 @@ await page.goto(`${BASE}/map.html`, { waitUntil: 'networkidle' });
 await page.waitForTimeout(900);
 const mapData = await page.evaluate(async () => await fetch('data/map.json').then((r) => r.json()));
 check('map: 无 404 资源', failures.length === 0, failures.join(', '));
+check('map: 顶栏六项全部可点或明确置灰', await navAllBound());
 check('map: 顶栏「地图」高亮', await page.evaluate(() =>
   [...document.querySelectorAll('nav li.on')].map((l) => l.textContent.trim()).join() === '地图'));
 check('map: 地点数与 map.json 一致',
@@ -537,6 +552,13 @@ check('map: 站点面板给出人物档案入口',
   /^person\.html\?id=.+/.test((await page.locator('[data-panel] .who-link').getAttribute('href')) ?? ''));
 check('map: 无横向溢出', await page.evaluate(() =>
   document.documentElement.scrollWidth <= window.innerWidth + 1));
+// 独立页面里的体裁项要能跳回首页对应板块，不能是死的
+await page.locator('nav li', { hasText: /^诗词$/ }).first().click();
+await page.waitForLoadState('networkidle');
+await page.waitForTimeout(700);
+check('map: 顶栏体裁项跳回首页板块',
+  /home\.html\?sec=poem$/.test(page.url()) && (await page.locator('.pick').count()) > 0,
+  page.url().split('/').pop());
 
 // 旧的写死默认 id 曾导致 /work.html 不带参数时 404，这里守住。放在最后，
 // 因为它会重新加载页面、把阅读深度重置。
