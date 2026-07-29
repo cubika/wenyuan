@@ -100,6 +100,12 @@ export async function importWork(options: ImportOptions): Promise<Work> {
     // 赏析一律要。之前只给多章典籍写，导致单篇诗词的「细读」内容太薄。
     const wantCommentary = true
     const chapters: Chapter[] = []
+    // 每章都重写断点，命中缓存的也要写回去 —— 只在新译注时写的话，
+    // 断点文件会退化成「本轮新译的那几章」，中途崩掉反而把上一轮的成果丢了。
+    const checkpoint = async (): Promise<void> => {
+      await mkdir(dirname(partialPath), { recursive: true })
+      await writeFile(partialPath, JSON.stringify(chapters), 'utf8')
+    }
     for (const rawChapter of parsed.chapters) {
       const hit = cached.get(rawChapter.hash)
       if (hit) {
@@ -111,6 +117,7 @@ export async function importWork(options: ImportOptions): Promise<Work> {
           lines: applyParas(hit.lines, rawChapter.paras),
           ...(rawChapter.title !== undefined ? { title: rawChapter.title } : {}),
         })
+        await checkpoint()
         continue
       }
       process.stdout.write(`      ${rawChapter.index}/${parsed.chapters.length} 译注中…`)
@@ -128,8 +135,7 @@ export async function importWork(options: ImportOptions): Promise<Work> {
       const noteCount = chapter.lines.reduce((n, line) => n + line.notes.length, 0)
       console.log(` 完成（${chapter.lines.length} 句 / ${noteCount} 注）`)
       chapters.push(chapter)
-      await mkdir(dirname(partialPath), { recursive: true })
-      await writeFile(partialPath, JSON.stringify(chapters), 'utf8')
+      await checkpoint()
     }
 
     console.log('[4/4] 导读与配图 prompt…')
