@@ -335,21 +335,38 @@ if (classicWork) {
   check('classic: 章题取自原文篇名（未混入 markdown 记号）', await page.evaluate(() =>
     [...document.querySelectorAll('.ch-h h2')].every((h) => !h.textContent.trim().startsWith('#'))));
 
-  await page.locator('.toc').last().click();
+  // 挑中间一章：末章贴着页尾，浏览器滚不动，断言不到「跳到该章」这件事本身
+  const jumpIdx = Math.max(0, Math.floor(meta.chapters / 2) - 1);
+  const jump = await page.evaluate(async (id) => {
+    const w = await fetch(`data/${id}.json`).then((r) => r.json());
+    const i = Math.max(0, Math.floor(w.chapters.length / 2) - 1);
+    const ch = w.chapters[i];
+    return { title: ch.title ?? `第 ${ch.index} 章`, notes: ch.lines.reduce((m, l) => m + l.notes.length, 0) };
+  }, classicWork.id);
+  await page.locator('.toc').nth(jumpIdx).click();
   await page.waitForTimeout(1000);
   check('classic: 点目录跳到该章', await page.evaluate((n) => {
-    const last = document.querySelector(`#ch${n} .ch-h`);
-    if (!last) return false;
-    const top = last.getBoundingClientRect().top;
+    const target = document.querySelector(`#ch${n} .ch-h`);
+    if (!target) return false;
+    const top = target.getBoundingClientRect().top;
     return top > 0 && top < 200;
-  }, meta.chapters));
+  }, jumpIdx + 1));
   check('classic: 目录高亮跟着正文走', await page.evaluate((title) => {
     const on = document.querySelector('.toc.on');
     return !!on && on.textContent.trim() === title;
-  }, meta.lastTitle));
+  }, jump.title));
   check('classic: 侧栏注释跟着换到该章',
-    (await page.locator('.note-i[data-t]:visible').count()) === meta.lastChNotes,
-    `${meta.lastChNotes} 条`);
+    (await page.locator('.note-i[data-t]:visible').count()) === jump.notes,
+    `${jump.notes} 条`);
+  // 末章贴着页尾滚不到顶，至少要能进视口
+  await page.locator('.toc').last().click();
+  await page.waitForTimeout(1000);
+  check('classic: 点末章目录也能进视口', await page.evaluate((n) => {
+    const last = document.querySelector(`#ch${n} .ch-h`);
+    if (!last) return false;
+    const top = last.getBoundingClientRect().top;
+    return top > 0 && top < window.innerHeight;
+  }, meta.chapters));
 
   // 末章的注释也要能从右栏定位回正文
   const lastNote = page.locator('.note-i[data-t]:visible').last();
@@ -390,10 +407,10 @@ check('people: 卡片数与 people.json 一致',
 check('people: 顶栏「人物」高亮', await page.evaluate(() =>
   [...document.querySelectorAll('nav li.on')].map((l) => l.textContent.trim()).join() === '人物'));
 // 生卒不详的人物要按朝代落位，否则孙武会被排到苏轼后面去
-check('people: 按时间先后排列', await page.evaluate(() => {
+check('people: 按时间先后排列', await page.evaluate((expected) => {
   const names = [...document.querySelectorAll('.pcard h3')].map((h) => h.textContent.trim());
-  return names.length < 2 || names[0] === '孙武';
-}));
+  return names.length === expected.length && names.every((n, i) => n === expected[i]);
+}, people.map((p) => p.name)));
 check('people: 卡片链接到人物页',
   /^person\.html\?id=.+/.test((await page.locator('.pcard').first().getAttribute('href')) ?? ''));
 check('people: 卡片给出站内作品', await page.evaluate(() =>
@@ -421,10 +438,10 @@ if (personId) {
     const a = document.querySelector('.aside a.note-i');
     return !!a && /^work\.html\?id=.+/.test(a.getAttribute('href') ?? '');
   }));
-  check('person: 配图已加载', await page.evaluate(() => {
+  check('person: 有配图就要加载出来，没有就不占位', await page.evaluate((wantImage) => {
     const i = document.querySelector('.wband img');
-    return !!i && i.naturalWidth > 100;
-  }));
+    return wantImage ? !!i && i.naturalWidth > 100 : i === null;
+  }, pdata.media.hero !== undefined));
   check('person: 侧栏不出现第二条滚动条', await page.evaluate(() =>
     [...document.querySelectorAll('.side, .aside')].every((el) => el.offsetWidth - el.clientWidth === 0)));
   check('person: 无横向溢出', await page.evaluate(() =>
@@ -487,7 +504,8 @@ check('river: 作品卡链到阅读页、人物卡链到人物页', await page.e
   return /^work\.html\?id=.+/.test(w?.getAttribute('href') ?? '') &&
     /^person\.html\?id=.+/.test(p?.getAttribute('href') ?? '');
 }));
-const axHas = page.locator('.axis .ax.has').last();
+// 末段贴着页尾滚不到顶，取第一段有收录的来断言「跳到该段」这件事本身
+const axHas = page.locator('.axis .ax.has').first();
 const axHref = await axHas.getAttribute('href');
 await axHas.click();
 await page.waitForTimeout(900);

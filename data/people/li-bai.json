@@ -1,0 +1,130 @@
+{
+  "id": "li-bai",
+  "name": "李白",
+  "aka": [
+    "太白",
+    "青莲居士",
+    "诗仙",
+    "谪仙人"
+  ],
+  "dynasty": "唐",
+  "era": "701—762",
+  "born": 701,
+  "died": 762,
+  "hook": "贺知章第一次见他，当面叫他「谪仙人」——从天界贬下来的神仙。这不是比喻，是一个老诗人认真给出的判断。",
+  "bio": "李白，字太白，号青莲居士，后世称「诗仙」。约生于公元701年，卒于762年，是盛唐浪漫主义诗歌的代表人物。出生地有碎叶（今中亚）与绵州彰明（今四川江油）两说，确定无疑的是他在蜀中长大，少年时已遍读经史，习剑术，信道教。\n\n二十多岁出蜀漫游，以诗文干谒名流，广结豪侠。天宝元年（742），玄宗召他入京，授翰林供奉。贺知章第一次见他，当面叫他「谪仙人」，此后名满京城。然而宫廷歌功颂德的气氛与他格格不入，两三年后以「赐金放还」的方式离京，此后再未入仕。天宝三载（744），他在洛阳与杜甫相遇，结成中国文学史上最著名的诗人友谊。\n\n安史之乱爆发后，他错误地投入永王李璘幕府，永王败亡，他被判流放夜郎，途中遇赦，写下《早发白帝城》。晚年贫病，约762年卒于安徽当涂，身后由族叔李阳冰整理遗稿，编为《草堂集》，使大量诗篇得以留存。\n\n在诗歌史上，李白将乐府古体推到了一个极限：意象奇崛，气势纵横，用酒、月、剑、瀑布构建出一个常人难以复制的精神世界。他与杜甫并称「李杜」，代表了唐诗两种截然不同的气质，是中国古典诗歌浪漫主义的顶峰。",
+  "traits": [
+    "豪放",
+    "浪漫",
+    "好酒",
+    "仙气",
+    "游侠"
+  ],
+  "timeline": [
+    {
+      "year": 701,
+      "label": "约701年",
+      "title": "出生绵蜀",
+      "detail": "出生地有碎叶（今中亚）与绵州彰明（今四川江油）两说，至今无定论；可以确定的是他在蜀中长大，幼年便广泛读书，习剑术，涉道家。"
+    },
+    {
+      "year": 725,
+      "label": "约开元十三年（725）",
+      "title": "仗剑出蜀",
+      "detail": "以《渡荆门送别》留下出蜀的记录，从此离开巴蜀，游历荆楚、吴越、山东，遍访名山大川，广结豪侠，以诗文干谒名人，踏上漫游之路。",
+      "place": "jiangling"
+    },
+    {
+      "year": 727,
+      "label": "约开元十五年（727）",
+      "title": "游历庐山",
+      "detail": "漫游途中游历庐山，写下「飞流直下三千尺，疑是银河落九天」，将瀑布的气势推向神话尺度，是他早期山水诗的高峰之作。",
+      "place": "lushan"
+    },
+    {
+      "year": 742,
+      "label": "天宝元年（742）",
+      "title": "供奉翰林",
+      "detail": "玄宗皇帝闻其诗名，诏令入京，授翰林供奉，负责为宫廷起草乐章词赋。贺知章见他，当面称为「谪仙人」，名动京城。",
+      "place": "changan"
+    },
+    {
+      "year": 744,
+      "label": "天宝三载（744）",
+      "title": "赐金放还离京",
+      "detail": "与宫廷歌功颂德的风气扞格不入，约两年后以「赐金放还」的方式离京，结束短暂的宫廷生涯，此后再未踏入权力中枢。",
+      "place": "changan"
+    },
+    {
+      "year": 744,
+      "label": "天宝三载（744）",
+      "title": "洛阳初遇杜甫",
+      "detail": "离开长安后东行，在洛阳与杜甫相遇，随后同游梁宋，又遇高适，三人结伴，是盛唐诗坛最著名的一次聚会。",
+      "place": "luoyang"
+    },
+    {
+      "year": 756,
+      "label": "至德元载（756）",
+      "title": "入永王幕府",
+      "detail": "安史之乱后，永王李璘在江陵一带起兵，李白以为报国时机已到，入其幕府。永王兵败后，他被判流放夜郎（今贵州），踏上充军之路。",
+      "place": "jiangling"
+    },
+    {
+      "year": 759,
+      "label": "乾元二年（759）",
+      "title": "遇赦赋早发白帝城",
+      "detail": "流放途中行至白帝城一带接到赦令，随即顺江而下，欣喜之下写出「朝辞白帝彩云间，千里江陵一日还」，生死之间的轻盈感跃然纸上。",
+      "place": "kuizhou"
+    },
+    {
+      "year": 762,
+      "label": "宝应元年（762）",
+      "title": "卒于当涂",
+      "detail": "晚年漂泊，投靠族叔李阳冰，在安徽当涂病逝，约享年六十一岁。李阳冰为其整理诗稿，编为《草堂集》，使大量诗篇得以留存。"
+    }
+  ],
+  "circle": [
+    {
+      "name": "贺知章",
+      "relation": "师友",
+      "note": "天宝初年在长安相识，贺知章当面称李白为「谪仙人」，两人皆嗜酒，贺知章曾解下金龟换酒与他对饮，是李白进入长安名流圈的重要引荐人。"
+    },
+    {
+      "name": "杜甫",
+      "relation": "知音",
+      "note": "天宝三载洛阳初遇，此后数度同游，杜甫晚年仍多次写诗思念，留下「笔落惊风雨，诗成泣鬼神」等名句，是中国文学史上最著名的诗人友谊。"
+    },
+    {
+      "name": "孟浩然",
+      "relation": "师友",
+      "note": "李白极为仰慕孟浩然，写下「吾爱孟夫子，风流天下闻」，并在黄鹤楼为他送别，留下「孤帆远影碧空尽，唯见长江天际流」。"
+    },
+    {
+      "name": "高适",
+      "relation": "师友",
+      "note": "天宝三载与李白、杜甫三人同游梁宋，高适后来官至淮南节度使，在仕途上走得比两位诗友都远，是三人中政治命运最好的一位。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "将进酒",
+      "note": "以「君不见黄河之水天上来」起势，将时间的悲剧感与及时行乐的豪情压缩在一场假想的痛饮里，情绪起伏跌宕，却无一字矫情。",
+      "workId": "jiangjinjiu"
+    },
+    {
+      "title": "蜀道难",
+      "note": "反复咏叹「蜀道之难，难于上青天」，用神话传说、险峻地形与历史兴亡叠加出一种惊悚与壮美并存的质感，是李白想象力边界的长篇展示。"
+    },
+    {
+      "title": "静夜思",
+      "note": "全诗二十字，从「疑是地上霜」到「低头思故乡」，不用典故不做姿态，月光与乡愁被写到不能再简的地步，却成为中国人背得最熟的一首诗。"
+    },
+    {
+      "title": "望庐山瀑布",
+      "note": "「飞流直下三千尺，疑是银河落九天」——以银河做比，把夸张推到宇宙尺度，却丝毫不显荒唐，这是李白式想象才能做到的事。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Extreme cinematic widescreen (2.35:1). A weathered bronze wine jug and a shallow jade cup rest on a flat mossy river stone at the edge of a mountain pool; a towering cascade plunges down sheer dark cliffs in the upper right corner, half-dissolved in silver mist. The vessels occupy the right third of the frame, cold moonlight pooling in the jade cup. The left two-thirds open into a vast pale luminous night sky above silhouetted Tang-dynasty mountain ridges layered in indigo haze. Palette: deep indigo, mist-grey, cold silver, with warm aged-bronze highlights. Mood: limitless nocturnal solitude, slightly intoxicated. Ink-wash realism hybrid. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

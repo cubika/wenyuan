@@ -1,0 +1,97 @@
+{
+  "id": "qu-yuan",
+  "name": "屈原",
+  "aka": [
+    "屈平"
+  ],
+  "dynasty": "先秦",
+  "era": "约前340—前278",
+  "hook": "他把个人命运、政治理想和神话想象写进长诗，开出了《诗经》之外一整套新诗体，后来被称为“楚辞”。",
+  "bio": "屈原，战国晚期楚国人，早年在楚国朝廷任职，主张修明内政、联齐抗秦。其后因党争受谗，被逐渐排斥出权力核心，并长期辗转于江南一带。政治理想受挫，是他作品最深的现实背景：他不断追问君臣关系、国家前途与个体人格的去处。屈原的写作把楚地巫风神话、方言语汇和长篇抒情结合起来，形成了与《诗经》不同的表达系统，奠定“楚辞”传统，对汉赋和后世抒情文学影响深远。",
+  "traits": [
+    "忠贞",
+    "峻洁",
+    "忧国",
+    "浪漫想象",
+    "求索精神"
+  ],
+  "timeline": [
+    {
+      "year": -340,
+      "label": "约前340年",
+      "title": "生于楚地",
+      "detail": "出生于楚国贵族文化圈，早年接受楚地礼乐与辞章传统熏陶，为其后文学表达奠定基础。"
+    },
+    {
+      "year": -318,
+      "label": "约前318年",
+      "title": "入朝任职",
+      "detail": "在楚都郢进入政治核心，参与国政讨论，形成以强国自立为目标的政治主张。",
+      "place": "jingzhou"
+    },
+    {
+      "year": -313,
+      "label": "约前313年",
+      "title": "受谗被疏",
+      "detail": "因朝中倾轧与路线分歧遭到排挤，改革与外交主张受阻，政治处境急转直下。",
+      "place": "jingzhou"
+    },
+    {
+      "year": -299,
+      "label": "约前299年",
+      "title": "流放江南",
+      "detail": "楚怀王入秦后局势恶化，他被放逐至湘沅流域，创作进入最集中、最沉痛的阶段。",
+      "place": "xiaoxiang"
+    },
+    {
+      "year": -278,
+      "label": "约前278年",
+      "title": "自沉汨罗",
+      "detail": "秦军攻破楚都后，国家危局难挽，他在汨罗江投水而死，成为中国文学史上最具象征性的殉志者之一。",
+      "place": "yuezhou"
+    }
+  ],
+  "circle": [
+    {
+      "name": "上官大夫",
+      "relation": "政敌",
+      "note": "朝廷内斗中屡进谗言，直接加剧屈原被疏远与放逐的政治结局。"
+    },
+    {
+      "name": "楚顷襄王",
+      "relation": "政敌",
+      "note": "继位后未采纳其政治意见，并延续放逐处置，使屈原长期远离朝政。"
+    },
+    {
+      "name": "宋玉",
+      "relation": "后世追随",
+      "note": "同属楚辞传统的重要作家，承续并发展了屈原开创的抒情与铺陈方式。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "离骚",
+      "note": "以自叙式长诗展开政治理想与人格坚守，是楚辞传统的核心文本。"
+    },
+    {
+      "title": "九歌",
+      "note": "借祭祀神歌重塑人神情感与仪式空间，语言华丽而富于音乐性。"
+    },
+    {
+      "title": "天问",
+      "note": "连续设问天地古史与神话秩序，呈现强烈的怀疑精神与思想张力。"
+    },
+    {
+      "title": "九章",
+      "note": "多篇抒情作品汇成个人精神史，情绪由愤懑转为深沉自守。"
+    },
+    {
+      "title": "国殇",
+      "note": "以沉雄节奏悼念阵亡将士，塑造悲壮的集体牺牲形象。",
+      "workId": "guoshang"
+    }
+  ],
+  "media": {
+    "heroPrompt": "A wide 2.35:1 cinematic banner of the Miluo River at dusk under storm-heavy skies; the left two-thirds is open misty water and dim horizon for negative space, while the right third holds the focal scene: a windswept riverbank with scattered orchid and calamus, a bundled set of bamboo slips tied with dark silk, and a small bronze ritual vessel beside wet stones, Chu-style patterns subtly visible on the lacquered wood fragments; subdued teal, ash gray, and muted amber tones, dramatic atmosphere, high detail, no human presence. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

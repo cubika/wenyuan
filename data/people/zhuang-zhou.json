@@ -1,0 +1,92 @@
+{
+  "id": "zhuang-zhou",
+  "name": "庄周",
+  "aka": [
+    "庄子",
+    "南华真人"
+  ],
+  "dynasty": "先秦",
+  "era": "约前4世纪中期—前3世纪前期",
+  "hook": "他把“人怎样活得不被外物捆住”问到极致，写出《逍遥游》这样至今仍锋利的哲学寓言。",
+  "bio": "庄周，后世通称庄子，战国时期宋国蒙人，道家重要思想家与散文家。关于他的生平，可靠史料不多，大致只知他做过小官“漆园吏”，生活并不显达。楚王曾派人以厚礼延请他入仕，他明确拒绝，选择在民间著述与讲学。现存《庄子》一书一般认为“内篇”与庄周关系最密切，文字想象奇崛，常以寓言、譬喻和反讽拆解名利、成见与权力话语。他在文学史上的位置，不只是一位哲学家，更是先秦最有创造力的散文作者之一，对魏晋玄学、唐宋诗文与后世审美趣味都产生了深远影响。",
+  "traits": [
+    "逍遥观",
+    "寓言家",
+    "反成见",
+    "尚自然"
+  ],
+  "timeline": [
+    {
+      "year": -370,
+      "label": "约前370年",
+      "title": "生于宋国蒙地",
+      "detail": "庄周大约生于战国中期的宋国蒙地，后世文献多据此认定其基本地域身份。",
+      "place": "menglu"
+    },
+    {
+      "year": -340,
+      "label": "约前340年",
+      "title": "任漆园吏",
+      "detail": "他曾做“漆园吏”这类基层小官，地位不高，这也解释了其长期远离权力中心的处境。",
+      "place": "menglu"
+    },
+    {
+      "year": -335,
+      "label": "约前335年",
+      "title": "与惠施往还",
+      "detail": "庄周与名家代表惠施长期辩难唱和，这类思想交锋推动了其“齐物”立场的展开。"
+    },
+    {
+      "year": -318,
+      "label": "约前318年",
+      "title": "拒楚王延请",
+      "detail": "楚王遣使以厚币请他出任高位，他以“宁曳尾于涂中”之喻拒绝入仕，立场鲜明。"
+    },
+    {
+      "year": -300,
+      "label": "约前300年",
+      "title": "著述成书",
+      "detail": "《庄子》内篇的核心思想与文体风格大体在这一阶段成熟，奠定其后世经典地位。"
+    },
+    {
+      "year": -290,
+      "label": "约前290年",
+      "title": "晚年卒于蒙地",
+      "detail": "庄周大约卒于战国后期前段，具体年份不详，传统叙述多仍系于蒙地。",
+      "place": "menglu"
+    }
+  ],
+  "circle": [
+    {
+      "name": "惠施",
+      "relation": "知音",
+      "note": "二人长期辩论名实与是非，既相互争胜，也彼此激发，留下大量思想对话线索。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "逍遥游",
+      "note": "以鲲鹏、蜩鸠等寓言展开“逍遥”命题，是《庄子》最具代表性的开篇。",
+      "workId": "xiaoyaoyou"
+    },
+    {
+      "title": "齐物论",
+      "note": "集中讨论彼此、是非与成见的相对性，体现其核心哲学锋芒。"
+    },
+    {
+      "title": "养生主",
+      "note": "借庖丁解牛等故事说明顺势而行、保全生命之道。"
+    },
+    {
+      "title": "人间世",
+      "note": "直面乱世处境，讨论人在权力与风险之间如何自处。"
+    },
+    {
+      "title": "秋水",
+      "note": "通过河伯与海若对话，写认知尺度的转换与自我限度。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "A vast dawn sky and pale river mist fill the left two-thirds as clean negative space. In the right third, a colossal dark roc wing rises above northern sea swells, while a small butterfly circles near a weathered gourd floating by a twisted old tree root at the bank; water vapor, distant horizon, and restrained ink-wash tones, cinematic wide composition, tranquil yet uncanny atmosphere, 2.35:1. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

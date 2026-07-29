@@ -1,0 +1,122 @@
+{
+  "id": "liu-zongyuan",
+  "name": "柳宗元",
+  "aka": [
+    "子厚",
+    "柳河东",
+    "柳柳州"
+  ],
+  "dynasty": "唐",
+  "era": "773—819",
+  "born": 773,
+  "died": 819,
+  "hook": "二十岁进士及第，三十二岁遭贬，在南方瘴疠之地蛰居十四年——《小石潭记》就是那段岁月里磨出来的。",
+  "bio": "柳宗元，字子厚，河东（今山西永济）人，生于长安。二十岁进士及第，仕途起步顺遂。805年，他追随王叔文参与永贞改革，试图整饬宦官专权与藩镇之弊。改革不足百日即告失败，柳宗元被列为八司马之一，贬为永州司马，此后在南方流放整整十年。永州偏僻荒凉，他挂着虚职、无事可做，反而得以纵情山水。《永州八记》是这十年里最重要的文字，每篇都借眼前的涧石草木寄托内心的郁结，却不露一字怨语，情绪全化入了景物的形状与气息之中。815年，他短暂被召回长安，随即再度遭贬，出任柳州刺史。在柳州四年，他兴学、释奴、修井，做了不少实事，819年积劳病逝于任上，年仅四十六岁。与韩愈并称韩柳，同为古文运动的核心人物，同列唐宋八大家。两人文风各异：韩愈奔涌恣肆，柳宗元沉静深邃。他把长年贬谪的苦闷转化为山水文字的清澈，这种转化让《小石潭记》《始得西山宴游记》在千年后仍能击中人心。",
+  "traits": [
+    "孤绝",
+    "刚直",
+    "忧愤",
+    "山水寄情",
+    "古文大家"
+  ],
+  "timeline": [
+    {
+      "year": 773,
+      "label": "大历八年（773）",
+      "title": "生于长安",
+      "detail": "出身河东柳氏，自幼随父宦游，少年时博涉经史，打下扎实的学问根底。",
+      "place": "changan"
+    },
+    {
+      "year": 793,
+      "label": "贞元九年（793）",
+      "title": "进士及第",
+      "detail": "二十岁登进士第，此后历任校书郎、蓝田尉等职，踏上仕途，颇受重视。",
+      "place": "changan"
+    },
+    {
+      "year": 805,
+      "label": "永贞元年（805）",
+      "title": "永贞改革受挫遭贬",
+      "detail": "参与王叔文主导的政治改革，力图限制宦官势力、整顿财政。顺宗禅位、改革失败后，柳宗元以八司马之一的身份被贬出京。",
+      "place": "changan"
+    },
+    {
+      "year": 806,
+      "label": "元和元年（806）",
+      "title": "抵达永州",
+      "detail": "以永州司马身份赴任，实无具体职权，在此蛰居十年。被迫闲置的岁月，反而成了他一生写作最密集的时期。",
+      "place": "yongzhou"
+    },
+    {
+      "year": 810,
+      "label": "元和年间（约810）",
+      "title": "写就《永州八记》",
+      "detail": "游历永州山水，陆续写下《始得西山宴游记》《小石潭记》等八篇游记，以精准的空间感与光影描写寄托流放之郁，开创了贬谪散文的新范式。",
+      "place": "yongzhou"
+    },
+    {
+      "year": 815,
+      "label": "元和十年（815）",
+      "title": "短暂召回长安",
+      "detail": "被诏回京，却因旧党争议迅速遭到排挤，在长安停留数月后即被再度外放，此后再未返回北方。",
+      "place": "changan"
+    },
+    {
+      "year": 815,
+      "label": "元和十年（815）",
+      "title": "出任柳州刺史",
+      "detail": "以柳州刺史身份赴任，主持开凿水井、废止蓄奴陋俗、兴办州学，是他一生中少数能真正施展实政的时期。"
+    },
+    {
+      "year": 819,
+      "label": "元和十四年（819）",
+      "title": "病逝柳州任上",
+      "detail": "积年操劳加之瘴气侵染，卒于柳州任上，年仅四十六岁。好友刘禹锡为其整理文集，韩愈为之撰写墓志铭。"
+    }
+  ],
+  "circle": [
+    {
+      "name": "韩愈",
+      "relation": "师友",
+      "note": "共同倡导古文运动，并称韩柳。柳宗元死后，韩愈撰写《柳子厚墓志铭》，是传世最重要的柳宗元传记文字。"
+    },
+    {
+      "name": "刘禹锡",
+      "relation": "知音",
+      "note": "永贞改革同僚，一同遭贬，并称刘柳。柳宗元死后，刘禹锡整理编辑其遗稿，使《柳河东集》得以流传。"
+    },
+    {
+      "name": "王叔文",
+      "relation": "同僚",
+      "note": "永贞改革的核心主导者，柳宗元政治上的引路人。改革失败后王叔文被赐死，柳宗元随之遭贬，此后再未翻身。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "《江雪》",
+      "note": "二十字写尽天地皆白、万籁俱寂，一叶扁舟、一根钓线悬在画中，孤绝到极处。五绝中压缩感最强的一首。",
+      "workId": "jiangxue"
+    },
+    {
+      "title": "《小石潭记》",
+      "note": "《永州八记》之一，以精准的空间感和光影呈现一处无名小潭，结尾凄神寒骨四字将景语悄然转为心声，情绪深藏于物象之中。",
+      "workId": "xiaoshitanji"
+    },
+    {
+      "title": "《捕蛇者说》",
+      "note": "以永州蛇农的遭遇讽刺重赋之害，末句苛政猛于虎后来成为引用最广的政论警句，是柳宗元关怀民瘼的直接表达。"
+    },
+    {
+      "title": "《封建论》",
+      "note": "系统论证分封制的历史局限，逻辑清晰严密，直接影响后世史论写作，被视为唐代政论散文中最具思辨性的篇章之一。"
+    },
+    {
+      "title": "《黔之驴》",
+      "note": "《三戒》之一，以寓言嘲讽外强中干的权势者，黔驴技穷由此固定为成语，是中国古代寓言散文的经典文本。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Ink-wash painting style panoramic landscape in 2.35:1 cinematic ratio. Right third: a small weathered wooden fishing boat moored at a snow-dusted bamboo grove, fishing rod resting untended across the gunwale, frost-covered reeds and dark smooth river stones at the waterline, bare willow branches drooping toward still black water. Left two-thirds: vast pale winter sky dissolving into bare white, distant ink-grey peaks nearly absorbed into falling snow and mist, the emptiness heavy rather than peaceful. Extreme minimalism, deep indigo-black brushwork against wintry whites and cool greys, Tang dynasty aesthetic sensibility, no ornamentation. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "id": "jiangxue",
+  "title": "江雪",
+  "type": "poem",
+  "dynasty": "唐",
+  "author": {
+    "name": "柳宗元",
+    "era": "773—819",
+    "bio": "柳宗元三十出头参与永贞革新，失败后被贬永州，一住十年；此后再贬柳州，终于任所。他把流放的漫长时光变成了创作的土壤，山水游记与寓言古文皆成一家之言，与韩愈并称韩柳。《江雪》写于永州贬谪期间，那个独钓寒江的身影，多半也是他自己。"
+  },
+  "hook": "满世界的鸟声和脚印都被大雪抹掉了，只剩一个人坐在江上钓鱼——二十个字，装进去的东西比看上去多得多。",
+  "moods": [
+    "孤独",
+    "释然"
+  ],
+  "themes": [
+    "孤独",
+    "隐逸",
+    "雪景",
+    "自我放逐"
+  ],
+  "famousLines": [
+    {
+      "text": "千山鸟飞绝，万径人踪灭。",
+      "translation": "千座山上，连飞鸟的影子都断绝了；万条小路上，人的脚印也消失得一干二净。",
+      "note": "两句各用一个极大的数（千、万）配一个斩断的动词（绝、灭），手法是先放大再清空。妙处在于没说静，只说没有——声音和气息全靠读者自己去感受那个空。绝和灭比消失重得多，带着一种被主动肃清的压迫感，替后面的孤独铺足了底色。"
+    },
+    {
+      "text": "孤舟蓑笠翁，独钓寒江雪。",
+      "translation": "一叶孤舟上，一个披蓑戴笠的老人，在寒冷江面的漫天大雪里，独自垂钓。",
+      "note": "钓寒江雪是全诗最奇的地方。钓鱼钓的是鱼，雪是无法钓起的虚无之物，把钓和雪硬放在一起，造出一种明知无所得却仍然坚持的荒诞感。独字呼应前两句的清场，但这里不是消失——是偏偏留下来。一个偏偏，把整首诗的精神撑了起来。"
+    }
+  ],
+  "overview": {
+    "background": "柳宗元参与了唐顺宗永贞年间王叔文主导的政治改革，意图削减宦官权力、整顿藩镇。改革仅维持半年便遭镇压，柳宗元被贬为永州司马。永州地处湖南深山，既无实权，又与权力中心相隔千里，这一贬就是十年。江雪大约写于这段流放期间。彼时唐朝政治已陷入宦官专权与朋党倾轧的泥淖，士大夫的政治抱负普遍遭到挤压。文坛上，韩愈正力推古文运动，强调文章要有骨气、有担当，柳宗元是这场运动的核心人物之一。这首诗正是一个被彻底排斥在政治之外的人，用二十个字造出的极端孤独世界。",
+    "coreIdea": "表面写雪中独钓的老翁，实质写一种拒绝妥协的姿态。千山万径被清空，世界仿佛只剩一个人，而这个人偏偏还在那里，安静地钓着。古典文学中有隐逸的钓者传统，但此处的钓不是悠然的退隐——寒字和雪字压着，那份坚守带着彻骨的冷意。全诗既不哭诉，也无愤怒，用一个沉默的背影，把孤绝说到极致。",
+    "structure": "前两句是清场：鸟没了，人没了，用千和万把世界写大，再用绝和灭把它清空。后两句是特写：镜头从空旷全景猛然拉向一只船、一个人。转折发生在第三句——前面全是无，这里忽然出现一个有。结构类似绘画中的留白与点睛：大片空白是为了托出那一点，而那一点的分量，全靠前两句的清场才撑得起来。",
+    "artistry": "最值得注意的是数量词的反差：前两句用千、万铺开巨大空间，后两句立刻用孤、独收紧。一张一弛之间，老翁的渺小与执拗同时显现。绝与灭不是平淡的消失，绝有断绝之意，灭有被消除之感，选这两个字，写的是一种被肃清的压迫感，不是单纯的自然现象。末句独钓寒江雪，五个字各司其职：独是孤身；钓偏偏是悠闲的动作，与寒形成张力；寒不仅是气温；雪钓的不是鱼，是虚无，是明知无所得却仍坚持的状态。钓与雪并置，造出一种荒诞感，诗意正从这里飞起来。全诗没有一个判断性形容词，没有孤独悲苦清高，只有动作与名词，情绪全留给读者自己填入。",
+    "legacy": "历代画家反复以此入画，形成了一个固定的视觉母题：大片留白的雪景中，一叶扁舟，一个背影。苏轼曾评柳宗元的诗发纤秾于简古，寄至味于淡泊，江雪是这个评价最常被引作例证的一首。后世存在两种截然不同的读法：一派认为老翁写的是真正的高洁自守，安然于孤独；另一派认为寒字与被清空的世界，透露的是极度压抑后的愤懑，平静是强撑出来的。两种读法都有文本依据，争而未决，反而给这二十个字留下了持久的张力。今天独钓寒江雪这五个字，已从诗句变成了文化符号，凡是谈到在逆境中独守本心，总会被援引。",
+    "readingPath": [],
+    "difficulty": 2
+  },
+  "media": {
+    "heroPrompt": "Tang dynasty blue-green (qinglu) landscape painting, mineral azurite and malachite pigments on aged xuan rice paper, a lone weathered wooden fishing boat with a bamboo conical hat and straw rain cape resting inside it, a single fishing line trailing into dark still water, set upon a vast snow-blanketed river valley beneath heavy falling snow, towering mountain silhouettes on all sides completely white and silent, main subject on the right third, left two-thirds empty with pale diluted ink wash dissolving into the blank texture of aged paper suggesting boundless cold sky and infinite winter distance, bare mountain ridgelines barely suggested through snow haze with fine dry brushstrokes, the boat tiny against an overwhelming white void, limited palette of cold mineral blue-gray in water shadows and distant peaks, snow rendered entirely as unpainted negative space, fine academic brushwork in Tang-Song style with flat mineral washes, 2.35:1 cinematic aspect ratio. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  },
+  "chapters": [
+    {
+      "index": 1,
+      "title": "雪江独钓图",
+      "lines": [
+        {
+          "text": "千山鸟飞绝，万径人踪灭。",
+          "translation": "千山万岭上，连一只鸟的影子都看不到了；无数条小路上，连一个人留下的脚印也没有。",
+          "notes": [
+            {
+              "term": "人踪",
+              "explain": "人留下的踪迹、脚印。此处配合灭字，说明痕迹彻底消失，不是少，是绝迹。",
+              "type": "word"
+            }
+          ],
+          "para": 0
+        },
+        {
+          "text": "孤舟蓑笠翁，独钓寒江雪。",
+          "translation": "一条孤零零的小船上，坐着一个披着蓑衣、戴着斗笠的老人，独自在风雪漫天的寒江里钓鱼。",
+          "notes": [
+            {
+              "term": "蓑笠",
+              "explain": "蓑衣和斗笠。蓑衣用草或棕毛编成，披在身上遮风挡雨；斗笠是竹篾编的圆形宽边帽，是渔人御寒防雪的标准装束。",
+              "type": "word"
+            }
+          ],
+          "para": 0
+        }
+      ],
+      "summary": "漫天大雪覆盖了所有的山岭和道路，鸟迹人踪全部消失。就在这片死寂之中，一叶孤舟上有个披蓑戴笠的老翁，兀自在寒江雪中垂钓。全诗只有二十字，却撑开了一个极度空旷又极度孤寒的世界。柳宗元写此诗时正遭贬永州，老翁的形象是他自身处境与心境的投影。",
+      "commentary": "这首诗最值得细看的是它的数字布局。前两句用千、万极度铺张，把整个天地的空间全部占满，然后用绝、灭两个字一刀砍净，鸟没了，人没了，偌大的世界彻底清空。绝和灭用得比少或稀狠得多，是归零，不是减少。空间清空之后，第三句才推出那一个孤舟蓑笠翁。前面铺了那么大的背景，整首诗的人物只有这一个。孤字点出船，独字点出人，两个字呼应着前两句的绝与灭，把孤立感压到极致。最后独钓寒江雪五字收尾，妙在落脚点是雪而不是鱼。他钓的不是鱼，是雪，是寒，是这满江的空旷。这个雪字把画面定格，整首诗的意境也在这里凝固。柳宗元写这首诗时正被贬永州，仕途断绝，朋党尽散。老翁那副兀自垂钓、旁若无人的姿态，是他给自己留下的形象：世界再冷，我自钓雪。诗里没有一个字写情绪，但处境与心境已经全在那个独字里了。",
+      "difficulty": 2,
+      "hash": "900c13e8683b8a7f"
+    }
+  ]
+}

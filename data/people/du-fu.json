@@ -1,0 +1,147 @@
+{
+  "id": "du-fu",
+  "name": "杜甫",
+  "aka": [
+    "字子美",
+    "自号少陵野老",
+    "杜少陵"
+  ],
+  "dynasty": "唐",
+  "era": "712—770",
+  "born": 712,
+  "died": 770,
+  "hook": "如果想知道安史之乱把普通人的日子碾成了什么样，读杜甫就够了：他把战乱、饥饿、离散写得一针见血。",
+  "bio": "杜甫，字子美，后世常称杜少陵。早年有用世之志，长期困守长安，仕途一直不顺。安史之乱爆发后，他亲历陷城、流离、饥困，短暂在肃宗朝任左拾遗，因直言敢谏很快失意离职。此后辗转入蜀，在成都有过一段相对安稳的草堂生活；晚年出峡东下，漂泊江汉，终老舟中。杜甫在诗史中的位置很特殊：他把个人身世和时代创伤紧紧绑在一起，既写家国大势，也写小民苦难，叙事能力、语言锤炼和体式经营都极见功力。律诗到他手里，沉郁顿挫而能开阖自如，后世“诗圣”“诗史”的称呼，主要就立在这份现实感和承担感上。",
+  "traits": [
+    "沉郁顿挫",
+    "忧国悯民",
+    "直言敢谏",
+    "诗史意识",
+    "律诗大家"
+  ],
+  "timeline": [
+    {
+      "year": 712,
+      "label": "先天元年（712）",
+      "title": "生于巩县",
+      "detail": "杜甫生于河南巩县，家学与门第背景为他后来的诗学与政治理想奠定了起点。",
+      "place": "luoyang"
+    },
+    {
+      "year": 746,
+      "label": "天宝五载（746）",
+      "title": "入长安求仕",
+      "detail": "入长安后长期应试与干谒不成，亲历京城底层困顿，这段经历后来不断进入他的诗。",
+      "place": "changan"
+    },
+    {
+      "year": 751,
+      "label": "天宝十载（751）",
+      "title": "献赋求进",
+      "detail": "向朝廷献《三大礼赋》以求任用，显示其强烈的入仕意愿，也反映出求仕道路的艰难。",
+      "place": "changan"
+    },
+    {
+      "year": 755,
+      "label": "天宝十四载（755）",
+      "title": "乱中失序",
+      "detail": "安史之乱爆发，长安局势崩溃，杜甫的家庭与个人生活被彻底打乱，诗风由此更趋沉痛。",
+      "place": "changan"
+    },
+    {
+      "year": 757,
+      "label": "至德二载（757）",
+      "title": "授左拾遗",
+      "detail": "辗转赴行在后被授左拾遗，短暂进入言职岗位，其敢言作风很快触碰政治现实。",
+      "place": "fengxiang"
+    },
+    {
+      "year": 759,
+      "label": "乾元二年（759）",
+      "title": "弃官入蜀",
+      "detail": "辞官西行入蜀，标志其由朝廷言职转入长期漂泊阶段，创作重心也更贴近民生疾苦。",
+      "place": "chengdu"
+    },
+    {
+      "year": 760,
+      "label": "上元元年（760）",
+      "title": "草堂初成",
+      "detail": "在成都浣花溪畔营建草堂，生活短暂安定，留下大量兼具日常质感与时代忧思的诗篇。",
+      "place": "chengdu"
+    },
+    {
+      "year": 766,
+      "label": "大历元年（766）",
+      "title": "寓居夔州",
+      "detail": "移居夔州后创作进入高峰，律诗格局与语言锤炼更趋成熟，《秋兴八首》等名作即出于此时。",
+      "place": "kuizhou"
+    },
+    {
+      "year": 768,
+      "label": "大历三年（768）",
+      "title": "出峡南下",
+      "detail": "离夔州后顺江东下，重回漂泊，晚年诗作中的衰病感与身世感进一步加深。",
+      "place": "jiangling"
+    },
+    {
+      "year": 770,
+      "label": "大历五年（770）",
+      "title": "病逝舟中",
+      "detail": "晚年长期羁旅，最终在湘江行旅途中病逝，身后由亲友与后世文人持续整理、传诵其诗。",
+      "place": "xiaoxiang"
+    }
+  ],
+  "circle": [
+    {
+      "name": "李白",
+      "relation": "知音",
+      "note": "天宝年间在洛阳相会，二人诗歌风格迥异却彼此敬重，后世常并称“李杜”。"
+    },
+    {
+      "name": "高适",
+      "relation": "师友",
+      "note": "与杜甫有长期交游，同历盛唐转衰的时代震荡，诗中多见相互唱和与惺惺相惜。"
+    },
+    {
+      "name": "严武",
+      "relation": "同僚",
+      "note": "严武镇蜀期间对杜甫多有照拂，使其在成都获得相对稳定的生活与创作条件。"
+    },
+    {
+      "name": "杜审言",
+      "relation": "亲属",
+      "note": "杜甫祖父，初唐名诗人；家学渊源与文学声望对杜甫早年志向有重要影响。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "春望",
+      "note": "以长安残破与家国离散互相映照，篇幅短而层层推进，是其乱世书写的代表。",
+      "workId": "chunwang"
+    },
+    {
+      "title": "登高",
+      "note": "晚年夔州之作，时空开阔而情绪沉郁，被视为七律高峰之一。",
+      "workId": "denggao"
+    },
+    {
+      "title": "兵车行",
+      "note": "借征发场景直刺战争对民生的摧折，叙事与议论结合紧密。"
+    },
+    {
+      "title": "茅屋为秋风所破歌",
+      "note": "从个人困苦推及天下寒士，情感转折自然，具有强烈现实关怀。"
+    },
+    {
+      "title": "三吏",
+      "note": "通过县吏与百姓的冲突现场，连续呈现战乱中的制度压力与人间惨况。"
+    },
+    {
+      "title": "三别",
+      "note": "以离别场景写普通人被时代撕裂的命运，语气克制却极具冲击力。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Cinematic ultra-wide 2.35:1 banner of late-Tang Kuizhou gorges in autumn: steep red-brown cliffs and a cold river under heavy clouds, with the main subject compressed into the right third—a weathered thatched hut beside a small wooden desk holding an inkstone, a brush rest, and a rolled manuscript without visible writing; wind-bent reeds and damp stone textures, distant layered mountains fading into mist; the left two-thirds kept open, quiet, and uncluttered as negative space; restrained ink-wash tones, somber atmosphere, fine texture detail, no modern elements. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

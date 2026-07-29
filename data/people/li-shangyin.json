@@ -1,0 +1,135 @@
+{
+  "id": "li-shangyin",
+  "name": "李商隐",
+  "aka": [
+    "义山",
+    "玉谿生",
+    "樊南生"
+  ],
+  "dynasty": "唐",
+  "era": "813—858",
+  "born": 813,
+  "died": 858,
+  "hook": "他一生陷在两党夹缝里出不来，却把这份走投无路的困顿，炼成了唐诗里最难解、也最让人欲罢不能的朦胧诗境。",
+  "bio": "李商隐，字义山，号玉谿生，祖籍河内（今河南沁阳一带），晚唐诗人。幼年丧父，家境贫寒，靠自学打下根基。少年时得令狐楚赏识，入其天平幕府，习骈文，由此进入上层文化圈。开成二年（837）进士及第，翌年入泾原节度使王茂元幕并娶其女为妻。这桩婚事将他卷入牛李党争——令狐楚属牛党，王茂元属李党，此后他两边不讨好，仕途始终蹭蹬。会昌四年（844）随郑亚赴桂州，大中五年（851）妻子王氏在长安病逝。此后寄幕东川数年，大中十二年（858）前后卒于郑州，享年约四十五岁。他在文学史上以无题诗著称。这些诗意象绮密，用典繁复，情感层叠，到底写的是爱情、仕途遭遇还是某种宗教体验，历代解读莫衷一是。这种歧义不完全是偶然的——他有意制造了阅读的障碍，让诗在遮掩中保持张力。《锦瑟》一诗尤为典型，首尾的追问与中间四联的梦幻意象，让全诗至今无定解。他与杜牧并称小李杜，代表晚唐诗歌绮丽精工的极致；他的骈文也受时人推重，只是后世关注远不及诗歌。",
+  "traits": [
+    "朦胧",
+    "绮丽",
+    "哀婉",
+    "困顿",
+    "多义"
+  ],
+  "timeline": [
+    {
+      "year": 813,
+      "label": "约元和八年（813）",
+      "title": "生于河内",
+      "detail": "出生于河南河内（今沁阳一带），父亲在其幼年去世，家境由此贫寒，他靠自学打下最初的文学根基。"
+    },
+    {
+      "year": 829,
+      "label": "约大和三年（829）",
+      "title": "入令狐楚幕学文",
+      "detail": "令狐楚时任天平节度使，赏识少年李商隐，授以骈文写法并将他纳入幕府。这段经历为他此后的文学功底与仕途起步奠定了基础。"
+    },
+    {
+      "year": 837,
+      "label": "开成二年（837）",
+      "title": "进士及第",
+      "detail": "在长安通过科举，取得进士资格，是他进入官僚体系的正式起点。令狐楚于同年辞世，此后提携他的力量大为减弱。",
+      "place": "changan"
+    },
+    {
+      "year": 838,
+      "label": "开成三年（838）",
+      "title": "娶王茂元女，陷入党争",
+      "detail": "入泾原节度使王茂元幕府任职，并娶其女为妻。王茂元属李党，恩师令狐楚属牛党，这桩婚事使他在两党之争中立场暧昧，此后仕途因此受阻。"
+    },
+    {
+      "year": 844,
+      "label": "会昌四年（844）",
+      "title": "随郑亚赴桂州",
+      "detail": "郑亚出任桂管观察使，辟李商隐为掌书记，南赴桂州。这是他仕途中较为安定的一段时期，创作颇丰，但随郑亚被黜，他的处境再次陷入困顿。"
+    },
+    {
+      "year": 847,
+      "label": "大中元年（847）前后",
+      "title": "返京求仕无门",
+      "detail": "令狐绹此年出任宰相，李商隐多次致书求援，皆无实质回应。他在长安蹉跎，无法获得正经官职，只能寄希望于各地幕府的辟召。",
+      "place": "changan"
+    },
+    {
+      "year": 851,
+      "label": "大中五年（851）",
+      "title": "妻王氏病逝",
+      "detail": "妻子王氏在长安病逝，是李商隐生命中最深的私痛。他随后写下一批悼亡意味的诗作，其中部分无题诗被后世读作隐约的哀思。",
+      "place": "changan"
+    },
+    {
+      "year": 852,
+      "label": "大中六年（852）前后",
+      "title": "入东川柳仲郢幕",
+      "detail": "入柳仲郢东川节度使幕府，担任掌书记，客居蜀地数年。这是他生命最后一段较为稳定的岁月，仍持续写诗，风格愈加沉郁。",
+      "place": "chengdu"
+    },
+    {
+      "year": 858,
+      "label": "大中十二年（858）前后",
+      "title": "卒于郑州",
+      "detail": "从蜀中返回后，不久卒于郑州（今河南郑州一带），年约四十五岁。一生未能在朝廷获得实质位置，以幕僚身份终老。"
+    }
+  ],
+  "circle": [
+    {
+      "name": "令狐楚",
+      "relation": "师友",
+      "note": "父辈级的提携人，授以骈文写作，推荐入举，是李商隐能踏入仕途的关键。属牛党核心，与李商隐日后政治困境的根源直接相关。"
+    },
+    {
+      "name": "令狐绹",
+      "relation": "师友",
+      "note": "令狐楚之子，与李商隐年少相识。李商隐娶王茂元女后，令狐绹认为他背恩忘义，此后对其仕途求助多次冷淡处理，关系由亲转疏。"
+    },
+    {
+      "name": "王茂元",
+      "relation": "亲属",
+      "note": "李党节度使，李商隐岳父。这桩婚姻使李商隐在党争中立场暧昧，终身受此牵累。"
+    },
+    {
+      "name": "温庭筠",
+      "relation": "知音",
+      "note": "同时代诗人，与李商隐并称晚唐绮丽一派。两人均以用典密集、意象繁复著称，有私交往来记录。"
+    },
+    {
+      "name": "柳仲郢",
+      "relation": "同僚",
+      "note": "东川节度使，李商隐晚年最重要的幕主。李商隐在其幕府任掌书记长达数年，这也是他生命中最后一段相对安定的岁月。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "锦瑟",
+      "note": "以锦瑟起兴，中间四联各用一个典故构成梦幻场景，却无法拼成连贯故事。结句此情可待成追忆，只是当时已惘然，让全诗成为对逝去之物最精准的悼念，但悼念的究竟是什么，没有人能确答。",
+      "workId": "jinse"
+    },
+    {
+      "title": "无题·相见时难别亦难",
+      "note": "春蚕到死丝方尽，蜡炬成灰泪始干，以自然现象的终结比喻情感的无尽，是唐诗里最有力的爱情比喻之一，被后世反复引用，已成文化常识。"
+    },
+    {
+      "title": "夜雨寄北",
+      "note": "四句二十八字，把现在的孤独与将来的相聚叠映在同一个意象巴山夜雨上，结构的简洁与情感的饱满形成张力，以小见大。"
+    },
+    {
+      "title": "登乐游原",
+      "note": "夕阳无限好，只是近黄昏，以写景收尾，让读者自行填入政治与人生的暮年之叹，是以克制换来回响的典范。"
+    },
+    {
+      "title": "贾生",
+      "note": "借汉文帝宠幸贾谊却只问鬼神之事，写尽才志之士被轻用的悲哀，也是李商隐借古人写自身处境最利落的一首。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Wide 2.35:1 composition: the right third holds an ancient Chinese se-zither with dark lacquered wood and faded brocade inlay resting on an aged scholar's desk. Beside it, a half-melted candle with thick rivulets of dried wax pooled at its base, the wick cold, a last thread of smoke still rising. A few dried mulberry leaves and a loose silk thread lie scattered on the desk surface. The left two-thirds of the frame opens into dim amber mist and the faint suggestion of rain-blurred moonlight through an unseen lattice window — empty, breathable, unresolved. Color palette: deep cinnabar fading to charcoal, tarnished gilt, cold blue-grey. The mood is of something ended but not yet named, the hush after a sentence left unfinished. Lighting has the quality of a single lamp dying. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

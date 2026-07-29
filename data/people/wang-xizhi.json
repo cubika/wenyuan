@@ -1,0 +1,102 @@
+{
+  "id": "wang-xizhi",
+  "name": "王羲之",
+  "aka": [
+    "逸少",
+    "王右军",
+    "书圣"
+  ],
+  "dynasty": "东晋",
+  "era": "约303—361",
+  "born": 303,
+  "died": 361,
+  "hook": "他在一场聚会上微醺写就的序文，后世临摹了一千六百年仍奉为天下第一行书。",
+  "bio": "王羲之出身琅琊王氏，叔父王导是东晋政权的实际奠基人，这一家世给了他进入权力核心的通道，却也让他一生与仕途若即若离。他早年师从书法家卫夫人，后广泛取法汉魏各家，最终形成自己的风格：楷书端庄而不板滞，行书流动而不散漫，彻底摆脱了隶书遗风的厚重气息。唐太宗李世民对他推崇备至，大量收藏其书迹；兰亭集序真迹据传随太宗入葬昭陵，自此永绝于世，今人所见皆为摹本。官至右将军、会稽内史，镇守今绍兴一带。永和九年，他在兰亭主持修禊雅集，与谢安、孙绰等四十余人曲水流觞，乘兴写下兰亭集序，一气呵成。传说那篇序是他微醺时写就的，事后他自己誊抄数遍，始终觉得不及那天的笔意。这个细节说明他深知：功力是底子，但最好的东西靠不住。晚年他以病为由辞去官职，在会稽隐居，与道士许迈往来，寄情山水，抄写道经。在书法史上，他完成了从实用书写向艺术自觉的关键转型，书圣这个称号不是客套，而是后世千余年临摹所确认的历史地位。",
+  "traits": [
+    "书圣",
+    "名门",
+    "耿介",
+    "崇道",
+    "隐逸"
+  ],
+  "timeline": [
+    {
+      "year": 303,
+      "label": "约303年",
+      "title": "生于琅琊",
+      "detail": "出身琅琊王氏，叔父王导后来成为东晋政权的实际奠基人。这一家世为他打开了仕途大门，也决定了他的文化起点。"
+    },
+    {
+      "year": 317,
+      "label": "约317年前后",
+      "title": "随家族南渡建康",
+      "detail": "西晋覆亡，王氏随晋室南迁至建康，王羲之在江南的文化氛围中成长，师从书法家卫夫人，广泛学习汉魏以来书法传统。",
+      "place": "jinling"
+    },
+    {
+      "year": 344,
+      "label": "约344年前后",
+      "title": "出任会稽内史",
+      "detail": "迁任右将军、会稽内史，镇守今绍兴一带。这段时期也是他书法创作最成熟、最集中的阶段，书风全面确立。",
+      "place": "kuaiji"
+    },
+    {
+      "year": 353,
+      "label": "永和九年（353）",
+      "title": "兰亭雅集",
+      "detail": "三月三日，在会稽山阴兰亭主持修禊雅集，与谢安、孙绰等四十余人曲水流觞，乘兴写下兰亭集序，被后世奉为天下第一行书。",
+      "place": "kuaiji"
+    },
+    {
+      "year": 355,
+      "label": "约355年前后",
+      "title": "誓墓辞官",
+      "detail": "以病为由上表辞官，誓于父墓前不再出仕。他书信中更多是疲于官场应酬的厌倦，未必全是气节之举，但这一决定彻底改变了他的晚年生活。",
+      "place": "kuaiji"
+    },
+    {
+      "year": 361,
+      "label": "约361年",
+      "title": "卒于会稽",
+      "detail": "约在会稽辞世，享年约五十余岁。辞官后数年间，他与道士往来，游历山水，抄写道经，晚年颇得山林之趣。",
+      "place": "kuaiji"
+    }
+  ],
+  "circle": [
+    {
+      "name": "卫夫人",
+      "relation": "师友",
+      "note": "王羲之早年习书的授业老师，她奠定了王羲之的楷书基础，王羲之后来博采众家，在此根基上自成一体。"
+    },
+    {
+      "name": "郗鉴",
+      "relation": "亲属",
+      "note": "王羲之岳父，东床快婿的典故出于此：郗鉴派人至王府择婿，唯王羲之坦腹东床毫不拘谨，最终获选。"
+    },
+    {
+      "name": "谢安",
+      "relation": "知音",
+      "note": "同在会稽为官，二人均参与兰亭雅集，谢安后来主持东晋政局，是那个时代最重要的政治人物之一。"
+    },
+    {
+      "name": "孙绰",
+      "relation": "知音",
+      "note": "兰亭雅集参与者，东晋重要文人，擅文善辩，与王羲之诗文往来密切，是他重要的文学交游对象。"
+    },
+    {
+      "name": "王献之",
+      "relation": "亲属",
+      "note": "王羲之第七子，自幼随父习书，后形成个人风格，父子二人并称二王，共同奠定后世书法审美基准。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "兰亭集序",
+      "note": "永和九年三月三日于会稽兰亭写就，全篇行书流动自然，二十个之字各具形态，是中国书法史上最著名的行书作品，真迹据传随唐太宗入葬昭陵，今所见皆为摹本。",
+      "workId": "lantingjixu"
+    }
+  ],
+  "media": {
+    "heroPrompt": "A close view of an ancient inkstone resting on a moss-covered flat rock beside a narrow garden stream in the Kuaiji hills, distant mountains dissolving into pale mist beyond. Three small lacquered wooden cups drift slowly on the rippling water surface among scattered fallen petals. A pair of white goose feathers lie beside the inkstone, their quill tips faintly stained with wet black ink. Dense bamboo stems rise on the far bank, filtering soft morning light into thin shafts across the water. Color palette: ink-wash monochrome with deep wet blacks, cool slate grey, muted jade green, off-white fog. The inkstone, drifting cups, and goose feathers are grouped tightly in the right third of the frame; the left two-thirds opens into still water, rising mist, and vague layered mountain silhouettes, kept intentionally bare and quiet. Wide cinematic composition, 2.35:1 aspect ratio, shallow depth of field, Song-dynasty ink-painting aesthetic. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "id": "wang-wei",
+  "name": "王维",
+  "aka": [
+    "摩诘",
+    "王右丞"
+  ],
+  "dynasty": "唐",
+  "era": "约701—761",
+  "born": 701,
+  "died": 761,
+  "hook": "把佛教的静观与边塞的苍茫都写进山水，苏轼评他「诗中有画，画中有诗」，他的山居是真山居，不是姿态。",
+  "bio": "王维，字摩诘，河东蒲州人，字号合为「维摩诘」——佛经中大乘居士的名字，这不只是巧合，他一生的底色，确实是禅意与入世的拉锯。开元九年（721）进士及第，此后仕途几番起落，曾因宫廷失仪事贬谪外州，后又归朝，以诗画双绝见称于长安。天宝年间，他在长安近郊辋川置下山居，与好友裴迪往来唱和，写下《辋川集》二十首绝句：松月、清泉、空山、鸟鸣，每一首都像一帧定格的水墨。安史之乱中，王维未能随玄宗出逃，被迫在伪政权受职，乱平后几经周折方才获宥，官至尚书右丞，世称「王右丞」。晚年长斋奉佛，几乎以半僧之身度日。他在文学史上的位置，苏轼那句「诗中有画，画中有诗」说得最准：他不靠堆砌形容词写景，而是用极省的意象捕住光线、声音与气氛，让读者站进那个空间。这种写法，在唐代山水诗中独一档。",
+  "traits": [
+    "诗佛",
+    "山水隐逸",
+    "诗画合一",
+    "佛禅入世",
+    "仕途沉浮"
+  ],
+  "timeline": [
+    {
+      "year": 701,
+      "label": "约长安元年（约701）",
+      "title": "生于河东蒲州",
+      "detail": "出生于河东蒲州（今山西永济一带），字摩诘，字号合为「维摩诘」，即佛经中大乘居士之名。家学渊源，自幼能诗善画，少年时已有诗名。"
+    },
+    {
+      "year": 721,
+      "label": "开元九年（721）",
+      "title": "进士及第入仕",
+      "detail": "登进士第，旋授太乐丞，正式踏上仕途，约二十岁。入仕前已以诗名动京城，张九龄等人均对其才华有所赏识。",
+      "place": "changan"
+    },
+    {
+      "year": 726,
+      "label": "约开元中期（726前后）",
+      "title": "获罪贬谪济州",
+      "detail": "因伶人违制舞黄狮子事获罪，贬为济州司仓参军，仕途首次受挫。黄狮子之舞为天子专用，误用即是僭越，王维受牵连被外放。"
+    },
+    {
+      "year": 737,
+      "label": "开元二十五年（737）",
+      "title": "奉使出塞凉州",
+      "detail": "奉命赴河西节度幕，途经大漠边关，目睹「大漠孤烟直，长河落日圆」之景，写下《使至塞上》，此行是他一生中离边塞最近的时刻。",
+      "place": "liangzhou"
+    },
+    {
+      "year": 741,
+      "label": "约开元末至天宝初（740年代）",
+      "title": "辋川置业，诗禅成熟",
+      "detail": "在长安近郊辋川购得宋之问旧宅，辟为山居别业，与裴迪唱和，写就《辋川集》二十首绝句。诗禅合一的创作风格至此成熟定型。",
+      "place": "changan"
+    },
+    {
+      "year": 755,
+      "label": "天宝十四年（755）",
+      "title": "安史之乱，被俘留京",
+      "detail": "安禄山攻陷长安，王维因病未能随玄宗出逃，被迫接受伪燕政权官职。这段经历成为他此后最沉重的政治包袱，险些断送仕途。",
+      "place": "changan"
+    },
+    {
+      "year": 757,
+      "label": "至德二年（757）",
+      "title": "乱平获赦，官至右丞",
+      "detail": "唐军收复两京，王维以狱中所作《凝碧池》诗证明忠心，弟王缙又上书请削己官阶为兄赎罪，终获宽赦。此后逐步复职，官至尚书右丞。",
+      "place": "changan"
+    },
+    {
+      "year": 761,
+      "label": "上元二年（761）",
+      "title": "卒于长安",
+      "detail": "约于此年辞世，临终前仍有书信与裴迪等人道别。一生留诗四百余首，以半僧之身终老，佛心到底。",
+      "place": "changan"
+    }
+  ],
+  "circle": [
+    {
+      "name": "裴迪",
+      "relation": "知音",
+      "note": "辋川时期的挚友，《辋川集》即两人联句之作，裴迪同写二十首与之唱和，是王维山居岁月最亲密的见证者与参与者。"
+    },
+    {
+      "name": "孟浩然",
+      "relation": "师友",
+      "note": "同为盛唐山水田园诗代表，世称「王孟」并列；年长王维，二人有交游记载，代表盛唐山水诗的两翼。"
+    },
+    {
+      "name": "张九龄",
+      "relation": "同僚",
+      "note": "开元名相，赏识提携王维，王维受其荫庇出任河西幕府；张九龄被贬后，王维亦有惋惜之作，师友之情有诗为证。"
+    },
+    {
+      "name": "王缙",
+      "relation": "亲属",
+      "note": "王维之弟，同为诗人兼官员；安史乱后，王缙上书请削己官阶为兄赎罪，兄弟情深有史载可据。"
+    },
+    {
+      "name": "苏轼",
+      "relation": "后世追随",
+      "note": "「诗中有画，画中有诗」语出苏轼《书摩诘蓝田烟雨图》，此评语成为后世品评王维诗画的定论，影响延续逾千年。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "《山居秋暝》",
+      "note": "秋雨后山中傍晚：月、松、泉、石、浣女、渔舟，六个意象独立并置，无一字「静」，却字字营造出空灵之静；近乎白描，却有水墨画的层次感。",
+      "workId": "shanju-qiuming"
+    },
+    {
+      "title": "《使至塞上》",
+      "note": "出使河西途中所写，「大漠孤烟直，长河落日圆」，两句各用一个形状词（直、圆），在茫茫大漠里立起两个坐标，壮阔而不渲染，是写边塞的极简范本。"
+    },
+    {
+      "title": "《送元二使安西》",
+      "note": "末句「西出阳关无故人」写的不是送行者的不舍，而是受行者将去之处的孤独，视角一转使情感翻倍。后谱入《阳关三叠》，在文人间传唱数百年。"
+    },
+    {
+      "title": "《九月九日忆山东兄弟》",
+      "note": "重阳节客中思乡，三四句不从自身写孤独，而从故乡那边想象「少了我」，反向叙事使思念更加立体，换位写法让这首短诗成为节日思乡诗的经典范例。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Cinematic 2.35:1 ink-wash landscape painting. On the right third of the frame: a cluster of ancient twisted pines on a mist-shrouded rocky slope, cold moonlight filtering through their needles and casting silver light onto a clear shallow mountain stream flowing over smooth grey stones below — the scene drawn from Wang Wei's Wangchuan mountain retreat outside the Tang capital. The left two-thirds of the frame open into deep mountain mist that gradually dissolves into empty pre-dawn darkness, with only the faintest sliver of moon near the upper-left corner. Palette: deep pine-black ink, cold silver moonlight, pale celadon stone, soft layered grey mist. The mood is Tang-dynasty Buddhist stillness — silent, spacious, empty in the Chan sense, not melancholy. Rendered in the style of Song-dynasty monochrome ink wash painting, with subtle gradations of ink tone. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "id": "du-mu",
+  "name": "杜牧",
+  "aka": [
+    "牧之",
+    "杜樊川",
+    "樊川居士"
+  ],
+  "dynasty": "唐",
+  "era": "803—852",
+  "born": 803,
+  "died": 852,
+  "hook": "他最厉害的地方，是把怀古写成对现实的追问：读《阿房宫赋》像在看一篇带火药味的时政评论。",
+  "bio": "杜牧，字牧之，京兆万年人，晚唐诗文名家。二十多岁进士及第，先后在幕府与朝廷任职，也做过地方州刺史，仕途起伏与晚唐政局紧密相连。他的写作路数很清楚：诗里常借历史旧事照见当下，句法俊爽，转折快，短章里也有议论力度；赋和古文则善于铺陈后急转，能把“兴亡”落到具体政治判断上。《阿房宫赋》就是代表，借秦亡讲“奢与政”的因果，锋芒直指当世。文学史上，他与李商隐并称“小李杜”，但风格并不相同：李商隐偏幽曲，杜牧更明快，也更爱在景物和怀古里直接发问。",
+  "traits": [
+    "俊爽",
+    "怀古讽今",
+    "议论见长",
+    "诗文兼擅"
+  ],
+  "timeline": [
+    {
+      "year": 803,
+      "label": "贞元十九年（803）",
+      "title": "生于京兆",
+      "detail": "出生于京兆万年杜氏家族，家学与门第为其早年文章训练打下基础。",
+      "place": "changan"
+    },
+    {
+      "year": 828,
+      "label": "大和二年（828）",
+      "title": "进士及第",
+      "detail": "中进士后进入仕途，完成从书生到官员的关键转折。",
+      "place": "changan"
+    },
+    {
+      "year": 835,
+      "label": "大和九年（835）",
+      "title": "入淮南幕府",
+      "detail": "在淮南节度使幕中历练政务，接触繁华都会与现实政治，这段经历深刻影响其诗风。",
+      "place": "yangzhou"
+    },
+    {
+      "year": 847,
+      "label": "大中元年（847）",
+      "title": "出守黄州",
+      "detail": "由中央转任地方州郡，治理一方的经验使其文字里的民生意识更具体。",
+      "place": "huangzhou"
+    },
+    {
+      "year": 850,
+      "label": "大中四年（850）",
+      "title": "再入朝班",
+      "detail": "回到长安任司勋员外郎等职，继续在中枢与地方之间观察晚唐政治。",
+      "place": "changan"
+    },
+    {
+      "year": 852,
+      "label": "大中六年（852）",
+      "title": "病卒长安",
+      "detail": "晚年病逝于长安，身后诗文广泛流传，成为晚唐最具辨识度的声音之一。",
+      "place": "changan"
+    }
+  ],
+  "circle": [
+    {
+      "name": "牛僧孺",
+      "relation": "同僚",
+      "note": "杜牧曾在牛僧孺幕府任职，幕府经历是他了解地方政务与社会现实的重要阶段。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "阿房宫赋",
+      "note": "借秦亡议当世，铺陈宏阔而收束凌厉，是杜牧政论性辞赋的代表作。",
+      "workId": "epanggongfu"
+    },
+    {
+      "title": "泊秦淮",
+      "note": "以秦淮夜景入笔，景中含讽，短短数句把亡国之思与现实荒宴并置。"
+    },
+    {
+      "title": "赤壁",
+      "note": "借三国旧战翻出历史偶然与人物成败，怀古中有鲜明个人判断。"
+    },
+    {
+      "title": "江南春",
+      "note": "在明丽春景里写出乱后江南的层次感，轻快语调下藏着时代阴影。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Ultra-wide cinematic banner, 2.35:1. Left two-thirds kept as open negative space with soft mist and dim moonlit sky over the Qinhuai River at night. On the right third, the main subject: a moored painted pleasure boat beside dark water, warm lantern glow reflecting in ripples, distant low city walls and shadowy eaves, faint smoke drifting, subtle sense of late Tang decadence and historical melancholy, rich ink-and-color texture, atmospheric, high detail, no modern elements. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

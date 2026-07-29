@@ -1,0 +1,113 @@
+{
+  "id": "yue-fei",
+  "name": "岳飞",
+  "aka": [
+    "鹏举",
+    "武穆",
+    "鄂王"
+  ],
+  "dynasty": "南宋",
+  "era": "1103—1142",
+  "born": 1103,
+  "died": 1142,
+  "hook": "把金军打到几乎溃退，却被十二道金牌召回，以「莫须有」三字死于临安狱中，年仅三十九岁。",
+  "bio": "岳飞，字鹏举，相州汤阴人（今河南汤阴），生于北宋末年。少年习武，以勇力闻于乡里，母亲据传在他背上刺字「精忠报国」，这个故事几乎成了他一生的注脚。靖康之变后，金军占据北方，岳飞先后数次投军，在宗泽麾下初露锋芒。此后历经磨练，凭战功由小卒升至独当一面的统帅，所部纪律严明，史称「冻死不拆屋，饿死不掳掠」。绍兴四年，他率军收复包括襄阳在内的六郡，解除了南宋腹地的侧翼威胁。绍兴十年，他发动规模最大的一次北伐，在郾城一带连败金军，前锋推进至朱仙镇，中原父老夹道相迎。就在形势将变之际，高宗赵构以十二道金牌催促班师，岳飞被迫退兵。随即他与子岳云、部将张宪被投入大理寺，绍兴十一年腊月以「莫须有」罪名遇害，年仅三十九岁。二十余年后，孝宗为他平反，追谥「武穆」，后追封鄂王。岳飞留存的文字不多，《满江红·怒发冲冠》以激越之声道出毕生的志向与积怨，成为传诵最广的爱国词篇之一。后世亦有学者对此词的归属存疑，岳飞在文学史上的分量，很大程度上依托于他作为悲剧英雄的象征地位，而非词人的身份本身。",
+  "traits": [
+    "精忠报国",
+    "抗金统帅",
+    "治军严明",
+    "壮志未酬",
+    "悲剧英雄"
+  ],
+  "timeline": [
+    {
+      "year": 1103,
+      "label": "崇宁二年（1103）",
+      "title": "生于相州汤阴",
+      "detail": "出生于北宋相州汤阴县（今河南汤阴），家境贫寒，幼年习武读兵书，据传母亲在其背上刺下「精忠报国」四字。"
+    },
+    {
+      "year": 1122,
+      "label": "宣和四年（1122）",
+      "title": "首次从军入伍",
+      "detail": "以应募方式首次入伍，此后因父丧守制等缘故数度离军又归，积累了早期作战经验，逐渐磨砺出一身统兵之才。"
+    },
+    {
+      "year": 1128,
+      "label": "建炎二年（1128）",
+      "title": "投效宗泽麾下",
+      "detail": "投效留守汴京的老将宗泽，宗泽极为赏识，多次上书力荐，是岳飞走向核心战场的重要转折。",
+      "place": "bianjing"
+    },
+    {
+      "year": 1134,
+      "label": "绍兴四年（1134）",
+      "title": "收复襄阳六郡",
+      "detail": "独立指挥大规模军事行动，收复被金军与伪齐占据的襄阳、郢州等六郡，解除了南宋腹地的侧翼威胁，朝野震动。",
+      "place": "xiangyang"
+    },
+    {
+      "year": 1140,
+      "label": "绍兴十年（1140）",
+      "title": "郾城大捷，进逼朱仙镇",
+      "detail": "在郾城、颍昌接连重创金兀术，前锋推进至距汴京仅四十五里的朱仙镇，是北伐最接近成功的一次。"
+    },
+    {
+      "year": 1140,
+      "label": "绍兴十年（1140）",
+      "title": "十二道金牌被迫班师",
+      "detail": "高宗连下十二道金牌强令退兵，岳飞含泪撤军，叹「十年之功，废于一旦」，大好局面就此断送。"
+    },
+    {
+      "year": 1141,
+      "label": "绍兴十一年（1141）",
+      "title": "解除兵权，身陷囹圄",
+      "detail": "先被解除兵权，后以与张宪书信往来为由，岳飞与子岳云被投入大理寺，罪名系秦桧一手罗织。",
+      "place": "linan"
+    },
+    {
+      "year": 1142,
+      "label": "绍兴十一年十二月（1142）",
+      "title": "遇害于临安风波亭",
+      "detail": "腊月二十九日，岳飞与岳云、张宪同日被杀，官方给出的罪名是「莫须有」，岳飞年三十九岁。",
+      "place": "linan"
+    }
+  ],
+  "circle": [
+    {
+      "name": "宗泽",
+      "relation": "师友",
+      "note": "建炎年间岳飞投其麾下，宗泽极为赏识，多次上书力保，是引岳飞走上核心战场的重要引路人。"
+    },
+    {
+      "name": "韩世忠",
+      "relation": "同僚",
+      "note": "南宋抗金名将，与岳飞同为当时最倚重的武将。岳飞遇害后，韩世忠当面质问秦桧，逼出了「莫须有」三字的著名回答。"
+    },
+    {
+      "name": "秦桧",
+      "relation": "政敌",
+      "note": "南宋权相，主导对金议和，力主削夺岳飞兵权，以「莫须有」之名将其投入大理寺，是导致岳飞遇害的直接推手。"
+    },
+    {
+      "name": "岳云",
+      "relation": "亲属",
+      "note": "岳飞长子，随父征战，郾城之战冲锋在前。绍兴十一年与父同日遇害，年仅二十三岁。"
+    },
+    {
+      "name": "张宪",
+      "relation": "同僚",
+      "note": "岳家军骁将，深得岳飞倚重。秦桧以张宪谋反为由株连岳飞，三人同被投入大理寺，同日遇害。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "满江红·怒发冲冠",
+      "note": "以「怒发冲冠」「壮怀激烈」「靖康耻」等句写尽胸中块垒，词气如虹，是中国古典文学中传诵最广的爱国词篇之一，尽管作者归属至今仍有学者存疑。",
+      "workId": "manjianghong"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Ink-wash and mineral pigment painting in Song dynasty aesthetic, panoramic 2.35:1 composition. On the right third of the frame: a weathered iron battle helmet of the Song dynasty rests on a cold granite boulder, a halberd with faded red cloth binding leans beside it, fresh snow settled on the cold metal surfaces, the worn red fabric tattered at the edges. The left two-thirds opens to a vast desolate northern plain under a low winter sky of muted ash grey, frozen reed grass bending in wind, the suggestion of a distant frozen river bank dissolving into pale silver mist at the horizon. Color palette of iron grey, slate blue, and bone white, with one small accent of faded cinnabar on the cloth wrap. Light is flat and cold, falling from above-left. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

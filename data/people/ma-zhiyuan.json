@@ -1,0 +1,96 @@
+{
+  "id": "ma-zhiyuan",
+  "name": "马致远",
+  "aka": [
+    "千里",
+    "东篱"
+  ],
+  "dynasty": "元",
+  "era": "约1250—约1321",
+  "hook": "写出「枯藤老树昏鸦」的那个人——二十八个字，九组意象，把漂泊者的秋日愁绪压缩成了一个永久的切片。",
+  "bio": "马致远，字千里，号东篱，大都（今北京）人，元代最重要的散曲作家与杂剧作家之一。他与关汉卿、郑光祖、白朴并称「元曲四大家」，在散曲成就上尤为突出。生平大致处于仕途困顿的漂泊之中。他青年时有功名之志，却在元代汉族文人受压抑的政治环境下长期沉沦下僚，曾出任江浙一带的地方小官，官位始终有限。这种才高而不得志的处境成为他创作的底色。晚年彻底放弃仕途，自号「东篱」，以陶渊明为精神归宿，过着半隐居的生活。散曲方面，现存小令百余首，结集《东篱乐府》，风格兼具豪放与清丽，以悲秋、羁旅、隐逸为主调。其中《天净沙·秋思》最为人熟知——二十八字，九组意象并置，无一动词，却把深秋傍晚的荒凉与旅人的孤苦写得一气贯通，结句「断肠人在天涯」水到渠成，后人誉为「秋思之祖」。杂剧存世约十余种，以《汉宫秋》最负盛名。此剧以王昭君出塞为题，将历史改写为汉元帝送别昭君的爱情悲剧，文辞瑰丽，情感浓郁，在元杂剧中以文学性著称。在元代散曲作家中，马致远算是少数能把文人的自怜写得不滥情的人——他靠的是意象的精准，而不是情绪的堆叠。",
+  "traits": [
+    "悲秋漂泊",
+    "散曲大家",
+    "隐逸情怀",
+    "元曲四大家"
+  ],
+  "timeline": [
+    {
+      "year": 1250,
+      "label": "约1250年前后",
+      "title": "生于大都",
+      "detail": "马致远生于大都，自幼生活在北方政治文化中心，接触杂剧与散曲繁荣的土壤，为日后的创作积累了丰厚的感性底子。",
+      "place": "dadu"
+    },
+    {
+      "year": 1275,
+      "label": "约1270—1280年代",
+      "title": "入仕不顺，活跃曲坛",
+      "detail": "青年时怀有功名之志，多次谋求仕途却无果，转而深入大都的杂剧演出圈，与当时的曲家往来，开始系统创作散曲与杂剧。",
+      "place": "dadu"
+    },
+    {
+      "year": 1285,
+      "label": "约1280—1290年代",
+      "title": "仕途困顿，寄情词曲",
+      "detail": "长期屈居下僚，郁郁不得志。《天净沙·秋思》等羁旅主题的散曲名作，极有可能正是这一时期心境的结晶。"
+    },
+    {
+      "year": 1295,
+      "label": "约1290—1300年代",
+      "title": "宦游江浙，出任小官",
+      "detail": "出任江浙行省务官一类的地方职务，宦游南方，目睹江南风物，也经历了离乡背井的漂泊滋味，丰富了其散曲的意象与题材。",
+      "place": "linan"
+    },
+    {
+      "year": 1308,
+      "label": "约1300—1310年代",
+      "title": "著成《汉宫秋》",
+      "detail": "杂剧《汉宫秋》以昭君出塞为题，将历史改写为汉元帝被迫送别昭君的悲剧，语言瑰丽，情绪控制精准，是其戏剧创作的顶点。"
+    },
+    {
+      "year": 1315,
+      "label": "约晚年",
+      "title": "自号东篱，归隐田园",
+      "detail": "辞官后以「东篱」为号，典出陶渊明「采菊东篱下」，表明彻底远离仕途的心志，专注散曲创作，整理结集《东篱乐府》。",
+      "place": "dadu"
+    },
+    {
+      "year": 1321,
+      "label": "约1321年前后",
+      "title": "辞世",
+      "detail": "在半隐居的状态中走完晚年，散曲与杂剧遗作由后人整理流传，《东篱乐府》中的小令此时已在曲坛广泛传抄。"
+    }
+  ],
+  "circle": [
+    {
+      "name": "关汉卿",
+      "relation": "同僚",
+      "note": "同列元曲四大家，均以杂剧与散曲名世，活跃于大都曲坛；关汉卿本色当行，马致远文人气重，代表了元曲两种截然不同的审美取向。"
+    },
+    {
+      "name": "白朴",
+      "relation": "同僚",
+      "note": "同为元曲四大家之一，长于杂剧与词，与马致远同属北方文人曲家，《墙头马上》与《汉宫秋》并称元杂剧名作。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "天净沙·秋思",
+      "note": "二十八字小令，以枯藤老树昏鸦、小桥流水人家等九组意象并置，无一动词，末句「断肠人在天涯」画龙点睛，被誉为「秋思之祖」。",
+      "workId": "tianjingsha-qiusi"
+    },
+    {
+      "title": "汉宫秋",
+      "note": "四折杂剧，以王昭君出塞为题，将史实改写为汉元帝被迫送别昭君的爱情悲剧，文辞华美，在元杂剧中以文学性著称。"
+    },
+    {
+      "title": "东篱乐府",
+      "note": "马致远散曲总集，存小令百余首及散套若干，豪放清丽兼备，以悲秋、羁旅、隐逸为主调，是元散曲文人化创作的重要标本。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "A desolate late-autumn dusk in the ancient north. Right third of frame: gnarled bare vines coiling tightly around a hollow weathered tree, silhouetted black against a deep amber-gold western sky; a low stone arch bridge spans a shallow slow-moving stream beneath the tree, its reflection shimmering in dark water; a cluster of small thatched-roof farmhouses nestled in pale mist behind the bridge. Left two-thirds of the frame: an empty rutted ancient dirt road recedes diagonally into luminous haze, flanked by dry yellowed grass and scattered fallen leaves, fading into open emptiness. Palette of burnt ochre, ash grey, muted gold, and cold sienna. Long shadows, absolute stillness. Style: ink-wash painting blended with muted oil glaze, soft atmospheric perspective, cinematic 2.35:1 ratio. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

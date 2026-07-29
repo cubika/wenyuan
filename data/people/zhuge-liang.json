@@ -1,0 +1,128 @@
+{
+  "id": "zhuge-liang",
+  "name": "诸葛亮",
+  "aka": [
+    "孔明",
+    "卧龙",
+    "武乡侯"
+  ],
+  "dynasty": "三国蜀汉",
+  "era": "181—234",
+  "born": 181,
+  "died": 234,
+  "hook": "他把“隆中对”从纸上谋略做成了二十多年可执行的国策：联吴、治蜀、北伐，直到病逝军中。",
+  "bio": "诸葛亮，字孔明，早年隐居隆中，刘备三顾后出山，先以战略筹划见长，提出联孙抗曹、据荆益而图中原的路线。赤壁前后，他在外交与军政组织上都起到关键作用。刘备入蜀后，诸葛亮长期主持后方治理，整饬吏治、发展生产、稳住蜀汉财政与兵源。刘备去世后，他受托孤辅政，成为蜀汉中枢核心，数次北伐曹魏，虽未完成统一目标，但维持了蜀汉的国家运转与对外战略主动。文学史上，他以《出师表》一类章表文字最有代表性，语言质直、条理严整，把政治责任与个人心志写得非常集中。后世对其军事成败有争论，但对其行政能力与担当精神评价一直很高。",
+  "traits": [
+    "审势",
+    "勤政",
+    "谨严",
+    "忠诚",
+    "能吏"
+  ],
+  "timeline": [
+    {
+      "year": 181,
+      "label": "光和四年（181）",
+      "title": "生于琅邪",
+      "detail": "诸葛亮出生于琅邪阳都诸葛氏家族，后来的流离经历影响了他重视秩序与治政的取向。"
+    },
+    {
+      "year": 207,
+      "label": "建安十二年（207）",
+      "title": "隆中定策",
+      "detail": "刘备三顾草庐后，诸葛亮提出先据荆益、联吴抗曹的战略框架，成为其后多年行动蓝本。",
+      "place": "xiangyang"
+    },
+    {
+      "year": 208,
+      "label": "建安十三年（208）",
+      "title": "联吴抗曹",
+      "detail": "在孙刘结盟过程中承担重要沟通与筹划工作，赤壁之战后，三国鼎立格局逐步成形。",
+      "place": "chibi"
+    },
+    {
+      "year": 214,
+      "label": "建安十九年（214）",
+      "title": "入蜀治政",
+      "detail": "刘备取得益州后，诸葛亮转入核心政务，负责军政与后勤体系建设，奠定蜀汉内政基础。",
+      "place": "chengdu"
+    },
+    {
+      "year": 221,
+      "label": "章武元年（221）",
+      "title": "拜相总政",
+      "detail": "刘备称帝后，诸葛亮为丞相，成为蜀汉最高政务执行者，统筹内外军政。",
+      "place": "chengdu"
+    },
+    {
+      "year": 223,
+      "label": "建兴元年（223）",
+      "title": "受托辅政",
+      "detail": "刘备病逝后，诸葛亮受遗命辅佐刘禅，确立以相府为核心的执政格局。",
+      "place": "chengdu"
+    },
+    {
+      "year": 227,
+      "label": "建兴五年（227）",
+      "title": "上表出师",
+      "detail": "北伐前上《出师表》，明确“亲贤远佞”与北定中原的政治目标，随后率军北上。",
+      "place": "chengdu"
+    },
+    {
+      "year": 234,
+      "label": "建兴十二年（234）",
+      "title": "五丈原病逝",
+      "detail": "在北伐前线积劳成疾去世，蜀汉此后攻魏能力明显下降，战略转入守成为主。"
+    }
+  ],
+  "circle": [
+    {
+      "name": "刘备",
+      "relation": "同僚",
+      "note": "刘备三顾后出山，诸葛亮成为蜀汉政权的核心谋臣与执政者。"
+    },
+    {
+      "name": "诸葛瑾",
+      "relation": "亲属",
+      "note": "诸葛瑾为兄，仕于孙吴，兄弟分处两国而各尽其职。"
+    },
+    {
+      "name": "庞统",
+      "relation": "同僚",
+      "note": "同为刘备集团关键谋士，在取益州阶段分任不同任务。"
+    },
+    {
+      "name": "法正",
+      "relation": "同僚",
+      "note": "二人同在蜀汉中枢，法正侧重军政谋划，诸葛亮长于持续治理。"
+    },
+    {
+      "name": "司马懿",
+      "relation": "政敌",
+      "note": "北伐时期的主要对手，魏蜀对峙中的核心军事与政治博弈者。"
+    },
+    {
+      "name": "姜维",
+      "relation": "门生",
+      "note": "姜维后期承继诸葛亮北伐路线，是其军事与政略传统的直接继承者。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "出师表",
+      "note": "前出师表，章表文典范，陈政事与明心迹并重。",
+      "workId": "chushibiao"
+    },
+    {
+      "title": "诫子书",
+      "note": "篇幅短而警策，集中体现其治学、修身与用世观。"
+    },
+    {
+      "title": "后出师表",
+      "note": "传统多归于诸葛亮名下，文献真伪历来有争议。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Cinematic 2.35:1 banner of the Wuzhang Plains military encampment at night, with the main subject compressed into the right third: a weathered command desk holding neatly stacked bamboo slips, a folded campaign map weighted by a bronze tiger tally, an unstruck guqin beside a white feather fan, and a single oil lamp casting a tight warm glow through drifting dust. The left two-thirds are open and quiet: cold moonlit fog over empty earthworks and distant dim ridgelines under a sparse star field, low contrast and restrained color palette, textured realism, no human presence. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "id": "lao-zi",
+  "name": "老子",
+  "aka": [
+    "老聃",
+    "李耳"
+  ],
+  "dynasty": "先秦",
+  "era": "约活动于春秋末期",
+  "hook": "五千字的《道德经》建立了整套「道」的宇宙观，两千五百年来没有人能绕开他。",
+  "bio": "老子传说姓李名耳，字聃，据《史记》记载曾任周室守藏室之史——也就是掌管王室典籍档案的官。他活跃于春秋末期，与孔子大体同时代。\n\n他留给后世的，是一部五千余字的《道德经》。关于这部书的来历，最广为流传的说法是：老子见周室衰微，决意西行出关，在函谷关被关令尹喜挽留，应请著书而成。这个故事的真实性无从核实，但书本身无可置疑地存在。\n\n《道德经》以「道」为核心，讨论宇宙的本原与运行规律，以及人在其中如何处身。最关键的主张是「无为」——不是无所作为，而是顺应事物自身的规律，不强行干预。书中还贯穿大量辩证命题：有无相生、曲则全、弱之胜强……这些思想后来渗透进中国哲学、政治与艺术的各个层面。\n\n道家以老子为祖，但历史上他的面目始终模糊。他的生卒年、籍贯乃至真实姓名，在先秦文献中就已众说纷纭。汉代之后他逐渐被神化，成为道教最高神祇「太上老君」。还原历史上的老子，大概只能说：他是一个在乱世中认真想清楚了「何以安顿」的人，而那五千字足够后人读几千年。",
+  "traits": [
+    "道法自然",
+    "无为",
+    "辩证",
+    "隐者风骨"
+  ],
+  "timeline": [
+    {
+      "year": -571,
+      "label": "约公元前571年",
+      "title": "生于楚地苦县",
+      "detail": "传说生于楚国苦县（约今河南鹿邑），此说来自司马迁《史记》，但学界对其生卒年及籍贯至今仍有争议。"
+    },
+    {
+      "year": -530,
+      "label": "约公元前六世纪中叶",
+      "title": "任周室守藏室之史",
+      "detail": "在洛阳周王室担任典籍档案官，长期博览先王典籍，这一经历是其思想形成的重要背景。",
+      "place": "luoyang"
+    },
+    {
+      "year": -501,
+      "label": "约公元前五世纪初",
+      "title": "孔子专程问礼",
+      "detail": "《史记》记载，孔子曾专程前往向老子请教礼制，老子以百川归海为喻，劝其去骄去欲、收敛锋芒。孔子事后以「龙」比喻老子之深不可测。",
+      "place": "luoyang"
+    },
+    {
+      "year": -470,
+      "label": "约公元前五世纪",
+      "title": "西出函谷，著道德经",
+      "detail": "见周室日趋衰微，决意西行离去。据传在函谷关应关令尹喜之请，著五千言，道家核心典籍由此成书。"
+    }
+  ],
+  "circle": [
+    {
+      "name": "孔子",
+      "relation": "师友",
+      "note": "《史记》载孔子曾专程向老子问礼，老子以「去子之骄气与多欲」作答，孔子事后以「龙」比喻老子，称其「乘风云而上」，深不可测。"
+    },
+    {
+      "name": "尹喜",
+      "relation": "知音",
+      "note": "传说中函谷关关令，见紫气东来，知有圣人过关，遂挽留老子并请其著书，《道德经》据说正是在此情境下写就。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "道德经",
+      "note": "全书八十一章、五千余字，以「道」为核心兼论宇宙本原、处世之术与治国之道，是道家的根本典籍，也是中国哲学史上被译成外文次数最多的文本之一。",
+      "workId": "daodejing"
+    }
+  ],
+  "media": {
+    "heroPrompt": "A dramatic cliff-cut mountain pass in ancient China, stone walls rising sheer on both sides, the narrow gorge opening to a fading amber sky at dusk. The weathered watchtower gate of the pass anchors the right third of the composition, its dark silhouette sharp against warm ochre and dusty rose clouds. The left two-thirds breathe entirely open — vast empty sky, thin pale mist drifting above the gorge, a profound and deliberate silence. At the base of the right cliff, a clear spring trickles over mossy rock, water finding its own effortless path downward without resistance. The ground is packed earth and scattered pebbles; a few dry grasses lean in a cold wind from the west. Color palette: deep indigo at the top, amber and dusty rose bleeding into the horizon, cool blue shadow pooling in the gorge below. Rendered in the style of classical Chinese ink painting with subtle mineral color wash, wide panoramic 2.35:1 composition. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "id": "zhang-yanghao",
+  "name": "张养浩",
+  "aka": [
+    "希孟",
+    "云庄"
+  ],
+  "dynasty": "元",
+  "era": "1270—1329",
+  "born": 1270,
+  "died": 1329,
+  "hook": "做官数十年间七度请辞，最后一次出山是为了救灾，死在赈灾途中——《山坡羊·潼关怀古》就写于那次最后的出行。",
+  "bio": "张养浩，字希孟，号云庄，济南人。他在元朝历任地方与中央要职，官至礼部尚书，以刚直著称，屡次上疏直言，数度得罪权贵，又数度辞官归隐。退居济南云庄期间，以诗酒自娱，写下大量散曲，集为《云庄休居自适小乐府》，风格清峻。1329年，关中大旱，饿殍遍野，年近花甲的张养浩受朝廷征召，出任赈灾主官，奔赴陕西。途经潼关时，他写下了《山坡羊·潼关怀古》，以「兴，百姓苦；亡，百姓苦」八字点破历朝兴亡的共同代价。到任后日夜奔走，积劳成疾，同年卒于任所。他的政治文章《三事忠告》分述县官、御史、宰执的为政之道，后世官员多有传阅。在元代文学史上，张养浩是少数把官场经历与文学创作融为一体的作家，他的散曲之所以流传，在于那些字句背后压着他亲历的时代重量。",
+  "traits": [
+    "刚直",
+    "悯民",
+    "出处两难",
+    "散曲名家"
+  ],
+  "timeline": [
+    {
+      "year": 1270,
+      "label": "至元七年（1270）",
+      "title": "生于济南",
+      "detail": "出生于济南，自幼聪颖好学，少年时已以文才著称乡里，为日后入仕打下根基。",
+      "place": "jinan"
+    },
+    {
+      "year": 1296,
+      "label": "约元贞二年（1296）",
+      "title": "初任堂邑县尹",
+      "detail": "出任堂邑县尹，为官清廉，治理有方，政绩受到上司赏识，由此踏入元朝仕途。"
+    },
+    {
+      "year": 1308,
+      "label": "约至大年间（1308—）",
+      "title": "任监察御史",
+      "detail": "入朝任监察御史，以敢于直言著称，上疏批评时政，因此与权贵屡生龃龉，一度被迫去职。",
+      "place": "dadu"
+    },
+    {
+      "year": 1315,
+      "label": "约延祐年间（1314—1320）",
+      "title": "官至礼部尚书",
+      "detail": "在仁宗朝历升要职，终至礼部尚书，数度上疏直谏，亦数度遭遇压力而请辞，进退之间反复周折。",
+      "place": "dadu"
+    },
+    {
+      "year": 1321,
+      "label": "约至治年间（1321—）",
+      "title": "致仕归隐云庄",
+      "detail": "辞官归济南，隐居云庄，以诗酒自娱，写下大量散曲，风格清峻豪放，渐聚成一家之声。",
+      "place": "jinan"
+    },
+    {
+      "year": 1329,
+      "label": "天历二年（1329）",
+      "title": "奉诏出山赴陕",
+      "detail": "关中大旱，民不聊生。朝廷征召张养浩出任赈灾主官，他慨然应命，离开归隐多年的云庄，再度踏上仕途。",
+      "place": "jinan"
+    },
+    {
+      "year": 1329,
+      "label": "天历二年（1329）",
+      "title": "过潼关作怀古曲",
+      "detail": "途经潼关，见古道残垣、山河险峻，写下《山坡羊·潼关怀古》，「兴，百姓苦；亡，百姓苦」一句震烁古今。",
+      "place": "tongguan"
+    },
+    {
+      "year": 1329,
+      "label": "天历二年（1329）",
+      "title": "卒于任所",
+      "detail": "到任后日夜操劳赈灾事务，积劳成疾，卒于陕西任上，时年约六十岁，以身殉职，成为元代官员中的异数。",
+      "place": "changan"
+    }
+  ],
+  "circle": [],
+  "masterpieces": [
+    {
+      "title": "山坡羊·潼关怀古",
+      "note": "写于1329年赴陕赈灾途中，以潼关山河之险起笔，收于「兴，百姓苦；亡，百姓苦」，八字道尽历朝兴亡的共同代价，历来被视为元曲中最具历史意识的名篇。",
+      "workId": "shanpoyang-tongguan"
+    },
+    {
+      "title": "三事忠告",
+      "note": "分《牧民忠告》《风宪忠告》《庙堂忠告》三部，分述县官、御史、宰执为政之道，是张养浩晚年政治思想的集中体现，后世视为元代官箴文学的代表作。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "An ancient stone fortress gate at Tongguan Pass perched on a sheer cliff, crumbling battlements and weathered ochre stone walls from the Yuan dynasty era, the Yellow River curving through a deep gorge far below; the vast Guanzhong plain stretches westward into pale autumn haze filling the left two-thirds of the frame; dry yellow grass clings to the cliff face; the fortress gate and eroded cliff face dominate the right third of the composition; late afternoon golden light rakes across the ancient stones casting long cool shadows into the crevices; ink-wash tonal range meets mineral earth tones of rust, ochre, and ash-grey; desolate and monumental atmosphere, Song-Yuan dynasty architectural ruin aesthetic. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

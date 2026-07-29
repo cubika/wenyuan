@@ -1,0 +1,109 @@
+{
+  "id": "li-qingzhao",
+  "name": "李清照",
+  "aka": [
+    "易安居士",
+    "李易安"
+  ],
+  "dynasty": "南宋",
+  "era": "约1084—约1155后",
+  "born": 1084,
+  "hook": "靖康之乱把她的生活切成两段：前期词婉丽，后期词沉痛，同一支笔写出了宋词史上最鲜明的今昔对比。",
+  "bio": "李清照生于宋神宗元丰年间的济南，父亲李格非是当时颇有声望的文人官员。家学渊源让她少年时便能写出在士大夫圈子里流传的词作，早期词清新婉丽，风格自成一格。约十八岁时嫁给金石学家赵明诚，两人趣味相投，以搜集金石拓本、鉴赏古器为共同志业，赵明诚编成《金石录》，她后来为之撰写后序，留下了那段婚姻最详尽也最动人的记录。靖康之变改变了一切：金兵南下，汴京陷落，他们携带多年积蓄的收藏仓皇渡江，辗转中书画器物散失大半。建炎三年（1129），赵明诚在建康病逝，此后李清照孤身辗转于江浙，词风随之由婉丽转为沉郁。绍兴年间曾短暂改嫁张汝舟，察觉其欺骗朝廷后主动告官，以自陷囹圄换来离婚，此举在宋代女性中极为罕见。晚年定居临安，具体卒年已不可考，学界多以约1155年后为其生命下限。她在宋词史上的特殊地位由两件事撑起：一是实践，《声声慢》十四叠字的开篇与梧桐细雨的收束，把个人漂泊写到了语言能到达的极限；二是理论，《词论》明确主张词有独立于诗的艺术标准，是宋代词人中少有的以理论发言者。",
+  "traits": [
+    "婉约词宗",
+    "以词立论",
+    "金石情缘",
+    "乱世漂泊"
+  ],
+  "timeline": [
+    {
+      "year": 1084,
+      "label": "元丰七年（1084）",
+      "title": "生于济南",
+      "detail": "生于济南，父亲李格非是北宋文人官员，母亲亦知书达理，家学环境让她少年时便能写出在士大夫圈子里传阅的词作。",
+      "place": "jinan"
+    },
+    {
+      "year": 1101,
+      "label": "建中靖国元年（1101）",
+      "title": "与赵明诚成婚",
+      "detail": "嫁赵明诚，两人皆嗜金石之学，以搜集古器、校读拓本为共同志业，是北宋文化圈里少见的学术伉俪。",
+      "place": "bianjing"
+    },
+    {
+      "year": 1107,
+      "label": "大观元年（1107）前后",
+      "title": "归居青州",
+      "detail": "赵明诚父丧后归乡，夫妻二人于青州潜心收藏金石书画长达十余年，是李清照一生中心境最从容的一段，早期名篇多作于此时。"
+    },
+    {
+      "year": 1127,
+      "label": "靖康二年（1127）",
+      "title": "金破汴京，被迫南渡",
+      "detail": "金兵攻陷汴京，李清照随赵明诚携带多年收藏仓皇渡江，途中书画器物大量散失，此后再未能返回北方故土，人生由此转折。",
+      "place": "bianjing"
+    },
+    {
+      "year": 1129,
+      "label": "建炎三年（1129）",
+      "title": "赵明诚病逝建康",
+      "detail": "赵明诚赴湖州任所途中染病，返回建康后不治身亡。李清照由此踏上一个人的漂泊，词风亦由早年婉丽一变而为沉郁悲凉。",
+      "place": "jinling"
+    },
+    {
+      "year": 1132,
+      "label": "绍兴二年（1132）",
+      "title": "撰成《金石录后序》",
+      "detail": "完成《金石录后序》，追记与赵明诚数十年共同收藏的往事及南渡以来颠沛的经历，是了解其生平最重要、情感最真实的第一手文献。",
+      "place": "kuaiji"
+    },
+    {
+      "year": 1132,
+      "label": "绍兴二年（1132）",
+      "title": "改嫁张汝舟，旋即离异",
+      "detail": "改嫁张汝舟，随即察觉对方谎报军功欺骗朝廷，主动向官府告发，以身陷囹圄换来离婚。宋代女子极少以诉讼手段主动脱离婚姻，此举在当时引发争议。"
+    },
+    {
+      "year": 1135,
+      "label": "绍兴五年（1135）前后",
+      "title": "定居临安",
+      "detail": "此后主要居于临安，晚年生活渐渐从史料中隐没，具体卒年已不可考，学界多以约1155年后作为其生命下限。",
+      "place": "linan"
+    }
+  ],
+  "circle": [
+    {
+      "name": "赵明诚",
+      "relation": "亲属",
+      "note": "夫婿，金石学家。两人共同收藏金石拓本与古器，赵明诚编《金石录》，李清照撰后序追怀，是宋代文人夫妻情感与学术合作的典范。"
+    },
+    {
+      "name": "李格非",
+      "relation": "亲属",
+      "note": "父亲，北宋文人官员，与廖正一等人并称苏门弟子之列，家学渊源直接塑造了李清照的文学趣味与审美眼光。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "声声慢·寻寻觅觅",
+      "note": "开篇连用七组叠字，节奏上即造成徘徊难前之感；结尾以梧桐细雨写哀，情景融合无痕，是宋词中极难复制的情感极值。",
+      "workId": "shengshengman"
+    },
+    {
+      "title": "醉花阴·薄雾浓云愁永昼",
+      "note": "重阳佳节独守闺中，以'人比黄花瘦'一句压尾，把相思之苦写得形神俱备，此句传诵千年仍不觉陈。"
+    },
+    {
+      "title": "一剪梅·红藕香残玉簟秋",
+      "note": "写别后相思，末句'才下眉头，却上心头'以动作写心理起伏，把感情的流动捕捉得浑然天成，千古传诵。"
+    },
+    {
+      "title": "词论",
+      "note": "宋代词学理论的重要文献，主张词须协于音律且有别于诗的独立审美标准，是宋代词人中少有的以理论发言者留下的系统论述。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Extreme close-up of several late-autumn chrysanthemums pressed against a moss-stained stone balustrade on the right third of the frame: ivory and pale-gold petals beginning to curl and brown at the edges from prolonged cold. A few large paulownia leaves, golden-yellow veined with rust, lie scattered across the stone surface and trail leftward into soft unfocus. On the far right, a small archaic bronze wine cup — mottled celadon-green with age — rests on the stone, its dark interior holding a faint reflection of overcast sky. Fine autumn drizzle catches the flat grey light, beading on the bronze surface. The left two-thirds of the image dissolves into pewter mist and bare pale stone with no focal element; all weight and texture rest in the right-side cluster. Ink-wash tonal palette: slate, ochre, sage-green, and faded gold. Horizontal cinematic 2.35:1 composition, Song-dynasty aesthetic. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

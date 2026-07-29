@@ -1,0 +1,159 @@
+{
+  "id": "han-yu",
+  "name": "韩愈",
+  "aka": [
+    "退之",
+    "韩昌黎",
+    "韩文公"
+  ],
+  "dynasty": "唐",
+  "era": "768—824",
+  "born": 768,
+  "died": 824,
+  "hook": "他把散文从骈俪套式里硬生生拽出来，靠一支笔同时改了唐代的文风和士人的说话方式。",
+  "bio": "韩愈，字退之，河南河阳人，唐代中后期文人、官员。少年早孤，科举入仕后长期在中央与地方之间浮沉，做过监察御史，也因直言时政多次外放。元和年间他以《论佛骨表》力谏迎佛骨，被贬潮州，这段经历最能看出他性格里“敢说、不躲、认后果”的一面。回朝后历任国子博士、兵部侍郎、吏部侍郎等职。文学上，他是古文运动的核心人物，主张“文以明道”，反对空饰声律的骈文，提倡言之有物、句法灵活的散体文章；他提携李翱、皇甫湜等后学，和柳宗元并称“韩柳”，对宋代欧阳修、苏轼一系的文章传统影响极深。韩愈的价值不只在名篇数量，更在于他把“怎么写”与“为何写”绑在一起，重塑了后世士大夫的公共表达。",
+  "traits": [
+    "古文倡导者",
+    "直谏敢言",
+    "文道并重",
+    "提携后学",
+    "刚健峭拔"
+  ],
+  "timeline": [
+    {
+      "year": 768,
+      "label": "大历三年（768）",
+      "title": "生于士族家",
+      "detail": "出身士族而少年早孤，由兄嫂抚养成人，早年的失怙经历影响了他后来文章中的现实关怀。"
+    },
+    {
+      "year": 792,
+      "label": "贞元八年（792）",
+      "title": "进士及第",
+      "detail": "通过科举进入仕途，从此在政治与文学两个场域同时展开实践。",
+      "place": "changan"
+    },
+    {
+      "year": 802,
+      "label": "贞元十八年（802）",
+      "title": "任监察御史",
+      "detail": "在台省任职期间敢于论事，直言风格逐步成形，也因此屡遭阻力。",
+      "place": "changan"
+    },
+    {
+      "year": 803,
+      "label": "贞元十九年（803）",
+      "title": "贬阳山令",
+      "detail": "因上书切论时政与民生问题被贬，这是他第一次重要政治挫折。"
+    },
+    {
+      "year": 806,
+      "label": "元和元年（806）",
+      "title": "转江陵府职",
+      "detail": "北返途中任江陵法曹参军，仕途短暂回稳，也积累了地方政务经验。",
+      "place": "jiangling"
+    },
+    {
+      "year": 810,
+      "label": "元和五年（810）",
+      "title": "复入朝任教",
+      "detail": "任国子博士，系统阐发古文主张，并在教育与写作中持续影响后进。",
+      "place": "changan"
+    },
+    {
+      "year": 817,
+      "label": "元和十二年（817）",
+      "title": "从征淮西",
+      "detail": "随裴度参与平淮西军事事务，战后撰写相关碑文，政治与文名同步上升。"
+    },
+    {
+      "year": 819,
+      "label": "元和十四年（819）",
+      "title": "谏佛骨被贬",
+      "detail": "上《论佛骨表》触怒宪宗，被贬潮州刺史，成为其生涯最著名转折点。",
+      "place": "chaozhou"
+    },
+    {
+      "year": 820,
+      "label": "元和十五年（820）",
+      "title": "量移袁州",
+      "detail": "离开潮州后转任袁州，施政务实，兴学劝农，地方治理口碑渐起。"
+    },
+    {
+      "year": 822,
+      "label": "长庆二年（822）",
+      "title": "再入中枢",
+      "detail": "回朝后历任兵部侍郎、吏部侍郎，形成文坛与政坛双重权威。",
+      "place": "changan"
+    },
+    {
+      "year": 824,
+      "label": "长庆四年（824）",
+      "title": "病逝长安",
+      "detail": "晚年在京任职期间去世，其文章理论与创作实践随后成为宋代古文的重要源头。",
+      "place": "changan"
+    }
+  ],
+  "circle": [
+    {
+      "name": "柳宗元",
+      "relation": "师友",
+      "note": "同为古文运动关键人物，文论取向相近，后世并称“韩柳”，共同奠定中唐古文格局。"
+    },
+    {
+      "name": "孟郊",
+      "relation": "知音",
+      "note": "二人诗文往还密切，韩愈多次推重孟郊诗才，这段交谊在中唐文人圈影响很大。"
+    },
+    {
+      "name": "裴度",
+      "relation": "同僚",
+      "note": "平淮西时期有明确政治协作关系，韩愈由此进一步进入朝廷核心事务。"
+    },
+    {
+      "name": "李翱",
+      "relation": "门生",
+      "note": "李翱受韩愈古文与儒学思想影响深，成为其文章与学术路向的重要继承者。"
+    },
+    {
+      "name": "皇甫湜",
+      "relation": "门生",
+      "note": "皇甫湜受韩愈提携与指授，在中晚唐文坛延续古文写作风气。"
+    },
+    {
+      "name": "刘禹锡",
+      "relation": "同僚",
+      "note": "同处中唐政治与文坛网络，虽风格有别，但在朝局与文坛上长期并行互动。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "师说",
+      "note": "借“师道”议题批评士人耻学风气，论证严整、锋芒直指现实。",
+      "workId": "shishuo"
+    },
+    {
+      "title": "论佛骨表",
+      "note": "以政教秩序为核心公开谏诤，情辞激切，是韩愈政治文字的代表。"
+    },
+    {
+      "title": "原道",
+      "note": "系统申述其道统观与文道关系，是理解韩愈思想立场的关键篇章。"
+    },
+    {
+      "title": "进学解",
+      "note": "用设问与反诘写士人困境，语带讽刺，兼具议论力度与文体创造。"
+    },
+    {
+      "title": "祭十二郎文",
+      "note": "以家族私人哀痛写出普遍人生经验，情感真切而克制，被奉为祭文名作。"
+    },
+    {
+      "title": "马说",
+      "note": "以“千里马”寓才士遭际，短篇中兼具寓言性、批判性与传播力。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Ultra-wide 2.35:1 cinematic banner of the Han River in Chaozhou after heavy rain, a weathered stone crocodile-offering altar on the right third near the waterline, wet moss, scattered ritual reeds, dark receding clouds and a thin break of cold light on the tide, distant low city wall silhouettes and humid southern atmosphere; the left two-thirds is open misty river surface and soft sky gradient kept intentionally clean for overlay text, rich texture, realistic ink-and-wash mood, high detail, no human presence. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

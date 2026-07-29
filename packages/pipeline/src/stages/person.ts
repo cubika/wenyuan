@@ -62,7 +62,8 @@ export async function person(input: PersonInput): Promise<Person> {
     copilot: input.copilot,
     model: input.model,
     workingDirectory: input.workingDirectory,
-    timeoutMs: 300_000,
+    // 年表、交游、代表作一次交付，冷门作者还常要反复修正才过校验。
+    timeoutMs: 600_000,
     maxAttempts: 4,
     systemMessage: `${VOICE}
 

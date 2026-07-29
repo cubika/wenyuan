@@ -319,8 +319,8 @@ export async function renderWork(mount) {
   mount.innerHTML = `
   <div class="crumb"><a href="home.html">首页</a><i>／</i><a href="home.html${sec ? `?sec=${sec}` : ''}">${esc(TYPE_LABEL[work.type])}</a><i>／</i>${esc(work.dynasty)}<i>／</i>${esc(work.title)}</div>
 
-  <section class="wband">
-    <img src="${esc(hero)}" alt="${esc(work.title)} 意境图">
+  <section class="wband${hero === undefined ? ' noimg' : ''}">
+    ${hero === undefined ? '' : `<img src="${esc(hero)}" alt="${esc(work.title)} 意境图">`}
     <div class="wband-in">
       <h1>${esc(work.title)}</h1>
       <div class="by"><span class="who">${esc(work.author.name)}</span> · ${esc(work.dynasty)}</div>
@@ -351,10 +351,14 @@ export async function renderWork(mount) {
       <div class="kv"><span>难度</span><b>${STARS(work.overview.difficulty)}</b></div>
       <div class="kv"><span>字数</span><b>${work.chapters.reduce((n, c) => n + c.lines.reduce((m, l) => m + l.text.length, 0), 0)}</b></div>
       <div class="kv"><span>注释</span><b>${allNotes.length} 条</b></div>
-      <div class="figbox">
+      ${
+        hero === undefined
+          ? ''
+          : `<div class="figbox">
         <img src="${esc(hero)}" alt="本篇配图">
         <figcaption>本篇配图 · 依原文意象生成</figcaption>
-      </div>
+      </div>`
+      }
     </aside>
 
     <div class="main">
@@ -550,12 +554,18 @@ function applyFilter(index, filter) {
 
 export async function renderHome(mount) {
   const index = await fetch('data/index.json').then((r) => r.json());
-  const lead = index[0];
+  // 首屏横幅要有图。索引按 id 排，排第一的未必出过图，挑第一篇有图的来打头。
+  const lead = index.find((w) => w.hero) ?? index[0];
   if (!lead) return;
   const hero = lead.hero;
 
   const bandTxt = $('.band-txt', mount) ?? mount;
-  $('.band img', mount).src = hero;
+  const bandImg = $('.band img', mount);
+  if (hero) {
+    bandImg.src = hero;
+  } else {
+    bandImg.remove();
+  }
   bandTxt.querySelector('h1.verse').innerHTML = lead.lead.text
     .split(/(?<=[，。！？])/)
     .filter(Boolean)
@@ -927,7 +937,7 @@ export async function renderPerson(mount) {
   mount.innerHTML = `
   <div class="crumb"><a href="home.html">首页</a><i>／</i><a href="people.html">人物</a><i>／</i>${esc(p.dynasty)}<i>／</i>${esc(p.name)}</div>
 
-  <section class="wband">
+  <section class="wband${p.media.hero ? '' : ' noimg'}">
     ${p.media.hero ? `<img src="${esc(p.media.hero)}" alt="${esc(p.name)} 意境图">` : ''}
     <div class="wband-in">
       <h1>${esc(p.name)}</h1>

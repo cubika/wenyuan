@@ -1,0 +1,116 @@
+{
+  "id": "na-lan-xing-de",
+  "name": "纳兰性德",
+  "aka": [
+    "容若",
+    "楞伽山人"
+  ],
+  "dynasty": "清",
+  "era": "1655—1685",
+  "born": 1655,
+  "died": 1685,
+  "hook": "大学士之子、御前侍卫、清词三大家——他用三十年写尽了一个人能有多深的情。",
+  "bio": "纳兰性德（1655—1685），字容若，号楞伽山人，满洲正黄旗，父亲纳兰明珠是康熙朝叱咤风云的大学士。他生在北京，从小接受汉学教育，二十二岁考中进士，随即入宫担任一等侍卫，此后常伴康熙左右，出入宫禁，随驾巡幸直至病逝，一生未离权力核心。但他的内心与这一切格格不入。康熙十三年（1674）他娶两广总督卢兴祖之女为妻，三年后卢氏产后病逝，性德此后写下大量悼亡词，痛切真实，成为《饮水词》最震动人心的部分。晚年他纳江南才女沈宛为侧室，不过数月即天人永隔。他的词不走格律派的路子，下笔直取感情，哀而不怨，近《花间》而比《花间》更坦率。与朱彝尊、陈维崧并称清词三大家，三人风格迥异，各立门户。王国维后来称他「北宋以来，一人而已」，此语颇有偏爱之嫌，但纳兰词的情感密度确实鲜有人及。三十岁病逝，留词三百余首。",
+  "traits": [
+    "情深",
+    "悼亡",
+    "侍卫词人",
+    "满汉交融",
+    "贵公子"
+  ],
+  "timeline": [
+    {
+      "year": 1655,
+      "label": "顺治十一年（1655）",
+      "title": "生于京师",
+      "detail": "出生于北京，父纳兰明珠时任内务府要职，家世显赫。幼年即受严格汉学教育，八岁能诗，才名早著。",
+      "place": "dadu"
+    },
+    {
+      "year": 1674,
+      "label": "康熙十三年（1674）",
+      "title": "娶卢氏为妻",
+      "detail": "娶两广总督卢兴祖之女为妻，伉俪情深。此段婚姻虽只三年，却成为他词作情感的核心来源，《饮水词》中悼亡诸作多由此而起。",
+      "place": "dadu"
+    },
+    {
+      "year": 1676,
+      "label": "康熙十五年（1676）",
+      "title": "进士及第，擢御前侍卫",
+      "detail": "中丙辰科进士，授一等侍卫，从此常侍皇帝左右。侍卫之职看似尊荣，实则束缚，他多次在词中流露对自由的渴望。",
+      "place": "dadu"
+    },
+    {
+      "year": 1677,
+      "label": "康熙十六年（1677）",
+      "title": "卢氏病逝",
+      "detail": "爱妻因产后病亡，性德悲恸不已。此后写下「被酒莫惊春睡重，赌书消得泼茶香，当时只道是寻常」等悼亡名句，哀而不怨，读之断肠。",
+      "place": "dadu"
+    },
+    {
+      "year": 1679,
+      "label": "康熙十八年（1679）",
+      "title": "广纳才士，奔走救友",
+      "detail": "与顾贞观等汉族文人往来日密，以府邸为文会之所。为吴兆骞等遭难文人奔走斡旋，是他践行知己之义最有力的行动，并非只流连词章。",
+      "place": "dadu"
+    },
+    {
+      "year": 1682,
+      "label": "康熙二十一年（1682）",
+      "title": "随驾东巡，写《长相思》",
+      "detail": "随康熙出巡东北，途中写下《长相思》，以「山一程，水一程」写路途之远，末句「故园无此声」以声音定位乡愁，极简而极准。"
+    },
+    {
+      "year": 1685,
+      "label": "康熙二十四年（1685）",
+      "title": "病逝京师，年三十",
+      "detail": "五月病逝于北京，年仅三十岁。友人整理词稿，《饮水词》《侧帽词》先后刊行，其词名在身后反而愈来愈盛。",
+      "place": "dadu"
+    }
+  ],
+  "circle": [
+    {
+      "name": "顾贞观",
+      "relation": "知音",
+      "note": "纳兰最重要的词友，二人以诗词酬唱为纽带，性德为其奔走解救流放友人吴兆骞，交情之重在清初文坛传为佳话。"
+    },
+    {
+      "name": "朱彝尊",
+      "relation": "师友",
+      "note": "清词三大家之一，主浙西派格律，与性德词风迥异，一重典雅，一重性情，彼此相重，同为清词中兴的旗帜。"
+    },
+    {
+      "name": "陈维崧",
+      "relation": "师友",
+      "note": "清词三大家之一，走豪放一路，与性德有唱和往来，年龄相差较大，是性德入词坛的重要引路人之一。"
+    },
+    {
+      "name": "纳兰明珠",
+      "relation": "亲属",
+      "note": "父亲，康熙朝大学士，朝中权臣。性德的荣华与束缚皆源于此，父子性情迥异，性德终生未能真正摆脱家门的阴影。"
+    },
+    {
+      "name": "沈宛",
+      "relation": "知音",
+      "note": "江南才女，能诗善词，纳兰晚年纳为侧室，相处时间极短。沈宛亦有词集《选梦词》传世，二人皆以词寄情。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "《木兰词·拟古决绝词柬友》",
+      "note": "首句「人生若只如初见」道出所有感情变质之憾，托拟古决绝词之壳，写的是真实的情伤与惋惜，后世引用极广。",
+      "workId": "mulanci-nigu"
+    },
+    {
+      "title": "《长相思》",
+      "note": "随驾出塞途中所作，「山一程，水一程」以行路之艰写距离之远，末句「故园无此声」以声音定位乡愁，以极少的字完成极深的情绪。"
+    },
+    {
+      "title": "《浣溪沙》（谁念西风独自凉）",
+      "note": "著名悼亡词，「赌书消得泼茶香，当时只道是寻常」以夫妻日常细节入词，越寻常越断肠，是悼亡题材中最克制也最锥心的写法。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "A desolate northern frontier landscape at late dusk, a cluster of bare silver birch trees standing in deep snow on the right third of the frame, their pale trunks catching the last cold amber light before darkness. At the base of the trees, a weathered bronze incense burner sits half-buried in a snowdrift, a thin thread of smoke dissolving into frozen air. The left two-thirds of the image opens onto a vast, featureless snowfield under a steel-grey sky faintly flushed with indigo and violet at the horizon — no roads, no landmarks, only the aching silence of open distance. A few withered reed stems lean from the snow near the foreground. The mood is one of contained grief: elegant, still, and irreversibly cold. Cinematic 2.35:1 widescreen composition, ink-wash painting aesthetic merged with cold photographic light, palette of muted silver-blue, charcoal, and pale gold. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "id": "tao-yuanming",
+  "name": "陶渊明",
+  "aka": [
+    "元亮",
+    "陶潜",
+    "靖节先生",
+    "五柳先生"
+  ],
+  "dynasty": "东晋",
+  "era": "约365—427",
+  "born": 365,
+  "died": 427,
+  "hook": "辞掉最后一份官职后，他回家种地写诗，用一个归字定义了中国文人的另一种活法。",
+  "bio": "陶渊明，字元亮，又名潜，自号五柳先生，浔阳柴桑（今江西九江）人。出身没落的官宦家族，曾祖陶侃是东晋名将，到他这代已家道中落，少年时便与贫寒相伴。他并非天生的隐士，年轻时有过用世的念头，先后几度出仕，任过江州祭酒、参军一类的小官，但每次都不久便辞去。义熙元年（405年），他出任彭泽县令，在职仅八十余天，因不愿整理衣冠向督邮行礼，挂印而去，此后彻底告别官场。归园之后，他亲自扛锄耕作，生活时常贫困到断炊，却写出了「采菊东篱下，悠然见南山」这样全然放松的句子。他的诗看似平淡，实则有一种拒绝表演的自尊：写农耕不苦诉，写饮酒不颓废，写死亡不恐惧。《桃花源记》虚构了一个与世隔绝的村落，是乱世里的想象性出口，也是他对另一种秩序的持久念想。在文学史上，他开创了田园诗一脉，唐宋以降，王维、孟浩然、苏轼都曾自觉向他靠拢。他死后谥靖节，后世因此称靖节先生。",
+  "traits": [
+    "归隐",
+    "任真",
+    "躬耕",
+    "旷达",
+    "固穷"
+  ],
+  "timeline": [
+    {
+      "year": 365,
+      "label": "约365年",
+      "title": "生于浔阳柴桑",
+      "detail": "生于东晋浔阳柴桑，曾祖陶侃曾为东晋名将，至其父辈已家道中落。少年时随母读书，深受儒道两家思想熏陶，早年对仕途与归隐同时抱有期待。",
+      "place": "jiangzhou"
+    },
+    {
+      "year": 393,
+      "label": "约393年",
+      "title": "初仕江州祭酒",
+      "detail": "出任江州祭酒，不久称病辞归。此后数年间辗转出仕，任建威参军等职，但每次都因受不了官场应酬而主动离去，进退之间消耗了大半青壮年岁月。",
+      "place": "jiangzhou"
+    },
+    {
+      "year": 400,
+      "label": "约400年",
+      "title": "入桓玄幕府",
+      "detail": "转赴荆州，入权臣桓玄麾下任参军，亲历东晋末年的权争与动荡。约401年母亲去世后辞官守孝，居家期间对仕途愈加心灰，出与留的天平开始彻底倾斜。",
+      "place": "jingzhou"
+    },
+    {
+      "year": 405,
+      "label": "义熙元年（405）",
+      "title": "彭泽辞官归田",
+      "detail": "出任彭泽县令，在职约八十余天。督邮来巡，属吏告知须束带相迎，他说岂能为五斗米折腰向乡里小儿，当即挂印离去，写下《归去来兮辞》，此后终身不仕。",
+      "place": "jiangzhou"
+    },
+    {
+      "year": 408,
+      "label": "义熙四年（408）",
+      "title": "家中遭火，迁居南村",
+      "detail": "家宅失火（诗题《戊申岁六月中遇火》可证），携家迁居南村，生活更为拮据。此后数年贫困与创作并行，《归园田居》《饮酒》等系列的主体篇章多出于这段岁月。",
+      "place": "jiangzhou"
+    },
+    {
+      "year": 420,
+      "label": "元熙二年（420）",
+      "title": "东晋覆灭，拒仕新朝",
+      "detail": "刘裕废晋称帝，建立刘宋，东晋亡。陶渊明此后诗文拒用宋朝年号，以干支纪年代之，以不仕新朝作为晚年处世的底线，《述酒》等诗隐约透露出故国之思。",
+      "place": "jiangzhou"
+    },
+    {
+      "year": 427,
+      "label": "427年",
+      "title": "病逝，留《自祭文》",
+      "detail": "在贫病中离世。临终前自作《挽歌诗》三首与《自祭文》，以平静甚至带着幽默的笔调作别，这种坦然面对死亡的姿态是他任真性格最后一次也最彻底的呈现。",
+      "place": "jiangzhou"
+    }
+  ],
+  "circle": [
+    {
+      "name": "颜延之",
+      "relation": "知音",
+      "note": "与陶渊明交情深厚，曾多次接济其生活。陶死后，颜延之写《陶徵士诔》哀悼，是现存最早系统记述陶渊明生平、评价其诗文的文献之一。"
+    },
+    {
+      "name": "慧远",
+      "relation": "师友",
+      "note": "庐山东林寺高僧，曾邀陶渊明加入白莲社共修净土，陶以不惯礼佛为由婉拒，两人有所往来，折射出东晋士人与佛学之间若即若离的关系。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "归去来兮辞",
+      "note": "辞官归田的宣言，以第一人称写出彻底放下的心境。归去来兮，田园将芜胡不归一句，成为历代失意文人引用最频繁的精神出口之一。"
+    },
+    {
+      "title": "桃花源记",
+      "note": "虚构了一个与世隔绝的村落，语气平静而细节真实，让读者不知不觉间相信了一个不可能存在的地方。桃花源后来成为汉语里一个独立的文化词汇。",
+      "workId": "taohuayuanji"
+    },
+    {
+      "title": "饮酒·其五",
+      "note": "采菊东篱下，悠然见南山——悠然二字的高明在于它不是刻意欣赏，而是随手一抬头便与山相遇，这种不期而遇的感觉很难用别的词替换。",
+      "workId": "yinjiu-wu"
+    },
+    {
+      "title": "归园田居·其一",
+      "note": "以羁鸟恋旧林、池鱼思故渊比喻官场对人的束缚，是陶渊明归田情感最集中的一次表达，也是田园诗作为一种诗歌类型的奠基之作。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Autumn pastoral scene in East Asian ink-wash style. On the right third of the canvas: a weathered wooden fence tangled with wild chrysanthemums in pale gold and ivory, a small unglazed clay wine jar resting at the base of a gnarled fence post, a rain-worn straw hat hanging from a wooden peg. The left two-thirds opens into cool morning mist drifting over fallow fields, with the faint ridgeline of a distant mountain emerging ghostlike through the haze, seen without intention, encountered by chance. Color palette of ochre earth, faded celadon, and wash-grey. Minimal brushwork texture, unhurried and still. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

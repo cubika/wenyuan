@@ -32,7 +32,11 @@ const CHAPTER_PATTERNS: RegExp[] = [
 ]
 
 /** 句读切分点。保留标点在句末，古文没有空格可依。 */
-const SENTENCE_END = /(?<=[。！？；])|(?<=[，、](?=[^」』）】]))/
+const STOPS = '。！？；'
+const SOFT_STOPS = '，、'
+const OPEN_QUOTES = '“「『'
+const CLOSE_QUOTES = '”」』'
+const CLOSE_BRACKETS = '）】'
 
 function hash16(text: string): string {
   return createHash('sha256').update(text).digest('hex').slice(0, 16)
@@ -60,28 +64,56 @@ interface RawLine {
   para: number
 }
 
-/** 把一行原文按句读切开。逗号只在句子过长时才切。 */
+/**
+ * 把一行原文按句读切开。逗号只在句子过长时才切。
+ *
+ * 引号里一律不切。「子曰：“学而时习之，不亦说乎？……”」被从问号处切开，
+ * 站上会显示成引号不闭合的半句；模型逐句回抄时也会「顺手」把引号补全，
+ * 触发原文校验反复打回 —— 一句话的代价是整章重写。
+ */
 function splitSentences(paragraph: string): string[] {
-  const pieces = paragraph
-    .split(SENTENCE_END)
-    .map((piece) => piece.trim())
-    .filter((piece) => piece.length > 0)
+  const chars = [...paragraph]
   const out: string[] = []
   let buffer = ''
-  for (const piece of pieces) {
-    buffer += piece
-    // 太短的片段并入下一句，避免把「子曰：」单独切成一句。
-    if (buffer.length >= 8 && /[。！？；]$/.test(buffer)) {
-      out.push(buffer)
-      buffer = ''
-    } else if (buffer.length >= 48) {
-      out.push(buffer)
-      buffer = ''
+  let depth = 0
+  const flush = (): void => {
+    const text = buffer.trim()
+    if (text.length > 0) {
+      out.push(text)
+    }
+    buffer = ''
+  }
+  for (let i = 0; i < chars.length; i += 1) {
+    const ch = chars[i] as string
+    buffer += ch
+    if (OPEN_QUOTES.includes(ch)) {
+      depth += 1
+      continue
+    }
+    if (CLOSE_QUOTES.includes(ch)) {
+      depth = Math.max(0, depth - 1)
+    }
+    if (depth > 0) {
+      continue
+    }
+    // 句末标点后面还跟着收尾引号或括号，等它一起收进来再断。
+    const next = chars[i + 1]
+    if (next !== undefined && (CLOSE_QUOTES.includes(next) || CLOSE_BRACKETS.includes(next))) {
+      continue
+    }
+    const prev = chars[i - 1]
+    const closesQuotedSentence =
+      CLOSE_QUOTES.includes(ch) && prev !== undefined && STOPS.includes(prev)
+    if (STOPS.includes(ch) || closesQuotedSentence) {
+      // 太短的片段留给下一句，避免把「子曰：」单独切成一句。
+      if (buffer.trim().length >= 8) {
+        flush()
+      }
+    } else if (SOFT_STOPS.includes(ch) && buffer.trim().length >= 48) {
+      flush()
     }
   }
-  if (buffer.length > 0) {
-    out.push(buffer)
-  }
+  flush()
   return out
 }
 

@@ -1,0 +1,109 @@
+{
+  "id": "xin-qi-ji",
+  "name": "辛弃疾",
+  "aka": [
+    "辛幼安",
+    "稼轩",
+    "稼轩居士"
+  ],
+  "dynasty": "南宋",
+  "era": "1140—1207",
+  "born": 1140,
+  "died": 1207,
+  "hook": "他把收复中原的军事理想写进词里，让原本偏重儿女情长的词体有了铁马秋风和家国焦灼。",
+  "bio": "辛弃疾，字幼安，号稼轩，济南人。青年时北方沦陷，他在山东参加抗金义军，后南归宋廷，带着“恢复”理想进入仕途。此后数十年，他在地方与朝廷之间辗转，做过治政实务，也多次上书主战，却长期受主和格局压制，屡遭闲置。政治抱负难以施展，反而逼出他词中的独特张力：一面是金戈铁马、历史兴亡，一面是退居乡间后的农事、夜行、山水与日常。他把苏轼开拓过的词境再往前推，形成豪放而沉郁、用典密而不板的个人风格，成为南宋词史中最有力量的一位词人之一。",
+  "traits": [
+    "慷慨",
+    "刚烈",
+    "用典深密",
+    "文武兼备",
+    "报国执念"
+  ],
+  "timeline": [
+    {
+      "year": 1140,
+      "label": "绍兴十年（1140）",
+      "title": "生于济南",
+      "detail": "出生在济南历城。北方战乱与故土沦陷的现实，早早塑造了他一生的政治方向。",
+      "place": "jinan"
+    },
+    {
+      "year": 1161,
+      "label": "绍兴三十一年（1161）",
+      "title": "起兵抗金",
+      "detail": "在山东参加耿京义军，从书生转入军旅实践，确立了“以武恢复”的人生路径。",
+      "place": "jinan"
+    },
+    {
+      "year": 1162,
+      "label": "绍兴三十二年（1162）",
+      "title": "南归任职",
+      "detail": "率众南归，押解叛将张安国至临安，随后进入南宋仕途，开始长期的政务生涯。",
+      "place": "linan"
+    },
+    {
+      "year": 1165,
+      "label": "乾道元年（1165）",
+      "title": "上书言战",
+      "detail": "向朝廷进呈《美芹十论》等，系统陈述恢复策略，显示他兼具军事判断与政务思考。",
+      "place": "linan"
+    },
+    {
+      "year": 1181,
+      "label": "淳熙八年（1181）",
+      "title": "罢官闲居",
+      "detail": "被罢后长期退居乡间。仕途受挫转化为创作高峰，词风由激烈外放转向沉郁深厚。"
+    },
+    {
+      "year": 1203,
+      "label": "嘉泰三年（1203）",
+      "title": "晚年再起",
+      "detail": "晚年再被起用，出任绍兴知府兼浙东安抚使，仍持续主张整军备边。",
+      "place": "kuaiji"
+    },
+    {
+      "year": 1207,
+      "label": "开禧三年（1207）",
+      "title": "病逝铅山",
+      "detail": "病逝于铅山。至死未见恢复中原，其词中“壮志难酬”的底色由此定型。"
+    }
+  ],
+  "circle": [
+    {
+      "name": "耿京",
+      "relation": "同僚",
+      "note": "辛弃疾青年时在其义军中效力，共同抗金，是其早年政治与军事实践的关键关系。"
+    },
+    {
+      "name": "陈亮",
+      "relation": "知音",
+      "note": "二人政见相近，皆主张恢复，往来唱和中形成南宋词坛最有锋芒的一组声音。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "青玉案·元夕",
+      "note": "以元夕灯市的繁华反衬“那人”的孤高，末句转折极见功力。",
+      "workId": "qingyuan-yuanxi"
+    },
+    {
+      "title": "破阵子·为陈同甫赋壮词以寄之",
+      "note": "以梦境统摄军旅记忆，结尾“可怜白发生”陡转，形成强烈历史失重感。"
+    },
+    {
+      "title": "永遇乐·京口北固亭怀古",
+      "note": "借孙刘旧事层层设问，既写江山形胜，也直刺南宋现实的苟安心理。"
+    },
+    {
+      "title": "摸鱼儿·更能消几番风雨",
+      "note": "借春残与美人迟暮寄托身世之感，用典密集却情绪连贯，沉郁中见锋利。"
+    },
+    {
+      "title": "西江月·夜行黄沙道中",
+      "note": "从虫鸣、稻花、山路写夜行乡野，语言平易却节奏明快，展现其清新一面。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Ultra-wide 2.35:1 cinematic night scene at a Southern Song river city during the Lantern Festival; on the right third, a weathered stone bridge and a cluster of glowing lanterns reflected in dark water, with a single quiet lane receding into shadow and a distant fortress silhouette hinting at frontier anxiety; subtle wind over banners and ripples, rich contrast between festive gold light and deep indigo sky; the left two-thirds kept mostly open with mist, water, and soft darkness for negative space. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

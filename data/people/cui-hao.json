@@ -1,0 +1,82 @@
+{
+  "id": "cui-hao",
+  "name": "崔颢",
+  "aka": [],
+  "dynasty": "唐",
+  "era": "约704—754",
+  "born": 704,
+  "died": 754,
+  "hook": "写出了让李白搁笔的《黄鹤楼》，凭一首七律在唐诗史上占据一席之地",
+  "bio": "崔颢，汴州（今河南开封）人，唐开元年间进士。《旧唐书》记他早年好赌博、嗜酒，娶妻只取颜色，稍不称意便弃之，仕途颇为坎坷。但这位行事放诞的诗人留下了一首让后世议论不休的《黄鹤楼》——从仙人骑鹤的传说切入，中间写历史的苍茫，末尾落在暮色烟波里归家无路的怅惘，全诗气脉贯通，浑然一体。严羽《沧浪诗话》推它为唐人七律压卷之作。传说李白登黄鹤楼，见此诗后叹道眼前有景道不得，搁笔而去——这个故事未必完全可信，但它说明此诗在唐代已被公认为同类题材的高峰。崔颢存诗四十余首，其中边塞诗刚健豪迈，与高适、岑参风格相近，显示他曾有过一段游历西北边地的经历。晚年官至司勋员外郎。他的文学地位主要由《黄鹤楼》一首撑起，其余作品鲜有人细读，这说明他的整体创作缺乏李白、杜甫那样的厚度与多样性。",
+  "traits": [
+    "边塞豪情",
+    "登楼怀古",
+    "浪子才情",
+    "一诗成名",
+    "乡愁旷远"
+  ],
+  "timeline": [
+    {
+      "year": 704,
+      "label": "约开元初（约704）",
+      "title": "生于汴州",
+      "detail": "出生于汴州，今河南开封一带，家世史书记载甚少。",
+      "place": "bianjing"
+    },
+    {
+      "year": 723,
+      "label": "约开元年间（约723）",
+      "title": "进士及第",
+      "detail": "参加科举，登进士第，踏入仕途。初任官职卑小，行事散漫，旧唐书留有关于他早年行为的负面记录。",
+      "place": "changan"
+    },
+    {
+      "year": 738,
+      "label": "约开元末（约738）",
+      "title": "游历西北边塞",
+      "detail": "赴西北边地游历，亲历戍边风物，所作边塞诗雄健豪迈，是他诗风中刚烈一面的来源。",
+      "place": "liangzhou"
+    },
+    {
+      "year": 744,
+      "label": "约天宝年间（约744）",
+      "title": "登黄鹤楼题诗",
+      "detail": "登武昌黄鹤楼，写下七律《黄鹤楼》。此诗以黄鹤为线一气贯注，末联以乡愁收束，气脉浑成，后世公认为唐人七律压卷之作。",
+      "place": "ezhou"
+    },
+    {
+      "year": 751,
+      "label": "约天宝年间（约751）",
+      "title": "官至司勋员外郎",
+      "detail": "历任数职，约于天宝年间官至司勋员外郎，从六品上，为其仕途中可考的最高职位。",
+      "place": "changan"
+    },
+    {
+      "year": 754,
+      "label": "约天宝十三年（约754）",
+      "title": "约卒",
+      "detail": "约卒于天宝年间，享年约五十岁。身后诗名日盛，《黄鹤楼》尤为历代文人推重。"
+    }
+  ],
+  "circle": [
+    {
+      "name": "李白",
+      "relation": "知音",
+      "note": "传说李白登黄鹤楼，见此诗叹道眼前有景道不得，后作《登金陵凤凰台》遥相呼应，是唐诗史上最著名的公案之一。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "黄鹤楼",
+      "note": "七律代表作，以仙人骑鹤的传说起笔，写历史的苍茫与乡愁的无处安放，被严羽沧浪诗话推为唐人七律压卷。",
+      "workId": "huanghelou"
+    },
+    {
+      "title": "长干行二首",
+      "note": "以商人之妻口吻写离别相思，语言清丽，情感细腻，是崔颢乐府体的代表，与李白同名之作并称。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "The Yellow Crane Tower rising from a rocky riverside promontory above the wide Yangtze at dusk, multi-tiered pavilion with dark glazed tile roofs, the sky shifting from pale amber to deep indigo, cranes conspicuously absent — only vast empty sky and trailing clouds above the ancient eaves, river mist softening the far bank into vague grey shapes, the water surface gleaming silver-gold in the last light. The tower anchored firmly to the right third of the frame, the left two-thirds occupied by open water, drifting mist, and melancholy twilight sky. Ink-wash mood in muted gold, celadon, and grey tones. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

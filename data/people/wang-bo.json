@@ -1,0 +1,91 @@
+{
+  "id": "wang-bo",
+  "name": "王勃",
+  "aka": [
+    "子安"
+  ],
+  "dynasty": "初唐",
+  "era": "约650—约676",
+  "hook": "他二十多岁就写出《滕王阁序》，把骈文从堆典故的旧路上拽回了真情与气势。",
+  "bio": "王勃，字子安，初唐诗文家，后世常与杨炯、卢照邻、骆宾王并称“初唐四杰”。他少年早成，文名来得很快，也很早进入王府文职。中途因《檄英王鸡文》触怒权贵，被逐出王府，仕途受挫。此后他辗转南北，经历失意与漂泊，文章反而更见开阔。上元二年在洪州宴集即席写成《滕王阁序》，把宴游场面的华丽、身世感慨与时代气象压进一篇短文，成为唐代骈文代表作。王勃去世很早，但他把六朝以来偏重藻饰的骈体，推进到兼具声律美和真情力度的新阶段，对唐代诗文转型影响很大。",
+  "traits": [
+    "少年早成",
+    "骈文革新",
+    "才高命促",
+    "情采壮阔",
+    "四杰之一"
+  ],
+  "timeline": [
+    {
+      "year": 666,
+      "label": "乾封元年（666）",
+      "title": "入沛王府",
+      "detail": "王勃以文名被召入沛王府任修撰，正式进入上层文书与文学圈。",
+      "place": "changan"
+    },
+    {
+      "year": 670,
+      "label": "总章三年（670）",
+      "title": "作檄被逐",
+      "detail": "因《檄英王鸡文》牵涉王府斗鸡风波，被逐出王府，仕途骤然中断。",
+      "place": "changan"
+    },
+    {
+      "year": 675,
+      "label": "上元二年（675）",
+      "title": "作《滕王阁序》",
+      "detail": "在洪州滕王阁宴会即席成文，以宏阔气象和强烈身世感震动当时文坛。",
+      "place": "hongzhou"
+    },
+    {
+      "year": 676,
+      "label": "仪凤元年（676）",
+      "title": "南行早逝",
+      "detail": "南下途中遇险而亡，年寿未高，作品却因此更显短促而炽烈的生命力。"
+    }
+  ],
+  "circle": [
+    {
+      "name": "王福畤",
+      "relation": "亲属",
+      "note": "其父为地方官，王勃后期南行与省亲安排密切相关。"
+    },
+    {
+      "name": "杨炯",
+      "relation": "同僚",
+      "note": "同属“初唐四杰”，在文风革新上并称一代。"
+    },
+    {
+      "name": "卢照邻",
+      "relation": "同僚",
+      "note": "与王勃并列四杰，均以辞采与气骨改变初唐文坛审美。"
+    },
+    {
+      "name": "骆宾王",
+      "relation": "同僚",
+      "note": "同为四杰成员，代表初唐由齐梁余风向盛唐气象的过渡。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "滕王阁序",
+      "note": "宴集骈文的高峰之作，写景、叙事与身世之感一体推进。",
+      "workId": "tengwangge-xu"
+    },
+    {
+      "title": "送杜少府之任蜀州",
+      "note": "以开阔语调写离别，名句流传极广，显示其五言律诗功力。"
+    },
+    {
+      "title": "滕王阁诗",
+      "note": "与序文互相映照，景象高远，情绪由盛转悲。"
+    },
+    {
+      "title": "山中",
+      "note": "篇幅短而转折快，写出羁旅中的孤清与警觉。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Cinematic 2.35:1 landscape banner of Tengwang Pavilion above the Gan River in late-autumn dusk, Tang architecture with layered eaves and stone terrace placed strictly in the right third of the frame, an empty moored wooden boat and a few wind-tossed reeds near the same right-side bank, warm light against cool blue-gray clouds, a lone wild goose over distant water, while the left two-thirds remain open misty river and expansive sky as clean negative space, high detail, atmospheric depth, poetic yet restrained color grading. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

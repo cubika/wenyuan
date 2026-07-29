@@ -61,6 +61,22 @@ describe('segment', () => {
     const body = '孙子曰：兵者，国之大事，死生之地，存亡之道，不可不察也。'
     expect(segment(body, 'classic').chapters[0]?.title).toBeUndefined()
   })
+
+  it('引号里不切句，不留下不闭合的半句', () => {
+    const talk = '子曰：“学而时习之，不亦说乎？有朋自远方来，不亦乐乎？”曾子曰：“吾日三省吾身。”'
+    expect(segment(talk, 'classic').chapters[0]?.lines).toEqual([
+      '子曰：“学而时习之，不亦说乎？有朋自远方来，不亦乐乎？”',
+      '曾子曰：“吾日三省吾身。”',
+    ])
+  })
+
+  it('引号外照常按句读切', () => {
+    const mixed = '客有吹洞箫者，倚歌而和之。其声呜呜然，不绝如缕。'
+    expect(segment(mixed, 'essay').chapters[0]?.lines).toEqual([
+      '客有吹洞箫者，倚歌而和之。',
+      '其声呜呜然，不绝如缕。',
+    ])
+  })
 })
 
 describe('applyParas', () => {

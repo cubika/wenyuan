@@ -20,3 +20,7 @@ prototypes/data/
 
 # 截图只用于本地核对
 shots/
+
+# 批量导入的日志与断点，只对本机有意义
+.import-logs/
+.import-cache/

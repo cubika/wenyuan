@@ -7,15 +7,26 @@ import type { RawChapter } from '../segment.ts'
 import { applyParas } from '../segment.ts'
 import { VOICE } from './voice.ts'
 
-const AnnotationSchema = z.object({
+type Line = z.infer<typeof LineSchema>
+
+const LinesSchema = z.object({ lines: z.array(LineSchema).min(1) })
+
+const DigestSchema = z.object({
   title: z.string().trim().min(1).max(60).optional(),
-  lines: z.array(LineSchema).min(1),
   summary: z.string().trim().min(10).max(400),
   commentary: z.string().trim().min(20).max(1200).optional(),
   difficulty: z.number().int().min(1).max(5),
 })
 
+const AnnotationSchema = LinesSchema.extend(DigestSchema.shape)
+
 type Annotation = z.infer<typeof AnnotationSchema>
+
+/**
+ * 一次交付的最大句数。骈文与典籍的一章能有七八十句，全塞进一次交付，
+ * 输出量大到模型交不完；校验一旦打回，整份还得从头重写。
+ */
+const SLICE = 10
 
 export interface AnnotateInput {
   copilot: Copilot
@@ -34,25 +45,25 @@ export interface AnnotateInput {
  * 原文必须逐字回来。模型很容易「顺手」改标点、换异体字、
  * 或把两句合并 —— 这些都会让注释定位和对照阅读崩掉，所以硬校验。
  */
-function checkFidelity(chapter: RawChapter): (value: Annotation) => ValidationFailure[] {
+function checkFidelity(expected: string[]): (value: { lines: Line[] }) => ValidationFailure[] {
   return (value) => {
     const failures: ValidationFailure[] = []
-    if (value.lines.length !== chapter.lines.length) {
+    if (value.lines.length !== expected.length) {
       failures.push({
         path: 'lines',
-        message: `必须恰好 ${chapter.lines.length} 句，与给定原文一一对应，收到 ${value.lines.length} 句`,
+        message: `必须恰好 ${expected.length} 句，与给定原文一一对应，收到 ${value.lines.length} 句`,
       })
       return failures
     }
     value.lines.forEach((line, i) => {
-      const expected = chapter.lines[i]
-      if (expected === undefined) {
+      const want = expected[i]
+      if (want === undefined) {
         return
       }
-      if (line.text !== expected) {
+      if (line.text !== want) {
         failures.push({
           path: `lines.${i}.text`,
-          message: `原文被改动了。必须原样返回「${expected}」，收到「${line.text}」`,
+          message: `原文被改动了。必须原样返回「${want}」，收到「${line.text}」`,
         })
       }
       line.notes.forEach((note, ni) => {
@@ -68,50 +79,129 @@ function checkFidelity(chapter: RawChapter): (value: Annotation) => ValidationFa
   }
 }
 
-export async function annotate(input: AnnotateInput): Promise<Chapter> {
-  const numbered = input.chapter.lines.map((line, i) => `${i + 1}. ${line}`).join('\n')
+const header = (input: AnnotateInput): string =>
+  `作品：《${input.title}》　作者：${input.author}　朝代：${input.dynasty}
+${input.chapter.title === undefined ? '' : `本章标题：${input.chapter.title}\n`}`
 
-  const { value } = await runWithEmit({
-    copilot: input.copilot,
-    model: input.model,
-    workingDirectory: input.workingDirectory,
-    timeoutMs: 300_000,
-    maxAttempts: 4,
-    systemMessage: `${VOICE}
-
-当前任务：为一段古文做逐句译注。只能通过 emit_annotation 工具交付，不要用普通消息回答。`,
-    toolName: 'emit_annotation',
-    toolDescription:
-      '交付本章的逐句译注。校验不通过会返回逐条错误，据此修正后重新调用。',
-    schema: AnnotationSchema,
-    extraChecks: checkFidelity(input.chapter),
-    prompt: `作品：《${input.title}》　作者：${input.author}　朝代：${input.dynasty}
-${input.chapter.title ? `本章标题：${input.chapter.title}\n` : ''}
-下面是本章原文，共 ${input.chapter.lines.length} 句，已编号：
-
-${numbered}
-
-请交付：
-
-1. **lines**：${input.chapter.lines.length} 个对象，与上面 1-${input.chapter.lines.length} 句**严格一一对应、顺序不变**。
-   - text：**原样照抄**该句，一个字、一个标点都不许改
+const LINE_RULES = `   - text：**原样照抄**该句，一个字、一个标点都不许改
    - translation：这一句的白话译文，通顺、像人说话
    - notes：本句中读者可能卡住的词。**没有难点就给空数组**，不要为凑数而注。
      - term：必须是本句中连续出现的子串
      - pinyin：生僻字才给，常用字不给
      - explain：解释这个词在**本句语境**下的意思
-     - type：word（词语）/ allusion（典故）/ person（人物）/ place（地名）/ institution（制度职官）
+     - type：word（词语）/ allusion（典故）/ person（人物）/ place（地名）/ institution（制度职官）`
+
+const systemFor = (task: string): string => `${VOICE}
+
+当前任务：${task}只能通过工具交付，不要用普通消息回答。`
+
+const askTitle = (input: AnnotateInput): string =>
+  input.chapter.title === undefined ? '\n\n另外给出 title：给本章拟一个不超过 12 字的标题。' : ''
+
+/** 句数不多时一次交付整章，译注与赏析同一轮出。 */
+async function whole(input: AnnotateInput): Promise<Annotation> {
+  const lines = input.chapter.lines
+  const numbered = lines.map((line, i) => `${i + 1}. ${line}`).join('\n')
+  const { value } = await runWithEmit({
+    copilot: input.copilot,
+    model: input.model,
+    workingDirectory: input.workingDirectory,
+    timeoutMs: Math.max(600_000, lines.join('').length * 600),
+    maxAttempts: 4,
+    systemMessage: systemFor('为一段古文做逐句译注。'),
+    toolName: 'emit_annotation',
+    toolDescription: '交付本章的逐句译注。校验不通过会返回逐条错误，据此修正后重新调用。',
+    schema: AnnotationSchema,
+    extraChecks: checkFidelity(lines),
+    prompt: `${header(input)}
+下面是本章原文，共 ${lines.length} 句，已编号：
+
+${numbered}
+
+请交付：
+
+1. **lines**：${lines.length} 个对象，与上面 1-${lines.length} 句**严格一一对应、顺序不变**。
+${LINE_RULES}
 2. **summary**：整章大意，一段话。读者只看这一段也能知道这章在讲什么。
 3. **difficulty**：1-5，对没有古文基础的普通读者而言的阅读难度。${
       input.wantCommentary
-        ? '\n4. **commentary**：本章赏析。指出具体的字句和写法，说清楚好在哪里、要害是什么。'
+        ? '\n4. **commentary**：本章赏析。指出具体的字句和写法，说清楚好在哪里、要害是什么。\n\n注意：commentary 要**具体**。指出是哪一句、哪个字，用了什么手法，达到了什么效果。逐段推进，不要写成一段笼统的读后感。'
         : ''
-    }${
-      input.wantCommentary
-        ? '\n\n注意：commentary 要**具体**。指出是哪一句、哪个字，用了什么手法，达到了什么效果。逐段推进，不要写成一段笼统的读后感。'
-        : ''
-    }${input.chapter.title === undefined ? '\n\n另外给出 title：给本章拟一个不超过 12 字的标题。' : ''}`,
+    }${askTitle(input)}`,
   })
+  return value
+}
+
+/** 长章分片，每片只交付译注：句数封顶，打回重写的代价也跟着封顶。 */
+async function slice(input: AnnotateInput, from: number, expected: string[]): Promise<Line[]> {
+  const numbered = expected.map((line, i) => `${from + i + 1}. ${line}`).join('\n')
+  const { value } = await runWithEmit({
+    copilot: input.copilot,
+    model: input.model,
+    workingDirectory: input.workingDirectory,
+    timeoutMs: Math.max(900_000, expected.join('').length * 900),
+    maxAttempts: 4,
+    systemMessage: systemFor('为一段古文做逐句译注。'),
+    toolName: 'emit_lines',
+    toolDescription: '交付这一批句子的译注。校验不通过会返回逐条错误，据此修正后重新调用。',
+    schema: LinesSchema,
+    extraChecks: checkFidelity(expected),
+    prompt: `${header(input)}
+本章共 ${input.chapter.lines.length} 句，下面是其中第 ${from + 1}-${from + expected.length} 句：
+
+${numbered}
+
+请交付 **lines**：${expected.length} 个对象，与上面这 ${expected.length} 句**严格一一对应、顺序不变**。
+${LINE_RULES}
+
+只处理这一批，不要补上下文里的其他句子。`,
+  })
+  return value.lines
+}
+
+/** 分片跑完后就着全章原文单独要大意与赏析 —— 这一轮输出短，不会再撑爆。 */
+async function digest(input: AnnotateInput): Promise<z.infer<typeof DigestSchema>> {
+  const { value } = await runWithEmit({
+    copilot: input.copilot,
+    model: input.model,
+    workingDirectory: input.workingDirectory,
+    timeoutMs: 600_000,
+    maxAttempts: 3,
+    systemMessage: systemFor('为一章古文写大意与赏析。'),
+    toolName: 'emit_digest',
+    toolDescription: '交付本章大意与赏析。校验不通过会返回逐条错误，据此修正后重新调用。',
+    schema: DigestSchema,
+    prompt: `${header(input)}
+下面是本章原文：
+
+${input.chapter.lines.join('\n')}
+
+请交付：
+
+1. **summary**：整章大意，一段话。读者只看这一段也能知道这章在讲什么。
+2. **difficulty**：1-5，对没有古文基础的普通读者而言的阅读难度。${
+      input.wantCommentary
+        ? '\n3. **commentary**：本章赏析。指出是哪一句、哪个字，用了什么手法，达到了什么效果。逐段推进，不要写成一段笼统的读后感。'
+        : ''
+    }${askTitle(input)}`,
+  })
+  return value
+}
+
+export async function annotate(input: AnnotateInput): Promise<Chapter> {
+  const all = input.chapter.lines
+  let value: Annotation
+  if (all.length <= SLICE) {
+    value = await whole(input)
+  } else {
+    const lines: Line[] = []
+    for (let from = 0; from < all.length; from += SLICE) {
+      const part = all.slice(from, from + SLICE)
+      process.stdout.write(`[${from + 1}-${from + part.length}]`)
+      lines.push(...(await slice(input, from, part)))
+    }
+    value = { ...(await digest(input)), lines }
+  }
 
   const chapter: Chapter = {
     index: input.chapter.index,

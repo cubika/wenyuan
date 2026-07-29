@@ -121,6 +121,10 @@ a.who:hover{color:var(--cinnabar);border-color:var(--cinnabar)}
 .wband-in .tags{display:flex;gap:8px;margin-top:14px}
 .wband-in .tags span{font-size:11px;padding:3px 10px;border:1px solid var(--rule);
   background:rgba(251,248,241,.7);color:var(--ink-3);letter-spacing:.1em}
+/* 还没出图的作品与人物：横幅退成一条题名带，不要留一大块空框 */
+.wband.noimg{height:auto;padding:24px 0;background:var(--card)}
+.wband.noimg::after{display:none}
+.wband.noimg .wband-in{position:static;inset:auto}
 
 .r-grid{display:grid;grid-template-columns:206px minmax(0,1fr) 244px;gap:38px;align-items:start;padding-bottom:56px}
 /* 两侧 sticky 栏限高自滚：栏比正文长时既会把整页撑出大片空白，

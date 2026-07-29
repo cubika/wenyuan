@@ -1,0 +1,99 @@
+{
+  "id": "yu-qian",
+  "name": "于谦",
+  "aka": [
+    "廷益",
+    "于少保",
+    "忠肃公"
+  ],
+  "dynasty": "明",
+  "era": "1398—1457",
+  "born": 1398,
+  "died": 1457,
+  "hook": "土木之变皇帝被俘、朝野主张迁都之际，他一人力挽颓局，守住了北京，也守住了明朝的半条命。",
+  "bio": "于谦，字廷益，浙江钱塘人。少年时以《石灰吟》明志，粉骨碎身全不怕，要留清白在人间，后来恰成他一生行事的注脚。永乐十九年进士及第，初授监察御史。宣德年间随宣宗亲征平定汉王朱高煦叛乱，于谦当面历数其罪，令其伏地认罪，胆识令满朝称服。此后出任河南、山西巡抚近二十年，清廉自守，整顿吏治，赈济灾荒，百姓在所经之地为他立生祠。正统十四年，瓦剌也先率军南下，英宗在宦官王振怂恿下轻率亲征，兵败土木堡，二十万明军溃散，皇帝被俘，史称土木之变。消息传回北京，有人力主迁都南京。时任兵部侍郎的于谦当庭驳斥南迁之议，拥立郕王朱祁钰即位，从各地紧急调兵入援，亲督北京九门防线，将也先大军阻于城下。这场北京保卫战是明代国运的真正转折点。景泰八年，英宗借石亨、徐有贞等人发动夺门之变复辟，于谦随即以谋逆罪被捕，斩于西市。抄家之日箱中只有景泰帝所赐蟒袍剑器，封存未动，别无余财。数十年后明宪宗为其昭雪，赐谥忠肃。于谦传世诗文不算丰富，却因《石灰吟》一首历代选本几乎无一遗漏。在中国士大夫的精神谱系里，他与岳飞、文天祥并列，是以身殉道这一人格理想的典型象征。",
+  "traits": [
+    "刚直",
+    "经世",
+    "清廉",
+    "殉道"
+  ],
+  "timeline": [
+    {
+      "year": 1398,
+      "label": "洪武三十一年（1398）",
+      "title": "出生于杭州钱塘",
+      "detail": "生于浙江钱塘，自幼有志节，少年时作《石灰吟》，借煅烧石灰自喻，誓留清白于世，此诗后成他人生志向的最简注解。",
+      "place": "linan"
+    },
+    {
+      "year": 1421,
+      "label": "永乐十九年（1421）",
+      "title": "进士及第，入仕明廷",
+      "detail": "登进士第，授监察御史，步入仕途。御史职掌纠察百官，为他日后敢于直言奠定了制度基础。",
+      "place": "dadu"
+    },
+    {
+      "year": 1426,
+      "label": "宣德元年（1426）",
+      "title": "历数汉王罪状，声名大振",
+      "detail": "宣宗亲征平定汉王朱高煦叛乱，于谦奉命当面宣读其罪状，气势逼人，令朱高煦跪伏于地，此举令他在朝野声名鹊起。"
+    },
+    {
+      "year": 1430,
+      "label": "宣德五年（1430）",
+      "title": "出任河南山西巡抚",
+      "detail": "升任兵部右侍郎兼都察院左佥都御史，巡抚河南、山西，前后近二十年。在任期间清廉自守，整顿吏治，多次赈灾救荒，所经之处百姓为其立生祠。"
+    },
+    {
+      "year": 1449,
+      "label": "正统十四年（1449）",
+      "title": "主持北京保卫战",
+      "detail": "土木之变后英宗被俘，于谦力排迁都之议，拥立景泰帝，紧急调兵，亲督京师九门防线。也先军队在北京城下久攻不克，最终撤退，明朝国祚得以延续。",
+      "place": "dadu"
+    },
+    {
+      "year": 1457,
+      "label": "天顺元年（1457）",
+      "title": "夺门之变后遇害",
+      "detail": "英宗在石亨、徐有贞等人支持下发动夺门之变复辟，于谦随即以谋逆罪被捕，斩首于西市。抄家时仅见景泰帝所赐蟒袍剑器，封存未动，家无余财。",
+      "place": "dadu"
+    }
+  ],
+  "circle": [
+    {
+      "name": "石亨",
+      "relation": "政敌",
+      "note": "北京保卫战时曾与于谦并肩守城，后因利益积怨转为政敌，夺门之变后主动诬告于谦谋逆，直接促成其被杀。"
+    },
+    {
+      "name": "徐有贞",
+      "relation": "政敌",
+      "note": "土木之变后主张迁都南京，当庭被于谦驳斥，因此深怀积恨，夺门之变后主导拟定了对于谦的谋逆罪名。"
+    },
+    {
+      "name": "范广",
+      "relation": "同僚",
+      "note": "北京保卫战中于谦倚重的将领，多次率军击退也先部队，守城期间两人协作密切，夺门之变后范广同样遭到迫害。"
+    },
+    {
+      "name": "王直",
+      "relation": "同僚",
+      "note": "时任吏部尚书，土木之变后朝野人心惶惶，王直站出来力挺于谦主持大局，是当时重臣中公开支持坚守北京的代表。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "石灰吟",
+      "note": "托物言志的短诗，借石灰历经煅烧捶打而终成洁白之灰，写出士人粉骨碎身全不怕、要留清白在人间的人格宣言，语言平白而力道极重。",
+      "workId": "shihuiyin"
+    },
+    {
+      "title": "咏煤炭",
+      "note": "与《石灰吟》同为托物言志之作，以煤炭自况，写愿以一身热力报效天下，风格朴直，是于谦诗中另一首常被选录的名篇。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Ancient Ming-dynasty lime kilns with smoldering ember-red openings on the far right third of the frame, white quicklime ash and calcium powder spilling across dark weathered flagstones below, the massive crenellated battlements of a Ming city wall receding into grey haze at far right, left two-thirds of the composition entirely open with a vast cold sky grading from deep indigo at top to pale ash-white near the horizon, fine white lime dust suspended in still air, subdued palette of charcoal, ivory, and dim ember-orange, ink-wash oil painting style with coarse stone texture, cinematic 2.35:1 wide-angle. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "id": "liu-yong",
+  "name": "柳永",
+  "aka": [
+    "柳三变",
+    "耆卿",
+    "柳七",
+    "柳屯田"
+  ],
+  "dynasty": "北宋",
+  "era": "约984—约1053",
+  "hook": "把市井烟火和漂泊愁绪写进长调慢词，自称「奉旨填词」，词句流传之广，有「凡有井水处，皆能歌柳词」之说。",
+  "bio": "柳永，原名三变，字耆卿，行七，人称柳七，福建崇安人。出身官宦之家，自幼才情外露，却在科举路上蹭蹬半生。他屡赴汴京应试，屡屡落第，词中的「忍把浮名，换了浅斟低唱」招来朝廷侧目，据说宋仁宗曾亲笔将他黜落，批语大意是：你既喜欢浅斟低唱，何必来争功名。柳永索性以「奉旨填词柳三变」自居，流连歌楼瓦肆，与乐工歌妓为伍，把大量心力投入词的创作。直到景祐元年（约1034年），他才以年近五旬之龄登进士第，此后历任地方小官，官至屯田员外郎，世称「柳屯田」。仕途平淡至终，传说死后靠歌妓们凑钱下葬，此后每年清明有「吊柳七」之俗，这个结局本身几乎成了他词风的注脚。\n\n在词史上，柳永是慢词（长调）的拓荒者。宋词在他之前以小令为主，篇幅短促，他大量创作慢词，将词的结构和空间彻底扩展，使层次分明的叙事与对景的铺排成为可能。他笔下有秋夜长亭的离别愁绪，有都市歌楼的热闹繁华，语言接近口语，不避俚俗，因此流传极广。「凡有井水处，皆能歌柳词」，这句话虽是夸张，却也说明他在市民阶层中的真实影响。周邦彦、秦观的词风都从这里汲取了养分，而苏轼以「关西大汉执铁板唱大江东去」来调侃柳词，也说明两种路子在当时并立于世，各有天地。",
+  "traits": [
+    "慢词大家",
+    "羁旅词人",
+    "市井情怀",
+    "仕途蹉跎"
+  ],
+  "timeline": [
+    {
+      "year": 984,
+      "label": "约984年",
+      "title": "生于崇安",
+      "detail": "生于福建崇安（今武夷山市）官宦之家，原名三变，字耆卿，行七，父叔均曾入仕为官，自幼浸染诗书。"
+    },
+    {
+      "year": 1002,
+      "label": "约咸平末（约1002）",
+      "title": "途经杭州，填《望海潮》",
+      "detail": "北上赴京途经杭州，为拜谒知州孙何而填《望海潮·东南形胜》，托歌妓在宴席上代唱，孙何大为赏识。此词开以词章描绘都市繁华之先河。",
+      "place": "linan"
+    },
+    {
+      "year": 1010,
+      "label": "约大中祥符年间",
+      "title": "居汴京，屡试不第",
+      "detail": "多次参加科举均告落第，却在汴京歌楼瓦肆间声名日起，与乐工歌妓往来密切，填词为生，渐成市井词坛的核心人物。",
+      "place": "bianjing"
+    },
+    {
+      "year": 1024,
+      "label": "约天圣年间（约1024）",
+      "title": "仁宗御批黜落",
+      "detail": "传宋仁宗见其名，以好填词为由亲笔将其从榜上黜落，批语大意是既喜浅斟低唱何必争浮名。柳永自此以「奉旨填词柳三变」自居，更肆意于词。",
+      "place": "bianjing"
+    },
+    {
+      "year": 1034,
+      "label": "景祐元年（1034）",
+      "title": "登进士第，步入仕途",
+      "detail": "约年近五旬，终在景祐元年中进士，结束漫长的落第生涯。此后历任睦州团练推官等地方职务，仕途始终平淡，从未获重用。",
+      "place": "bianjing"
+    },
+    {
+      "year": 1045,
+      "label": "约庆历年间（约1045）",
+      "title": "任屯田员外郎",
+      "detail": "迁任屯田员外郎，为仕途所至最高处，世因此称「柳屯田」。官职卑微，词名却早已传遍南北市井，两者对照鲜明。",
+      "place": "bianjing"
+    },
+    {
+      "year": 1053,
+      "label": "约皇祐年间（约1053）",
+      "title": "卒，歌妓醵钱葬之",
+      "detail": "贫病而终，据传由歌妓们凑钱安葬，此后每年清明形成「吊柳七」的民间祭扫习俗，这个身后事几乎成了他整个人生的缩影。"
+    }
+  ],
+  "circle": [
+    {
+      "name": "孙何",
+      "relation": "知音",
+      "note": "柳永初至杭州，以《望海潮·东南形胜》托歌妓在孙何宴席间演唱，孙何听后大为赏识，遂与相见。此事成为词史上以词代名帖的著名典故。"
+    },
+    {
+      "name": "周邦彦",
+      "relation": "后世追随",
+      "note": "周邦彦深研柳永慢词的章法音律，继承长调写法并在格律上精益求精，是柳永之后慢词传统最重要的继承者与集大成者。"
+    },
+    {
+      "name": "秦观",
+      "relation": "后世追随",
+      "note": "秦观婉约词风与柳永一脉相承，同以羁旅离愁见长，语言清丽而哀婉，历代词论家多将二人并论，视为北宋婉约一派的前后两峰。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "雨霖铃",
+      "note": "离别汴京时所作，「寒蝉凄切，对长亭晚」起笔，「杨柳岸，晓风残月」收尾，将离别的时间、声音、景象层层压进一首长调，成为宋词离别主题无可绕开的范本。",
+      "workId": "yulinling"
+    },
+    {
+      "title": "望海潮·东南形胜",
+      "note": "描绘杭州都市繁华，「三秋桂子，十里荷花」传遍天下。相传金主完颜亮读后萌生南侵之念，真伪存疑，但足见此词影响之深远。"
+    },
+    {
+      "title": "八声甘州·对潇潇暮雨洒江天",
+      "note": "羁旅词代表作，「渐霜风凄紧，关河冷落，残照当楼」一句，苏轼赞其「不减唐人高处」，是柳永词中少见的豪劲气象。"
+    },
+    {
+      "title": "蝶恋花·伫倚危楼风细细",
+      "note": "「衣带渐宽终不悔，为伊消得人憔悴」被王国维《人间词话》引为治学三境的第二境，从此超越词本身，成为汉语里痴情执着的代名词。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "A pre-dawn river embankment rendered in the spirit of Song dynasty ink wash, long willow branches cascading down to brush the surface of still dark water, a thin crescent moon fading low in the pale gray-blue western sky, an empty weathered wooden dock with a small ceramic wine cup left abandoned on the planks, shallow reed beds dissolving into morning mist on both shores, cool blue-gray light barely breaking, the whole scene holding its breath. The willow canopy, dock, and reflected crescent are concentrated in the right third of the frame; the left two-thirds opens to calm water and dissolving fog, leaving space for silence. Song dynasty ink-wash aesthetic, delicate and melancholy. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

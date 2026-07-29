@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import type { Chapter, Work } from '@wenyuan/schema'
 import { parseWork } from '@wenyuan/schema'
@@ -24,6 +24,18 @@ async function loadExisting(path: string): Promise<Work | null> {
     return parsed.work
   } catch {
     return null
+  }
+}
+
+/**
+ * 逐章断点。八十一章的典籍跑到一半断掉，不该把前面几十章的 token 全烧掉 ——
+ * 产物 JSON 要等导读写完才算合法，中途只能落在这个一次性缓存里。
+ */
+async function loadPartial(path: string): Promise<Chapter[]> {
+  try {
+    return JSON.parse(await readFile(path, 'utf8')) as Chapter[]
+  } catch {
+    return []
   }
 }
 
@@ -73,9 +85,13 @@ export async function importWork(options: ImportOptions): Promise<Work> {
     // 已有产物一律读取：--force 只该跳过章节缓存去重新译注，
     // 不该把已经花钱生成的配图路径一并丢掉。
     const existing = await loadExisting(outPath)
+    const partialPath = join(options.workingDirectory, '.import-cache', `${id}.json`)
     const cached = new Map<string, Chapter>()
     if (!options.force) {
       for (const chapter of existing?.chapters ?? []) {
+        cached.set(chapter.hash, chapter)
+      }
+      for (const chapter of await loadPartial(partialPath)) {
         cached.set(chapter.hash, chapter)
       }
     }
@@ -112,6 +128,8 @@ export async function importWork(options: ImportOptions): Promise<Work> {
       const noteCount = chapter.lines.reduce((n, line) => n + line.notes.length, 0)
       console.log(` 完成（${chapter.lines.length} 句 / ${noteCount} 注）`)
       chapters.push(chapter)
+      await mkdir(dirname(partialPath), { recursive: true })
+      await writeFile(partialPath, JSON.stringify(chapters), 'utf8')
     }
 
     console.log('[4/4] 导读与配图 prompt…')
@@ -152,6 +170,7 @@ export async function importWork(options: ImportOptions): Promise<Work> {
 
     await mkdir(dirname(outPath), { recursive: true })
     await writeFile(outPath, `${JSON.stringify(check.work, null, 2)}\n`, 'utf8')
+    await rm(partialPath, { force: true })
     console.log(`\n已写入 ${outPath}`)
     return check.work
   } finally {

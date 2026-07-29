@@ -62,7 +62,8 @@ export async function overview(input: OverviewInput): Promise<OverviewPayload> {
     copilot: input.copilot,
     model: input.model,
     workingDirectory: input.workingDirectory,
-    timeoutMs: 300_000,
+    // 导读一次要写六段，长典籍的摘要本身就上千字，跟译注同一个量级。
+    timeoutMs: Math.max(900_000, digest.length * 400),
     maxAttempts: 3,
     systemMessage: `${VOICE}
 

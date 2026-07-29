@@ -1,0 +1,133 @@
+{
+  "id": "cao-cao",
+  "name": "曹操",
+  "aka": [
+    "孟德",
+    "阿瞒",
+    "魏武帝"
+  ],
+  "dynasty": "汉",
+  "era": "155—220",
+  "born": 155,
+  "died": 220,
+  "hook": "他一手改写了汉末政治版图，也把战争年代的压迫感和生命意识写进了诗里。",
+  "bio": "曹操，字孟德，东汉末年的政治家、军事家，也是建安文学最关键的作者之一。早年任洛阳北部尉，以执法严厉出名；董卓入京后，他转入军政博弈，在群雄混战中逐步控制中原。迎献帝后，他掌握朝廷名义与军政实权，先后击败袁绍等主要对手，奠定北方统一的基础。赤壁之战失利，使其南下计划受阻，但并未动摇其在北方的统治。文学上，曹操的诗多用乐府旧题，语言直截、气势雄健，常把个人情绪、政治抱负和乱世经验放在同一首诗里，形成建安风骨的核心样貌。后世对他评价长期分化：一方面肯定其治世与用人能力，另一方面也批评其权术与严酷，这种复杂性正是理解汉末转折的重要入口。",
+  "traits": [
+    "雄略",
+    "用人唯才",
+    "务实",
+    "多疑",
+    "建安风骨"
+  ],
+  "timeline": [
+    {
+      "year": 174,
+      "label": "熹平三年（174）",
+      "title": "任洛阳北部尉",
+      "detail": "曹操出任洛阳北部尉，以严明执法整饬豪强，初步显示其强硬的行政风格。",
+      "place": "luoyang"
+    },
+    {
+      "year": 189,
+      "label": "中平六年（189）",
+      "title": "行刺董卓未成",
+      "detail": "董卓专权后，曹操在洛阳图谋刺杀未果，随即出走并转向募兵起事，正式进入群雄角逐。",
+      "place": "luoyang"
+    },
+    {
+      "year": 196,
+      "label": "建安元年（196）",
+      "title": "迎献帝都许",
+      "detail": "他迎汉献帝并以朝廷名义号令诸侯，完成从地方军阀到中央权力核心的关键转折。",
+      "place": "luoyang"
+    },
+    {
+      "year": 200,
+      "label": "建安五年（200）",
+      "title": "官渡破袁绍",
+      "detail": "官渡决战击败袁绍后，北方力量对比逆转，曹操取得统一北方的战略主动。"
+    },
+    {
+      "year": 207,
+      "label": "建安十二年（207）",
+      "title": "北征乌桓",
+      "detail": "北征平定乌桓，解除北线威胁；归途临碣石所作诗篇，呈现其政治视野与海天意象。",
+      "place": "jieshi"
+    },
+    {
+      "year": 208,
+      "label": "建安十三年（208）",
+      "title": "赤壁失利",
+      "detail": "南下联军在赤壁受挫，统一全国的进程被迫放缓，三方并立的格局由此更趋稳固。",
+      "place": "chibi"
+    },
+    {
+      "year": 213,
+      "label": "建安十八年（213）",
+      "title": "受封魏公",
+      "detail": "受封魏公并建立魏国制度框架，标志其政治地位从权臣进一步制度化。"
+    },
+    {
+      "year": 216,
+      "label": "建安二十一年（216）",
+      "title": "进爵魏王",
+      "detail": "由魏公进为魏王，权力与名位再上层级，为后续政权更替完成关键铺垫。"
+    },
+    {
+      "year": 220,
+      "label": "建安二十五年（220）",
+      "title": "卒于洛阳",
+      "detail": "曹操病逝，终其一生未改汉号；其政治与军事遗产由曹氏集团继续推进。",
+      "place": "luoyang"
+    }
+  ],
+  "circle": [
+    {
+      "name": "荀彧",
+      "relation": "同僚",
+      "note": "荀彧长期为其谋划中枢政务，尤其在迎献帝与稳定朝局上作用突出。"
+    },
+    {
+      "name": "郭嘉",
+      "relation": "同僚",
+      "note": "郭嘉是其重要谋士，多次在北方战略判断上提供关键意见。"
+    },
+    {
+      "name": "袁绍",
+      "relation": "政敌",
+      "note": "两人在汉末争霸中长期对峙，官渡之战成为决定北方归属的分水岭。"
+    },
+    {
+      "name": "刘备",
+      "relation": "政敌",
+      "note": "双方围绕汉室政治正当性与地盘控制反复交锋，影响三国格局走向。"
+    },
+    {
+      "name": "曹丕",
+      "relation": "亲属",
+      "note": "曹丕为其长子与政治继承者，接续其制度与军事遗产。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "短歌行",
+      "note": "借宴饮抒写求贤与功业焦虑，是曹操诗中最能代表其政治心态的名篇。",
+      "workId": "duangexing"
+    },
+    {
+      "title": "观沧海",
+      "note": "登临碣石写海天壮阔，把个人抱负与时代气象压进极简而有力的句式。"
+    },
+    {
+      "title": "龟虽寿",
+      "note": "以衰老意识反衬进取精神，语气沉着，展现乱世强者对生命限度的清醒。"
+    },
+    {
+      "title": "蒿里行",
+      "note": "直面战乱死亡与社会破败，几乎不作修饰，保留了汉末现实的冷硬质感。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "A wide cinematic banner at dusk over the Yangtze near Red Cliffs, with the main subject locked on the right third: the weathered bronze prow of a warship moored beside dark red cliffs, a command table with a bronze wine cup and bamboo slips lit by cold moonlight, river mist and distant ember glow on the water, heavy wind-driven clouds, restrained palette of iron gray, deep umber, and muted crimson; the left two-thirds is open atmospheric negative space of river fog and sky for overlay text composition. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

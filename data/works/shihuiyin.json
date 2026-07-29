@@ -1,0 +1,102 @@
+{
+  "id": "shihuiyin",
+  "title": "石灰吟",
+  "type": "poem",
+  "dynasty": "明",
+  "author": {
+    "name": "于谦",
+    "era": "1398—1457",
+    "bio": "明代官员，以铁骨铮铮著称于史。正统十四年北京危在旦夕，他力排众议、主持守城，硬是把一场几乎已定的亡国之祸挡了回去。后遭诬陷，以莫须有的谋逆罪被杀，死时家无余财。这首《石灰吟》据载写于他十七岁时，后来他用整条命把诗里的话兑现了。"
+  },
+  "hook": "一个少年写下「粉骨碎身浑不怕」，几十年后他真的死在了这句话上。",
+  "moods": [
+    "壮志",
+    "释然"
+  ],
+  "themes": [
+    "托物言志",
+    "气节",
+    "清白",
+    "牺牲"
+  ],
+  "famousLines": [
+    {
+      "text": "千锤万凿出深山，烈火焚烧若等闲",
+      "translation": "从山里被一锤一凿地打出来，在烈火里烧，当成家常便饭。",
+      "note": "「若等闲」是整首诗的第一个转折——石灰被烧是物理事实，「若等闲」是态度。这三个字把客观叙述悄悄变成了主观宣言，读者还没意识到，视角已经换了。"
+    },
+    {
+      "text": "烈火焚烧若等闲",
+      "translation": "烈火焚烧，当成寻常事。",
+      "note": "前半「烈火焚烧」是外部施加的暴力，后半「若等闲」是内部的反应，两者的落差制造了张力。「越是苦难越是淡然」的句式，此句是古典言志诗中最简洁的范本之一。"
+    },
+    {
+      "text": "粉骨碎身浑不怕，要留清白在人间",
+      "translation": "哪怕被磨成粉、摔得粉碎，也不害怕——只要能在人间留下一份清白。",
+      "note": "「清白」同时是石灰的物理颜色和人的品格，两个意思在这里完全重叠。「浑」字是「根本、全然」，比换成「全」或「都」语气更决绝，一字之差，骨气全在。"
+    }
+  ],
+  "overview": {
+    "background": "于谦生于明初，仕宦跨越永乐、宣德、正统三朝。相传此诗作于少年时期，但后世影响力的爆发与他晚年的命运直接相关。正统十四年，蒙古瓦剌军在土木堡俘虏明英宗，朝廷人心涣散，于谦力排南迁之议，主持北京保卫战，击退来犯。英宗复辟后，于谦以「迎立外藩」的莫须有罪名被杀。他用一生印证了这首诗：开采、煅烧、粉碎，最终只留清白。这首诗的流传，很大程度上是被他的死点燃的。「少年所作」的说法流传最广，但史料并不能确证，也有人认为是仕途中晚期所作。",
+    "coreIdea": "诗以石灰的制作过程为喻——从山中开凿、入窑煅烧、研磨成粉，每一步都是毁灭性的。于谦借这个过程说的是：无论承受什么，只要守住清白，就算值了。「清白」在这里一语双关，既是石灰的颜色，也是人的品格，两个意思在最后一句完全重叠，缺一个都站不住。",
+    "structure": "四句诗写石灰的四个阶段，前两句是旁观者视角的叙述：被开凿出山，被烈火煅烧。「若等闲」三字在此悄悄完成视角转换，说的已经不只是石灰的物理性质，而是一种处变不惊的态度。后两句直接跳入宣誓语气：不怕粉骨碎身，只求留下清白。全诗结构紧，转折就在第三句「浑不怕」三字。",
+    "artistry": "这首诗最精妙的地方是「若等闲」和「清白」这两处双关。「若等闲」字面是「好像是平常事」，用来形容石灰被烈火焚烧的淡然——但同样的词落在人身上，就是面对迫害时的从容。这三个字把石灰与人的处境合二为一，不显山露水。全诗不说一个「我」字，却句句是自白；不说一个「难」字，却字字都是艰难。节奏上，前三句蓄势，都在说「经历了什么」，最后一句「要留清白在人间」突然放开，声调上扬，是全诗的出口，也是主旨所在。「浑不怕」的「浑」是「全然、根本」，比「全不怕」语气更决绝，去掉这一个字，这句话就软了。",
+    "legacy": "于谦被杀后，这首诗成了悼词式的文本，人们用它来理解他的死，也用它来寄托对忠臣的惋惜。明清以来，它是最常被引用于论节义的诗之一。今天收入中小学语文教材，是很多人最早背诵的言志诗。争议主要集中在写作时间：「少年所作」的说法深入人心，但无法从史料中确证。无论如何，于谦的死赋予了这首诗难以消解的现实重量——一首诗和一个人的命运互相解释，这在古典诗歌中并不多见。",
+    "readingPath": [],
+    "difficulty": 1
+  },
+  "media": {
+    "heroPrompt": "Tang dynasty blue-green (qinglu) landscape painting, mineral azurite and malachite pigments on aged xuan rice paper. A single massive limestone boulder freshly split open on a steep mountain cliff face, its raw chalky-white interior gleaming against dark grey stone, faint heat shimmer rising from cracked rock below, suggesting the aftermath of fire and chisel. Distant jagged peaks rendered in pale ink wash, dissolving upward. Main subject on the right third, left two-thirds empty — pale mist fading into bare xuan paper texture, soft ink gradients dissolving into nothing. Cool mineral whites dominate, with deep malachite shadows in the cliff crevices and a faint cinnabar warmth glowing along the stone's freshly fractured edge. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  },
+  "chapters": [
+    {
+      "index": 1,
+      "title": "石灰里的骨气",
+      "lines": [
+        {
+          "text": "千锤万凿出深山，烈火焚烧若等闲。",
+          "translation": "石灰石要经过千锤万凿，才能从深山里开采出来；就算放进烈火里烧，也像平常事一样。",
+          "notes": [
+            {
+              "term": "千锤万凿",
+              "explain": "反复捶打、开凿，写出石灰石采出时经历的重重磨难。",
+              "type": "word"
+            },
+            {
+              "term": "等闲",
+              "explain": "当作平常事，不觉得可怕。",
+              "type": "word"
+            }
+          ],
+          "para": 0
+        },
+        {
+          "text": "粉骨碎身浑不怕，要留清白在人间。",
+          "translation": "哪怕被烧到粉身碎骨也毫不畏惧，只求把清白留在人世间。",
+          "notes": [
+            {
+              "term": "粉骨碎身",
+              "explain": "这里指被烧炼到彻底碎裂，形容承受极端磨难。",
+              "type": "word"
+            },
+            {
+              "term": "浑不怕",
+              "explain": "一点也不怕，语气很坚决。",
+              "type": "word"
+            },
+            {
+              "term": "清白",
+              "explain": "既指石灰洁白，也比喻人格清正、名节不污。",
+              "type": "word"
+            }
+          ],
+          "para": 0
+        }
+      ],
+      "summary": "这首诗借石灰的形成过程写人的志节：从“千锤万凿”到“烈火焚烧”，再到“粉骨碎身”，哪怕受尽磨难也不退缩，最后落在“要留清白在人间”，表达了作者把操守看得比生命更重的价值选择。",
+      "commentary": "第一句先写外在处境。“千锤万凿”把开采过程压缩成四个重字，读起来就有连续敲击感；“出深山”交代来源，也把艰难落到实处。接着“烈火焚烧若等闲”把冲突抬高：前半句是最猛的考验，后半句却说“等闲”，用强烈反差写出一种从容。\n第二句把力度再推一步。“粉骨碎身”比前句的“焚烧”更具体，已经到彻底毁损的程度；“浑不怕”三个字短硬，像当面表态。结尾“要留清白在人间”是全诗的落点，“要”字点明主动选择，不是被动忍受；“清白”又有双关，一面是石灰之白，一面是人格之白，物性和人志扣在一起，所以这首诗读起来不像空喊口号，而像把信念放进了可见的形象里。",
+      "difficulty": 2,
+      "hash": "cdece8c5e91183f4"
+    }
+  ]
+}

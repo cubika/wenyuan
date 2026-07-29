@@ -44,5 +44,16 @@
   { "id": "liangzhou", "name": "凉州", "today": "今武威", "lng": 102.63, "lat": 37.93 },
   { "id": "taiyuan", "name": "太原", "today": "今太原", "lng": 112.55, "lat": 37.87 },
   { "id": "jiangling", "name": "江陵", "today": "今荆州江陵", "lng": 112.42, "lat": 30.35 },
-  { "id": "yuezhou", "name": "岳州", "today": "今岳阳", "lng": 113.13, "lat": 29.37 }
+  { "id": "yuezhou", "name": "岳州", "today": "今岳阳", "lng": 113.13, "lat": 29.37 },
+  { "id": "dadu", "name": "大都", "today": "今北京，明清称京师", "lng": 116.4, "lat": 39.9 },
+  { "id": "qufu", "name": "曲阜", "today": "今曲阜，古鲁国都", "lng": 116.99, "lat": 35.58 },
+  { "id": "chuzhou", "name": "滁州", "today": "今滁州，琅琊山所在", "lng": 118.32, "lat": 32.3 },
+  { "id": "chaozhou", "name": "潮州", "today": "今潮州", "lng": 116.62, "lat": 23.66 },
+  { "id": "hongzhou", "name": "洪州", "today": "今南昌，滕王阁所在", "lng": 115.89, "lat": 28.68 },
+  { "id": "ezhou", "name": "鄂州", "today": "今武汉武昌，黄鹤楼所在", "lng": 114.31, "lat": 30.55 },
+  { "id": "jinan", "name": "济南", "today": "今济南，古齐州", "lng": 117.0, "lat": 36.65 },
+  { "id": "tongguan", "name": "潼关", "today": "今渭南潼关", "lng": 110.25, "lat": 34.55 },
+  { "id": "menglu", "name": "蒙", "today": "今商丘，庄子故里", "lng": 115.65, "lat": 34.41 },
+  { "id": "xianyang", "name": "咸阳", "today": "今咸阳，秦都", "lng": 108.71, "lat": 34.33 },
+  { "id": "wuling", "name": "武陵", "today": "今常德，桃花源所托", "lng": 111.7, "lat": 29.03 }
 ]

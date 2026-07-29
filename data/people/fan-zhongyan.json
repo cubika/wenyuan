@@ -1,0 +1,126 @@
+{
+  "id": "fan-zhongyan",
+  "name": "范仲淹",
+  "aka": [
+    "希文",
+    "文正"
+  ],
+  "dynasty": "北宋",
+  "era": "989—1052",
+  "born": 989,
+  "died": 1052,
+  "hook": "他在人生最低谷写下先天下之忧而忧，不是豪言，是四十年宦途三度被贬后真实的自我交代。",
+  "bio": "范仲淹，字希文，苏州吴县人。幼年丧父，母携其改嫁朱家，少年方知身世，毅然离家苦读，以划粥断齑为人称道。真宗大中祥符八年（1015）进士及第，此后历任地方官，以善政著称。景祐元年知苏州，主持水利，修塘治患。他三次被贬，次次因直言：刘太后垂帘时上书请还政，明道年间谏止废郭后，景祐年间以百官图批评宰相吕夷简，每次都以贬官为代价，每次都不改。仁宗康定年间，以陕西经略安抚副使主持西北防务，整顿军纪，修建堡寨，抵御西夏。西夏人称他胸中有数万甲兵，边地百姓为之立生祠。庆历三年（1043）被召回朝，拜参知政事，与韩琦、富弼、欧阳修共推庆历新政，涉及吏治、教育、兵制，是北宋规模最大的变法尝试，不到两年即告失败。文学上，岳阳楼记以先天下之忧而忧、后天下之乐而乐奠定他在散文史上的地位；渔家傲·秋思将边塞苦寒写入词中，突破北宋词坛只写儿女情的旧格局。皇祐四年（1052），范仲淹移知颍州途中病卒于徐州，谥文正，身后家无余财。",
+  "traits": [
+    "忧国忧民",
+    "直言敢谏",
+    "文武兼备",
+    "屡谪不悔",
+    "清贫自守"
+  ],
+  "timeline": [
+    {
+      "year": 989,
+      "label": "端拱二年（989）",
+      "title": "出生，幼年失怙",
+      "detail": "父范墉早逝，母携其改嫁朱家，随母北迁，以朱为姓。少年方知身世后辞家苦读，划粥为食，奠定此后一生的精神底色。"
+    },
+    {
+      "year": 1015,
+      "label": "大中祥符八年（1015）",
+      "title": "进士及第，步入仕途",
+      "detail": "苦读多年，于此年进士及第，从地方小官做起，历任广德军司理参军等职，以断案公正著称。",
+      "place": "bianjing"
+    },
+    {
+      "year": 1034,
+      "label": "景祐元年（1034）",
+      "title": "知苏州，治水兴学",
+      "detail": "调任苏州知州，主持疏浚水道、整修堤塘，治理多年积患，并兴办郡学，为地方教育留下制度基础。",
+      "place": "suzhou-jiangsu"
+    },
+    {
+      "year": 1036,
+      "label": "景祐三年（1036）",
+      "title": "上百官图，再度遭贬",
+      "detail": "以百官图指宰相吕夷简用人徇私，被以越职言事之名贬出京师，出知饶州。这是他第三次被贬，影响最大的一次。"
+    },
+    {
+      "year": 1040,
+      "label": "康定元年（1040）",
+      "title": "主持西北边防",
+      "detail": "以陕西经略安抚副使赴西北，整顿军纪，修筑堡寨，与韩琦同守边疆，抵御西夏入侵。西夏人称其胸中有数万甲兵，边地百姓为之立生祠。"
+    },
+    {
+      "year": 1043,
+      "label": "庆历三年（1043）",
+      "title": "拜参知政事，推行新政",
+      "detail": "仁宗召回，拜参知政事，上答手诏条陈十事，与韩琦、富弼、欧阳修等推行庆历新政，涉及吏治、科举、兵制，是北宋规模最大的变法尝试。",
+      "place": "bianjing"
+    },
+    {
+      "year": 1045,
+      "label": "庆历五年（1045）",
+      "title": "新政失败，自请外任",
+      "detail": "新政推行不到两年，遭保守势力联合抵制，范仲淹自请出京，知邓州。改革虽败，其所提诸议为日后变法提供了直接参照。"
+    },
+    {
+      "year": 1046,
+      "label": "庆历六年（1046）",
+      "title": "作岳阳楼记",
+      "detail": "应被贬岳州的好友滕子京之请作记。未曾亲临洞庭，只凭图稿与前人诗文，写出了先天下之忧而忧、后天下之乐而乐，成为士大夫精神标杆。"
+    },
+    {
+      "year": 1052,
+      "label": "皇祐四年（1052）",
+      "title": "卒于赴任途中",
+      "detail": "从邓州移知颍州，途经徐州时病逝，年六十四。身后家中无余财，谥文正。",
+      "place": "xuzhou"
+    }
+  ],
+  "circle": [
+    {
+      "name": "滕子京",
+      "relation": "知音",
+      "note": "患难之交。被贬岳州后重修岳阳楼，请范仲淹作记。范未至洞庭，却凭此托付写出千古名文，可见二人相知之深。"
+    },
+    {
+      "name": "欧阳修",
+      "relation": "同僚",
+      "note": "庆历新政同道。范仲淹遭贬时欧阳修数次上书辩护，自己也因此受牵连被贬，二人共同推动了北宋文风与政风的转变。"
+    },
+    {
+      "name": "韩琦",
+      "relation": "同僚",
+      "note": "共守西北边疆，时人并称韩范，是范仲淹最重要的军事搭档，后同参庆历新政，政治上互为依托。"
+    },
+    {
+      "name": "富弼",
+      "relation": "同僚",
+      "note": "庆历新政核心成员，与范仲淹、韩琦同为仁宗改革所倚重的大臣，新政失败后同遭贬黜，共进退。"
+    },
+    {
+      "name": "吕夷简",
+      "relation": "政敌",
+      "note": "仁宗朝宰相。范仲淹以百官图指其用人徇私，两人由此交恶，景祐三年范仲淹因此被贬，是仕途所受最重的一次打击。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "岳阳楼记",
+      "note": "庆历六年作于邓州，借洞庭湖阴晴之景写政治进退之理，以先天下之忧而忧、后天下之乐而乐作结，是北宋散文与士大夫精神的双重高标。",
+      "workId": "yueyanglouji"
+    },
+    {
+      "title": "渔家傲·秋思",
+      "note": "守边西北时所作，以塞下秋来风景异起笔，将边塞苍凉与思归愁绪写入词中，是北宋词史上最早真正触及边疆经验的作品之一。"
+    },
+    {
+      "title": "苏幕遮·怀旧",
+      "note": "以碧云天、黄叶地写秋景思乡，情景交融，境界开阔。王实甫西厢记借用其意象，可见此词对后世的影响之深。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Wide-angle 2.35:1 landscape of the northwestern frontier at dusk. A solitary weathered beacon tower of crumbling rammed earth stands anchored in the far right third of the composition, its warm ochre walls catching the last amber light. A thin perfectly straight column of signal smoke rises from the tower top into a cold pale sky. A loose skein of wild geese disappears toward the horizon just above the tower. The left two-thirds of the frame is entirely open sky, transitioning from deep ochre at the horizon through cold steel-blue to dark indigo overhead. Dry loess plateau stretches across the foreground, withered grass and frost-cracked soil under bleak autumn light. The mood is desolate yet resolute, the hush of a frontier evening before nightfall. Ink-wash and mineral pigment technique with Song Dynasty aesthetic sensibility, muted earth tones and cool blues. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}
