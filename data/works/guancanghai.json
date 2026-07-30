@@ -1,0 +1,163 @@
+{
+  "id": "guancanghai",
+  "title": "观沧海",
+  "type": "poem",
+  "dynasty": "汉末",
+  "author": {
+    "name": "曹操",
+    "era": "155—220",
+    "bio": "东汉末年的枭雄，也是建安文学的实际奠基人。他的诗不走汉代文人的华美路子，直接、苍劲，带着金戈铁马的气息，替中国诗歌开出了一种新调子。后世记住他是「奸雄」，但读他的诗会看到另一面：眼界极阔，悲慨极深。"
+  },
+  "hook": "五十三岁的曹操站在渤海边，把日月星辰都装进眼前这片海——霸气不是喊出来的，是写进诗里的。",
+  "moods": [
+    "壮志"
+  ],
+  "themes": [
+    "大海",
+    "宇宙",
+    "壮志",
+    "自然"
+  ],
+  "famousLines": [
+    {
+      "text": "东临碣石，以观沧海",
+      "translation": "向东登上碣石山，就为了看这片大海。",
+      "note": "妙在以字——不是路过顺便看，是专程来看。一个字定下全诗的气势：这次登临，有目的，有主动性，站在山顶俯瞰天下的人，才会这样开口。"
+    },
+    {
+      "text": "秋风萧瑟，洪波涌起",
+      "translation": "秋风呼啸，大浪一涌接着一涌地翻滚起来。",
+      "note": "洪波不是普通的波浪，是体量巨大的涌动。前句写声，后句写形，两句之间没有连词，秋风一吹洪波就起，因果压缩进节奏里，读来有扑面而来的力道。"
+    },
+    {
+      "text": "日月之行，若出其中；星汉灿烂，若出其里",
+      "translation": "太阳月亮运行的轨迹，好像都从这海里升起；满天星河的璀璨，好像都藏在这海的深处。",
+      "note": "行字写的是运动中的天体，不是静止的图景，宇宙秩序在转动，海把它全装下了。两个若字不是不确定，是一种壮阔的比拟——诗人看着眼前的海，脑子里装下了整个宇宙。"
+    }
+  ],
+  "overview": {
+    "background": "约建安十二年（207年），曹操北征乌桓得胜班师，途经今河北昌黎一带，登碣石山，面海作此诗。彼时汉室名存实亡，曹操已基本平定北方，南下的部署尚在酝酿。建安文学正当其盛，曹操父子与王粲、陈琳等人共同主导文坛，乱世的忧患气息与建功立业的豪情并存。这首诗脱胎于乐府传统，却把乐府惯用的叙事框架换成了纯粹的景与志的融合，在当时是相当异质的写法。",
+    "coreIdea": "表面是写景，核心是写大。日月星辰从海里升起，是诗人借天地运转投射自己吞吐宇宙的气魄。这首诗不悲秋，不伤时，它是一个即将改写历史走向的人，在权力顶峰前夜写下的雄心告白。",
+    "structure": "全诗十四句，结构清晰。首两句点明登临地点与目的，确立观者视角。中间八句写实景：水面、山岛、草木、秋风、洪波，由静到动，由近及远。随后四句骤然转入虚写，日月星汉若从海中生发，视野从眼前实景跃升到宇宙尺度，是全诗最大的一次腾跃。末尾两句是乐府曲终套语，不必强行解读进诗意里。",
+    "artistry": "四个具体之处值得细看。其一，水何澹澹的何字——不写水澹澹，而是把诗人的当场惊叹直接嵌入画面，读者随即跟着他一起哇了一声。其二，竦峙二字写山岛，竦是高耸，峙是屹立不动，两个动词叠在一起，静物反而有了力量感。其三，全诗前半皆实，后四句忽然用若字转入虚境，这个若不是犹豫，是一种近乎确信的气吞，越读越觉得海真的能容下宇宙。其四，四言节奏，每句两顿，读来像鼓点，短促有力，契合行军出征的气息，这是楚辞体给不了的劲道。",
+    "legacy": "历代常把此诗列为中国现存最早的完整山水诗，但这个说法有争议，它更像一首志诗借了山水的壳。日月之行，若出其中后来成为描述宏大格局的常用意象，政论文、军事文章里多有化用。近现代最直接的呼应是毛泽东的浪淘沙·北戴河，地理与情志都在对话曹操这首诗。另有一种流行读法把幸甚至哉解作感慨生命短暂，其实这只是汉代乐府的曲末套语，批注家常在此处过度发挥。",
+    "readingPath": [],
+    "difficulty": 2
+  },
+  "media": {
+    "heroPrompt": "Tang dynasty blue-green (qinglu) landscape painting, mineral azurite and malachite pigments on aged xuan rice paper, a vast autumn seascape at Jie Rock — jagged dark basalt cliffs and boulders rising from churning ocean surf, massive waves breaking white against ancient stone, the boundless sea receding to a barely visible horizon, a luminous full moon hovering low over the water edge as if just emerged from the deep, main subject on the right third, left two-thirds empty, pale unpainted xuan paper dissolving into misty ocean haze toward the left edge, dilute ink-wash sky fading to nothing, rendered in fine gongbi brushwork with layered mineral pigments, ultra-wide cinematic 2.35:1 aspect ratio. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  },
+  "chapters": [
+    {
+      "index": 1,
+      "title": "碣石望海",
+      "lines": [
+        {
+          "text": "东临碣石，以观沧海。",
+          "translation": "我向东登上碣石山，来眺望大海。",
+          "notes": [
+            {
+              "term": "碣石",
+              "pinyin": "Jiéshí",
+              "explain": "地名，指海边的碣石山，是诗人登临观海的地点。",
+              "type": "place"
+            },
+            {
+              "term": "沧海",
+              "explain": "这里指辽阔的大海。",
+              "type": "word"
+            }
+          ],
+          "para": 0
+        },
+        {
+          "text": "水何澹澹，山岛竦峙。",
+          "translation": "海水多么浩荡起伏，海中的山岛高高耸立。",
+          "notes": [
+            {
+              "term": "澹澹",
+              "pinyin": "dàn dàn",
+              "explain": "形容水波摇动、开阔起伏的样子。",
+              "type": "word"
+            },
+            {
+              "term": "竦峙",
+              "pinyin": "sǒng zhì",
+              "explain": "高高挺立，写山岛直立在海中。",
+              "type": "word"
+            }
+          ],
+          "para": 0
+        },
+        {
+          "text": "树木丛生，百草丰茂。",
+          "translation": "树木密密地生长着，各种草也长得繁盛茂密。",
+          "notes": [],
+          "para": 0
+        },
+        {
+          "text": "秋风萧瑟，洪波涌起。",
+          "translation": "秋风吹得草木飒飒作响，巨大的波涛翻涌而起。",
+          "notes": [
+            {
+              "term": "洪波",
+              "explain": "大波浪，指汹涌的海涛。",
+              "type": "word"
+            }
+          ],
+          "para": 0
+        },
+        {
+          "text": "日月之行，若出其中；",
+          "translation": "太阳和月亮的运行，好像都从这片大海中生出、行过；",
+          "notes": [
+            {
+              "term": "若出其中",
+              "explain": "好像从大海里面出来，写观感中的宏大想象。",
+              "type": "word"
+            }
+          ],
+          "para": 0
+        },
+        {
+          "text": "星汉灿烂，若出其里。",
+          "translation": "灿烂的银河，好像也从大海的怀抱里涌现出来。",
+          "notes": [
+            {
+              "term": "星汉",
+              "explain": "这里是银河的意思。",
+              "type": "word"
+            },
+            {
+              "term": "若出其里",
+              "explain": "好像从它的里面出来，“其”承接上句所写的大海。",
+              "type": "word"
+            }
+          ],
+          "para": 0
+        },
+        {
+          "text": "幸甚至哉，歌以咏志。",
+          "translation": "真是幸运到了极点啊，我就用这首诗来抒发心中的志向。",
+          "notes": [
+            {
+              "term": "幸甚至哉",
+              "explain": "非常幸运、痛快的感叹语。",
+              "type": "word"
+            },
+            {
+              "term": "咏志",
+              "explain": "用诗歌抒发自己的志向。",
+              "type": "word"
+            }
+          ],
+          "para": 0
+        }
+      ],
+      "summary": "这首诗写曹操东行到碣石观海：先写眼前海水、山岛、草木、秋风和巨浪，再把视野推到日月星河，仿佛都在大海中运行生发，最后用“歌以咏志”点明是借壮阔海景抒发胸中抱负。",
+      "commentary": "开头两句先定位置和视角。“东临碣石，以观沧海”里“临”不是随便看一眼，而是登高面海，气势一下立住。第二句“水何澹澹，山岛竦峙”，一个“澹澹”写水面浩荡起伏，一个“竦峙”写山岛直立不动，动静对照，画面很稳。\n\n三、四句继续铺开近景。“树木丛生，百草丰茂”先把海边生命力写满；紧接“秋风萧瑟，洪波涌起”，季节转到秋，声音和力量都出来了，尤其“洪波涌起”的“涌”字，把海的冲击感直接推到眼前。\n\n五、六句是全诗的要害：从实写转入想象。“日月之行，若出其中；星汉灿烂，若出其里。”两句都用“若出”，把日月星河都纳入大海的胸怀，空间一下被放大到宇宙尺度。这不是写天文知识，而是借夸张的视野写人的胸襟。\n\n结尾“幸甚至哉，歌以咏志”是乐府体常见收束，但放在这里不空。前面景象越开阔，最后“咏志”越有分量：诗人看的不只是海，更是在借海说自己的志气。",
+      "difficulty": 2,
+      "hash": "58bcfced1cfe854b"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "li-mi",
+  "name": "李密",
+  "aka": [
+    "令伯"
+  ],
+  "dynasty": "西晋",
+  "era": "约224—287",
+  "born": 224,
+  "died": 287,
+  "hook": "以一篇《陈情表》婉拒皇帝征召，用真实的祖孙之情写出了中国散文最难做到的事：既保住了命，也没说一句假话。",
+  "bio": "李密，字令伯，蜀地武阳人（今四川彭山一带）。父亲早亡，母亲改嫁，他从小由祖母刘氏独自抚养。幼年孤苦的经历，成了他日后那篇奏表最深的情感来源。少年时师从蜀汉名儒谯周，学问颇深，后出仕蜀汉，以辩才见长，据说出使东吴时言辞机敏，令人折服。蜀汉亡国后，李密称疾归乡，拒绝仕于新朝。晋武帝司马炎多次下诏征召，他以祖母年迈、无人侍奉为由，上《陈情表》详陈苦衷。这封奏表措辞恳切而步步合礼，把一个蜀汉遗臣的处境写得既动情又周全，武帝读后允他暂居家中侍祖，李密得以保全。祖母去世后，他守丧期满，入仕西晋，官至太子洗马，后因言获咎，仕途潦倒，郁郁而终。留在文学史上的，几乎只有这一篇《陈情表》——但这已足够。后世将读《陈情表》不堕泪者其人必不孝当成一种测试，这话虽然夸张，却把这篇文章的分量说出了一半。",
+  "traits": [
+    "孝义",
+    "辩才",
+    "遗臣心事",
+    "隐忍求存"
+  ],
+  "timeline": [
+    {
+      "year": 224,
+      "label": "黄初五年（224）",
+      "title": "生于蜀地武阳",
+      "detail": "出生于今四川彭山一带，父早亡，母亲改嫁，从此由祖母刘氏独自抚养。这段孤苦的童年，是《陈情表》情感力量的根源。",
+      "place": "meishan"
+    },
+    {
+      "year": 240,
+      "label": "约少年时期",
+      "title": "师从谯周习蜀中经学",
+      "detail": "拜蜀汉著名学者谯周为师，潜心研习经史。谯周是当时蜀中学问最深的人，李密由此打下了儒学根基，也形成了重情义、守礼法的人格底色。",
+      "place": "chengdu"
+    },
+    {
+      "year": 252,
+      "label": "约蜀汉后期",
+      "title": "出仕蜀汉以辩才著称",
+      "detail": "在蜀汉历任要职，以辩才著称，据说曾出使东吴，言辞犀利，令吴人折服。这是他人生中少有的施展才华的时期。",
+      "place": "chengdu"
+    },
+    {
+      "year": 263,
+      "label": "景元四年（263）",
+      "title": "蜀汉覆亡归乡不仕",
+      "detail": "魏将邓艾奇袭成都，后主刘禅投降，蜀汉亡国。李密称病返乡，拒绝出仕新朝，与祖母相依为命。对旧主的情义，是他此后人生的一条隐线。",
+      "place": "meishan"
+    },
+    {
+      "year": 265,
+      "label": "泰始元年前后",
+      "title": "上《陈情表》婉拒征召",
+      "detail": "西晋立国，武帝司马炎多次下诏征召李密。他以祖母年迈无人照料为由上表婉拒，措辞合情合礼，武帝允准其请。这封奏表后来成为中古散文中情理兼备的典范。"
+    },
+    {
+      "year": 272,
+      "label": "约泰始八年前后",
+      "title": "祖母去世入仕西晋",
+      "detail": "祖母刘氏去世，守丧期满后，李密入朝出任太子洗马。仕晋之路并不顺遂，始终未能真正得志，后因言获咎，被贬出京。",
+      "place": "luoyang"
+    },
+    {
+      "year": 287,
+      "label": "太康八年（287）",
+      "title": "卒享年六十余",
+      "detail": "约卒于此年，享年六十余岁。他的一生以一篇《陈情表》定格，那篇文章救了他，也成了他在文学史上唯一而确凿的位置。"
+    }
+  ],
+  "circle": [
+    {
+      "name": "谯周",
+      "relation": "师友",
+      "note": "李密少年时师从谯周，奠定了扎实的儒学根基。谯周是蜀汉最重要的经学家，也是主张降魏的关键人物，师生二人在政治选择上后来走向相近的妥协之路。"
+    },
+    {
+      "name": "祖母刘氏",
+      "relation": "亲属",
+      "note": "李密幼年丧父，由祖母刘氏一手抚养成人。刘氏年迈多病，是《陈情表》的核心人物，也是李密拒绝晋武帝征召的全部理由与情感支柱。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "陈情表",
+      "note": "以祖母年迈无人侍奉为由婉拒晋武帝征召，陈情诚挚、步步合礼，在生死之间走出一条极窄的路。历来被视为中国古代言情议理散文的最高范本之一。",
+      "workId": "chenqingbiao"
+    }
+  ],
+  "media": {
+    "heroPrompt": "A solitary clay oil lamp casting warm amber glow on a rough-hewn wooden table inside a sparsely furnished room with bamboo-woven walls, late autumn persimmon leaves drifting past a latticed window, mist-veiled green hills of Sichuan visible beyond, worn medicine jar and folded cloth on the table suggesting years of devoted care, ink-wash atmospheric haze dissolving into open negative space across the left two-thirds of the frame, the lamp and table anchored firmly in the right third of the composition, mood of quiet devotion and gentle sorrow. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

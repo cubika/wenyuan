@@ -1,0 +1,117 @@
+{
+  "id": "li-yu",
+  "name": "李煜",
+  "aka": [
+    "重光",
+    "南唐后主",
+    "李后主"
+  ],
+  "dynasty": "五代",
+  "era": "937—978",
+  "born": 937,
+  "died": 978,
+  "hook": "以亡国之痛写尽人间失去之悲，把词从宫廷歌词变成了可以承载真实人生的抒情诗体",
+  "bio": "李煜，字重光，南唐末代国主。生于金陵，是南唐中主李璟第六子。才情出众，无意权位，幼年最爱诗词音律与书画，本不在储君之列。然而兄长相继早逝，他意外成为储君，961年继位时年方二十四岁。在位期间，他对北宋一再称臣纳贡，逐步削减国号与礼制，终究没能阻止宋的统一步伐。975年，宋军围困金陵将近一年，城破后李煜肉袒出降，南唐自此灭亡。他被押解汴京，以违命侯名义软禁，在屈辱中度过生命最后三年。978年，据载因一首虞美人触怒宋太宗赵光义，被赐牵机药毒杀，死时四十一岁。他的词分前后两期，判若云泥。前期多写宫廷享乐与男女情事，辞藻华美，格调柔靡；亡国后词风骤变，以失国之痛写人生无常，家国之悲与个人幽愁熔于一炉，语言脱去雕琢，直白而有力。王国维在人间词话中称他以血书者，说他变伶工之词而为士大夫之词。他把词从配合乐曲演唱的歌词，提升为可以独立抒写真实人生体验的文体，对北宋词人影响极深。",
+  "traits": [
+    "亡国之君",
+    "词体革新",
+    "性情率真",
+    "以血书词"
+  ],
+  "timeline": [
+    {
+      "year": 937,
+      "label": "升元元年（937）",
+      "title": "生于金陵",
+      "detail": "南唐开国之年，李璟第六子降生于金陵宫廷，自幼长于诗词音律，本无意于储位。",
+      "place": "jinling"
+    },
+    {
+      "year": 961,
+      "label": "建隆二年（961）",
+      "title": "继位，称南唐国主",
+      "detail": "李璟驾崩，诸兄相继早逝，李煜以太子身份继位，年二十四，以宋朝年号纪年，向宋称藩。",
+      "place": "jinling"
+    },
+    {
+      "year": 964,
+      "label": "乾德二年（964）",
+      "title": "大周后娥皇辞世",
+      "detail": "爱妻周娥皇善音律通书画，是李煜前期词作的精神伴侣。她病逝后李煜写下多首悼词，悲恸出乎寻常，词情已见后来亡国之作的底色。",
+      "place": "jinling"
+    },
+    {
+      "year": 971,
+      "label": "开宝四年（971）",
+      "title": "去国号，称江南国主",
+      "detail": "宋灭南汉后形势骤紧，李煜被迫去掉唐国号，自称江南国主，入贡愈频，但宋的军事压力并未因此消减。",
+      "place": "jinling"
+    },
+    {
+      "year": 975,
+      "label": "开宝八年（975）",
+      "title": "金陵城破，肉袒出降",
+      "detail": "宋军围城近一年，城内粮尽援绝，李煜肉袒出降，南唐亡。他随即被押解北上，在金陵最后写下破阵子四十年来家国，回望四十年基业付之一炬。",
+      "place": "jinling"
+    },
+    {
+      "year": 976,
+      "label": "太平兴国元年（976）",
+      "title": "囚居汴京，词风剧变",
+      "detail": "以违命侯身份软禁于汴京，失去自由与故国的切肤之痛彻底改变了他的词风。浪淘沙帘外雨潺潺、虞美人春花秋月何时了均作于此间。",
+      "place": "bianjing"
+    },
+    {
+      "year": 978,
+      "label": "太平兴国三年（978）",
+      "title": "卒于汴京，年四十一",
+      "detail": "据史载，宋太宗读到虞美人中故国不堪回首月明中诸句，认为有怨望之意，遂赐牵机药。李煜死于软禁之所，年四十一。",
+      "place": "bianjing"
+    }
+  ],
+  "circle": [
+    {
+      "name": "李璟",
+      "relation": "亲属",
+      "note": "父亲，南唐中主，本身也是词人，留有细雨梦回鸡塞远等名句，对李煜的文学趣味有直接熏陶。"
+    },
+    {
+      "name": "冯延巳",
+      "relation": "师友",
+      "note": "南唐重臣，词风深婉，是李煜词学上最重要的前辈。王国维论二人词时常并举，认为李煜从冯延巳处脱胎而青出于蓝。"
+    },
+    {
+      "name": "大周后娥皇",
+      "relation": "亲属",
+      "note": "李煜元配，通音律，善歌舞，参与整理宫廷乐谱。她的早逝是李煜词中第一次出现真实撕裂之痛，影响其后期词风转变的情感底层。"
+    },
+    {
+      "name": "徐铉",
+      "relation": "同僚",
+      "note": "南唐重臣，文学家，金陵城破后随李煜同赴汴京。他后来奉宋命为李煜写墓志铭，是留存有关李煜生平较可信史料的亲历者。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "虞美人·春花秋月何时了",
+      "note": "囚居汴京时所作。以春花秋月的自然永恒反衬人事无常，末句以水喻愁，写出无止境的失落感。据载此词被宋太宗得知，成为李煜被赐死的直接导火索。",
+      "workId": "yumeiren-chungui"
+    },
+    {
+      "title": "浪淘沙·帘外雨潺潺",
+      "note": "从午夜梦回金陵旧日写起，醒来直面囚徒现实，梦与醒的落差是全篇张力所在。末句流水落花春去也，天上人间，没有一个悲字，悲意却无处不在。",
+      "workId": "langtaosha-lianwai"
+    },
+    {
+      "title": "相见欢·无言独上西楼",
+      "note": "以西楼、残月、梧桐三个意象架起孤独的空间，剪不断，理还乱，是离愁，用日常动作比况愁绪的无形与难解，语言极浅白却精准。"
+    },
+    {
+      "title": "破阵子·四十年来家国",
+      "note": "亡国不久后所作，开篇铺陈南唐四十年基业与宫廷盛景，随后急转至仓皇辞庙的惨烈现场，以繁华之极衬覆灭之速。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Cinematic 2.35:1 banner composition. In the right third of the frame: a carved lacquer desk bearing a bronze incense censer exhaling a thin thread of smoke, beside it a loosely rolled ci scroll weighted open by an ink stone, a single oil-paper lamp casting amber warmth against a latticed palace window. Outside the window late-autumn rain descends in fine grey curtains over rows of dark ceramic roof tiles stepping down toward a river swallowed by mist and night. A few fallen petals, pale pink and bruised, rest on the wet sill. The left two-thirds of the frame opens into deep ink-blue darkness and empty breathing negative space. Palette: midnight indigo, oxidised gold, cold slate grey, ember amber, ghost-white rain. Mood: quiet desolation, the stillness after everything is lost. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

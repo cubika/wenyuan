@@ -33,9 +33,21 @@ const indexData = await page.evaluate(async () =>
   await fetch('data/index.json').then((r) => r.json()));
 const indexCount = indexData.length;
 // 断言按体裁分流：诗词看逐句成行，文章看按段连排，各挑一篇代表。
-const verseId = (indexData.find((w) => w.type === 'poem' || w.type === 'ci') ?? indexData[0]).id;
+// 阅读页配图断言要挑实际出过图的作品；扩量后按 id 排在前面的新作可能尚未出图。
+const verseId = (
+  indexData.find((w) => (w.type === 'poem' || w.type === 'ci') && w.hero) ??
+  indexData.find((w) => w.type === 'poem' || w.type === 'ci') ??
+  indexData[0]
+).id;
 const proseWork = indexData.find((w) => w.type === 'essay' || w.type === 'classic');
-const classicWork = indexData.find((w) => w.type === 'classic');
+// 目录、逐章注释等断言只适用于多章典籍，不能依赖 id 排序碰巧选到《孙子兵法》。
+const classicWork = await page.evaluate(async (candidates) => {
+  for (const work of candidates) {
+    const data = await fetch(`data/${work.id}.json`).then((r) => r.json());
+    if (data.chapters.length > 1) return work;
+  }
+  return null;
+}, indexData.filter((w) => w.type === 'classic'));
 check('home: 无 404 资源', failures.length === 0, failures.join(', '));
 check('home: 顶栏六项全部可点或明确置灰', await navAllBound());
 check('home: 横幅配图已加载', await page.evaluate(() => {
@@ -60,15 +72,8 @@ check('home: 卡片链接到阅读页',
   /^work\.html\?id=.+/.test((await page.locator('.pick').first().getAttribute('href')) ?? ''));
 check('home: 长河由数据算出（非写死）', await page.evaluate(async () => {
   const idx = await fetch('data/index.json').then((r) => r.json());
-  // 长河按主朝代归并（唐代→唐、北宋→宋），断言要跟着同一套规则，
-  // 否则一加「唐代」这类写法就会误报。
-  const ORDER = ['先秦', '秦', '汉', '魏晋', '南北朝', '隋', '唐', '五代', '宋', '元', '明', '清'];
-  const ALIAS = { 春秋: '先秦', 战国: '先秦' };
-  const norm = (d) => {
-    const alias = Object.keys(ALIAS).find((k) => d.includes(k));
-    return alias ? ALIAS[alias] : (ORDER.find((era) => d.includes(era)) ?? d);
-  };
-  const eras = new Set(idx.map((w) => norm(w.dynasty)));
+  // build-data 已写入统一后的 eraName；直接验同一份事实，别在断言里复制一套朝代归并。
+  const eras = new Set(idx.map((w) => w.eraName ?? w.dynasty));
   const rows = [...document.querySelectorAll('[data-river] .era')];
   const total = rows.reduce((n, r) => n + Number(r.querySelector('s').textContent), 0);
   return rows.length === eras.size && total === idx.length;
@@ -392,7 +397,7 @@ if (classicWork) {
   check('classic: 无横向溢出', await page.evaluate(() =>
     document.documentElement.scrollWidth <= window.innerWidth + 1));
 } else {
-  check('classic: 全部章节都渲染', true, '(索引里没有典籍，跳过)');
+  check('classic: 全部章节都渲染', true, '(索引里没有多章典籍，跳过)');
 }
 
 // ── 人物 ──

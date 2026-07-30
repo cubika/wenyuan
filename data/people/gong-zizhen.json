@@ -1,0 +1,105 @@
+{
+  "id": "gong-zizhen",
+  "name": "龚自珍",
+  "aka": [
+    "璱人",
+    "定盦",
+    "羽琌山民"
+  ],
+  "dynasty": "清",
+  "era": "1792—1841",
+  "born": 1792,
+  "died": 1841,
+  "hook": "清代最敢说真话的政论诗人，他在万马齐喑的时代预见了一个帝国的崩裂。",
+  "bio": "龚自珍，字璱人，号定盦，浙江仁和人，生于乾隆五十七年。外祖父段玉裁是乾嘉年间最重要的文字学家，这份家学渊源给了他扎实的学术基础。他早年在北京师从今文经学家刘逢禄，研习《公羊传》，接受通经致用的思路，日后写政论文章与此直接相关。科举之路并不顺当，多次参加会试落第，到道光九年才中进士，此后任内阁中书、礼部主事等职，始终没能进入权力核心。他的政论文章直指清帝国的痼疾：官僚体系固化、人才被系统性压抑、言路日益封闭。那句万马齐喑究可哀，不是发牢骚，是在写他亲眼看到的政治生态。道光十九年，龚自珍辞官南归，一路从北京到浙江，写下三百一十五首《己亥杂诗》。这组诗议政、抒情、咏史交织，是他后半生思想的总账。落红不是无情物，化作春泥更护花流传最广，但全集里更有价值的往往是那些直接言志、针砭时弊的篇章。同年他还写了《病梅馆记》，借病态梅树被人为扭曲的意象，批判科举与政治对人才的压制，寓言笔法刀刃毕露。道光二十一年，龚自珍卒于江苏丹阳，年仅五十。他的忧患在此后百年间被反复援引，成为近代思想史一个无法绕过的起点。",
+  "traits": [
+    "改革先声",
+    "批判锋芒",
+    "忧患意识",
+    "今文经学",
+    "才情横溢"
+  ],
+  "timeline": [
+    {
+      "year": 1792,
+      "label": "乾隆五十七年（1792）",
+      "title": "生于浙江仁和",
+      "detail": "出身书香门第，外祖父即乾嘉朴学大家段玉裁，自幼受家学熏陶，兼习文字学与诗文。",
+      "place": "linan"
+    },
+    {
+      "year": 1829,
+      "label": "道光九年（1829）",
+      "title": "进士及第，入职京师",
+      "detail": "三十八岁方中进士，历任内阁中书、宗人府主事、礼部主事，长期屈居下僚，政论文章却已在士林引发震动。",
+      "place": "dadu"
+    },
+    {
+      "year": 1836,
+      "label": "道光十六年（1836）",
+      "title": "上书言事，直陈积弊",
+      "detail": "多次上疏批评吏治腐败与人才压制，所论触及清廷用人制度的根本性问题，却始终未获重用。",
+      "place": "dadu"
+    },
+    {
+      "year": 1839,
+      "label": "道光十九年（1839）",
+      "title": "辞官南归写己亥杂诗",
+      "detail": "以乞养为由辞官，自北京南下，旅途中写下三百一十五首杂诗，议政、抒情、咏史兼备，是他一生思想的总结。",
+      "place": "dadu"
+    },
+    {
+      "year": 1839,
+      "label": "道光十九年（1839）",
+      "title": "病梅馆记成文",
+      "detail": "归浙后写就此文，借人为扭曲病梅之喻批判科举与政治压制对人才的摧残，寓言笔法下藏着最直接的政治批判。",
+      "place": "linan"
+    },
+    {
+      "year": 1841,
+      "label": "道光二十一年（1841）",
+      "title": "卒于江苏丹阳",
+      "detail": "在丹阳书院讲学期间突然去世，年仅五十，死因至今存疑，鸦片战争正在进行中，他没有等到那个时代最终的崩塌。"
+    }
+  ],
+  "circle": [
+    {
+      "name": "段玉裁",
+      "relation": "亲属",
+      "note": "外祖父，乾嘉小学第一人，所著《说文解字注》至今是语言学要籍，龚自珍的文字学功底与家学渊源直接相关。"
+    },
+    {
+      "name": "刘逢禄",
+      "relation": "师友",
+      "note": "今文经学名家，龚自珍在京跟他研习《公羊传》，接受微言大义的诠释路径，这是龚自珍变法论述的理论来源之一。"
+    },
+    {
+      "name": "魏源",
+      "relation": "师友",
+      "note": "同为经世派核心人物，共同编纂《皇朝经世文编》，相互砥砺，均以直面现实、主张改革著称于道光士林。"
+    },
+    {
+      "name": "林则徐",
+      "relation": "同僚",
+      "note": "道光朝有识之臣，与龚自珍同忧时局，林主持禁烟之时龚已辞官南归，两人政治理想相近却际遇各异。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "己亥杂诗（三百一十五首）",
+      "note": "道光十九年辞官途中所写，议政、抒情、咏史交织，是他一生思想与心境的总账，多首成为近代启蒙的关键文本。"
+    },
+    {
+      "title": "己亥杂诗·其五",
+      "note": "落红不是无情物，化作春泥更护花，以落花自况，写辞官之后仍愿以余力护持后来者的心境，是全组中流传最广的一首。",
+      "workId": "jihai-zashi-wu"
+    },
+    {
+      "title": "病梅馆记",
+      "note": "以人为扭曲的病态梅树为喻，批判科举与政治压制对人才的摧残，寓言笔法刀刃毕露，是他散文中最锋利的一篇。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "A horizontal cinematic composition in ink-wash tonal palette. On the right third of the frame: a cluster of gnarled, deliberately contorted plum branches in early spring bloom, the wood twisted and wiry, bearing sparse white blossoms, their fallen petals scattered onto dark rain-damp soil below. The left two-thirds of the frame opens into soft grey mist, pale sky dissolving into emptiness. Cool diffused morning light, no hard shadows. Painterly texture suggesting fine-line brushwork on xuan paper. Ash-white, deep ink-black, faint crimson from scattered petals on the earth. Wide 2.35:1 aspect ratio. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

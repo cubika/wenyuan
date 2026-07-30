@@ -1,0 +1,104 @@
+{
+  "id": "su-xun",
+  "name": "苏洵",
+  "aka": [
+    "明允",
+    "老泉",
+    "苏老泉"
+  ],
+  "dynasty": "北宋",
+  "era": "1009—1066",
+  "born": 1009,
+  "died": 1066,
+  "hook": "他是“三苏”里起步最晚却最能打的一位，靠硬朗策论把北宋散文从“写得美”推到“说得透、说得准”。",
+  "bio": "苏洵，字明允，自号老泉，眉山人，是苏轼、苏辙之父。年轻时他并不以科举文章见长，二十多岁后才真正发力读书，转而专攻经世致用的议论文。到嘉祐年间，他携二子入京，以《权书》《衡论》等策论文章受到欧阳修等人推重，文名迅速传开。苏洵文章的长处不在铺陈辞藻，而在立论先抓要害，再层层推进，语势峻厉而不乱，常以历史兴亡反推现实政事，《六国论》就是代表。就文学史位置看，他承接中唐古文传统，又把议论文的现实锋芒推高一层，对苏轼、苏辙及后来的宋代政论文风都有直接影响。",
+  "traits": [
+    "晚学成名",
+    "议论峻切",
+    "经世关怀",
+    "教子有方"
+  ],
+  "timeline": [
+    {
+      "year": 1009,
+      "label": "大中祥符二年（1009）",
+      "title": "生于眉山",
+      "detail": "苏洵出生于眉山苏氏家族，后来的家学传统与地方文化环境，对“三苏”文脉形成有基础作用。",
+      "place": "meishan"
+    },
+    {
+      "year": 1036,
+      "label": "景祐三年（1036）",
+      "title": "发愤读书",
+      "detail": "苏洵在二十多岁后转入系统治学，阅读经史、磨炼策论，这次转向决定了他后来以议论文立名。",
+      "place": "meishan"
+    },
+    {
+      "year": 1056,
+      "label": "嘉祐元年（1056）",
+      "title": "携子入京",
+      "detail": "苏洵带苏轼、苏辙到汴京，应举与交游并行，父子三人的文学声望由此进入全国视野。",
+      "place": "bianjing"
+    },
+    {
+      "year": 1057,
+      "label": "嘉祐二年（1057）",
+      "title": "文名震京师",
+      "detail": "欧阳修等文坛重臣推重其文，苏洵的策论风格得到朝野关注，成为北宋古文运动中的重要作者。",
+      "place": "bianjing"
+    },
+    {
+      "year": 1061,
+      "label": "嘉祐六年（1061）",
+      "title": "授职修礼",
+      "detail": "苏洵在京受命参与馆阁与礼书相关工作，议论文写作与实际政务经验进一步结合。",
+      "place": "bianjing"
+    },
+    {
+      "year": 1066,
+      "label": "治平三年（1066）",
+      "title": "卒于京师",
+      "detail": "苏洵在汴京去世，身后与二子并称“三苏”，其政论文法被持续研习。",
+      "place": "bianjing"
+    }
+  ],
+  "circle": [
+    {
+      "name": "苏轼",
+      "relation": "亲属",
+      "note": "长子。苏洵早年亲自督学，父子在古文取向上互相激发，最终共同奠定“三苏”地位。"
+    },
+    {
+      "name": "苏辙",
+      "relation": "亲属",
+      "note": "次子。苏辙与父亲议论文风有承继关系，也在史论与策论写作上延续苏洵的关切。"
+    },
+    {
+      "name": "欧阳修",
+      "relation": "师友",
+      "note": "欧阳修对苏洵文章多有奖掖，其推重让苏洵在汴京文坛迅速成名。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "六国论",
+      "note": "借六国灭亡史议论北宋现实，核心在“赂秦而力亏”，论证紧凑、锋芒直指当世。",
+      "workId": "liuguolun"
+    },
+    {
+      "title": "心术",
+      "note": "以治国用人之道为中心，强调为政者心术端正与制度配合，体现其经世思路。"
+    },
+    {
+      "title": "管仲论",
+      "note": "重评历史人物功过，不拘成见，以政事成效为尺度，展现其史论笔法。"
+    },
+    {
+      "title": "辨奸论",
+      "note": "围绕“识人辨奸”展开，层层设问推进，语言简劲，体现苏洵议论文的警策气质。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "A Northern Song study interior at dusk, with the main subject compressed into the right third: a heavy wooden desk holding a blank unfurled scroll pinned by six fallen bronze tally seals arranged in a tense diagonal, beside a dim oil lamp and stacked bamboo-slip cases; through a side window, faint silhouettes of Bianjing palace rooftops in mist. The left two-thirds is quiet negative space with soft paper-like texture and low-contrast ink-wash atmosphere. Cinematic wide banner composition, 2.35:1, restrained colors, crisp texture on bronze and wood, no human presence. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "id": "bai-juyi",
+  "name": "白居易",
+  "aka": [
+    "乐天",
+    "香山居士",
+    "醉吟先生"
+  ],
+  "dynasty": "唐",
+  "era": "772—846",
+  "born": 772,
+  "died": 846,
+  "hook": "他说诗要写得连老婆婆都看得懂，结果《长恨歌》《琵琶行》真的传遍了整个东亚。",
+  "bio": "白居易（772—846），字乐天，号香山居士，生于河南新郑。少时家道清寒，随家辗转迁居，却自幼苦读不辍。贞元十六年（800）进士及第，在长安历任翰林学士、左拾遗。他以讽喻诗为志业，将宦官专权、赋税苛重、边境战事逐一写入诗中，《新乐府》五十首是这一时期的代表，与元稹共同倡导新乐府运动，主张文章合为时而著、歌诗合为事而作。元和十年（815），因上书请查宰相被刺案触怒当权派，被贬为江州司马。秋夜送客于浔阳江头，偶遇落魄的琵琶女，在她的身世里照见自己的遭际，写成《琵琶行》，同是天涯沦落人成为此后千年里失意者援引最多的一句话。稍早在任周至县尉时，他已写成《长恨歌》，以玄宗与贵妃的爱情悲剧开篇，结以对永恒之恨的哲思，两首长篇并立，奠定了他在唐诗史上无可替代的位置。长庆、宝历年间先后出任杭州、苏州刺史，疏浚西湖、修筑白堤，留下切实的地方口碑。晚年定居洛阳，皈依佛教，与刘禹锡等人诗酒唱和，诗风从讽喻转向闲适。他有意把诗写得浅白易懂，据载每成一篇必读给老妪听，听懂才算定稿——这是文学主张，不是轶事趣闻。他的诗在世时已传入日本与朝鲜，是中国文学史上向东亚辐射最广的诗人之一。",
+  "traits": [
+    "平易近人",
+    "讽喻精神",
+    "多情善感",
+    "居士之风",
+    "现实关怀"
+  ],
+  "timeline": [
+    {
+      "year": 772,
+      "label": "大历七年（772）",
+      "title": "生于新郑",
+      "detail": "生于河南新郑，时值安史之乱平息不久，家境并不宽裕。父亲白季庚为地方小官，家族辗转迁居，使他自幼便熟悉底层百姓的生活。"
+    },
+    {
+      "year": 800,
+      "label": "贞元十六年（800）",
+      "title": "进士及第",
+      "detail": "二十九岁登进士第，据说主考官顾况起初打趣他名中居易二字，道长安米贵、居大不易，读了他的诗后才改口称赞。及第后历任秘书省校书郎等职。",
+      "place": "changan"
+    },
+    {
+      "year": 806,
+      "label": "元和元年（806）",
+      "title": "作《长恨歌》",
+      "detail": "任陕西周至县尉期间，与友人陈鸿、王质夫同游仙游寺，感于玄宗与贵妃故事，写成这首长篇叙事诗。诗成后迅速在长安流传，数月间传遍士人圈。",
+      "place": "changan"
+    },
+    {
+      "year": 808,
+      "label": "元和三年（808）",
+      "title": "任左拾遗，写讽喻诗",
+      "detail": "以翰林学士、左拾遗身份近侍皇帝，数度上疏言政，同期写下《新乐府》五十首，将藩镇割据、宦官弄权、苛捐杂税等现实问题一一入诗，风格锐利直白。",
+      "place": "changan"
+    },
+    {
+      "year": 815,
+      "label": "元和十年（815）",
+      "title": "贬谪江州司马",
+      "detail": "因上书请求彻查宰相武元衡遇刺案，被指越职言事，贬为江州司马。这次贬谪是他仕途的转折点，也打开了他创作的另一个维度。",
+      "place": "jiangzhou"
+    },
+    {
+      "year": 816,
+      "label": "元和十一年（816）",
+      "title": "作《琵琶行》",
+      "detail": "秋夜送客于浔阳江头，闻舟中琵琶声，与弹琴女子相谈，听闻她昔日在长安的繁华与今日的落寞，写成《琵琶行》，借他人身世写自己的贬谪之痛。",
+      "place": "jiangzhou"
+    },
+    {
+      "year": 822,
+      "label": "长庆二年（822）",
+      "title": "出任杭州刺史",
+      "detail": "主持疏浚西湖，修筑湖堤，后人称白堤。任上留下大量描写西湖风景的诗作，离任时百姓夹道相送，他自言此为平生最难忘的离别之一。",
+      "place": "linan"
+    },
+    {
+      "year": 825,
+      "label": "宝历元年（825）",
+      "title": "出任苏州刺史",
+      "detail": "治理苏州期间主持疏通山塘河，留山塘街至今。因病提前离任，但苏州百姓对他的口碑与杭州同样深厚，后人为他立祠纪念。",
+      "place": "suzhou-jiangsu"
+    },
+    {
+      "year": 829,
+      "label": "太和三年（829）",
+      "title": "定居洛阳",
+      "detail": "以太子宾客分司东都之职归洛阳，此后几乎不离此地。自号香山居士，与刘禹锡、裴度等诗酒相聚，晚年生活悠然，诗风亦由讽喻转向闲适。",
+      "place": "luoyang"
+    },
+    {
+      "year": 846,
+      "label": "会昌六年（846）",
+      "title": "卒于洛阳",
+      "detail": "八月卒于洛阳履道坊宅第，享年七十五岁。遗命葬于龙门山琵琶峰，与洛阳山水为伴。留诗约三千首，为唐代存诗最多的诗人之一。",
+      "place": "luoyang"
+    }
+  ],
+  "circle": [
+    {
+      "name": "元稹",
+      "relation": "知音",
+      "note": "两人相识于应试期间，互赠诗篇逾千首，后世并称元白。共同倡导新乐府运动，以诗干预现实政治。元稹先卒，白居易亲撰墓志铭，痛悼不已。"
+    },
+    {
+      "name": "刘禹锡",
+      "relation": "师友",
+      "note": "晚年同居洛阳，诗酒唱和，合称刘白。两人均历经长期贬谪，对仕途失意有相近的体认，晚年互以诗赠答，记录了大量老年生活的细节。"
+    },
+    {
+      "name": "白行简",
+      "relation": "亲属",
+      "note": "白居易之弟，文名亦著，代表作《李娃传》为唐传奇名篇。曾随兄同居江州，兄弟情深，留有诗文往来。"
+    },
+    {
+      "name": "苏轼",
+      "relation": "后世追随",
+      "note": "苏轼贬居岭南期间自比白居易之贬江州，诗文中多次引用其句，晚年以乐天体为学习方向，是白居易诗风在宋代最重要的传递者。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "长恨歌",
+      "note": "以玄宗与杨贵妃的爱情悲剧为题，兼具政治讽刺与儿女情长两层意涵，结尾天长地久有时尽、此恨绵绵无绝期是古典爱情诗中张力最强的收尾之一。",
+      "workId": "changhenge"
+    },
+    {
+      "title": "琵琶行",
+      "note": "叙述在江州偶遇流落他乡的琵琶女，以乐声写命运沉浮，同是天涯沦落人、相逢何必曾相识直接点明了此后中国诗歌中的一个经典母题。",
+      "workId": "pipaxing"
+    }
+  ],
+  "media": {
+    "heroPrompt": "A solitary weathered wooden skiff moored at a reedy riverbank on a late-autumn night, a pipa lute resting across the bow, broad dark river water reflecting a cold full moon in scattered broken ripples, sparse brittle reeds bending faintly in the stillness, distant shore dissolved in mist. The skiff and reeds are anchored in the right third of the wide cinematic frame; the left two-thirds hold only the open river surface and its trembling moon-reflection dissolving into pale fog. Monochromatic ink-wash aesthetic, deep indigo and cool silver palette, vast negative space dominating the composition. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

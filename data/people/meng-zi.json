@@ -1,0 +1,115 @@
+{
+  "id": "meng-zi",
+  "name": "孟子",
+  "aka": [
+    "孟轲",
+    "子舆",
+    "亚圣"
+  ],
+  "dynasty": "先秦",
+  "era": "约前372—前289",
+  "born": -372,
+  "died": -289,
+  "hook": "他告诉战国的君王「民贵君轻」，这句话在帝制时代危险了两千年",
+  "bio": "孟子，名轲，字子舆，战国中期邹国（今山东邹城一带）人，后世尊称「亚圣」。幼年丧父，由母亲独力抚养。「孟母三迁」讲的是一位平民女性在资源有限的条件下替儿子选择成长环境；「断织警学」把读书的道理说得无需多余一个字。孟子由此进入子思门下一脉，系统学习儒家经典。他认为人性本善，仁义礼智是人本来就具备的，不需要从外部植入，只需扩充。基于这一判断，他向各国君主推销仁政：保障百姓基本生计，轻赋薄役，以德服人，天下自然归附——武力征服是下策。游历梁、齐、宋、滕等国，见梁惠王、齐宣王、滕文公，每次谈得热闹，落到政策上几乎为零。「民为贵，社稷次之，君为轻」——这句话在皇权时代有足够的破坏力。明太祖朱元璋因此将孟子牌位请出孔庙，又命人删去《孟子》中八十五条「不合时宜」的内容。但删不完。《孟子》被列入四书之后成为科举必读文本，孟子的政治哲学由此渗入士人的思维框架，持续了千余年。",
+  "traits": [
+    "民本",
+    "雄辩",
+    "刚直",
+    "性善论"
+  ],
+  "timeline": [
+    {
+      "year": -372,
+      "label": "约前372年",
+      "title": "生于邹国",
+      "detail": "出生于邹国（今山东邹城），与古鲁国毗邻，自幼处于儒家文化的核心地带。",
+      "place": "qufu"
+    },
+    {
+      "year": -362,
+      "label": "约前362年前后",
+      "title": "孟母三迁断织",
+      "detail": "母亲三次择邻而居，最终定居学宫附近；后又以断织中道警示孟子怠学，这两件事成为后世谈论家教时绕不开的原型。",
+      "place": "qufu"
+    },
+    {
+      "year": -350,
+      "label": "约前350年前后",
+      "title": "受学儒家经典",
+      "detail": "受业于子思门人，系统研习孔子之道，进而发展出人性本善说，将儒学重心从礼乐仪文转向内在道德自觉。"
+    },
+    {
+      "year": -323,
+      "label": "约前323年前后",
+      "title": "入梁见梁惠王",
+      "detail": "赴魏国大梁（今开封一带），向梁惠王陈述仁政主张。梁惠王开口便问利，孟子以「何必曰利，仁义而已矣」作答，奠定全书基调。",
+      "place": "bianjing"
+    },
+    {
+      "year": -318,
+      "label": "约前318年前后",
+      "title": "居齐稷下论王道",
+      "detail": "多次游历齐国，客居稷下学宫，与齐宣王反复论说仁政与王道。齐宣王有霸天下之心，孟子始终拒绝在义的边界上让步。",
+      "place": "linzi"
+    },
+    {
+      "year": -305,
+      "label": "约前305年前后",
+      "title": "返邹整理著述",
+      "detail": "游历各国终无功，孟子返回邹国，与弟子万章、公孙丑等整理问答记录，编成《孟子》七篇。",
+      "place": "qufu"
+    },
+    {
+      "year": -289,
+      "label": "约前289年",
+      "title": "卒于邹",
+      "detail": "约卒于此年，终身未能说服任何一位诸侯真正推行仁政，但《孟子》七篇已告完成，学说与文字俱在。",
+      "place": "qufu"
+    }
+  ],
+  "circle": [
+    {
+      "name": "子思",
+      "relation": "师友",
+      "note": "孟子师承子思门人，儒学路线明确来自子思一脉，性善说与仁政主张均是在子思学说基础上的延伸与发展。"
+    },
+    {
+      "name": "万章",
+      "relation": "门生",
+      "note": "孟子最重要的弟子之一，随孟子游历各国，晚年协助整理《孟子》七篇，书中多篇以二人问答起首。"
+    },
+    {
+      "name": "公孙丑",
+      "relation": "门生",
+      "note": "孟子弟子，《孟子》中以其问答起首的篇章达两卷，记录了浩然之气、仁政细节等核心概念的详细阐述。"
+    },
+    {
+      "name": "告子",
+      "relation": "政敌",
+      "note": "与孟子就人性善恶展开正面辩论，主张性无善无不善。《孟子·告子上》完整记录了这场论争，是先秦哲学的重要文献。"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "《生于忧患，死于安乐》",
+      "note": "出自《孟子·告子下》，以历史人物入仕之艰论证忧患意识的价值，「天将降大任于是人也」是古代励志写作的原点句。",
+      "workId": "shengyuyouhuan"
+    },
+    {
+      "title": "《鱼我所欲也》",
+      "note": "出自《孟子·告子上》，借鱼与熊掌的比喻阐明义重于生的取向，论证过程层层递进，是孟子人性论的通俗表达。"
+    },
+    {
+      "title": "《得道多助，失道寡助》",
+      "note": "出自《孟子·公孙丑下》，「天时不如地利，地利不如人和」把仁政逻辑压缩进一句话，两千年来持续被引用。"
+    },
+    {
+      "title": "《孟子》",
+      "note": "七篇，记录孟子与诸侯、弟子的问答，涵盖政治、伦理、哲学各层面，宋代列入四书后成为科举必读经典。"
+    }
+  ],
+  "media": {
+    "heroPrompt": "A Zhou-dynasty weaving loom of dark aged wood stands in the right third of the frame, a length of unfinished silk cloth hanging from the heddles — its threads cut clean mid-weave, fraying ends catching a single beam of cool morning light slanting from upper left. The wooden shuttle rests on bare earthen floor planks beside the loom, slightly askew. The left two-thirds of the composition dissolves into a luminous open wash of pale cream and silver-gray, empty and unhurried, like pre-dawn mist over still water. The mood is deliberate austerity: rough-hewn timber joinery, taut warp threads still holding tension despite the cut, the particular silence of a lesson delivered through action rather than words. Shallow depth of field softens the background into pale ink mist. Ink wash meets fine-line illustration, Zhou-dynasty visual vocabulary, muted earth tones with a single thread of warm gold catching the light. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}

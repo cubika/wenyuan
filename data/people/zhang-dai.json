@@ -1,0 +1,93 @@
+{
+  "id": "zhang-dai",
+  "name": "张岱",
+  "aka": [
+    "宗子",
+    "石公",
+    "陶庵",
+    "蝶庵居士",
+    "古剑老人"
+  ],
+  "dynasty": "明末清初",
+  "era": "1597—约1689",
+  "born": 1597,
+  "hook": "家产散尽、明朝倾覆之后，他把吃过的饭、看过的戏、赏过的雪全写进文字，织成了晚明感官世界最细密的档案",
+  "bio": "张岱出身绍兴官宦世家，祖父热衷戏曲、父亲善于鉴赏，他自幼就浸泡在丝竹声色里。年长后遍历苏杭，品鉴戏班、茶肆、园林，过得极为细腻。科举屡试不第，却也不显焦虑，仍以消遣之道度过大半生。\n\n崇祯十七年（1644），清兵入关，南明政权相继崩溃，他那个繁华的世界瞬间瓦解。他拒绝出仕新朝，带着几本书逃入山中，此后过了数十年清贫日子，一边挨饿，一边写作。\n\n他在文学史上的位置颇为特殊。《陶庵梦忆》和《西湖梦寻》的调子出人意料——他没有沉溺于悲痛，却把逝去的世界精细复盘：某种汤的滋味、某个戏子的唱腔、西湖雪夜的空旷。感官记忆是他的材料，历史断裂才是他真正要写的东西。他的散文句子简短，细节具体，常在结尾拐一个出人意料的角度，与此前那种平铺直叙的笔记文路数迥然不同。\n\n他还耗费数十年私修《石匮书》，为明史留下一份非官方的记录。官方历史将由胜者书写，他选择自己动笔。",
+  "traits": [
+    "遗民",
+    "品鉴家",
+    "笔记大家",
+    "戏痴",
+    "私史编撰者"
+  ],
+  "timeline": [
+    {
+      "year": 1597,
+      "label": "万历二十五年（1597）",
+      "title": "生于绍兴",
+      "detail": "生于绍兴山阴官宦世家，祖父张汝霖藏书丰富、精通戏曲，父亲张耀芳亦以鉴赏著称，家中蓄有戏班，幼年文化环境优渥",
+      "place": "kuaiji"
+    },
+    {
+      "year": 1632,
+      "label": "崇祯五年（1632）",
+      "title": "夜游湖心亭看雪",
+      "detail": "崇祯五年十二月，独乘小舟赴西湖赏雪，此行后来写成《湖心亭看雪》，以极简的笔法捕捉了繁华时代里的孤绝感，是他散文风格的缩影",
+      "place": "linan"
+    },
+    {
+      "year": 1644,
+      "label": "崇祯十七年（1644）",
+      "title": "明亡，世家倾覆",
+      "detail": "北京陷落、明朝覆灭，张岱数十年积累的家产与生活随战火散尽，他拒绝出仕新朝，开始了截然不同的后半生"
+    },
+    {
+      "year": 1645,
+      "label": "顺治初年（1645年后）",
+      "title": "遁入剡溪山中著述",
+      "detail": "携书稿隐入剡溪山中，生活贫苦，以著述自守，《陶庵梦忆》《西湖梦寻》均成于这一漫长的隐居时期，以文字复建一个已经覆灭的世界",
+      "place": "kuaiji"
+    },
+    {
+      "year": 1689,
+      "label": "约康熙年间（1689年前后）",
+      "title": "卒于绍兴附近",
+      "detail": "约卒于康熙年间，享年逾九十，一生横跨明清鼎革，晚年贫困却仍坚持著述，《石匮书》等手稿身后留存于世",
+      "place": "kuaiji"
+    }
+  ],
+  "circle": [
+    {
+      "name": "张汝霖",
+      "relation": "亲属",
+      "note": "张岱祖父，博学多藏，精通戏曲，家中戏班演技精良，是张岱童年文化环境的主要塑造者，对其鉴赏力与写作趣味影响深远"
+    },
+    {
+      "name": "祁彪佳",
+      "relation": "知音",
+      "note": "同为绍兴山阴人，同为晚明遗民，两人皆热衷戏曲与文学；清兵南下时祁彪佳自沉殉国，令张岱深为痛惜"
+    }
+  ],
+  "masterpieces": [
+    {
+      "title": "湖心亭看雪",
+      "note": "崇祯五年冬夜独游西湖所作，不足两百字，以寥寥几笔写出雪夜的空旷与偶遇路人的惊喜，是张岱散文最广为人知的代表",
+      "workId": "huxinting-kanxue"
+    },
+    {
+      "title": "陶庵梦忆",
+      "note": "隐居山中后追忆往昔繁华所作的笔记集，涉及饮食、戏曲、园林、交游，以感官细节存录了晚明文人的日常世界，是了解明末社会风貌的重要文献"
+    },
+    {
+      "title": "西湖梦寻",
+      "note": "以西湖为线索，广辑历代诗文与亲历游记，写成兼具地志与文学价值的散文集，字里行间浸透了故国不再的伤感"
+    },
+    {
+      "title": "石匮书",
+      "note": "张岱私修的明史，历时数十年，广征文献，力求真实，以遗民立场为覆灭的明朝留下独立的历史叙述，史学与文学价值并重"
+    }
+  ],
+  "media": {
+    "heroPrompt": "Ink-wash style panoramic image at 2.35:1 ratio. A solitary wooden pavilion rising from the frozen surface of a vast misty lake in deep winter, snow blanketing the curved roofline and surrounding ice. On the pavilion's low table, a small clay brazier burns with a faint amber glow beside a bronze wine vessel, gently steaming. Dense white fog dissolves into pale silver sky above, making it impossible to tell where the lake ends and the sky begins. The pavilion and a faint trace of iced shoreline are compressed into the right one-third of the frame; the left two-thirds open into pure emptiness — pale grey-white mist, the ghost of distant mountains fading into nothing. Monochrome ink-wash palette, with only the warm ember-glow of the brazier as a color accent. Atmosphere: utterly still, cold, solitary, the world suspended between night and dawn. No people, no faces, no figures, no text, no calligraphy, no seals, no borders."
+  }
+}
