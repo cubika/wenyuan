@@ -27,7 +27,7 @@ const navAllBound = () =>
     ));
 
 // ── 首页 ──
-await page.goto(`${BASE}/home.html`, { waitUntil: 'networkidle' });
+await page.goto(`${BASE}/`, { waitUntil: 'networkidle' });
 await page.waitForTimeout(1200);
 const indexData = await page.evaluate(async () =>
   await fetch('data/index.json').then((r) => r.json()));
@@ -49,6 +49,11 @@ const classicWork = await page.evaluate(async (candidates) => {
   return null;
 }, indexData.filter((w) => w.type === 'classic'));
 check('home: 无 404 资源', failures.length === 0, failures.join(', '));
+check('home: 根路径直接显示正式首页', new URL(page.url()).pathname.endsWith('/'));
+check('home: 不显示方案索引与早期比稿', await page.evaluate(() => {
+  const text = document.body.textContent ?? '';
+  return !text.includes('当前方案') && !text.includes('早期比稿');
+}));
 check('home: 顶栏六项全部可点或明确置灰', await navAllBound());
 check('home: 横幅配图已加载', await page.evaluate(() => {
   const i = document.querySelector('.band img');
@@ -114,11 +119,18 @@ check('nav: 「人物」「长河」「地图」可点进独立页', await page.
   })));
 
 // 阅读页的顶栏与面包屑靠 ?sec= 跳回来，落地要停在那个板块上
-await page.goto(`${BASE}/home.html?sec=essay`, { waitUntil: 'networkidle' });
+await page.goto(`${BASE}/?sec=essay`, { waitUntil: 'networkidle' });
 await page.waitForTimeout(900);
 check('nav: ?sec=essay 深链直达文章板块',
   (await page.locator('.pick').count()) === essayCount &&
   (await page.locator('nav li.on').innerText()).trim() === '文章');
+
+await page.goto(`${BASE}/home.html?sec=essay`, { waitUntil: 'networkidle' });
+await page.waitForTimeout(500);
+check('nav: 旧 home.html 跳到正式首页并保留筛选',
+  new URL(page.url()).pathname.endsWith('/index.html') &&
+  new URL(page.url()).search === '?sec=essay' &&
+  (await page.locator('.pick').count()) === essayCount);
 
 // ── 阅读页 ──
 failures.length = 0;
@@ -272,7 +284,7 @@ if (proseWork) {
   check('essay: 顶栏「文章」跳回首页板块', await (async () => {
     await page.locator('nav li.on').click();
     await page.waitForLoadState('networkidle');
-    const ok = /home\.html\?sec=essay$/.test(page.url());
+    const ok = /index\.html\?sec=essay$/.test(page.url());
     await page.goBack({ waitUntil: 'networkidle' });
     await page.waitForTimeout(700);
     return ok;
@@ -580,7 +592,7 @@ await page.locator('nav li', { hasText: /^诗词$/ }).first().click();
 await page.waitForLoadState('networkidle');
 await page.waitForTimeout(700);
 check('map: 顶栏体裁项跳回首页板块',
-  /home\.html\?sec=poem$/.test(page.url()) && (await page.locator('.pick').count()) > 0,
+  /index\.html\?sec=poem$/.test(page.url()) && (await page.locator('.pick').count()) > 0,
   page.url().split('/').pop());
 
 // 旧的写死默认 id 曾导致 /work.html 不带参数时 404，这里守住。放在最后，

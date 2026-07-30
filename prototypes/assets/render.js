@@ -66,7 +66,7 @@ function bindNav({ activePage = null, activeType = null, index = null, onSection
     li.classList.remove('off');
     li.classList.toggle('on', activeType !== null && SECTIONS[key].types.includes(activeType));
     li.onclick = () => {
-      location.href = `home.html?sec=${key}`;
+      location.href = `index.html?sec=${key}`;
     };
   });
 }
@@ -317,7 +317,7 @@ export async function renderWork(mount) {
       </section>`;
 
   mount.innerHTML = `
-  <div class="crumb"><a href="home.html">首页</a><i>／</i><a href="home.html${sec ? `?sec=${sec}` : ''}">${esc(TYPE_LABEL[work.type])}</a><i>／</i>${esc(work.dynasty)}<i>／</i>${esc(work.title)}</div>
+  <div class="crumb"><a href="index.html">首页</a><i>／</i><a href="index.html${sec ? `?sec=${sec}` : ''}">${esc(TYPE_LABEL[work.type])}</a><i>／</i>${esc(work.dynasty)}<i>／</i>${esc(work.title)}</div>
 
   <section class="wband${hero === undefined ? ' noimg' : ''}">
     ${hero === undefined ? '' : `<img src="${esc(hero)}" alt="${esc(work.title)} 意境图">`}
@@ -602,7 +602,7 @@ export async function renderRiverPage(mount) {
   const filled = (e) => e.works.length + e.people.length > 0;
 
   mount.innerHTML = `
-  <div class="crumb"><a href="home.html">首页</a><i>／</i>长河</div>
+  <div class="crumb"><a href="index.html">首页</a><i>／</i>长河</div>
   <div class="sec-h ppl-h"><h2>长 河</h2><u></u><em>${eras.length} 段 · 收录 ${total} 篇</em></div>
   <div class="riv-lead">从先秦到清，看文学一路在变什么。灰的那几段还没有收录。</div>
 
@@ -752,7 +752,7 @@ export async function renderMap(mount) {
     .join('');
 
   mount.innerHTML = `
-  <div class="crumb"><a href="home.html">首页</a><i>／</i>地图</div>
+  <div class="crumb"><a href="index.html">首页</a><i>／</i>地图</div>
   <div class="sec-h ppl-h"><h2>地 图</h2><u></u><em>${routes.length} 条行迹 · ${places.length} 处</em></div>
   <div class="riv-lead">古人的路是走出来的。选一位，看他这一生被贬到过多远。</div>
 
@@ -885,7 +885,7 @@ export async function renderPeople(mount) {
   const people = await fetch('data/people.json').then((r) => r.json());
   document.title = '人物 — 文渊';
   mount.innerHTML = `
-  <div class="crumb"><a href="home.html">首页</a><i>／</i>人物</div>
+  <div class="crumb"><a href="index.html">首页</a><i>／</i>人物</div>
   <div class="sec-h ppl-h"><h2>人 物</h2><u></u><em>${people.length} 位</em></div>
   ${
     people.length === 0
@@ -935,7 +935,7 @@ export async function renderPerson(mount) {
   const inSite = new Map((p.works ?? []).map((w) => [w.title, w.id]));
 
   mount.innerHTML = `
-  <div class="crumb"><a href="home.html">首页</a><i>／</i><a href="people.html">人物</a><i>／</i>${esc(p.dynasty)}<i>／</i>${esc(p.name)}</div>
+  <div class="crumb"><a href="index.html">首页</a><i>／</i><a href="people.html">人物</a><i>／</i>${esc(p.dynasty)}<i>／</i>${esc(p.name)}</div>
 
   <section class="wband${p.media.hero ? '' : ' noimg'}">
     ${p.media.hero ? `<img src="${esc(p.media.hero)}" alt="${esc(p.name)} 意境图">` : ''}
@@ -1029,4 +1029,3 @@ export async function renderPerson(mount) {
 
   bindRailHints();
 }
-
